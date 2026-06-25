@@ -1,33 +1,33 @@
 const categories = [
   {
-    title: "Padel Bags",
-    href: "/custom-padel-bags.html",
-    text: "Thermal racquet pockets, shoe compartments, wet zones, and club-ready carry systems.",
+    title: "Tennis & Padel Racket Bags",
+    href: "/custom-tennis-padel-racket-bags/",
+    text: "Thermal racket compartments, shoe pockets, club-ready silhouettes, and private-label trims.",
   },
   {
-    title: "Pickleball Bags",
-    href: "/custom-pickleball-bags.html",
-    text: "Compact court bags, paddle sleeves, tournament backpacks, and retail sets.",
+    title: "Pickleball Paddle Bags",
+    href: "/custom-pickleball-paddle-bags/",
+    text: "Paddle backpacks, sling bags, fence-hook bags, sleeves, and tournament carry programs.",
   },
   {
-    title: "Tennis Bags",
-    href: "/custom-tennis-bags.html",
-    text: "Racquet capacity planning, thermal lining, shoe pockets, and retail-ready structures.",
+    title: "Hiking Daypacks",
+    href: "/custom-hiking-daypacks-outdoor-backpacks/",
+    text: "Trail packs, urban-outdoor daypacks, hydration layouts, breathable back systems, and QC.",
   },
   {
-    title: "Hiking Backpacks",
-    href: "/custom-hiking-backpacks.html",
-    text: "Trail packs with breathable backs, hydration routing, rain covers, and durable trims.",
-  },
-  {
-    title: "Sports Duffel Bags",
+    title: "Travel Duffel Bags",
     href: "/custom-sports-duffel-bags.html",
-    text: "Gym, team, travel, shoe tunnel, wet pocket, and reinforced bottom programs.",
+    text: "Gym, travel, team, wet-pocket, shoe-tunnel, and reinforced-bottom duffel programs.",
   },
   {
     title: "Hotel Custom Bags",
-    href: "/custom-hotel-bags.html",
-    text: "Amenity totes, laundry bags, slipper pouches, hospitality organizers, and private packing.",
+    href: "/hotel-group-custom-bag-project-guide/",
+    text: "Amenity totes, laundry bags, slipper pouches, guest organizers, and hotel packaging.",
+  },
+  {
+    title: "RFID Wallets & Passport Holders",
+    href: "/rfid-wallets-passport-holders/",
+    text: "Slim travel wallets, RFID passport holders, gift sets, and coordinated accessories.",
   },
 ];
 
@@ -62,9 +62,51 @@ const trustItems = [
   ],
 ];
 
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cappuccinobag.com/#organization",
+      name: "Cappuccino Bags",
+      url: "https://cappuccinobag.com/",
+      description:
+        "OEM/ODM bag manufacturer in China for outdoor, racquet sports, travel, wallet, and hospitality bag programs.",
+      image: "https://cappuccinobag.com/assets/hero-sports-bag-manufacturer.png",
+      makesOffer: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "OEM/ODM bag sample development" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Private label bag manufacturing" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Export-ready packing and QC support" } },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://cappuccinobag.com/#website",
+      url: "https://cappuccinobag.com/",
+      name: "Cappuccino Bags",
+      publisher: { "@id": "https://cappuccinobag.com/#organization" },
+      inLanguage: "en",
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://cappuccinobag.com/#webpage",
+      url: "https://cappuccinobag.com/",
+      name: "Custom Outdoor & Racquet Sports Bag Manufacturer in China",
+      isPartOf: { "@id": "https://cappuccinobag.com/#website" },
+      about: { "@id": "https://cappuccinobag.com/#organization" },
+      primaryImageOfPage: "https://cappuccinobag.com/assets/hero-sports-bag-manufacturer.png",
+      inLanguage: "en",
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+      />
       <section className="homeHero" aria-label="Custom outdoor and racquet sports bag manufacturer">
         <nav className="homeNav" aria-label="Primary navigation">
           <a className="brand" href="#">
@@ -74,12 +116,13 @@ export default function Home() {
                 <path d="M9 14h6" stroke="currentColor" strokeWidth="1.8" />
               </svg>
             </span>
-            Bag OEM China
+            Cappuccino Bags
           </a>
           <div className="navLinks" aria-label="Homepage sections">
             <a href="#products">Products</a>
             <a href="#trust">Why Us</a>
-            <a href="/custom-tennis-bags.html">Tennis</a>
+            <a href="/custom-tennis-padel-racket-bags/">Tennis & Padel</a>
+            <a href="/resources/outdoor-multifunctional-bag-manufacturing-guide/">Resources</a>
             <a href="#contact">Contact</a>
           </div>
           <a className="navCta" href="#contact">Request Samples</a>
@@ -87,15 +130,15 @@ export default function Home() {
 
         <div className="heroInner">
           <div className="heroCopy">
-            <h1>Custom Outdoor &amp; Racquet Sports Bag Manufacturer in China</h1>
-            <p className="lead">OEM/ODM Padel Bags, Pickleball Bags, Hiking Backpacks &amp; Travel Bags</p>
+            <h1>Custom Outdoor &amp; Racquet Sports Bags</h1>
+            <p className="lead">OEM/ODM manufacturing for padel, pickleball, tennis, hiking, travel, and hotel brands.</p>
 
             <div className="actions" aria-label="Primary actions">
               <a className="primary" href="#contact">
                 Start Your Custom Bag Project
                 <span aria-hidden="true">-&gt;</span>
               </a>
-              <a className="secondary" href="#products">View Bag Categories</a>
+              <a className="secondary" href="#products">View Bag Collections</a>
             </div>
 
             <div className="proof" aria-label="Manufacturing highlights">
@@ -104,8 +147,8 @@ export default function Home() {
                 <span className="proofLabel">Private-label development from material selection to bulk production.</span>
               </div>
               <div className="proofItem">
-                <span className="proofValue">4 Lines</span>
-                <span className="proofLabel">Padel, pickleball, hiking, and travel bag programs under one factory partner.</span>
+                <span className="proofValue">Multi-category</span>
+                <span className="proofLabel">Outdoor, racquet sports, travel, wallet, and hotel bag programs.</span>
               </div>
               <div className="proofItem">
                 <span className="proofValue">Export Ready</span>
@@ -155,6 +198,14 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="oemStrip" aria-label="OEM ODM capability">
+        <div>
+          <h2>One Factory. Multiple Outdoor Bag Solutions.</h2>
+          <p>Design support, material sourcing, sampling, revisions, bulk manufacturing, quality inspection, private label customization, and export-ready packing.</p>
+        </div>
+        <a href="/factory-trust-materials/">View Factory Trust Materials</a>
       </section>
 
       <section className="contact" id="contact" aria-label="Request OEM ODM bag support">

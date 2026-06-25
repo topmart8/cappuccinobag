@@ -3,3 +3,5 @@ node_modules/
 out/
 .vercel/
 .DS_Store
+pnpm-lock.yaml
+pnpm-workspace.yaml
