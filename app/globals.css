@@ -1,51 +1,468 @@
+:root {
+  --ink: #f7fbf6;
+  --muted: #c8d2ca;
+  --green: #81b65a;
+  --orange: #f26a21;
+  --dark: #0d1210;
+  --line: rgba(255, 255, 255, 0.18);
+  --panel: rgba(13, 18, 16, 0.58);
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  color: #111827;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--dark);
 }
 
-.page {
-  min-height: 100vh;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.homeHero {
+  position: relative;
+  min-height: 92vh;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, rgba(7, 10, 9, 0.96) 0%, rgba(7, 10, 9, 0.84) 36%, rgba(7, 10, 9, 0.22) 72%),
+    linear-gradient(180deg, rgba(7, 10, 9, 0.24) 0%, rgba(7, 10, 9, 0.84) 100%),
+    url("/assets/hero-sports-bag-manufacturer.png") center / cover no-repeat;
+}
+
+.homeHero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(135deg, rgba(129, 182, 90, 0.16), transparent 34%),
+    radial-gradient(circle at 78% 22%, rgba(242, 106, 33, 0.28), transparent 24%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.homeNav,
+.heroInner,
+.preview {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.homeNav {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 760;
+  letter-spacing: 0;
+}
+
+.brandMark {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
   display: grid;
   place-items: center;
-  padding: 32px;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.hero {
-  max-width: 760px;
+.brandMark svg {
+  width: 20px;
+  height: 20px;
 }
 
-.eyebrow {
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  color: rgba(247, 251, 246, 0.78);
   font-size: 14px;
-  font-weight: 700;
-  color: #2563eb;
-  text-transform: uppercase;
+  font-weight: 650;
+}
+
+.navCta,
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 760;
+}
+
+.navCta,
+.primary {
+  background: var(--orange);
+  color: #fff;
+  box-shadow: 0 18px 42px rgba(242, 106, 33, 0.28);
+}
+
+.secondary {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+  backdrop-filter: blur(12px);
+}
+
+.heroInner {
+  display: grid;
+  min-height: calc(92vh - 76px);
+  align-items: center;
+  padding: 46px 0 104px;
+}
+
+.heroCopy {
+  max-width: 785px;
 }
 
 h1 {
-  margin: 12px 0;
-  font-size: 48px;
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(48px, 7.2vw, 92px);
+  line-height: 0.95;
+  font-weight: 850;
+  letter-spacing: 0;
+}
+
+.lead {
+  margin: 24px 0 0;
+  max-width: 690px;
+  color: var(--muted);
+  font-size: clamp(20px, 2.4vw, 30px);
+  line-height: 1.23;
+  font-weight: 680;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  width: min(720px, 100%);
+  margin-top: 48px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.proofItem {
+  min-height: 94px;
+  padding: 18px 20px;
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+}
+
+.proofValue {
+  display: block;
+  color: #fff;
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 830;
+}
+
+.proofLabel {
+  display: block;
+  margin-top: 8px;
+  color: rgba(247, 251, 246, 0.68);
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 620;
+}
+
+.preview {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0;
+  transform: translateY(50%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(247, 251, 246, 0.96);
+  color: #111914;
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.36);
+}
+
+.previewCell {
+  padding: 24px 28px;
+}
+
+.previewCell + .previewCell {
+  border-left: 1px solid rgba(17, 25, 20, 0.12);
+}
+
+.previewTitle {
+  display: block;
+  font-size: 12px;
+  color: #577052;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.previewText {
+  display: block;
+  margin-top: 9px;
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 740;
+}
+
+.below {
+  min-height: 42vh;
+  padding: 120px 20px 60px;
+  background: #f7fbf6;
+  color: #111914;
+}
+
+.belowInner,
+.trustInner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.belowInner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.category {
+  display: block;
+  border-top: 3px solid var(--green);
+  padding: 18px 18px 20px;
+  background: #fff;
+  min-height: 156px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.category:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 38px rgba(17, 25, 20, 0.1);
+}
+
+.category h2 {
+  margin: 0;
+  font-size: 22px;
   line-height: 1.1;
 }
 
-.intro {
-  font-size: 20px;
-  line-height: 1.6;
-  color: #4b5563;
+.category p {
+  margin: 12px 0 0;
+  color: #536259;
+  line-height: 1.55;
 }
 
-.button {
-  display: inline-block;
-  margin-top: 24px;
-  padding: 12px 18px;
-  border-radius: 8px;
-  background: #111827;
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
+.trust {
+  padding: 76px 20px 88px;
+  background: #111914;
+  color: #f7fbf6;
+}
+
+.trustInner {
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  gap: 54px;
+  align-items: start;
+}
+
+.trust h2 {
+  margin: 0;
+  max-width: 540px;
+  font-size: clamp(34px, 4.8vw, 58px);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.trustLead {
+  margin: 22px 0 0;
+  color: rgba(247, 251, 246, 0.72);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.trustGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.trustItem {
+  min-height: 112px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.trustItem strong {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.trustItem span {
+  display: block;
+  margin-top: 10px;
+  color: rgba(247, 251, 246, 0.64);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.contact {
+  padding: 58px 20px 70px;
+  background: #f7fbf6;
+  color: #111914;
+}
+
+.contactInner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border-top: 1px solid rgba(17, 25, 20, 0.14);
+  padding-top: 34px;
+}
+
+.contact h2 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.05;
+}
+
+.contact p {
+  margin: 14px 0 0;
+  max-width: 680px;
+  color: #536259;
+  line-height: 1.6;
+}
+
+.contactAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+@media (max-width: 840px) {
+  .homeHero {
+    min-height: auto;
+    background-position: 62% center;
+  }
+
+  .homeNav {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .heroInner {
+    min-height: 760px;
+    padding: 40px 0 148px;
+  }
+
+  h1 {
+    font-size: clamp(42px, 13vw, 66px);
+    line-height: 0.98;
+  }
+
+  .lead {
+    font-size: 22px;
+  }
+
+  .proof,
+  .preview,
+  .belowInner,
+  .trustInner,
+  .trustGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .proofItem {
+    min-height: auto;
+  }
+
+  .preview {
+    width: calc(100% - 28px);
+    transform: translateY(58%);
+  }
+
+  .previewCell + .previewCell {
+    border-left: 0;
+    border-top: 1px solid rgba(17, 25, 20, 0.12);
+  }
+
+  .below {
+    padding-top: 180px;
+  }
+
+  .trust {
+    padding-top: 58px;
+  }
+
+  .contactInner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .homeHero {
+    background:
+      linear-gradient(90deg, rgba(7, 10, 9, 0.96), rgba(7, 10, 9, 0.78)),
+      linear-gradient(180deg, rgba(7, 10, 9, 0.12), rgba(7, 10, 9, 0.9)),
+      url("/assets/hero-sports-bag-manufacturer.png") 66% center / cover no-repeat;
+  }
+
+  .heroInner,
+  .homeNav {
+    width: calc(100% - 28px);
+  }
+
+  .navCta {
+    display: none;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+  }
 }
