@@ -16,10 +16,10 @@ export const metadata = {
     siteName: "Cappuccino Bags",
     images: [
       {
-        url: "/assets/hero-sports-bag-manufacturer.png",
+        url: "/assets/chatgpt-hero-racquet-lifestyle.jpg",
         width: 1672,
         height: 941,
-        alt: "Custom outdoor and racquet sports bag manufacturing hero image",
+        alt: "Cappuccino racquet sports bags in a premium tennis court lifestyle scene",
       },
     ],
     locale: "en_US",
@@ -30,7 +30,7 @@ export const metadata = {
     title: "Custom Outdoor & Racquet Sports Bag Manufacturer in China",
     description:
       "OEM/ODM padel bags, pickleball bags, tennis bags, hiking backpacks, sports duffels, hotel custom bags, travel bags, and private-label bag manufacturing in China.",
-    images: ["/assets/hero-sports-bag-manufacturer.png"],
+    images: ["/assets/chatgpt-hero-racquet-lifestyle.jpg"],
   },
   robots: {
     index: true,
