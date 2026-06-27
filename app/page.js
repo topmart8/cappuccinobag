@@ -40,27 +40,67 @@ const categoryCards = [
     image: "/assets/category-bag-open-storage-1200x1200.jpg",
     alt: "Custom printed bag with organized compartments",
   },
+  {
+    title: "Running Waist Packs & Running Belt Bags",
+    image: "/assets/sports-duffel-bags-image-set.png",
+    alt: "Custom running waist packs and belt bags for OEM production",
+    href: "/running-waist-packs-running-belt-bags/",
+  },
+  {
+    title: "Cycling Bags & Bike Bags",
+    image: "/assets/alibaba-outdoor-backpack-case.jpg",
+    alt: "Custom cycling bags and bike bags for outdoor brands",
+    href: "/cycling-bags-bike-bags/",
+  },
 ];
 
 const trustCards = [
   {
-    title: "Sample Development",
-    text: "Translate sketches, references, and buyer briefs into workable samples with practical revisions.",
-    image: "/assets/chatgpt-oem-workshop-lineup.jpg",
-    alt: "OEM bag development with materials, trims, and product lineup",
+    title: "Factory Workshop",
+    text: "Real workshop and production capability for overseas B2B bag programs.",
+    image: "/assets/alibaba-factory-workshop.jpg",
+    alt: "Cappuccino Bags factory workshop from Alibaba supplier materials",
   },
   {
-    title: "Showroom & Product Range",
-    text: "Review silhouettes, trims, materials, and category structures across sport, travel, and hospitality.",
-    image: "/assets/trust-showroom-1600x900.jpg",
-    alt: "Showroom product range for custom bags",
+    title: "Sample Development Flow",
+    text: "Structured OEM/ODM sampling from reference review to approved sample details.",
+    image: "/assets/alibaba-sample-development-flow.jpg",
+    alt: "Cappuccino Bags sample development and manufacturing flow",
   },
   {
-    title: "Bulk Production & QC",
-    text: "Production planning, inspection checkpoints, and export-ready packing for repeat orders.",
-    image: "/assets/trust-bulk-and-family-lineup-1600x900.jpg",
-    alt: "Bulk production lineup for custom bags",
+    title: "Export-Ready Packing",
+    text: "Standardized packing and carton planning for international shipment.",
+    image: "/assets/alibaba-export-packaging.jpg",
+    alt: "Export-ready packaging system for custom bag production",
   },
+  {
+    title: "Logo Customization",
+    text: "Private label logo execution, material matching, and buyer-ready brand presentation.",
+    image: "/assets/alibaba-logo-customization.jpg",
+    alt: "Cappuccino brand customization and logo craft example",
+  },
+  {
+    title: "BSCI / Audit Support",
+    text: "Factory documentation support for compliance-aware buyers and sourcing teams.",
+    image: "/assets/alibaba-bsci-audit-summary.png",
+    alt: "BSCI audit summary report shown in Alibaba supplier materials",
+  },
+  {
+    title: "Material & Product Range",
+    text: "Outdoor, travel, racquet sports, wallets, and private-label bag programs under one factory route.",
+    image: "/assets/alibaba-material-product-range.png",
+    alt: "Cappuccino Bags material and product range display",
+  },
+];
+
+const brandBuyerTrust = [
+  "16 years bag manufacturing experience",
+  "OEM/ODM sample development",
+  "Outdoor, racquet sports, travel and wallet production",
+  "BSCI / CE manufacturing support",
+  "QC photos before shipment",
+  "Private label packaging support",
+  "Export-ready packing for global buyers",
 ];
 
 const capabilities = [
@@ -131,6 +171,8 @@ export default function Home() {
         </a>
         <nav className="desktop-nav" aria-label="Main navigation">
           <a href="#collections">Collections</a>
+          <a href="/running-waist-packs-running-belt-bags/">Running Bags</a>
+          <a href="/cycling-bags-bike-bags/">Cycling Bags</a>
           <a href="#trust">Factory</a>
           <a href="#capabilities">OEM / ODM</a>
           <a href="#features">Features</a>
@@ -143,6 +185,8 @@ export default function Home() {
           </summary>
           <nav aria-label="Mobile navigation">
             <a href="#collections">Collections</a>
+            <a href="/running-waist-packs-running-belt-bags/">Running Bags</a>
+            <a href="/cycling-bags-bike-bags/">Cycling Bags</a>
             <a href="#trust">Factory</a>
             <a href="#capabilities">OEM / ODM</a>
             <a href="#features">Features</a>
@@ -163,8 +207,8 @@ export default function Home() {
           />
           <div className="hero-overlay" />
           <div className="hero-content">
-            <h1>Custom Outdoor &amp; Racquet Sports Bags</h1>
-            <p>OEM/ODM manufacturing for padel, pickleball, tennis, hiking, travel, and hotel brands.</p>
+            <h1>Custom Outdoor &amp; Racquet Sports Bag Manufacturer in China</h1>
+            <p>OEM/ODM Padel Bags, Pickleball Bags, Hiking Backpacks &amp; Travel Bags</p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="#inquiry">Start Your Custom Bag Project</a>
               <a className="btn btn-secondary" href="#collections">View Bag Collections</a>
@@ -210,7 +254,7 @@ export default function Home() {
                   category.text ? "text-card" : "",
                   category.tone || "",
                 ].filter(Boolean).join(" ")}
-                href="#inquiry"
+                href={category.href || "#inquiry"}
                 key={category.title}
               >
                 {category.image ? (
@@ -231,8 +275,11 @@ export default function Home() {
 
         <section className="section trust-section" id="trust">
           <div className="section-heading align-left">
-            <h2>Why Overseas Buyers Trust Us</h2>
-            <p>Real development steps, showroom range, and production readiness are visible from the first conversation.</p>
+            <h2>Why Brand Buyers Work With Cappuccino Bags</h2>
+            <p>Real factory evidence, sample support, QC communication, and export packing for global B2B buyers.</p>
+          </div>
+          <div className="trust-proof-panel" aria-label="Cappuccino Bags buyer trust points">
+            {brandBuyerTrust.map((item) => <span key={item}>{item}</span>)}
           </div>
           <div className="trust-grid">
             {trustCards.map((card) => (
@@ -357,6 +404,8 @@ export default function Home() {
                 <option>Pickleball bags</option>
                 <option>Tennis bags</option>
                 <option>Hiking backpacks</option>
+                <option>Running waist packs / belt bags</option>
+                <option>Cycling bags / bike bags</option>
                 <option>Travel duffel bags</option>
                 <option>Hotel custom bags</option>
                 <option>RFID wallets / passport holders</option>

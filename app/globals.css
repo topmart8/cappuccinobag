@@ -459,6 +459,31 @@ img {
   padding-top: 70px;
 }
 
+.trust-proof-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 18px;
+  border: 1px solid #d8c780;
+  border-radius: 8px;
+  background: #fff9dc;
+}
+
+.trust-proof-panel span {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid rgba(35, 63, 47, 0.12);
+  border-radius: 6px;
+  color: var(--heading);
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 760;
+  line-height: 1.35;
+}
+
 .trust-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -785,6 +810,7 @@ img {
   }
 
   .proof-grid,
+  .trust-proof-panel,
   .trust-grid,
   .feature-layout {
     grid-template-columns: 1fr;
