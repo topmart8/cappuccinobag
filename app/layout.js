@@ -2,24 +2,26 @@ import "./globals.css";
 
 export const metadata = {
   metadataBase: new URL("https://cappuccinobag.com"),
-  title: "Custom Outdoor & Racquet Sports Bag Manufacturer in China | Cappuccino Bags",
+  title:
+    "OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags",
   description:
-    "OEM/ODM padel bags, pickleball bags, tennis bags, hiking backpacks, sports duffels, hotel custom bags, travel bags, and private-label bag manufacturing in China.",
+    "Cappuccino Bag is an OEM/ODM bag manufacturer specializing in outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Custom Outdoor & Racquet Sports Bag Manufacturer in China",
+    title:
+      "OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags",
     description:
-      "OEM/ODM padel bags, pickleball bags, tennis bags, hiking backpacks, sports duffels, hotel custom bags, travel bags, and private-label bag manufacturing in China.",
+      "Cappuccino Bag is an OEM/ODM bag manufacturer specializing in outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.",
     url: "https://cappuccinobag.com/",
-    siteName: "Cappuccino Bags",
+    siteName: "Cappuccino Bag",
     images: [
       {
         url: "/assets/chatgpt-hero-racquet-lifestyle.jpg",
         width: 1672,
         height: 941,
-        alt: "Cappuccino racquet sports bags in a premium tennis court lifestyle scene",
+        alt: "Cappuccino Bag racket bags and outdoor sports bag manufacturing scene",
       },
     ],
     locale: "en_US",
@@ -27,9 +29,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Outdoor & Racquet Sports Bag Manufacturer in China",
+    title:
+      "OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags",
     description:
-      "OEM/ODM padel bags, pickleball bags, tennis bags, hiking backpacks, sports duffels, hotel custom bags, travel bags, and private-label bag manufacturing in China.",
+      "Cappuccino Bag is an OEM/ODM bag manufacturer specializing in outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.",
     images: ["/assets/chatgpt-hero-racquet-lifestyle.jpg"],
   },
   robots: {

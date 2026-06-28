@@ -1,71 +1,120 @@
-const categoryCards = [
+const productCategories = [
+  "Outdoor Sports Bags",
+  "Travel Backpacks",
+  "Racket Bags",
+  "Wallets & Cardholders",
+  "Smart Eco-Friendly Bags",
+];
+
+const solutionCards = [
   {
-    title: "Padel Bags",
-    image: "/assets/chatgpt-padel-duffel-closeup.jpg",
-    alt: "Custom padel duffel bag in a premium court setting",
-    large: true,
+    title: "Outdoor Sports Bags",
+    text: "Gym bags, duffel bags, running waist packs, cycling bags, hiking daypacks, durable fabrics, logo details, sampling, and export packing.",
   },
   {
-    title: "Padel Backpacks",
-    image: "/assets/chatgpt-padel-backpack-closeup.jpg",
-    alt: "Padel backpack and duffel with racket storage",
+    title: "Travel Backpacks",
+    text: "Travel backpacks, trolley luggage, hotel custom backpacks, laptop storage, organized compartments, and private-label packing.",
   },
   {
-    title: "Travel Duffel Bags",
-    image: "/assets/category-custom-printed-duffel-1200x1200.jpg",
-    alt: "Custom printed travel duffel bags",
+    title: "Racket Bags",
+    text: "Tennis, pickleball, and padel racket bags with racket and paddle storage, shoe pockets, thermal or padded sections, and retail packing.",
   },
   {
-    title: "Hotel Custom Bags",
-    image: "/assets/trust-showroom-1600x900.jpg",
-    alt: "Hotel custom bag product range",
+    title: "Wallets & Cardholders",
+    text: "RFID wallets, passport holders, cardholders, travel accessories, gift sets, edge finishing, logo craft, and gift packaging.",
   },
   {
-    title: "RFID Wallets & Passport Holders",
-    text: "Travel accessories with private label support.",
-    tone: "sky",
+    title: "Smart Eco-Friendly Bags",
+    text: "Recycled materials, vegan leather, apple leather, Alcantara options, GPS-ready concepts, RFID details, and responsible sourcing support.",
+  },
+];
+
+const projectCases = [
+  {
+    title: "European Padel Brand Sports Bag Project",
+    product: "Padel racket bag / multifunctional sports bag",
+    customization:
+      "Racket compartment, shoe pocket, durable fabric, logo branding, functional storage layout and retail-ready packing.",
   },
   {
-    title: "Sustainable / Recycled Programs",
-    text: "Recycled fabrics, material sourcing, and buyer documentation.",
-    tone: "moss",
+    title: "Dutch Hotel Group Travel Product Project",
+    product: "Multifunctional backpack and trolley luggage",
+    customization:
+      "Hotel brand color matching, logo details, travel-friendly structure, packing confirmation and bulk production support.",
   },
   {
-    title: "Sport & Gym Bags",
-    image: "/assets/trust-real-factory-product-1600x900.jpg",
-    alt: "Sport and gym bag manufacturing options",
+    title: "Wallet & RFID Cardholder Gift Set Project",
+    product: "Wallets, RFID cardholders and gift sets",
+    customization:
+      "Custom logo, gift box packaging, RFID protection, color matching and retail-ready labels.",
   },
-  {
-    title: "Custom Printed Bags",
-    image: "/assets/category-bag-open-storage-1200x1200.jpg",
-    alt: "Custom printed bag with organized compartments",
-  },
-  {
-    title: "Running Waist Packs & Running Belt Bags",
-    image: "/assets/sports-duffel-bags-image-set.png",
-    alt: "Custom running waist packs and belt bags for OEM production",
-    href: "/running-waist-packs-running-belt-bags/",
-  },
-  {
-    title: "Cycling Bags & Bike Bags",
-    image: "/assets/alibaba-outdoor-backpack-case.jpg",
-    alt: "Custom cycling bags and bike bags for outdoor brands",
-    href: "/cycling-bags-bike-bags/",
-  },
+];
+
+const factoryProof = [
+  "Factory production line photos",
+  "Sample development videos",
+  "Outdoor sports bag structure details",
+  "Racket bag compartment details",
+  "Wallet and cardholder workmanship details",
+  "Smart eco-friendly material samples",
+  "GPS/RFID smart product details",
+  "QC inspection photos",
+  "Packing and carton mark confirmation",
+];
+
+const qualityProcess = [
+  "Incoming material check",
+  "First-piece review",
+  "Cutting and stitching inspection",
+  "Functional compartment inspection",
+  "Racket compartment and shoe pocket inspection",
+  "Outdoor backpack load-bearing detail check",
+  "Logo and label check",
+  "Wallet card slot and edge finishing inspection",
+  "RFID layer or smart function detail check when applicable",
+  "Final packing and carton mark review",
+];
+
+const resources = [
+  { title: "Outdoor Sports Bag Manufacturing Guide", href: "/resources/outdoor-multifunctional-bag-manufacturing-guide/" },
+  { title: "Custom Tennis Bag Guide", href: "/resources/custom-tennis-bag-guide/" },
+  { title: "Pickleball Bag Customization Guide", href: "/resources/pickleball-bag-customization-guide/" },
+  { title: "Padel Bag Design Guide", href: "/custom-padel-bags.html" },
+  { title: "Hiking Backpack Customization Guide", href: "/resources/hiking-backpack-customization-guide/" },
+  { title: "Mountaineering Backpack Manufacturing Guide", href: "/resources/hiking-backpack-customization-guide/" },
+  { title: "Travel Bag & Luggage Customization Guide", href: "/custom-sports-duffel-bags.html" },
+  { title: "Hotel Group Custom Bag Project Guide", href: "/hotel-group-custom-bag-project-guide/" },
+  { title: "RFID Wallet Customization Guide", href: "/rfid-wallets-passport-holders/" },
+  { title: "Smart Eco-Friendly Bag Material Guide", href: "/resources/outdoor-multifunctional-bag-manufacturing-guide/" },
+  { title: "GPS Trackable Bag Guide", href: "#inquiry" },
+  { title: "MOQ & Sampling FAQ", href: "/resources/moq-sampling-faq/" },
+  { title: "Quality Inspection Guide", href: "/resources/quality-inspection-guide/" },
+];
+
+const trustPoints = [
+  "16 Years Bag Manufacturing Experience",
+  "CE & BSCI Certified",
+  "Outdoor Sports Bag Development",
+  "Travel Backpack Customization",
+  "Racket Bag Customization",
+  "Wallet & Cardholder Production",
+  "RFID Wallet and Passport Holder Capability",
+  "Smart Eco-Friendly Bag Development",
+  "QC Before Every Shipment",
 ];
 
 const trustCards = [
   {
     title: "Factory Workshop",
-    text: "Real workshop and production capability for overseas B2B bag programs.",
+    text: "Real workshop and production capability for overseas B2B bag, wallet, and cardholder programs.",
     image: "/assets/alibaba-factory-workshop.jpg",
-    alt: "Cappuccino Bags factory workshop from Alibaba supplier materials",
+    alt: "Cappuccino Bag factory workshop from Alibaba supplier materials",
   },
   {
     title: "Sample Development Flow",
     text: "Structured OEM/ODM sampling from reference review to approved sample details.",
     image: "/assets/alibaba-sample-development-flow.jpg",
-    alt: "Cappuccino Bags sample development and manufacturing flow",
+    alt: "Cappuccino Bag sample development and manufacturing flow",
   },
   {
     title: "Export-Ready Packing",
@@ -73,53 +122,15 @@ const trustCards = [
     image: "/assets/alibaba-export-packaging.jpg",
     alt: "Export-ready packaging system for custom bag production",
   },
-  {
-    title: "Logo Customization",
-    text: "Private label logo execution, material matching, and buyer-ready brand presentation.",
-    image: "/assets/alibaba-logo-customization.jpg",
-    alt: "Cappuccino brand customization and logo craft example",
-  },
-  {
-    title: "BSCI / Audit Support",
-    text: "Factory documentation support for compliance-aware buyers and sourcing teams.",
-    image: "/assets/alibaba-bsci-audit-summary.png",
-    alt: "BSCI audit summary report shown in Alibaba supplier materials",
-  },
-  {
-    title: "Material & Product Range",
-    text: "Outdoor, travel, racquet sports, wallets, and private-label bag programs under one factory route.",
-    image: "/assets/alibaba-material-product-range.png",
-    alt: "Cappuccino Bags material and product range display",
-  },
-];
-
-const brandBuyerTrust = [
-  "16 years bag manufacturing experience",
-  "OEM/ODM sample development",
-  "Outdoor, racquet sports, travel and wallet production",
-  "BSCI / CE manufacturing support",
-  "QC photos before shipment",
-  "Private label packaging support",
-  "Export-ready packing for global buyers",
 ];
 
 const capabilities = [
-  "Design Support",
-  "Material Sourcing",
-  "Sampling & Revisions",
-  "Bulk Manufacturing",
-  "Quality Inspection",
-  "Private Label Customization",
-];
-
-const detailChips = [
-  "Racket compartment",
-  "Shoe pocket",
-  "Laptop sleeve",
-  "Custom logo",
-  "Custom printing",
-  "Organized storage",
-  "OEM packaging support",
+  "Product idea review",
+  "Material selection",
+  "Sample development",
+  "Bulk production",
+  "Quality inspection",
+  "Packaging and export support",
 ];
 
 const homeJsonLd = {
@@ -129,14 +140,18 @@ const homeJsonLd = {
       "@type": "Organization",
       "@id": "https://cappuccinobag.com/#organization",
       name: "Cappuccino Bag",
+      legalName: "Guangzhou Cappuccino Leather Handbag Co., Ltd.",
       url: "https://cappuccinobag.com/",
       description:
-        "China-based OEM/ODM manufacturer of custom outdoor, racquet sports, travel, hotel, RFID, and recycled bag programs.",
+        "Cappuccino Bag is an OEM/ODM bag manufacturer specializing in outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.",
       image: "https://cappuccinobag.com/assets/chatgpt-hero-racquet-lifestyle.jpg",
+      knowsAbout: productCategories,
       makesOffer: [
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "OEM/ODM bag sample development" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Private label bag manufacturing" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Export-ready packing and QC support" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Travel backpack customization" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Racket bag customization" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "RFID wallet, passport holder, and cardholder production" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Smart eco-friendly bag development" } },
       ],
     },
     {
@@ -151,7 +166,7 @@ const homeJsonLd = {
       "@type": "WebPage",
       "@id": "https://cappuccinobag.com/#webpage",
       url: "https://cappuccinobag.com/",
-      name: "Custom Outdoor & Racquet Sports Bags",
+      name: "OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags",
       isPartOf: { "@id": "https://cappuccinobag.com/#website" },
       about: { "@id": "https://cappuccinobag.com/#organization" },
       primaryImageOfPage: "https://cappuccinobag.com/assets/chatgpt-hero-racquet-lifestyle.jpg",
@@ -170,27 +185,26 @@ export default function Home() {
           <span>Cappuccino Bag</span>
         </a>
         <nav className="desktop-nav" aria-label="Main navigation">
-          <a href="#collections">Collections</a>
-          <a href="/running-waist-packs-running-belt-bags/">Running Bags</a>
-          <a href="/cycling-bags-bike-bags/">Cycling Bags</a>
+          <a href="#collections">Products</a>
+          <a href="#solutions">Solutions</a>
           <a href="#trust">Factory</a>
-          <a href="#capabilities">OEM / ODM</a>
-          <a href="#features">Features</a>
+          <a href="#quality">QC</a>
+          <a href="#resources">Resources</a>
+          <a href="#inquiry">Contact</a>
         </nav>
-        <a className="header-cta" href="#inquiry">Start OEM Project</a>
+        <a className="header-cta" href="#inquiry">Request a Quote</a>
         <details className="mobile-menu">
           <summary aria-label="Open mobile navigation">
             <span />
             <span />
           </summary>
           <nav aria-label="Mobile navigation">
-            <a href="#collections">Collections</a>
-            <a href="/running-waist-packs-running-belt-bags/">Running Bags</a>
-            <a href="/cycling-bags-bike-bags/">Cycling Bags</a>
+            <a href="#collections">Products</a>
+            <a href="#solutions">Solutions</a>
             <a href="#trust">Factory</a>
-            <a href="#capabilities">OEM / ODM</a>
-            <a href="#features">Features</a>
-            <a href="#inquiry">Contact Sales</a>
+            <a href="#quality">QC</a>
+            <a href="#resources">Resources</a>
+            <a href="#inquiry">Contact</a>
           </nav>
         </details>
       </header>
@@ -200,86 +214,89 @@ export default function Home() {
           <img
             className="hero-image"
             src="/assets/chatgpt-hero-racquet-lifestyle.jpg"
-            alt="Cappuccino racquet sports bags in a premium tennis court lifestyle scene"
+            alt="Cappuccino Bag outdoor sports, travel, racket, wallet, and smart eco-friendly bag OEM manufacturing scene"
             width="1672"
             height="941"
             fetchPriority="high"
           />
           <div className="hero-overlay" />
           <div className="hero-content">
-            <h1>Custom Outdoor &amp; Racquet Sports Bag Manufacturer in China</h1>
-            <p>OEM/ODM Padel Bags, Pickleball Bags, Hiking Backpacks &amp; Travel Bags</p>
+            <h1>OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags</h1>
+            <p>
+            Cappuccino Bag is an OEM/ODM bag manufacturer specializing in outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.
+          </p>
+            <p>
+              From product idea, material selection and sample development to bulk production, quality inspection,
+              packaging and export support, Cappuccino Bag helps global buyers turn functional product concepts
+              into market-ready collections.
+            </p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href="#inquiry">Start Your Custom Bag Project</a>
-              <a className="btn btn-secondary" href="#collections">View Bag Collections</a>
+              <a className="btn btn-primary" href="#inquiry">Request a Quote</a>
+              <a className="btn btn-secondary" href="#inquiry">Upload Your Design</a>
+              <a className="btn btn-secondary" href="#resources">Download Catalog</a>
+              <a className="btn btn-secondary" href="#inquiry">WhatsApp Us</a>
             </div>
           </div>
         </section>
 
         <section className="section intro-panel" aria-label="Buyer support overview">
           <div className="intro-copy">
-            <h2>Built for sourcing teams that need reliable category depth.</h2>
+            <h2>Full-package manufacturing support for serious B2B buyers.</h2>
             <p>
-              Cappuccino Bag supports overseas brands with product development, sampling, private label details,
-              and export-ready production across sports, travel, hospitality, and sustainable bag programs.
+              Cappuccino Bag supports global brands, importers, wholesalers and large-volume buyers with practical
+              development, clear sampling and shipment-ready production across the five official product categories.
             </p>
           </div>
           <div className="proof-grid">
             <div>
-              <strong>OEM / ODM</strong>
-              <span>Custom patterns, trims, labels, and packaging.</span>
+              <strong>16 Years</strong>
+              <span>Bag, wallet and cardholder manufacturing experience for global OEM/ODM projects.</span>
             </div>
             <div>
-              <strong>Sample Support</strong>
-              <span>Structured revisions before bulk production.</span>
+              <strong>CE &amp; BSCI</strong>
+              <span>Certification-aware support for compliance-focused sourcing teams.</span>
             </div>
             <div>
-              <strong>Export Ready</strong>
-              <span>Clear communication for overseas B2B buyers.</span>
+              <strong>QC First</strong>
+              <span>Material, function, logo, packing and carton mark checks before shipment.</span>
             </div>
           </div>
         </section>
 
         <section className="section" id="collections">
           <div className="section-heading">
-            <h2>Bag Collections for Outdoor, Sport &amp; Travel Brands</h2>
-            <p>Explore core categories, then request samples, MOQ details, material options, and lead times.</p>
+            <h2>Official Product Categories</h2>
+            <p>Outdoor Sports Bags, Travel Backpacks, Racket Bags, Wallets &amp; Cardholders, and Smart Eco-Friendly Bags.</p>
           </div>
-          <div className="category-grid">
-            {categoryCards.map((category) => (
-              <a
-                className={[
-                  "category-card",
-                  category.large ? "large" : "",
-                  category.text ? "text-card" : "",
-                  category.tone || "",
-                ].filter(Boolean).join(" ")}
-                href={category.href || "#inquiry"}
-                key={category.title}
-              >
-                {category.image ? (
-                  <>
-                    <img src={category.image} alt={category.alt} width="1672" height="941" loading="lazy" />
-                    <span>{category.title}</span>
-                  </>
-                ) : (
-                  <>
-                    <strong>{category.title}</strong>
-                    <small>{category.text}</small>
-                  </>
-                )}
-              </a>
+          <div className="category-chip-grid">
+            {productCategories.map((category) => (
+              <a href="#inquiry" key={category}>{category}</a>
+            ))}
+          </div>
+        </section>
+
+        <section className="section" id="solutions">
+          <div className="section-heading">
+            <h2>One Factory. Five Official Product Categories.</h2>
+            <p>Use one factory route to develop coordinated outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags.</p>
+          </div>
+          <div className="solution-grid">
+            {solutionCards.map((card) => (
+              <article className="solution-card" key={card.title}>
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
+              </article>
             ))}
           </div>
         </section>
 
         <section className="section trust-section" id="trust">
           <div className="section-heading align-left">
-            <h2>Why Brand Buyers Work With Cappuccino Bags</h2>
-            <p>Real factory evidence, sample support, QC communication, and export packing for global B2B buyers.</p>
+            <h2>Why Brand Buyers Work With Cappuccino Bag</h2>
+            <p>Real factory evidence, sample support, QC communication and export packing for global B2B buyers.</p>
           </div>
-          <div className="trust-proof-panel" aria-label="Cappuccino Bags buyer trust points">
-            {brandBuyerTrust.map((item) => <span key={item}>{item}</span>)}
+          <div className="trust-proof-panel" aria-label="Cappuccino Bag buyer trust points">
+            {trustPoints.map((item) => <span key={item}>{item}</span>)}
           </div>
           <div className="trust-grid">
             {trustCards.map((card) => (
@@ -294,12 +311,28 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section">
+          <div className="section-heading">
+            <h2>Trusted Project Experience</h2>
+            <p>Anonymous examples only, because customer logos should not be shown without authorization.</p>
+          </div>
+          <div className="case-grid">
+            {projectCases.map((item) => (
+              <article className="case-card" key={item.title}>
+                <h3>{item.title}</h3>
+                <p><strong>Product:</strong> {item.product}</p>
+                <p><strong>Customization:</strong> {item.customization}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="capability-band" id="capabilities">
           <div className="capability-copy">
-            <h2>One Factory. Multiple Outdoor Bag Solutions.</h2>
+            <h2>From product concept to export-ready shipment.</h2>
             <p>
-              From racquet compartments to recycled fabric programs, we help buyers turn category plans into
-              manufacturable, brand-ready products.
+              From product idea, material selection and sample development to bulk production, inspection, packaging
+              and export support, the workflow is built for buyers who need repeatable manufacturing results.
             </p>
           </div>
           <div className="capability-list" aria-label="OEM ODM capability list">
@@ -307,122 +340,90 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="campaign-block">
-          <img
-            src="/assets/chatgpt-padel-backpack-closeup.jpg"
-            alt="Cappuccino racquet sports bags for coordinated brand programs"
-            width="1672"
-            height="941"
-            loading="lazy"
-          />
-          <div className="campaign-copy">
-            <h2>Built for Players. Designed for Brands.</h2>
-            <p>
-              Build a coordinated line across padel, pickleball, tennis, gym, travel, and hospitality with consistent
-              materials, hardware, logo placement, and packing standards.
-            </p>
-            <a className="btn btn-primary compact" href="#inquiry">Ask for MOQ &amp; Lead Time</a>
-          </div>
-        </section>
-
-        <section className="section collection-board" aria-label="Padel bag collection campaign board">
-          <img
-            src="/assets/chatgpt-padel-collection-campaign.jpg"
-            alt="Cappuccino padel bag collection 2026 campaign board"
-            width="1672"
-            height="941"
-            loading="lazy"
-          />
-        </section>
-
-        <section className="section feature-section" id="features">
-          <div className="section-heading">
-            <h2>Product Details Buyers Ask About First</h2>
-            <p>Keep practical construction, branding, and packing conversations close to the inquiry flow.</p>
-          </div>
-          <div className="feature-layout">
-            <article className="feature-media-card">
-              <img
-                src="/assets/chatgpt-padel-backpack-closeup.jpg"
-                alt="Racquet backpack and duffel showing organized sports storage"
-                width="1672"
-                height="941"
-                loading="lazy"
-              />
-              <div>
-                <h3>Organized Storage</h3>
-                <p>Racket compartment, shoe pocket, laptop sleeve, wet/dry zones, and daily-use interior pockets.</p>
-              </div>
-            </article>
-            <article className="feature-media-card">
-              <img
-                src="/assets/chatgpt-padel-duffel-closeup.jpg"
-                alt="Custom branded padel duffel bag for OEM programs"
-                width="1672"
-                height="941"
-                loading="lazy"
-              />
-              <div>
-                <h3>Brand-Ready Customization</h3>
-                <p>Custom logo, custom printing, trims, woven labels, hangtags, and OEM packaging support.</p>
-              </div>
-            </article>
-            <div className="detail-chips">
-              {detailChips.map((chip) => <span key={chip}>{chip}</span>)}
-            </div>
-          </div>
-        </section>
-
         <section className="factory-strip">
           <img
             src="/assets/chatgpt-oem-workshop-lineup.jpg"
-            alt="Outdoor and racquet sports bags with material swatches for OEM development"
+            alt="Outdoor and racket sports bags with material swatches for OEM development"
             width="1672"
             height="941"
             loading="lazy"
           />
           <div>
-            <h2>Real Manufacturing, Clear Export Support</h2>
+            <h2>Real Factory Proof for Serious B2B Buyers</h2>
             <p>
-              Work with a factory team that understands sample support, QC process, production communication,
-              and export-ready service for overseas bag programs.
+              Real workshop photos, sample videos, packing photos and production updates help overseas buyers reduce
+              risk before bulk orders.
             </p>
-            <a className="btn btn-secondary dark" href="#inquiry">Contact Sales</a>
+            <div className="factory-proof-list">
+              {factoryProof.map((item) => <span key={item}>{item}</span>)}
+            </div>
+            <a className="btn btn-secondary dark" href="#inquiry">Request Factory Photos &amp; Sample Videos</a>
+          </div>
+        </section>
+
+        <section className="section feature-section" id="quality">
+          <div className="section-heading">
+            <h2>Quality Control Before Every Shipment</h2>
+            <p>Production checks focus on product function, workmanship, smart details, logo accuracy and export packing.</p>
+          </div>
+          <div className="process-grid">
+            {qualityProcess.map((item, index) => (
+              <div className="process-step" key={item}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{item}</strong>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section" id="resources">
+          <div className="section-heading">
+            <h2>Resources / Knowledge Center</h2>
+            <p>Buyer-focused guides for product planning, sampling, customization, QC and large-volume projects.</p>
+          </div>
+          <div className="resource-grid">
+            {resources.map((resource) => (
+              <a href={resource.href} key={resource.title}>{resource.title}</a>
+            ))}
           </div>
         </section>
 
         <section className="inquiry-section" id="inquiry">
           <div className="inquiry-copy">
-            <h2>Start Your Custom Bag Project</h2>
-            <p>Tell us your category, target quantity, materials, logo needs, and sample timeline.</p>
+            <h2>Start Your OEM/ODM Project</h2>
+            <p>
+              Tell us your product category, target quantity, material direction, logo needs, packaging requirements
+              and sample timeline. You can also ask for factory photos, sample videos or catalog support.
+            </p>
           </div>
           <form className="inquiry-form">
             <label>
               Product category
-              <select defaultValue="Padel bags" aria-label="Product category">
-                <option>Padel bags</option>
-                <option>Pickleball bags</option>
-                <option>Tennis bags</option>
-                <option>Hiking backpacks</option>
-                <option>Running waist packs / belt bags</option>
-                <option>Cycling bags / bike bags</option>
-                <option>Travel duffel bags</option>
-                <option>Hotel custom bags</option>
+              <select defaultValue="Outdoor Sports Bags" aria-label="Product category">
+                <option>Outdoor Sports Bags</option>
+                <option>Travel Backpacks</option>
+                <option>Racket Bags</option>
+                <option>Wallets & Cardholders</option>
                 <option>RFID wallets / passport holders</option>
-                <option>Sustainable / recycled program</option>
+                <option>Smart Eco-Friendly Bags</option>
               </select>
             </label>
             <label>
               Project details
-              <textarea rows="4" placeholder="Quantity, target market, materials, logo method, and timeline" />
+              <textarea rows="4" placeholder="Quantity, target market, materials, logo method, packaging and timeline" />
             </label>
-            <a className="btn btn-primary" href="mailto:info@cappuccinobag.com?subject=Custom%20Bag%20Project%20Inquiry">
-              Request Sample
+            <a className="btn btn-primary" href="mailto:info@cappuccinobag.com?subject=OEM%2FODM%20Bag%20Project%20Inquiry">
+              Request a Quote
             </a>
-            <p className="form-note">We will review MOQ, sample time, and customization options with you.</p>
+            <p className="form-note">Cappuccino Bag will review MOQ, sample time, factory proof needs and customization options with you.</p>
           </form>
         </section>
       </main>
+
+      <div className="floating-cta" aria-label="Quick contact actions">
+        <a href="#inquiry">Request Quote</a>
+        <a href="#inquiry">WhatsApp Us</a>
+      </div>
 
       <footer className="site-footer">
         <div>
@@ -430,15 +431,18 @@ export default function Home() {
             <span className="brand-mark" aria-hidden="true" />
             <span>Cappuccino Bag</span>
           </a>
-          <p>China-based OEM/ODM custom outdoor and racquet sports bag manufacturer.</p>
+          <p>
+            Cappuccino Bag is an OEM/ODM bag manufacturer specializing in outdoor sports bags, travel backpacks,
+            racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.
+          </p>
         </div>
         <div className="footer-links">
-          <a href="#inquiry">Contact</a>
-          <a href="#trust">Factory</a>
-          <a href="#collections">Product Categories</a>
-          <a href="#inquiry">Request Sample</a>
-          <a href="#capabilities">OEM / ODM</a>
-          <a href="#inquiry">WhatsApp / Email / Alibaba</a>
+          <a href="#inquiry">Request a Quote</a>
+          <a href="#inquiry">Upload Your Design</a>
+          <a href="#resources">Download Catalog</a>
+          <a href="#trust">Factory Proof</a>
+          <a href="#quality">Quality Control</a>
+          <a href="/hotel-group-custom-bag-project-guide/">Hotel Group Guide</a>
         </div>
       </footer>
     </>
