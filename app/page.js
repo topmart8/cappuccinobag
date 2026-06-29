@@ -106,9 +106,9 @@ const trustPoints = [
 const trustCards = [
   {
     title: "Factory Workshop",
-    text: "Real workshop and production capability for overseas B2B bag, wallet, and cardholder programs.",
-    image: "/assets/alibaba-factory-workshop.jpg",
-    alt: "Cappuccino Bag factory workshop from Alibaba supplier materials",
+    text: "Organized outdoor sports bag sewing lines with nylon fabrics, webbing, zippers, and QC support for overseas B2B programs.",
+    image: "/assets/cappuccino-outdoor-bag-factory-workshop.jpg",
+    alt: "Cappuccino Bag outdoor sports multifunctional bag sewing workshop",
   },
   {
     title: "Sample Development Flow",
