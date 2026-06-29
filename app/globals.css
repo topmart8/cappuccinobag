@@ -580,6 +580,39 @@ img {
   line-height: 1.6;
 }
 
+.trust-wide-image {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.trust-wide-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.trust-wide-image div {
+  padding: 24px;
+}
+
+.trust-wide-image h3 {
+  margin: 0;
+  color: var(--heading);
+  font-size: 24px;
+  line-height: 1.15;
+}
+
+.trust-wide-image p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
 .capability-band {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.8fr);

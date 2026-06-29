@@ -298,17 +298,19 @@ export default function Home() {
           <div className="trust-proof-panel" aria-label="Cappuccino Bag buyer trust points">
             {trustPoints.map((item) => <span key={item}>{item}</span>)}
           </div>
-          <div className="trust-grid">
-            {trustCards.map((card) => (
-              <article className="trust-card" key={card.title}>
-                <img src={card.image} alt={card.alt} width="1672" height="941" loading="lazy" />
-                <div>
-                  <h3>{card.title}</h3>
-                  <p>{card.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <article className="trust-wide-image">
+            <img
+              src="/assets/cappuccino-outdoor-bag-factory-workshop.jpg"
+              alt="Cappuccino Bag outdoor sports multifunctional bag sewing workshop"
+              width="1600"
+              height="900"
+              loading="lazy"
+            />
+            <div>
+              <h3>Outdoor Sports Bag Sewing Workshop</h3>
+              <p>Organized production lines for multifunctional outdoor bags, with nylon fabrics, webbing, zippers, hardware, sample checks and export QC support.</p>
+            </div>
+          </article>
         </section>
 
         <section className="section">
