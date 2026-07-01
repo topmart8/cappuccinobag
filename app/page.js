@@ -290,27 +290,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section trust-section" id="trust">
-          <div className="section-heading align-left">
-            <h2>Why Brand Buyers Work With Cappuccino Bag</h2>
-            <p>Real factory evidence, sample support, QC communication and export packing for global B2B buyers.</p>
-          </div>
-          <div className="trust-proof-panel" aria-label="Cappuccino Bag buyer trust points">
-            {trustPoints.map((item) => <span key={item}>{item}</span>)}
-          </div>
-          <article className="trust-wide-image">
-            <img
-              src="/assets/cappuccino-outdoor-bag-factory-workshop.jpg"
-              alt="Cappuccino Bag outdoor sports multifunctional bag sewing workshop"
-              width="1600"
-              height="900"
-              loading="lazy"
-            />
-            <div>
-              <h3>Outdoor Sports Bag Sewing Workshop</h3>
-              <p>Organized production lines for multifunctional outdoor bags, with nylon fabrics, webbing, zippers, hardware, sample checks and export QC support.</p>
-            </div>
-          </article>
+        <section className="factory-image-module" id="trust" aria-label="Cappuccino Bag factory workshop">
+          <img
+            src="/assets/cappuccino-outdoor-bag-factory-workshop.png"
+            alt="Cappuccino Bag outdoor sports multifunctional bag sewing workshop"
+            width="1618"
+            height="972"
+            loading="lazy"
+          />
         </section>
 
         <section className="section">

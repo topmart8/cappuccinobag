@@ -613,6 +613,21 @@ img {
   line-height: 1.6;
 }
 
+.factory-image-module {
+  width: 100%;
+  margin: 0 0 92px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.factory-image-module img {
+  width: 100%;
+  height: clamp(520px, 62vw, 860px);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .capability-band {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.8fr);
@@ -1046,6 +1061,15 @@ img {
   .intro-panel,
   .section {
     padding-block: 58px;
+  }
+
+  .factory-image-module {
+    margin-bottom: 58px;
+  }
+
+  .factory-image-module img {
+    height: 520px;
+    object-position: center;
   }
 
   .category-grid {
