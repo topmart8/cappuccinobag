@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /site/
+Allow: /site/assets/
+
+Sitemap: https://www.cappuccinobag.com/sitemap.xml
