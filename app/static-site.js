@@ -134,6 +134,12 @@ function extractJsonLdScripts(html) {
     .filter(Boolean);
 }
 
+function extractInlineStyles(html) {
+  return Array.from(html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi))
+    .map((match) => match[1]?.trim())
+    .filter(Boolean);
+}
+
 export async function generateMetadataForStaticPage({ params }) {
   const resolvedParams = await params;
   const slug = resolvedParams?.slug || [];
@@ -192,9 +198,16 @@ export async function StaticSitePage({ params }) {
   if (!html) notFound();
 
   const jsonLdScripts = sourceHtml ? extractJsonLdScripts(sourceHtml) : [];
+  const inlineStyles = sourceHtml ? extractInlineStyles(sourceHtml) : [];
 
   return (
     <>
+      {inlineStyles.map((css, index) => (
+        <style
+          key={`inline-style-${index}`}
+          dangerouslySetInnerHTML={{ __html: css }}
+        />
+      ))}
       {jsonLdScripts.map((jsonLd, index) => (
         <script
           key={`jsonld-${index}`}
