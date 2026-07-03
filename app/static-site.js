@@ -58,13 +58,10 @@ const allowedPages = new Set([
   "custom-pickleball-bag-landing"
 ]);
 
-export const dynamicParams = false;
-export const revalidate = 86400;
-
-export function generateStaticParams() {
+export function generateStaticParamsForStaticPages({ includeHome = false } = {}) {
   return Array.from(allowedPages).map((pageSlug) => ({
     slug: pageSlug ? pageSlug.split("/") : []
-  }));
+  })).filter((params) => includeHome || params.slug.length > 0);
 }
 
 function getStaticFilePath(slug = []) {
@@ -137,7 +134,7 @@ function extractJsonLdScripts(html) {
     .filter(Boolean);
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadataForStaticPage({ params }) {
   const resolvedParams = await params;
   const slug = resolvedParams?.slug || [];
   const html = readStaticDocument(slug);
@@ -187,7 +184,7 @@ function normalizeHtml(html) {
     .replace(/id="home"/g, 'id="home" data-rendered-by="next"');
 }
 
-export default async function StaticSitePage({ params }) {
+export async function StaticSitePage({ params }) {
   const resolvedParams = await params;
   const slug = resolvedParams?.slug || [];
   const sourceHtml = readStaticDocument(slug);
