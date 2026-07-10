@@ -1,50 +1,29 @@
 const redirectPairs = [
-  ["/custom-padel-bags.html", "/padel-bags"],
-  ["/custom-padel-bag-manufacturer", "/padel-bags"],
-  ["/custom-padel-bag-with-shoe-compartment", "/padel-bags"],
-  ["/custom-pickleball-bags.html", "/pickleball-bags"],
-  ["/custom-pickleball-bag-manufacturer", "/pickleball-bags"],
-  ["/custom-pickleball-paddle-bags", "/pickleball-bags"],
-  ["/custom-pickleball-paddle-backpack", "/pickleball-bags"],
-  ["/custom-tennis-bags.html", "/tennis-bags"],
-  ["/custom-tennis-bag-manufacturer", "/tennis-bags"],
-  ["/custom-tennis-padel-racket-bags", "/tennis-bags"],
-  ["/thermal-tennis-racket-bag", "/tennis-bags"],
-  ["/custom-hiking-backpacks.html", "/hiking-backpacks"],
-  ["/custom-hiking-backpack-manufacturer", "/hiking-backpacks"],
-  ["/custom-hiking-daypacks-outdoor-backpacks", "/hiking-backpacks"],
-  ["/lightweight-hiking-daypack-20l-35l", "/hiking-backpacks"],
-  ["/custom-travel-bag-luggage-manufacturer", "/travel-bags"],
-  ["/custom-travel-backpacks-weekender-bags", "/travel-bags"],
-  ["/custom-sports-duffel-bags.html", "/travel-bags"],
-  ["/custom-hotel-bags.html", "/hotel-group-custom-bag-project"],
-  ["/hotel-group-custom-bag-project-guide", "/hotel-group-custom-bag-project"],
-  ["/outdoor-travel-backpack", "/travel-bags"],
-  ["/weekend-travel-duffel-bag", "/travel-bags"],
-  ["/custom-rfid-wallet-manufacturer", "/wallets-cardholders"],
-  ["/rfid-wallets-passport-holders", "/wallets-cardholders"],
-  ["/rfid-wallet-passport-holder-manufacturer", "/wallets-cardholders"],
-  ["/custom-cardholder-manufacturer", "/wallets-cardholders"],
-  ["/rfid-card-holder", "/wallets-cardholders"],
-  ["/rfid-passport-holder", "/wallets-cardholders"],
-  ["/vegan-leather-wallet", "/wallets-cardholders"],
-  ["/eco-tech-smart-bag-manufacturer", "/smart-eco-bags"],
-  ["/gps-ready-smart-travel-bag", "/smart-eco-bags"],
-  ["/gps-trackable-smart-bag-landing", "/smart-eco-bags"],
-  ["/vegan-leather-tech-accessories-manufacturer", "/alcantara-accessories"],
-  ["/factory-trust-materials", "/factory"],
-  ["/inquiry", "/request-a-quote"],
+  ["/custom-padel-bag-with-shoe-compartment", "/custom-padel-bags.html"],
+  ["/custom-pickleball-paddle-backpack", "/custom-pickleball-paddle-bags/"],
+  ["/thermal-tennis-racket-bag", "/custom-tennis-padel-racket-bags/"],
+  ["/lightweight-hiking-daypack-20l-35l", "/custom-hiking-daypacks-outdoor-backpacks/"],
+  ["/outdoor-travel-backpack", "/custom-travel-backpacks-weekender-bags/"],
+  ["/weekend-travel-duffel-bag", "/custom-travel-backpacks-weekender-bags/"],
+  ["/rfid-passport-holder", "/rfid-wallet-passport-holder-manufacturer/"],
+  ["/rfid-card-holder", "/rfid-wallet-passport-holder-manufacturer/"],
+  ["/vegan-leather-wallet", "/vegan-leather-tech-accessories-manufacturer/"],
+  ["/gps-ready-smart-travel-bag", "/gps-trackable-smart-bag-landing/"],
 ];
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: false,
+  skipTrailingSlashRedirect: true,
   async redirects() {
-    const canonicalRedirects = redirectPairs.map(([source, destination]) => ({
-      source,
-      destination,
-      permanent: true,
-    }));
+    const canonicalRedirects = redirectPairs.flatMap(([source, destination]) => {
+      const trailingSource = source.endsWith("/") ? source : `${source}/`;
+
+      return [
+        { source, destination, permanent: true },
+        { source: trailingSource, destination, permanent: true },
+      ];
+    });
 
     return [
       {

@@ -4,6 +4,11 @@ import Script from "next/script";
 import { notFound } from "next/navigation";
 
 const siteRoot = path.join(process.cwd(), "public", "site");
+const publicRoot = path.join(process.cwd(), "public");
+const publicRootPages = [
+  "custom-hiking-daypacks-outdoor-backpacks",
+  "custom-pickleball-paddle-bags",
+];
 
 export const dynamicParams = false;
 export const revalidate = 86400;
@@ -23,9 +28,11 @@ function listStaticPages(dir = siteRoot, prefix = "") {
     return fs.existsSync(indexPath) ? [slug, ...nestedPages] : nestedPages;
   });
 
-  return fs.existsSync(path.join(siteRoot, "index.html")) && !prefix
-    ? ["", ...pages]
-    : pages;
+  if (!prefix && fs.existsSync(path.join(siteRoot, "index.html"))) {
+    return ["", ...pages, ...publicRootPages];
+  }
+
+  return pages;
 }
 
 function getAllowedPages() {
@@ -43,9 +50,16 @@ function getStaticFilePath(slug = []) {
   const allowedPages = getAllowedPages();
   if (!allowedPages.has(pageSlug)) return null;
 
-  return pageSlug
-    ? path.join(siteRoot, pageSlug, "index.html")
-    : path.join(siteRoot, "index.html");
+  if (!pageSlug) return path.join(siteRoot, "index.html");
+
+  const sitePath = path.join(siteRoot, pageSlug, "index.html");
+  if (fs.existsSync(sitePath)) return sitePath;
+
+  if (publicRootPages.includes(pageSlug)) {
+    return path.join(publicRoot, pageSlug, "index.html");
+  }
+
+  return null;
 }
 
 function readStaticDocument(slug = []) {
