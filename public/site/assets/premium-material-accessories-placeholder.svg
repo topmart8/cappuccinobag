@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Cappuccino premium microfiber suede accessories placeholder</title>
+  <desc id="desc">Pastel microfiber suede card holders, RFID wallets, passport holder, phone case and travel organizer in a luxury flat lay.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7efe7"/>
+      <stop offset="0.52" stop-color="#fbf8f2"/>
+      <stop offset="1" stop-color="#e7eee8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#8b6b4a" flood-opacity=".18"/>
+    </filter>
+    <filter id="texture">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="18"/>
+      <feColorMatrix type="saturate" values=".18"/>
+      <feBlend mode="multiply" in2="SourceGraphic"/>
+    </filter>
+    <pattern id="stitch" width="26" height="8" patternUnits="userSpaceOnUse">
+      <path d="M2 4h12" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M0 730c240-110 392-38 598-98 180-52 304-214 522-204 198 8 306 146 480 66v406H0z" fill="#e8ded3" opacity=".42"/>
+  <g filter="url(#shadow)">
+    <rect x="156" y="180" width="310" height="460" rx="34" fill="#cfd8c5"/>
+    <rect x="182" y="218" width="258" height="408" rx="26" fill="#bdcbb7" filter="url(#texture)"/>
+    <rect x="212" y="258" width="198" height="70" rx="12" fill="none" stroke="url(#stitch)" stroke-width="5"/>
+    <path d="M214 378h192M214 438h192M214 498h150" stroke="#8a977f" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="540" y="130" width="300" height="520" rx="38" fill="#c7d7e6"/>
+    <rect x="568" y="164" width="244" height="454" rx="28" fill="#b6ccde" filter="url(#texture)"/>
+    <path d="M608 228h164M608 292h164M608 356h126" stroke="#839eb5" stroke-width="12" stroke-linecap="round" opacity=".52"/>
+    <circle cx="690" cy="540" r="44" fill="#dbe8ef" opacity=".75"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="908" y="168" width="286" height="446" rx="34" fill="#d8d0c4"/>
+    <rect x="936" y="202" width="230" height="380" rx="24" fill="#c8bfb2" filter="url(#texture)"/>
+    <path d="M976 262h150M976 318h150M976 374h112" stroke="#958879" stroke-width="10" stroke-linecap="round" opacity=".5"/>
+    <path d="M1038 504c48-54 98-44 118 10" fill="none" stroke="#a89482" stroke-width="14" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1218" y="230" width="216" height="386" rx="42" fill="#ead0d5"/>
+    <rect x="1244" y="260" width="164" height="326" rx="34" fill="#ddb9c0" filter="url(#texture)"/>
+    <circle cx="1286" cy="312" r="24" fill="none" stroke="#f4dce1" stroke-width="10"/>
+    <path d="M1278 480h96M1278 532h70" stroke="#b68591" stroke-width="10" stroke-linecap="round" opacity=".45"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="650" y="668" width="386" height="116" rx="34" fill="#d7dfcf"/>
+    <rect x="682" y="690" width="322" height="72" rx="24" fill="#c7d3bd" filter="url(#texture)"/>
+    <path d="M730 726h190" stroke="#8fa083" stroke-width="10" stroke-linecap="round" opacity=".46"/>
+  </g>
+  <g fill="#7a5230">
+    <text x="108" y="790" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">Cappuccino Bag</text>
+    <text x="108" y="840" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" opacity=".72">Premium microfiber suede accessory placeholders</text>
+  </g>
+</svg>

@@ -4,71 +4,43 @@ import Script from "next/script";
 import { notFound } from "next/navigation";
 
 const siteRoot = path.join(process.cwd(), "public", "site");
-const allowedPages = new Set([
-  "",
-  "contact",
-  "download-catalog",
-  "inquiry",
-  "why-us",
-  "resources",
-  "custom-outdoor-multifunctional-bag-manufacturer",
-  "custom-outdoor-sports-bag-manufacturer",
-  "custom-tennis-bag-manufacturer",
-  "custom-pickleball-bag-manufacturer",
-  "custom-padel-bag-manufacturer",
-  "custom-hiking-backpack-manufacturer",
-  "custom-mountaineering-backpack-manufacturer",
-  "custom-travel-bag-luggage-manufacturer",
-  "custom-rfid-wallet-manufacturer",
-  "custom-magsafe-cardholder-manufacturer",
-  "custom-phone-pouch-manufacturer",
-  "phone-case-cardholder-gift-set-oem",
-  "vegan-leather-tech-accessories-manufacturer",
-  "eco-tech-smart-bag-manufacturer",
-  "rfid-wallet-passport-holder-manufacturer",
-  "custom-travel-backpacks-weekender-bags",
-  "custom-tennis-padel-racket-bags",
-  "custom-outdoor-sports-travel-bags",
-  "outdoor-multifunctional-bag-manufacturing-guide",
-  "outdoor-sports-bag-manufacturing-guide",
-  "custom-tennis-bag-guide",
-  "pickleball-bag-customization-guide",
-  "padel-bag-design-guide",
-  "hiking-backpack-customization-guide",
-  "mountaineering-backpack-manufacturing-guide",
-  "travel-bag-luggage-customization-guide",
-  "hotel-group-custom-bag-project-guide",
-  "wallet-materials-guide",
-  "rfid-wallet-customization-guide",
-  "card-holder-customization-guide",
-  "eco-tech-bag-material-guide",
-  "gps-trackable-bag-guide",
-  "logo-customization-guide",
-  "private-label-packaging-guide",
-  "moq-sampling-faq",
-  "quality-inspection-guide",
-  "sustainable-bag-wallet-materials-guide",
-  "recycled-eco-tech-bag-landing",
-  "gps-trackable-smart-bag-landing",
-  "custom-rfid-wallet-card-holder-landing",
-  "custom-travel-weekender-bag-landing",
-  "custom-gym-duffel-bag-landing",
-  "custom-hiking-daypack-landing",
-  "custom-tennis-padel-racket-bag-landing",
-  "custom-pickleball-bag-landing"
-]);
 
 export const dynamicParams = false;
 export const revalidate = 86400;
 
+function listStaticPages(dir = siteRoot, prefix = "") {
+  if (!fs.existsSync(dir)) return [];
+
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const pages = entries.flatMap((entry) => {
+    const entryPath = path.join(dir, entry.name);
+    if (!entry.isDirectory()) return [];
+
+    const slug = prefix ? `${prefix}/${entry.name}` : entry.name;
+    const indexPath = path.join(entryPath, "index.html");
+    const nestedPages = listStaticPages(entryPath, slug);
+
+    return fs.existsSync(indexPath) ? [slug, ...nestedPages] : nestedPages;
+  });
+
+  return fs.existsSync(path.join(siteRoot, "index.html")) && !prefix
+    ? ["", ...pages]
+    : pages;
+}
+
+function getAllowedPages() {
+  return new Set(listStaticPages());
+}
+
 export function generateStaticParams() {
-  return Array.from(allowedPages).map((pageSlug) => ({
+  return Array.from(getAllowedPages()).map((pageSlug) => ({
     slug: pageSlug ? pageSlug.split("/") : []
   }));
 }
 
 function getStaticFilePath(slug = []) {
   const pageSlug = slug.join("/");
+  const allowedPages = getAllowedPages();
   if (!allowedPages.has(pageSlug)) return null;
 
   return pageSlug
@@ -117,8 +89,8 @@ function extractMetadata(html, slug = []) {
   );
 
   const fallbackCanonical = pageSlug
-    ? `https://www.cappuccinobag.com/${pageSlug}/`
-    : "https://www.cappuccinobag.com/";
+    ? `https://www.cappuccinobag.com/${pageSlug}`
+    : "https://www.cappuccinobag.com";
 
   return {
     title: decodeHtmlEntities(titleMatch?.[1]?.trim() || ""),
@@ -181,8 +153,9 @@ function normalizeHtml(html) {
     .replace(/href="\/index\.html"/g, 'href="/"')
     .replace(/href="index\.html"/g, 'href="/"')
     .replace(/href="\.\.\/index\.html"/g, 'href="/"')
-    .replace(/href="\.\.\/([^"]+)\/"/g, 'href="/$1/"')
-    .replace(/href="(contact|download-catalog|inquiry|why-us|resources|custom-outdoor-multifunctional-bag-manufacturer|custom-outdoor-sports-bag-manufacturer|custom-tennis-bag-manufacturer|custom-pickleball-bag-manufacturer|custom-padel-bag-manufacturer|custom-hiking-backpack-manufacturer|custom-mountaineering-backpack-manufacturer|custom-travel-bag-luggage-manufacturer|custom-rfid-wallet-manufacturer|custom-magsafe-cardholder-manufacturer|custom-phone-pouch-manufacturer|phone-case-cardholder-gift-set-oem|vegan-leather-tech-accessories-manufacturer|eco-tech-smart-bag-manufacturer|outdoor-multifunctional-bag-manufacturing-guide|outdoor-sports-bag-manufacturing-guide|custom-tennis-bag-guide|pickleball-bag-customization-guide|padel-bag-design-guide|hiking-backpack-customization-guide|mountaineering-backpack-manufacturing-guide|travel-bag-luggage-customization-guide|hotel-group-custom-bag-project-guide|wallet-materials-guide|rfid-wallet-customization-guide|card-holder-customization-guide|eco-tech-bag-material-guide|gps-trackable-bag-guide|logo-customization-guide|private-label-packaging-guide|moq-sampling-faq|quality-inspection-guide|sustainable-bag-wallet-materials-guide|custom-pickleball-bag-landing|custom-tennis-padel-racket-bag-landing|custom-hiking-daypack-landing|custom-gym-duffel-bag-landing|custom-travel-weekender-bag-landing|custom-rfid-wallet-card-holder-landing|gps-trackable-smart-bag-landing|recycled-eco-tech-bag-landing)\//g, 'href="/$1/')
+    .replace(/href="\.\.\/([^"]+)\/"/g, 'href="/$1"')
+    .replace(/href="\/([^"?#]+)\/"/g, 'href="/$1"')
+    .replace(/href="(contact|download-catalog|inquiry|request-a-quote|why-us|resources|factory|padel-bags|pickleball-bags|tennis-bags|hiking-backpacks|travel-bags|wallets-cardholders|smart-eco-bags|alcantara-accessories|premium-material-accessories|custom-duffle-bag-manufacturer|custom-microfiber-card-holder-manufacturer|hotel-group-custom-bag-project|custom-outdoor-multifunctional-bag-manufacturer|custom-outdoor-sports-bag-manufacturer|custom-tennis-bag-manufacturer|custom-pickleball-bag-manufacturer|custom-padel-bag-manufacturer|custom-hiking-backpack-manufacturer|custom-mountaineering-backpack-manufacturer|custom-travel-bag-luggage-manufacturer|custom-rfid-wallet-manufacturer|custom-magsafe-cardholder-manufacturer|custom-phone-pouch-manufacturer|phone-case-cardholder-gift-set-oem|vegan-leather-tech-accessories-manufacturer|eco-tech-smart-bag-manufacturer|outdoor-multifunctional-bag-manufacturing-guide|outdoor-sports-bag-manufacturing-guide|custom-tennis-bag-guide|pickleball-bag-customization-guide|padel-bag-design-guide|hiking-backpack-customization-guide|mountaineering-backpack-manufacturing-guide|travel-bag-luggage-customization-guide|hotel-group-custom-bag-project-guide|wallet-materials-guide|rfid-wallet-customization-guide|card-holder-customization-guide|eco-tech-bag-material-guide|gps-trackable-bag-guide|logo-customization-guide|private-label-packaging-guide|moq-sampling-faq|quality-inspection-guide|sustainable-bag-wallet-materials-guide|custom-pickleball-bag-landing|custom-tennis-padel-racket-bag-landing|custom-hiking-daypack-landing|custom-gym-duffel-bag-landing|custom-travel-weekender-bag-landing|custom-rfid-wallet-card-holder-landing|gps-trackable-smart-bag-landing|recycled-eco-tech-bag-landing)\//g, 'href="/$1')
     .replace(/href="#/g, 'href="/#')
     .replace(/id="home"/g, 'id="home" data-rendered-by="next"');
 }
