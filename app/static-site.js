@@ -34,6 +34,9 @@ const allowedPages = new Set([
   "custom-travel-backpacks-weekender-bags",
   "custom-tennis-padel-racket-bags",
   "custom-outdoor-sports-travel-bags",
+  "custom-waterproof-adventure-duffel",
+  "custom-waterproof-wheeled-gear-bag",
+  "custom-insulated-cooler-backpack",
   "outdoor-multifunctional-bag-manufacturing-guide",
   "outdoor-sports-bag-manufacturing-guide",
   "custom-tennis-bag-guide",
@@ -98,7 +101,47 @@ function readStaticPage(slug = []) {
   if (!html) return null;
 
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
-  return normalizeHtml(bodyMatch ? bodyMatch[1] : html);
+  return addProductExpansionLinks(
+    normalizeHtml(bodyMatch ? bodyMatch[1] : html),
+    slug.join("/")
+  );
+}
+
+const productExpansionCards = {
+  adventure: `<article class="expansion-card"><img src="/site/assets/cappuccino-waterproof-adventure-duffel-concept.webp" width="1200" height="800" loading="lazy" alt="Original waterproof adventure duffel concept"><div><p class="eyebrow">40L / 70L</p><h3>Waterproof Adventure Duffel</h3><p>Coated material options, wet/dry separation, a reinforced base and removable backpack straps.</p><a href="/custom-waterproof-adventure-duffel/">Explore the adventure duffel</a></div></article>`,
+  wheeled: `<article class="expansion-card"><img src="/site/assets/cappuccino-waterproof-wheeled-gear-bag-concept.webp" width="1200" height="800" loading="lazy" alt="Original waterproof wheeled gear bag concepts"><div><p class="eyebrow">40L / 90L</p><h3>Waterproof Wheeled Gear Bag</h3><p>Reinforced wheels, pull-handle development and separated wet or dirty equipment storage.</p><a href="/custom-waterproof-wheeled-gear-bag/">Explore the wheeled gear bag</a></div></article>`,
+  cooler: `<article class="expansion-card"><img src="/site/assets/cappuccino-insulated-cooler-backpack-concept.webp" width="1200" height="800" loading="lazy" alt="Original insulated outdoor cooler backpack concept"><div><p class="eyebrow">Insulated Carry</p><h3>Outdoor Cooler Backpack</h3><p>PEVA-style lining, insulation, dry/wet organization and a comfortable backpack carry system.</p><a href="/custom-insulated-cooler-backpack/">Explore the cooler backpack</a></div></article>`
+};
+
+function addProductExpansionLinks(html, pageSlug) {
+  const homePages = new Set([""]);
+  const outdoorPages = new Set([
+    "custom-outdoor-sports-bag-manufacturer",
+    "custom-outdoor-multifunctional-bag-manufacturer",
+    "custom-outdoor-sports-travel-bags"
+  ]);
+  const travelPages = new Set([
+    "custom-travel-bag-luggage-manufacturer",
+    "custom-travel-backpacks-weekender-bags"
+  ]);
+
+  let cards = [];
+  if (homePages.has(pageSlug)) cards = Object.values(productExpansionCards);
+  if (outdoorPages.has(pageSlug)) {
+    cards = [productExpansionCards.adventure, productExpansionCards.wheeled, productExpansionCards.cooler];
+  }
+  if (travelPages.has(pageSlug)) {
+    cards = [productExpansionCards.wheeled, productExpansionCards.adventure, productExpansionCards.cooler];
+  }
+  if (!cards.length || html.includes('id="product-expansion"')) return html;
+
+  const section = `<style>.expansion-section{background:#fff8ee}.expansion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.expansion-card{overflow:hidden;background:#fff;border:1px solid #e6d5c3;border-radius:16px;box-shadow:0 12px 34px rgba(65,42,27,.09)}.expansion-card img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}.expansion-card>div{padding:22px}.expansion-card h3{margin:4px 0 10px}.expansion-card a{color:#6f452d;font-weight:800;text-decoration:underline;text-underline-offset:3px}@media(max-width:820px){.expansion-grid{grid-template-columns:1fr}.expansion-card{max-width:620px;margin:0 auto}}</style><section class="section expansion-section" id="product-expansion"><div class="section-head section-heading"><p class="eyebrow">New OEM/ODM Development Concepts</p><h2>Waterproof and Insulated Outdoor Gear</h2><p>Original product directions for brands, teams, hospitality buyers and outdoor programs. Final specifications are confirmed during sampling.</p></div><div class="expansion-grid">${cards.join("")}</div></section>`;
+
+  const insertionPoint = html.indexOf('<section class="section trust-section"');
+  if (insertionPoint >= 0) {
+    return `${html.slice(0, insertionPoint)}${section}${html.slice(insertionPoint)}`;
+  }
+  return html.replace(/<\/main>/i, `${section}</main>`);
 }
 
 function decodeHtmlEntities(text = "") {
@@ -198,7 +241,7 @@ function normalizeHtml(html) {
     .replace(/href="index\.html"/g, 'href="/"')
     .replace(/href="\.\.\/index\.html"/g, 'href="/"')
     .replace(/href="\.\.\/([^"]+)\/"/g, 'href="/$1/"')
-    .replace(/href="(contact|download-catalog|inquiry|why-us|resources|custom-outdoor-multifunctional-bag-manufacturer|custom-outdoor-sports-bag-manufacturer|custom-tennis-bag-manufacturer|custom-pickleball-bag-manufacturer|custom-padel-bag-manufacturer|custom-hiking-backpack-manufacturer|custom-mountaineering-backpack-manufacturer|custom-travel-bag-luggage-manufacturer|custom-rfid-wallet-manufacturer|custom-magsafe-cardholder-manufacturer|custom-phone-pouch-manufacturer|phone-case-cardholder-gift-set-oem|vegan-leather-tech-accessories-manufacturer|eco-tech-smart-bag-manufacturer|rfid-wallet-passport-holder-manufacturer|custom-travel-backpacks-weekender-bags|custom-tennis-padel-racket-bags|custom-hiking-daypacks-outdoor-backpacks|custom-pickleball-paddle-bags|outdoor-multifunctional-bag-manufacturing-guide|outdoor-sports-bag-manufacturing-guide|custom-tennis-bag-guide|pickleball-bag-customization-guide|padel-bag-design-guide|hiking-backpack-customization-guide|mountaineering-backpack-manufacturing-guide|travel-bag-luggage-customization-guide|hotel-group-custom-bag-project-guide|wallet-materials-guide|rfid-wallet-customization-guide|card-holder-customization-guide|eco-tech-bag-material-guide|gps-trackable-bag-guide|logo-customization-guide|private-label-packaging-guide|moq-sampling-faq|quality-inspection-guide|sustainable-bag-wallet-materials-guide|custom-pickleball-bag-landing|custom-tennis-padel-racket-bag-landing|custom-hiking-daypack-landing|custom-gym-duffel-bag-landing|custom-travel-weekender-bag-landing|custom-rfid-wallet-card-holder-landing|gps-trackable-smart-bag-landing|recycled-eco-tech-bag-landing)\//g, 'href="/$1/')
+    .replace(/href="(contact|download-catalog|inquiry|why-us|resources|custom-outdoor-multifunctional-bag-manufacturer|custom-outdoor-sports-bag-manufacturer|custom-tennis-bag-manufacturer|custom-pickleball-bag-manufacturer|custom-padel-bag-manufacturer|custom-hiking-backpack-manufacturer|custom-mountaineering-backpack-manufacturer|custom-travel-bag-luggage-manufacturer|custom-rfid-wallet-manufacturer|custom-magsafe-cardholder-manufacturer|custom-phone-pouch-manufacturer|phone-case-cardholder-gift-set-oem|vegan-leather-tech-accessories-manufacturer|eco-tech-smart-bag-manufacturer|rfid-wallet-passport-holder-manufacturer|custom-travel-backpacks-weekender-bags|custom-tennis-padel-racket-bags|custom-hiking-daypacks-outdoor-backpacks|custom-pickleball-paddle-bags|custom-waterproof-adventure-duffel|custom-waterproof-wheeled-gear-bag|custom-insulated-cooler-backpack|outdoor-multifunctional-bag-manufacturing-guide|outdoor-sports-bag-manufacturing-guide|custom-tennis-bag-guide|pickleball-bag-customization-guide|padel-bag-design-guide|hiking-backpack-customization-guide|mountaineering-backpack-manufacturing-guide|travel-bag-luggage-customization-guide|hotel-group-custom-bag-project-guide|wallet-materials-guide|rfid-wallet-customization-guide|card-holder-customization-guide|eco-tech-bag-material-guide|gps-trackable-bag-guide|logo-customization-guide|private-label-packaging-guide|moq-sampling-faq|quality-inspection-guide|sustainable-bag-wallet-materials-guide|custom-pickleball-bag-landing|custom-tennis-padel-racket-bag-landing|custom-hiking-daypack-landing|custom-gym-duffel-bag-landing|custom-travel-weekender-bag-landing|custom-rfid-wallet-card-holder-landing|gps-trackable-smart-bag-landing|recycled-eco-tech-bag-landing)\//g, 'href="/$1/')
     .replace(/href="#/g, 'href="/#')
     .replace(/id="home"/g, 'id="home" data-rendered-by="next"');
 }
