@@ -37,6 +37,11 @@ const allowedPages = new Set([
   "custom-waterproof-adventure-duffel",
   "custom-waterproof-wheeled-gear-bag",
   "custom-insulated-cooler-backpack",
+  "alcantara-collection",
+  "custom-alcantara-duffle-bag",
+  "custom-alcantara-iphone-case",
+  "custom-alcantara-card-holder",
+  "blog/alcantara-bag-accessory-production-process",
   "outdoor-multifunctional-bag-manufacturing-guide",
   "outdoor-sports-bag-manufacturing-guide",
   "custom-tennis-bag-guide",
@@ -101,9 +106,13 @@ function readStaticPage(slug = []) {
   if (!html) return null;
 
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
-  return addProductExpansionLinks(
-    normalizeHtml(bodyMatch ? bodyMatch[1] : html),
-    slug.join("/")
+  const pageSlug = slug.join("/");
+  return addAlcantaraContextLinks(
+    addProductExpansionLinks(
+      normalizeHtml(bodyMatch ? bodyMatch[1] : html),
+      pageSlug
+    ),
+    pageSlug
   );
 }
 
@@ -144,6 +153,35 @@ function addProductExpansionLinks(html, pageSlug) {
   return html.replace(/<\/main>/i, `${section}</main>`);
 }
 
+const alcantaraCards = {
+  collection: `<article class="alc-card alc-product-card"><img src="/site/assets/alcantara/alcantara-collection-duffle-phone-case-card-holder.avif" width="1448" height="1086" loading="lazy" alt="Coordinated Alcantara duffle bag phone case and card holder collection"><div><h3>Alcantara Collection</h3><p>Coordinate travel bags, phone accessories and card holders around one material, colour and packaging direction.</p><a href="/alcantara-collection/">Explore the collection</a></div></article>`,
+  duffle: `<article class="alc-card alc-product-card"><img src="/site/assets/alcantara/custom-alcantara-duffle-bag-colours.avif" width="1448" height="1086" loading="lazy" alt="Custom Alcantara duffle bags in coordinated colours"><div><h3>Custom Alcantara Duffle Bag</h3><p>Travel-bag development with material review, structure, lining, logo, hardware, sampling and quality control.</p><a href="/custom-alcantara-duffle-bag/">View the duffle bag</a></div></article>`,
+  phone: `<article class="alc-card alc-product-card"><img src="/site/assets/alcantara/custom-alcantara-iphone-case-collection.avif" width="1448" height="1086" loading="lazy" alt="Custom Alcantara iPhone case collection"><div><h3>Custom Alcantara iPhone Case</h3><p>Model-specific private-label development with fit, camera opening, material, logo and packaging review.</p><a href="/custom-alcantara-iphone-case/">View the iPhone case</a></div></article>`,
+  card: `<article class="alc-card alc-product-card"><img src="/site/assets/alcantara/custom-alcantara-card-holder-passport-cover-colours.avif" width="1448" height="1086" loading="lazy" alt="Custom Alcantara card holders and passport covers"><div><h3>Custom Alcantara Card Holder</h3><p>Card holder and passport-cover development with custom slots, edge finishing, logo and gift packaging.</p><a href="/custom-alcantara-card-holder/">View the card holder</a></div></article>`,
+  guide: `<article class="alc-card"><h3>Alcantara Production Guide</h3><p>Follow the workflow from material sourcing and documentation through sampling, bulk production, QC and shipment.</p><a class="alc-link" href="/blog/alcantara-bag-accessory-production-process/">Read the guide</a></article>`
+};
+
+function addAlcantaraContextLinks(html, pageSlug) {
+  if (pageSlug.startsWith("custom-alcantara-") || pageSlug === "alcantara-collection" || pageSlug === "blog/alcantara-bag-accessory-production-process") return html;
+
+  const homePages = new Set([""]);
+  const travelPages = new Set(["custom-travel-backpacks-weekender-bags", "custom-travel-weekender-bag-landing", "custom-travel-bag-luggage-manufacturer"]);
+  const techPages = new Set(["custom-magsafe-cardholder-manufacturer", "custom-phone-pouch-manufacturer", "phone-case-cardholder-gift-set-oem", "vegan-leather-tech-accessories-manufacturer"]);
+  const walletPages = new Set(["custom-cardholder-manufacturer", "rfid-wallet-passport-holder-manufacturer", "custom-rfid-wallet-manufacturer", "custom-rfid-wallet-card-holder-landing", "card-holder-customization-guide"]);
+  const resourcePages = new Set(["resources"]);
+
+  let cards = [];
+  if (homePages.has(pageSlug)) cards = [alcantaraCards.collection, alcantaraCards.duffle, alcantaraCards.phone, alcantaraCards.card];
+  if (travelPages.has(pageSlug)) cards = [alcantaraCards.duffle, alcantaraCards.collection];
+  if (techPages.has(pageSlug)) cards = [alcantaraCards.phone, alcantaraCards.collection];
+  if (walletPages.has(pageSlug)) cards = [alcantaraCards.card, alcantaraCards.collection];
+  if (resourcePages.has(pageSlug)) cards = [alcantaraCards.guide, alcantaraCards.collection];
+  if (!cards.length || html.includes('id="alcantara-entry"')) return html;
+
+  const section = `<section class="alc-section alc-entry-section" id="alcantara-entry"><div class="alc-heading"><h2>Custom Alcantara Bags &amp; Accessories</h2><p>Explore a coordinated OEM/ODM product family with project-specific material sourcing, sampling, branding, packaging and quality control.</p></div><div class="alc-grid">${cards.join("")}</div></section>`;
+  return html.replace(/<\/main>/i, `${section}</main>`);
+}
+
 function decodeHtmlEntities(text = "") {
   return text
     .replace(/&amp;/g, "&")
@@ -168,6 +206,12 @@ function extractMetadata(html, slug = []) {
   const canonicalMatch = html.match(
     /<link\s+rel=["']canonical["']\s+href=["']([\s\S]*?)["']\s*\/?>/i
   );
+  const ogImageMatch = html.match(
+    /<meta\s+property=["']og:image["']\s+content=["']([\s\S]*?)["']\s*\/?>/i
+  );
+  const ogTypeMatch = html.match(
+    /<meta\s+property=["']og:type["']\s+content=["']([\s\S]*?)["']\s*\/?>/i
+  );
 
   const fallbackCanonical = pageSlug
     ? `https://www.cappuccinobag.com/${pageSlug}/`
@@ -176,7 +220,9 @@ function extractMetadata(html, slug = []) {
   return {
     title: decodeHtmlEntities(titleMatch?.[1]?.trim() || ""),
     description: decodeHtmlEntities(descriptionMatch?.[1]?.trim() || ""),
-    canonical: decodeHtmlEntities(canonicalMatch?.[1]?.trim() || "") || fallbackCanonical
+    canonical: decodeHtmlEntities(canonicalMatch?.[1]?.trim() || "") || fallbackCanonical,
+    ogImage: decodeHtmlEntities(ogImageMatch?.[1]?.trim() || ""),
+    ogType: decodeHtmlEntities(ogTypeMatch?.[1]?.trim() || "website")
   };
 }
 
@@ -216,11 +262,15 @@ export async function generateMetadataForStaticPage({ params }) {
     openGraph: {
       title: meta.title,
       description: meta.description,
-      url: meta.canonical
+      url: meta.canonical,
+      type: meta.ogType === "article" ? "article" : "website",
+      ...(meta.ogImage ? { images: [{ url: meta.ogImage }] } : {})
     },
     twitter: {
       title: meta.title,
-      description: meta.description
+      description: meta.description,
+      card: "summary_large_image",
+      ...(meta.ogImage ? { images: [meta.ogImage] } : {})
     },
     robots: {
       index: true,

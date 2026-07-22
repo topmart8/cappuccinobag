@@ -1,4 +1,4 @@
-const baseUrl = "https://cappuccinobag.com";
+const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
   { path: "/", priority: 1.0 },
@@ -33,6 +33,11 @@ const routes = [
   { path: "/resources/quality-inspection-guide/", priority: 0.78 },
   { path: "/resources/moq-sampling-faq/", priority: 0.78 },
   { path: "/factory-trust-materials/", priority: 0.82 },
+  { path: "/alcantara-collection/", priority: 0.94 },
+  { path: "/custom-alcantara-duffle-bag/", priority: 0.92 },
+  { path: "/custom-alcantara-iphone-case/", priority: 0.9 },
+  { path: "/custom-alcantara-card-holder/", priority: 0.9 },
+  { path: "/blog/alcantara-bag-accessory-production-process/", priority: 0.84 },
 ];
 
 export default function sitemap() {
