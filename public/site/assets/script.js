@@ -3,6 +3,22 @@ const inquiryForms = document.querySelectorAll(".inquiry-form");
 const whatsappUrl =
   "https://wa.me/8613928715568?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details.";
 
+function preselectInquiryContext(form) {
+  const params = new URLSearchParams(window.location.search);
+  const project = params.get("product") || "";
+  const format = params.get("format") || "";
+  if (!/padel/i.test(project)) return;
+  const intention = form.elements.inquiry_intention;
+  const product = form.elements.product_needed;
+  const message = form.elements.message;
+  if (intention) {
+    const option = Array.from(intention.options).find((item) => /padel/i.test(item.value));
+    if (option) intention.value = option.value;
+  }
+  if (product) product.value = "Padel Bags";
+  if (message && format) message.value = `Padel product format: ${format}\n`;
+}
+
 function showToast(message) {
   const oldToast = document.querySelector(".toast");
   if (oldToast) oldToast.remove();
@@ -85,6 +101,7 @@ function validateInquiryForm(form) {
 }
 
 inquiryForms.forEach((form) => {
+  preselectInquiryContext(form);
   form.addEventListener("input", (event) => {
     const field = event.target;
     if (!field.matches("input, textarea")) return;

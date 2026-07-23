@@ -8,6 +8,7 @@ const publicRoot = path.join(process.cwd(), "public");
 const publicRootPages = new Set([
   "custom-hiking-daypacks-outdoor-backpacks",
   "custom-pickleball-paddle-bags",
+  "padel-brand-collection-development",
 ]);
 const allowedPages = new Set([
   "",
@@ -21,6 +22,7 @@ const allowedPages = new Set([
   "custom-tennis-bag-manufacturer",
   "custom-pickleball-bag-manufacturer",
   "custom-padel-bag-manufacturer",
+  "custom-convertible-padel-backpack-duffel",
   "custom-hiking-backpack-manufacturer",
   "custom-mountaineering-backpack-manufacturer",
   "custom-travel-bag-luggage-manufacturer",
@@ -113,7 +115,7 @@ function readStaticPage(slug = []) {
 
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
   const pageSlug = slug.join("/");
-  return addBuyerGuideLinks(
+  return addPadelHomeEntry(addBuyerGuideLinks(
     addAlcantaraContextLinks(
       addProductExpansionLinks(
         normalizeHtml(bodyMatch ? bodyMatch[1] : html),
@@ -122,7 +124,20 @@ function readStaticPage(slug = []) {
       pageSlug
     ),
     pageSlug
-  );
+  ), pageSlug);
+}
+
+function addPadelHomeEntry(html, pageSlug) {
+  if (pageSlug !== "") return html;
+  return html
+    .replace(
+      /<div class="hero-actions">[\s\S]*?<\/div>(?=<\/div><\/section>)/,
+      '<div class="hero-actions"><a class="btn btn-primary" href="/custom-padel-bags.html">View Padel Bag Collection</a><a class="btn btn-secondary" href="/inquiry/?product=Padel%20Bag%20Project">Start Your Custom Project</a></div>'
+    )
+    .replace(
+      /<section class="section" id="collections">/,
+      '<section class="section" id="padel-collection-development"><div class="section-heading"><p class="eyebrow">Padel collection development</p><h2>Build a Complete Padel Bag Collection for Your Brand</h2><p>Cappuccino Bag helps padel brands extend their racket and apparel identity into coordinated private-label racket bags, backpacks, shoe bags and accessories.</p></div><div class="solution-grid"><article class="solution-card"><h3>Match racket colors</h3><p>Coordinate approved colors, logo rules, fabrics and trims.</p></article><article class="solution-card"><h3>Build a connected range</h3><p>Develop bags, shoe bags, pouches and accessories.</p></article><article class="solution-card"><h3>Sample and revise</h3><p>Review construction, carry, compartments and branding.</p></article><article class="solution-card"><h3>Prepare for production</h3><p>Transfer approvals into specifications and QC checkpoints.</p></article></div><p><a class="btn btn-primary" href="/padel-brand-collection-development/">Explore Padel Collection Development</a></p></section><section class="section" id="collections">'
+    );
 }
 
 const productExpansionCards = {
