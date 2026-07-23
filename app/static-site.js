@@ -45,6 +45,9 @@ const allowedPages = new Set([
   "custom-alcantara-iphone-case",
   "custom-alcantara-card-holder",
   "blog/alcantara-bag-accessory-production-process",
+  "blog/how-to-source-custom-waterproof-roll-top-backpack",
+  "blog/custom-cooler-tote-bag-development-guide",
+  "blog/laptop-travel-backpack-oem-buying-guide",
   "outdoor-multifunctional-bag-manufacturing-guide",
   "outdoor-sports-bag-manufacturing-guide",
   "custom-tennis-bag-guide",
@@ -110,9 +113,12 @@ function readStaticPage(slug = []) {
 
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
   const pageSlug = slug.join("/");
-  return addAlcantaraContextLinks(
-    addProductExpansionLinks(
-      normalizeHtml(bodyMatch ? bodyMatch[1] : html),
+  return addBuyerGuideLinks(
+    addAlcantaraContextLinks(
+      addProductExpansionLinks(
+        normalizeHtml(bodyMatch ? bodyMatch[1] : html),
+        pageSlug
+      ),
       pageSlug
     ),
     pageSlug
@@ -156,6 +162,19 @@ function addProductExpansionLinks(html, pageSlug) {
   if (insertionPoint >= 0) {
     return `${html.slice(0, insertionPoint)}${section}${html.slice(insertionPoint)}`;
   }
+  return html.replace(/<\/main>/i, `${section}</main>`);
+}
+
+const buyerGuideCards = [
+  `<article class="guide-entry-card"><p class="eyebrow">Waterproof Product Development</p><h3>How to Source a Custom Roll-Top Backpack</h3><p>A practical brief for comparing coated materials, closure construction, carry comfort, sample tests and supplier quotations.</p><a href="/blog/how-to-source-custom-waterproof-roll-top-backpack/">Read the sourcing guide</a></article>`,
+  `<article class="guide-entry-card"><p class="eyebrow">Insulated Bag Development</p><h3>What to Decide Before Sampling a Cooler Tote</h3><p>How capacity, lining, insulation, cleaning, carry and test language shape a credible private-label cooler program.</p><a href="/blog/custom-cooler-tote-bag-development-guide/">Read the development guide</a></article>`,
+  `<article class="guide-entry-card"><p class="eyebrow">Travel Product Development</p><h3>Choosing a Laptop Travel Backpack Manufacturer</h3><p>A buyer's checklist for device fit, packing architecture, high-contact reinforcement, approvals and production QC.</p><a href="/blog/laptop-travel-backpack-oem-buying-guide/">Read the buying guide</a></article>`
+];
+
+function addBuyerGuideLinks(html, pageSlug) {
+  if (pageSlug !== "resources" || html.includes('id="new-buyer-guides"')) return html;
+
+  const section = `<style>.guide-entry-section{background:#f7f0e6}.guide-entry-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.guide-entry-card{padding:28px;background:#fffaf4;border:1px solid #decbb8;border-radius:14px}.guide-entry-card h3{margin:7px 0 12px;color:#3a281d;font-size:24px;line-height:1.12}.guide-entry-card a{color:#6f452d;font-weight:800;text-decoration:underline;text-underline-offset:3px}@media(max-width:820px){.guide-entry-grid{grid-template-columns:1fr}}</style><section class="section guide-entry-section" id="new-buyer-guides"><div class="section-head section-heading"><p class="eyebrow">New Buyer Guides</p><h2>From Search Query to Production-Ready Brief</h2><p>Three focused guides for buyers developing waterproof, insulated and business-travel bag programs.</p></div><div class="guide-entry-grid">${buyerGuideCards.join("")}</div></section>`;
   return html.replace(/<\/main>/i, `${section}</main>`);
 }
 

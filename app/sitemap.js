@@ -41,6 +41,9 @@ const routes = [
   { path: "/custom-alcantara-iphone-case/", priority: 0.9 },
   { path: "/custom-alcantara-card-holder/", priority: 0.9 },
   { path: "/blog/alcantara-bag-accessory-production-process/", priority: 0.84 },
+  { path: "/blog/how-to-source-custom-waterproof-roll-top-backpack/", priority: 0.84 },
+  { path: "/blog/custom-cooler-tote-bag-development-guide/", priority: 0.84 },
+  { path: "/blog/laptop-travel-backpack-oem-buying-guide/", priority: 0.84 },
 ];
 
 export default function sitemap() {
