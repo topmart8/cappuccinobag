@@ -44,7 +44,7 @@ export async function getProductMetadata({ params, categorySlug }) {
       type: "website",
       images: [
         {
-          url: product.images[0].src,
+          url: `${siteUrl}${product.images[0].src}`,
           width: 1200,
           height: 1200,
           alt: product.images[0].alt,
@@ -55,7 +55,7 @@ export async function getProductMetadata({ params, categorySlug }) {
       card: "summary_large_image",
       title: product.metaTitle,
       description: product.metaDescription,
-      images: [product.images[0].src],
+      images: [`${siteUrl}${product.images[0].src}`],
     },
     robots: { index: true, follow: true },
   };
