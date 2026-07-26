@@ -55,6 +55,9 @@ const routes = [
   { path: "/blog/how-to-source-custom-waterproof-roll-top-backpack/", priority: 0.84 },
   { path: "/blog/custom-cooler-tote-bag-development-guide/", priority: 0.84 },
   { path: "/blog/laptop-travel-backpack-oem-buying-guide/", priority: 0.84 },
+  { path: "/blog/verify-custom-bag-manufacturer-china/", priority: 0.84 },
+  { path: "/blog/custom-bag-development-quality-control-process/", priority: 0.84 },
+  { path: "/blog/bag-manufacturer-compliance-documents-explained/", priority: 0.84 },
 ];
 
 export default function sitemap() {
