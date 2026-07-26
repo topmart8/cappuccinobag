@@ -115,7 +115,7 @@ function readStaticPage(slug = []) {
 
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
   const pageSlug = slug.join("/");
-  return addPadelHomeEntry(addBuyerGuideLinks(
+  return addPadelCollectionEntry(addPadelHomeEntry(addBuyerGuideLinks(
     addAlcantaraContextLinks(
       addProductExpansionLinks(
         normalizeHtml(bodyMatch ? bodyMatch[1] : html),
@@ -124,28 +124,70 @@ function readStaticPage(slug = []) {
       pageSlug
     ),
     pageSlug
-  ), pageSlug);
+  ), pageSlug), pageSlug);
 }
 
 function addPadelHomeEntry(html, pageSlug) {
   if (pageSlug !== "") return html;
   return html
     .replace(
-      /<img class="hero-image"[^>]*>/,
-      '<img class="hero-image" src="/images/padel/hero-lifestyle-padel-court-cappuccino.webp" alt="Cappuccino Padel Bag Collection 2026 custom padel bags for global sports brands" width="1672" height="941" fetchpriority="high">'
-    )
-    .replace(
-      /<div class="hero-content"><h1>[\s\S]*?<\/h1><p>[\s\S]*?<\/p>/,
-      '<div class="hero-content"><h1>Cappuccino Padel Bag Collection 2026</h1><p>Custom Padel Bags, Racquet Sports Bags &amp; Multifunctional Travel Bags for Global Brands</p>'
-    )
-    .replace(
-      /<div class="hero-actions">[\s\S]*?<\/div>(?=<\/div><\/section>)/,
-      '<div class="hero-actions"><a class="btn btn-primary" href="/inquiry/?product=Padel%20Bag%20Collection%202026">Request OEM/ODM Quote</a><a class="btn btn-secondary" href="/custom-padel-bag-manufacturer/">View Padel Collection</a></div>'
-    )
-    .replace(
       /<section class="section" id="collections">/,
-      '<style>.hero-content h1{color:#21170f}.padel-home-collection{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:76px 0}.padel-home-banner{overflow:hidden;border-radius:16px;background:#171411;color:#fff}.padel-home-banner img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover}.padel-home-banner-copy{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:34px}.padel-home-banner-copy h2{margin:0;font-size:clamp(32px,4vw,52px);line-height:1.04}.padel-home-banner-copy p{margin:0;color:#e7ddd2;line-height:1.75}.padel-home-banner-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}@media(max-width:760px){.padel-home-collection{width:calc(100% - 28px);padding:54px 0}.padel-home-banner-copy{grid-template-columns:1fr;padding:24px}}</style><section class="padel-home-collection" id="padel-collection-2026"><div class="padel-home-banner"><img src="/images/padel/cappuccino-padel-bag-collection-2026-banner.webp" width="1672" height="941" loading="lazy" alt="Cappuccino Padel Bag Collection 2026 with padel backpacks racket bags duffel bags and multifunctional sports bags"><div class="padel-home-banner-copy"><div><p class="eyebrow">Private-label ready</p><h2>Cappuccino Padel Bag Collection 2026</h2></div><div><p>A private-label ready collection covering padel backpacks, racket bags, duffel bags and multifunctional sports travel bags.</p><div class="padel-home-banner-actions"><a class="btn btn-primary" href="/custom-padel-bag-manufacturer/">View Padel Collection</a><a class="btn btn-secondary" href="/inquiry/?product=Padel%20Bag%20Collection%202026">Request OEM/ODM Quote</a></div></div></div></div></section><section class="section" id="collections">'
+      '<style>.padel-home-collection{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:76px 0}.padel-home-banner{overflow:hidden;border-radius:16px;background:#171411;color:#fff}.padel-home-banner img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover}.padel-home-banner-copy{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:34px}.padel-home-banner-copy h2{margin:0;font-size:clamp(32px,4vw,52px);line-height:1.04}.padel-home-banner-copy p{margin:0;color:#e7ddd2;line-height:1.75}.padel-home-banner-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}@media(max-width:760px){.padel-home-collection{width:calc(100% - 28px);padding:54px 0}.padel-home-banner-copy{grid-template-columns:1fr;padding:24px}}</style><section class="padel-home-collection" id="padel-collection-2026"><div class="padel-home-banner"><img src="/images/padel/cappuccino-padel-collection-2026-lifestyle.png" width="1672" height="941" loading="lazy" alt="Cappuccino Padel Collection 2026 lifestyle scene for private-label sports bag development"><div class="padel-home-banner-copy"><div><p class="eyebrow">OEM/ODM development directions</p><h2>Cappuccino Padel Collection 2026</h2></div><div><p>Explore coordinated racket duffel, backpack, shoe bag and court organizer concepts. Final specifications, MOQ, price and lead time are confirmed during sampling and quotation.</p><div class="padel-home-banner-actions"><a class="btn btn-primary" href="/custom-padel-bag-manufacturer/">View Padel Collection</a><a class="btn btn-secondary" href="/inquiry/?product=Padel%20Bags&amp;format=Padel%20Collection%202026">Request OEM/ODM Quote</a></div></div></div></div></section><section class="section" id="collections">'
     );
+}
+
+const padelCollectionCards = [
+  {
+    sku: "S001",
+    name: "Performance 60L Padel Racket Duffel",
+    category: "Padel Bags",
+    image: "/images/padel/S001/S001-01-main.png",
+    alt: "Custom full-size padel racket duffel bag in graphite and warm stone",
+    href: "/padel-bags/custom-60l-padel-racket-duffel/",
+  },
+  {
+    sku: "S002",
+    name: "Urban 30L Padel Backpack",
+    category: "Padel Bags",
+    image: "/images/padel/S002/S002-01-main.png",
+    alt: "Custom 30L padel backpack in graphite and warm stone",
+    href: "/padel-bags/custom-30l-padel-backpack/",
+  },
+  {
+    sku: "S003",
+    name: "Ventilated Padel Shoe Bag",
+    category: "Padel Accessories",
+    image: "/images/padel/S003/S003-01-main.png",
+    alt: "Custom ventilated padel shoe bag",
+    href: "/padel-accessories/custom-ventilated-padel-shoe-bag/",
+  },
+  {
+    sku: "S004",
+    name: "Court Essentials Organizer Pouch",
+    category: "Padel Accessories",
+    image: "/images/padel/S004/S004-01-main.png",
+    alt: "Custom padel accessories organizer pouch",
+    href: "/padel-accessories/custom-padel-organizer-pouch/",
+  },
+];
+
+function addPadelCollectionEntry(html, pageSlug) {
+  if (
+    pageSlug !== "custom-padel-bag-manufacturer" ||
+    html.includes('id="padel-collection-2026-products"')
+  ) {
+    return html;
+  }
+
+  const cards = padelCollectionCards
+    .map(
+      (product) =>
+        `<article class="padel-collection-card"><img src="${product.image}" width="1200" height="1200" loading="lazy" alt="${product.alt}"><div><p class="eyebrow">${product.sku} · ${product.category}</p><h3>${product.name}</h3><a href="${product.href}">View product direction</a></div></article>`,
+    )
+    .join("");
+  const section = `<style>.padel-collection-launch{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:76px 0}.padel-collection-hero{overflow:hidden;margin-bottom:42px;border-radius:16px;background:#171411;color:#fff}.padel-collection-hero img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover}.padel-collection-copy{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;padding:34px}.padel-collection-copy h2{margin:0;font-size:clamp(34px,4vw,54px);line-height:1.04}.padel-collection-copy p{margin:0;color:#e7ddd2;line-height:1.75}.padel-collection-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.padel-collection-card{overflow:hidden;background:#fff;border:1px solid #d8ded2;border-radius:14px}.padel-collection-card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}.padel-collection-card>div{padding:24px}.padel-collection-card h3{margin:7px 0 14px;font-size:26px;line-height:1.12}.padel-collection-card a{color:#6f452d;font-weight:800;text-decoration:underline;text-underline-offset:3px}.padel-collection-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}@media(max-width:760px){.padel-collection-launch{width:calc(100% - 28px);padding:54px 0}.padel-collection-copy,.padel-collection-grid{grid-template-columns:1fr}.padel-collection-copy{gap:18px;padding:24px}}</style><section class="padel-collection-launch" id="padel-collection-2026-products"><div class="padel-collection-hero"><img src="/images/padel/cappuccino-padel-collection-2026-studio.png" width="1672" height="941" loading="eager" alt="Cappuccino Padel Collection 2026 studio lineup of coordinated bags and accessories"><div class="padel-collection-copy"><h2>Cappuccino Padel Collection 2026</h2><p>Four coordinated OEM/ODM product development directions for padel brands, clubs, specialist retailers, importers and wholesalers. Final capacity, dimensions, materials, MOQ, price and lead time are confirmed during sampling and quotation.</p></div></div><div class="padel-collection-grid">${cards}</div><div class="padel-collection-links"><a class="btn btn-primary" href="/padel-accessories/">Explore Padel Accessories</a><a class="btn btn-secondary" href="/inquiry/?product=Padel%20Bags&amp;format=Padel%20Collection%202026">Request Collection Quote</a></div></section>`;
+
+  return html.replace(/<section class="section">/, `${section}<section class="section">`);
 }
 
 const productExpansionCards = {
