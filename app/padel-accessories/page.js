@@ -1,9 +1,13 @@
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 import { PadelFooter, PadelHeader } from "../padel-components";
 import { getPadelProductsByCategory, siteUrl } from "../padel-products";
 
 const accessories = getPadelProductsByCategory("padel-accessories");
+
+function Link(props) {
+  return <NextLink {...props} prefetch={false} />;
+}
 
 export const metadata = {
   title: "Custom Padel Accessories | Private Label OEM Development",

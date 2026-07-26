@@ -1,8 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 import { notFound } from "next/navigation";
 import { PadelFooter, PadelHeader } from "./padel-components";
 import { padelProductEntries, padelProducts, siteUrl } from "./padel-products";
+
+function Link(props) {
+  return <NextLink {...props} prefetch={false} />;
+}
 
 const developmentNotice =
   "This page presents an OEM/ODM product development direction, not a stocked retail item. Final capacity, dimensions, materials, MOQ, pricing and lead time are confirmed during specification review, sampling and quotation.";

@@ -1,4 +1,8 @@
-import Link from "next/link";
+import NextLink from "next/link";
+
+function Link(props) {
+  return <NextLink {...props} prefetch={false} />;
+}
 
 export function PadelHeader() {
   return (
