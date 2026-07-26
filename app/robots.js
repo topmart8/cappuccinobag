@@ -4,7 +4,7 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://cappuccinobag.com/sitemap.xml",
-    host: "https://cappuccinobag.com",
+    sitemap: "https://www.cappuccinobag.com/sitemap.xml",
+    host: "https://www.cappuccinobag.com",
   };
 }

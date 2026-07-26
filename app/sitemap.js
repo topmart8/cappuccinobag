@@ -1,4 +1,4 @@
-const baseUrl = "https://cappuccinobag.com";
+const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
   { path: "/", priority: 1.0 },
@@ -7,13 +7,25 @@ const routes = [
   { path: "/blog/company-bio/", priority: 0.75 },
   { path: "/oem-odm-functional-bag-manufacturer-faq/", priority: 0.9 },
   { path: "/custom-tennis-padel-racket-bags/", priority: 0.95 },
+  { path: "/custom-convertible-padel-backpack-duffel/", priority: 0.94 },
   { path: "/custom-pickleball-paddle-bags/", priority: 0.95 },
   { path: "/custom-hiking-daypacks-outdoor-backpacks/", priority: 0.95 },
+  { path: "/custom-waterproof-adventure-duffel/", priority: 0.92 },
+  { path: "/custom-waterproof-wheeled-gear-bag/", priority: 0.92 },
+  { path: "/custom-insulated-cooler-backpack/", priority: 0.92 },
+  { path: "/custom-waterproof-roll-top-backpack/", priority: 0.92 },
+  { path: "/custom-insulated-cooler-tote-bag/", priority: 0.92 },
+  { path: "/custom-laptop-travel-backpack/", priority: 0.92 },
   { path: "/custom-rfid-wallet-manufacturer/", priority: 0.9 },
+  { path: "/custom-magsafe-cardholder-manufacturer/", priority: 0.86 },
+  { path: "/custom-phone-pouch-manufacturer/", priority: 0.86 },
+  { path: "/phone-case-cardholder-gift-set-oem/", priority: 0.86 },
+  { path: "/vegan-leather-tech-accessories-manufacturer/", priority: 0.86 },
   { path: "/custom-cardholder-manufacturer/", priority: 0.9 },
   { path: "/rfid-wallets-passport-holders/", priority: 0.88 },
   { path: "/hotel-group-custom-bag-project-guide/", priority: 0.88 },
   { path: "/custom-padel-bags.html", priority: 0.9 },
+  { path: "/padel-brand-collection-development/", priority: 0.9 },
   { path: "/custom-pickleball-bags.html", priority: 0.9 },
   { path: "/custom-tennis-bags.html", priority: 0.9 },
   { path: "/custom-hiking-backpacks.html", priority: 0.9 },
@@ -26,6 +38,14 @@ const routes = [
   { path: "/resources/quality-inspection-guide/", priority: 0.78 },
   { path: "/resources/moq-sampling-faq/", priority: 0.78 },
   { path: "/factory-trust-materials/", priority: 0.82 },
+  { path: "/alcantara-collection/", priority: 0.94 },
+  { path: "/custom-alcantara-duffle-bag/", priority: 0.92 },
+  { path: "/custom-alcantara-iphone-case/", priority: 0.9 },
+  { path: "/custom-alcantara-card-holder/", priority: 0.9 },
+  { path: "/blog/alcantara-bag-accessory-production-process/", priority: 0.84 },
+  { path: "/blog/how-to-source-custom-waterproof-roll-top-backpack/", priority: 0.84 },
+  { path: "/blog/custom-cooler-tote-bag-development-guide/", priority: 0.84 },
+  { path: "/blog/laptop-travel-backpack-oem-buying-guide/", priority: 0.84 },
 ];
 
 export default function sitemap() {
