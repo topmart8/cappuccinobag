@@ -1,6 +1,7 @@
 {
   "scripts": {
     "dev": "next dev",
+    "lint": "eslint app",
     "build": "next build",
     "start": "next start"
   },
@@ -8,5 +9,9 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.11"
   }
 }

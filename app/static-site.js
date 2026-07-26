@@ -131,12 +131,20 @@ function addPadelHomeEntry(html, pageSlug) {
   if (pageSlug !== "") return html;
   return html
     .replace(
+      /<img class="hero-image"[^>]*>/,
+      '<img class="hero-image" src="/images/padel/hero-lifestyle-padel-court-cappuccino.webp" alt="Cappuccino Padel Bag Collection 2026 custom padel bags for global sports brands" width="1672" height="941" fetchpriority="high">'
+    )
+    .replace(
+      /<div class="hero-content"><h1>[\s\S]*?<\/h1><p>[\s\S]*?<\/p>/,
+      '<div class="hero-content"><h1>Cappuccino Padel Bag Collection 2026</h1><p>Custom Padel Bags, Racquet Sports Bags &amp; Multifunctional Travel Bags for Global Brands</p>'
+    )
+    .replace(
       /<div class="hero-actions">[\s\S]*?<\/div>(?=<\/div><\/section>)/,
-      '<div class="hero-actions"><a class="btn btn-primary" href="/custom-padel-bags.html">View Padel Bag Collection</a><a class="btn btn-secondary" href="/inquiry/?product=Padel%20Bag%20Project">Start Your Custom Project</a></div>'
+      '<div class="hero-actions"><a class="btn btn-primary" href="/inquiry/?product=Padel%20Bag%20Collection%202026">Request OEM/ODM Quote</a><a class="btn btn-secondary" href="/custom-padel-bag-manufacturer/">View Padel Collection</a></div>'
     )
     .replace(
       /<section class="section" id="collections">/,
-      '<section class="section" id="padel-collection-development"><div class="section-heading"><p class="eyebrow">Padel collection development</p><h2>Build a Complete Padel Bag Collection for Your Brand</h2><p>Cappuccino Bag helps padel brands extend their racket and apparel identity into coordinated private-label racket bags, backpacks, shoe bags and accessories.</p></div><div class="solution-grid"><article class="solution-card"><h3>Match racket colors</h3><p>Coordinate approved colors, logo rules, fabrics and trims.</p></article><article class="solution-card"><h3>Build a connected range</h3><p>Develop bags, shoe bags, pouches and accessories.</p></article><article class="solution-card"><h3>Sample and revise</h3><p>Review construction, carry, compartments and branding.</p></article><article class="solution-card"><h3>Prepare for production</h3><p>Transfer approvals into specifications and QC checkpoints.</p></article></div><p><a class="btn btn-primary" href="/padel-brand-collection-development/">Explore Padel Collection Development</a></p></section><section class="section" id="collections">'
+      '<style>.hero-content h1{color:#21170f}.padel-home-collection{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:76px 0}.padel-home-banner{overflow:hidden;border-radius:16px;background:#171411;color:#fff}.padel-home-banner img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover}.padel-home-banner-copy{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:34px}.padel-home-banner-copy h2{margin:0;font-size:clamp(32px,4vw,52px);line-height:1.04}.padel-home-banner-copy p{margin:0;color:#e7ddd2;line-height:1.75}.padel-home-banner-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}@media(max-width:760px){.padel-home-collection{width:calc(100% - 28px);padding:54px 0}.padel-home-banner-copy{grid-template-columns:1fr;padding:24px}}</style><section class="padel-home-collection" id="padel-collection-2026"><div class="padel-home-banner"><img src="/images/padel/cappuccino-padel-bag-collection-2026-banner.webp" width="1672" height="941" loading="lazy" alt="Cappuccino Padel Bag Collection 2026 with padel backpacks racket bags duffel bags and multifunctional sports bags"><div class="padel-home-banner-copy"><div><p class="eyebrow">Private-label ready</p><h2>Cappuccino Padel Bag Collection 2026</h2></div><div><p>A private-label ready collection covering padel backpacks, racket bags, duffel bags and multifunctional sports travel bags.</p><div class="padel-home-banner-actions"><a class="btn btn-primary" href="/custom-padel-bag-manufacturer/">View Padel Collection</a><a class="btn btn-secondary" href="/inquiry/?product=Padel%20Bag%20Collection%202026">Request OEM/ODM Quote</a></div></div></div></div></section><section class="section" id="collections">'
     );
 }
 
