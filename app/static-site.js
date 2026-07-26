@@ -8,6 +8,7 @@ const publicRoot = path.join(process.cwd(), "public");
 const publicRootPages = new Set([
   "custom-hiking-daypacks-outdoor-backpacks",
   "custom-pickleball-paddle-bags",
+  "factory-trust-materials",
   "padel-brand-collection-development",
 ]);
 const allowedPages = new Set([
@@ -50,6 +51,9 @@ const allowedPages = new Set([
   "blog/how-to-source-custom-waterproof-roll-top-backpack",
   "blog/custom-cooler-tote-bag-development-guide",
   "blog/laptop-travel-backpack-oem-buying-guide",
+  "blog/verify-custom-bag-manufacturer-china",
+  "blog/custom-bag-development-quality-control-process",
+  "blog/bag-manufacturer-compliance-documents-explained",
   "outdoor-multifunctional-bag-manufacturing-guide",
   "outdoor-sports-bag-manufacturing-guide",
   "custom-tennis-bag-guide",
@@ -332,6 +336,16 @@ function extractInlineStyles(html) {
     .filter(Boolean);
 }
 
+function extractLocalStylesheets(html) {
+  return Array.from(
+    html.matchAll(
+      /<link[^>]*rel=["']stylesheet["'][^>]*href=["'](\/[^"']+)["'][^>]*>/gi
+    )
+  )
+    .map((match) => match[1]?.trim())
+    .filter(Boolean);
+}
+
 export async function generateMetadataForStaticPage({ params }) {
   const resolvedParams = await params;
   const slug = resolvedParams?.slug || [];
@@ -395,9 +409,13 @@ export async function StaticSitePage({ params }) {
 
   const jsonLdScripts = sourceHtml ? extractJsonLdScripts(sourceHtml) : [];
   const inlineStyles = sourceHtml ? extractInlineStyles(sourceHtml) : [];
+  const localStylesheets = sourceHtml ? extractLocalStylesheets(sourceHtml) : [];
 
   return (
     <>
+      {localStylesheets.map((href) => (
+        <link key={href} rel="stylesheet" href={href} />
+      ))}
       {inlineStyles.map((css, index) => (
         <style
           key={`inline-style-${index}`}
