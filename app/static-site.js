@@ -410,6 +410,7 @@ function normalizeHtml(html) {
   return html
     .replace(/<script\b[\s\S]*?<\/script>/gi, "")
     .replace(/src="(?:\.\.\/)?assets\//g, 'src="/site/assets/')
+    .replace(/poster="(?:\.\.\/)?assets\//g, 'poster="/site/assets/')
     .replace(/href="(?:\.\.\/)?assets\//g, 'href="/site/assets/')
     .replace(/href="\/index\.html#([^"]+)"/g, 'href="/#$1"')
     .replace(/href="index\.html#([^"]+)"/g, 'href="/#$1"')

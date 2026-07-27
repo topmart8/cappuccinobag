@@ -1194,3 +1194,4 @@ img {
   .running-actions,.running-actions .btn{width:100%}.running-actions .btn{justify-content:center}
   .running-rfq{padding-right:18px;padding-left:18px}
 }
+.whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:9999;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#1fae5b;color:#fff;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.24);font:700 22px/1 Arial,sans-serif}.whatsapp-float:hover,.whatsapp-float:focus-visible{transform:translateY(-2px);background:#168a48}.whatsapp-pulse{position:absolute;inset:-5px;border:2px solid rgba(31,174,91,.35);border-radius:50%;pointer-events:none}

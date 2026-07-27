@@ -5,6 +5,9 @@ const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
   { path: "/", priority: 1.0 },
+  { path: "/inquiry/", priority: 0.95 },
+  { path: "/rfq", priority: 0.94 },
+  { path: "/contact/", priority: 0.9 },
   { path: "/about-us/", priority: 0.9 },
   { path: "/faq/", priority: 0.86 },
   { path: "/blog/company-bio/", priority: 0.75 },

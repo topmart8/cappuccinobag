@@ -1,7 +1,48 @@
 const forms = document.querySelectorAll(".lead-form");
 const inquiryForms = document.querySelectorAll(".inquiry-form");
-const whatsappUrl =
-  "https://wa.me/8613928715568?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details.";
+const whatsappBase = "https://wa.me/8613928715568";
+const attributionKey = "cappuccino_first_touch";
+
+function getAttribution() {
+  const params = new URLSearchParams(window.location.search);
+  const current = {
+    site: "cappuccinobag",
+    first_landing_page: window.location.href,
+    first_visit_time: new Date().toISOString(),
+    referrer: document.referrer || "",
+    utm_source: params.get("utm_source") || "",
+    utm_medium: params.get("utm_medium") || "",
+    utm_campaign: params.get("utm_campaign") || "",
+    utm_content: params.get("utm_content") || "",
+    utm_term: params.get("utm_term") || "",
+    gclid: params.get("gclid") || "",
+    msclkid: params.get("msclkid") || "",
+  };
+  try {
+    const saved = JSON.parse(window.localStorage.getItem(attributionKey) || "null");
+    const value = saved || current;
+    if (!saved) {
+      window.localStorage.setItem(attributionKey, JSON.stringify(value));
+      document.cookie = `${attributionKey}=${encodeURIComponent(JSON.stringify(value))}; Max-Age=15552000; Path=/; SameSite=Lax; Secure`;
+    }
+    return {
+      ...value,
+      current_page_url: window.location.href,
+      submit_time: new Date().toISOString(),
+      device: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop",
+    };
+  } catch {
+    return { ...current, current_page_url: window.location.href, submit_time: new Date().toISOString() };
+  }
+}
+
+function getWhatsAppUrl() {
+  const page = window.location.href.slice(0, 700);
+  const context = new URLSearchParams(window.location.search).get("product") || document.querySelector("h1")?.textContent?.trim() || "your products";
+  const code = /padel|pickleball|tennis/i.test(context) ? "CAP-PDL" : /travel/i.test(context) ? "CAP-TRV" : "CAP-OUT";
+  const message = `Hello Cappuccino Bag, I am interested in ${context}. I visited: ${page}. Source: ${code}`;
+  return `${whatsappBase}?text=${encodeURIComponent(message)}`;
+}
 
 function preselectInquiryContext(form) {
   const params = new URLSearchParams(window.location.search);
@@ -44,8 +85,8 @@ forms.forEach((form) => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formName = form.dataset.form || "inquiry";
-    const endpoint = form.dataset.endpoint;
-    const payload = Object.fromEntries(new FormData(form).entries());
+    const endpoint = "/api/inquiries";
+    const payload = { ...Object.fromEntries(new FormData(form).entries()), ...getAttribution() };
 
     if (endpoint) {
       try {
@@ -137,9 +178,10 @@ inquiryForms.forEach((form) => {
     if (!validateInquiryForm(form)) return;
 
     const submitButton = form.querySelector('button[type="submit"]');
-    const endpoint = form.dataset.endpoint;
+    const endpoint = "/api/inquiries";
     const formData = new FormData(form);
     formData.delete("website");
+    Object.entries(getAttribution()).forEach(([key, value]) => formData.set(key, value || ""));
     const hasFile = Array.from(
       form.querySelectorAll('input[type="file"]'),
     ).some((input) => input.files && input.files.length);
@@ -242,7 +284,7 @@ function addWhatsAppFloat() {
   if (document.querySelector(".whatsapp-float")) return;
   const link = document.createElement("a");
   link.className = "whatsapp-float";
-  link.href = whatsappUrl;
+  link.href = getWhatsAppUrl();
   link.target = "_blank";
   link.rel = "noopener";
   link.setAttribute("aria-label", "Chat with us on WhatsApp");
@@ -250,6 +292,13 @@ function addWhatsAppFloat() {
   link.innerHTML =
     '<span class="whatsapp-icon">☎</span><span class="whatsapp-pulse"></span>';
   document.body.appendChild(link);
+}
+
+function brandWhatsAppLinks() {
+  document.querySelectorAll('a[href*="wa.me/"]').forEach((link) => {
+    link.href = getWhatsAppUrl();
+    link.rel = "noopener noreferrer";
+  });
 }
 
 function addQuoteFloat() {
@@ -263,6 +312,7 @@ function addQuoteFloat() {
   document.body.appendChild(link);
 }
 
+brandWhatsAppLinks();
 addWhatsAppFloat();
 addQuoteFloat();
 hydrateLazyVideos();

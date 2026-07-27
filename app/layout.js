@@ -1,4 +1,6 @@
 import "./globals.css";
+import BrandWhatsAppButton from "../components/BrandWhatsAppButton";
+import AttributionTracker from "../components/AttributionTracker";
 
 export const metadata = {
   metadataBase: new URL("https://cappuccinobag.com"),
@@ -39,12 +41,15 @@ export const metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: "/site/assets/cappuccino-logo.png",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><AttributionTracker />{children}<BrandWhatsAppButton /></body>
     </html>
   );
 }
