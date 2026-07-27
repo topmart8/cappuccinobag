@@ -9,6 +9,7 @@ const redirectPairs = [
   ["/rfid-card-holder", "/rfid-wallet-passport-holder-manufacturer/"],
   ["/vegan-leather-wallet", "/vegan-leather-tech-accessories-manufacturer/"],
   ["/gps-ready-smart-travel-bag", "/gps-trackable-smart-bag-landing/"],
+  ["/running-waist-packs-running-belt-bags", "/running-waist-packs/"],
 ];
 
 /** @type {import('next').NextConfig} */

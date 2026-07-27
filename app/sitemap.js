@@ -1,3 +1,6 @@
+import { runningArticles } from "./running-articles";
+import { runningProducts } from "./running-data";
+
 const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
@@ -17,6 +20,13 @@ const routes = [
   { path: "/padel-accessories/", priority: 0.92 },
   { path: "/padel-accessories/custom-ventilated-padel-shoe-bag/", priority: 0.94 },
   { path: "/padel-accessories/custom-padel-organizer-pouch/", priority: 0.94 },
+  { path: "/running-waist-packs/", priority: 0.98 },
+  { path: "/running/hydration-belts/", priority: 0.94 },
+  { path: "/running/trail-running-belts/", priority: 0.94 },
+  { path: "/running/marathon-race-belts/", priority: 0.94 },
+  { path: "/running/phone-belts/", priority: 0.94 },
+  { path: "/running/custom-oem-odm/", priority: 0.96 },
+  { path: "/running-guides/", priority: 0.86 },
   { path: "/custom-pickleball-paddle-bags/", priority: 0.95 },
   { path: "/custom-hiking-daypacks-outdoor-backpacks/", priority: 0.95 },
   { path: "/custom-waterproof-adventure-duffel/", priority: 0.92 },
@@ -61,7 +71,11 @@ const routes = [
 ];
 
 export default function sitemap() {
-  return routes.map((route) => ({
+  const dynamicRoutes = [
+    ...runningProducts.map((product) => ({ path: product.href, priority: 0.9 })),
+    ...runningArticles.map((article) => ({ path: `/running-guides/${article.slug}/`, priority: 0.84 })),
+  ];
+  return [...routes, ...dynamicRoutes].map((route) => ({
     url: `${baseUrl}${route.path}`,
     lastModified: new Date(),
     changeFrequency: "weekly",

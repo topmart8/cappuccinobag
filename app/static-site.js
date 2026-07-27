@@ -119,16 +119,35 @@ function readStaticPage(slug = []) {
 
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
   const pageSlug = slug.join("/");
-  return addPadelCollectionEntry(addPadelHomeEntry(addBuyerGuideLinks(
+  return addPadelCollectionEntry(addRunningHomeEntry(addPadelHomeEntry(addBuyerGuideLinks(
     addAlcantaraContextLinks(
       addProductExpansionLinks(
-        normalizeHtml(bodyMatch ? bodyMatch[1] : html),
+        addRunningNavigation(normalizeHtml(bodyMatch ? bodyMatch[1] : html)),
         pageSlug
       ),
       pageSlug
     ),
     pageSlug
-  ), pageSlug), pageSlug);
+  ), pageSlug), pageSlug), pageSlug);
+}
+
+function addRunningNavigation(html) {
+  if (html.includes('href="/running-waist-packs/"')) return html;
+  return html
+    .replace(
+      /(<nav[^>]*aria-label=["'](?:Main navigation|Primary navigation)["'][^>]*>)/i,
+      '$1<a href="/running-waist-packs/">Running Packs</a>',
+    )
+    .replace(
+      /(<nav[^>]*aria-label=["']Mobile navigation["'][^>]*>)/i,
+      '$1<a href="/running-waist-packs/">Running Packs</a>',
+    );
+}
+
+function addRunningHomeEntry(html, pageSlug) {
+  if (pageSlug !== "" || html.includes('id="running-collection-2026"')) return html;
+  const section = `<style>.running-home-entry{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:76px 0}.running-home-card{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;padding:38px;color:#fff;background:#1f3328;border-radius:16px}.running-home-card h2{margin:0;color:#fff;font-size:clamp(34px,4vw,54px);line-height:1.04}.running-home-card p{margin:0;color:#dfe9df;line-height:1.75}.running-home-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}@media(max-width:760px){.running-home-entry{width:calc(100% - 28px);padding:54px 0}.running-home-card{grid-template-columns:1fr;gap:18px;padding:25px}}</style><section class="running-home-entry" id="running-collection-2026"><div class="running-home-card"><div><p class="eyebrow">30 OEM/ODM development directions</p><h2>Cappuccino Running Collection 2026</h2></div><div><p>Explore custom running waist packs, hydration belts, trail carry, marathon race belts and phone belts for sports brands, retailers and clubs.</p><div class="running-home-actions"><a class="btn btn-primary" href="/running-waist-packs/">View 30 SKU Collection</a><a class="btn btn-secondary" href="/running/custom-oem-odm/">Running Belt OEM/ODM</a></div></div></div></section>`;
+  return html.replace(/<section class="section" id="collections">/, `${section}<section class="section" id="collections">`);
 }
 
 function addPadelHomeEntry(html, pageSlug) {
@@ -189,7 +208,7 @@ function addPadelCollectionEntry(html, pageSlug) {
         `<article class="padel-collection-card"><img src="${product.image}" width="1200" height="1200" loading="lazy" alt="${product.alt}"><div><p class="eyebrow">${product.sku} · ${product.category}</p><h3>${product.name}</h3><a href="${product.href}">View product direction</a></div></article>`,
     )
     .join("");
-  const padelHeader = `<header class="site-header"><a class="brand" href="/" aria-label="Cappuccino Bag home"><span class="brand-mark" aria-hidden="true"></span><span>Cappuccino Bag</span></a><nav class="desktop-nav" aria-label="Main navigation"><a href="/custom-padel-bag-manufacturer/">Padel Bags</a><a href="/custom-pickleball-paddle-bags/">Pickleball Bags</a><a href="/custom-tennis-padel-racket-bags/">Tennis Bags</a><a href="/custom-travel-backpacks-weekender-bags/">Travel Bags</a><a href="/factory-trust-materials/">Factory Proof</a><a href="/inquiry/">RFQ</a></nav><a class="header-cta" href="/inquiry/">Request a Quote</a><details class="mobile-menu"><summary aria-label="Open mobile navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation"><a href="/">Home</a><a href="/custom-padel-bag-manufacturer/">Padel Bags</a><a href="/padel-accessories/">Padel Accessories</a><a href="/factory-trust-materials/">Factory Proof</a><a href="/inquiry/">RFQ</a></nav></details></header>`;
+  const padelHeader = `<header class="site-header"><a class="brand" href="/" aria-label="Cappuccino Bag home"><span class="brand-mark" aria-hidden="true"></span><span>Cappuccino Bag</span></a><nav class="desktop-nav" aria-label="Main navigation"><a href="/running-waist-packs/">Running Packs</a><a href="/custom-padel-bag-manufacturer/">Padel Bags</a><a href="/custom-pickleball-paddle-bags/">Pickleball Bags</a><a href="/custom-tennis-padel-racket-bags/">Tennis Bags</a><a href="/custom-travel-backpacks-weekender-bags/">Travel Bags</a><a href="/factory-trust-materials/">Factory Proof</a><a href="/inquiry/">RFQ</a></nav><a class="header-cta" href="/inquiry/">Request a Quote</a><details class="mobile-menu"><summary aria-label="Open mobile navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation"><a href="/">Home</a><a href="/running-waist-packs/">Running Packs</a><a href="/custom-padel-bag-manufacturer/">Padel Bags</a><a href="/padel-accessories/">Padel Accessories</a><a href="/factory-trust-materials/">Factory Proof</a><a href="/inquiry/">RFQ</a></nav></details></header>`;
   const section = `<style>.padel-collection-page{padding-top:118px}.padel-collection-launch{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:76px 0}.padel-collection-hero{overflow:hidden;margin-bottom:42px;border-radius:16px;background:#171411;color:#fff}.padel-collection-hero img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover}.padel-collection-copy{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;padding:34px}.padel-collection-copy h2{margin:0;font-size:clamp(34px,4vw,54px);line-height:1.04}.padel-collection-copy p{margin:0;color:#e7ddd2;line-height:1.75}.padel-collection-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.padel-collection-card{overflow:hidden;background:#fff;border:1px solid #d8ded2;border-radius:14px}.padel-collection-card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}.padel-collection-card>div{padding:24px}.padel-collection-card h3{margin:7px 0 14px;font-size:26px;line-height:1.12}.padel-collection-card a{color:#6f452d;font-weight:800;text-decoration:underline;text-underline-offset:3px}.padel-collection-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}@media(max-width:760px){.padel-collection-page{padding-top:92px}.padel-collection-launch{width:calc(100% - 28px);padding:54px 0}.padel-collection-copy,.padel-collection-grid{grid-template-columns:1fr}.padel-collection-copy{gap:18px;padding:24px}}</style><section class="padel-collection-launch" id="padel-collection-2026-products"><div class="padel-collection-hero"><img src="/images/padel/cappuccino-padel-collection-2026-studio.png" width="1672" height="941" loading="eager" alt="Cappuccino Padel Collection 2026 studio lineup of coordinated bags and accessories"><div class="padel-collection-copy"><h2>Cappuccino Padel Collection 2026</h2><p>Four coordinated OEM/ODM product development directions for padel brands, clubs, specialist retailers, importers and wholesalers. Final capacity, dimensions, materials, MOQ, price and lead time are confirmed during sampling and quotation.</p></div></div><div class="padel-collection-grid">${cards}</div><div class="padel-collection-links"><a class="btn btn-primary" href="/padel-accessories/">Explore Padel Accessories</a><a class="btn btn-secondary" href="/inquiry/?product=Padel%20Bags&amp;format=Padel%20Collection%202026">Request Collection Quote</a></div></section>`;
 
   return html

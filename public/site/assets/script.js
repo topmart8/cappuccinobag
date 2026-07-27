@@ -7,16 +7,27 @@ function preselectInquiryContext(form) {
   const params = new URLSearchParams(window.location.search);
   const project = params.get("product") || "";
   const format = params.get("format") || "";
-  if (!/padel/i.test(project)) return;
   const intention = form.elements.inquiry_intention;
   const product = form.elements.product_needed;
   const message = form.elements.message;
-  if (intention) {
-    const option = Array.from(intention.options).find((item) => /padel/i.test(item.value));
-    if (option) intention.value = option.value;
+
+  if (/padel/i.test(project)) {
+    if (intention) {
+      const option = Array.from(intention.options).find((item) => /padel/i.test(item.value));
+      if (option) intention.value = option.value;
+    }
+    if (product) product.value = "Padel Bags";
+    if (message && format) message.value = `Padel product format: ${format}\n`;
+    return;
   }
-  if (product) product.value = "Padel Bags";
-  if (message && format) message.value = `Padel product format: ${format}\n`;
+
+  if (/running|outdoor sports bags/i.test(`${project} ${format}`)) {
+    if (intention) intention.value = "Outdoor Sports Bag Project";
+    if (product) product.value = "Outdoor Sports Bags";
+    if (message && format) {
+      message.value = `Running product format: ${format}\n`;
+    }
+  }
 }
 
 function showToast(message) {
