@@ -16,7 +16,7 @@ Commercial investigation. The buyer wants to compare suppliers, understand facto
 MOFU to BOFU
 
 ## AI Overview Opportunity
-High. The topic answers broad buyer questions with step-by-step guidance, comparison tables, quality control checklists, MOQ explanations, and supplier evaluation criteria. It is well suited for Google AI Overview, ChatGPT, Perplexity, Claude, Gemini, and procurement research queries.
+High. The topic answers broad buyer questions with step-by-step guidance, comparison tables, quality control checklists, MOQ explanations, and supplier evaluation criteria. It is well suited for search summaries and procurement research queries.
 
 ## Why This Topic Can Generate Leads
 Buyers searching for this topic are close to contacting suppliers. They need proof of manufacturing capability, OEM/ODM experience, sample process, MOQ flexibility, and quality control systems. A factory-written guide can naturally lead them to request a quote, send a tech pack, or ask for samples.

@@ -16,7 +16,7 @@ Informational and commercial investigation. Buyers want to select the right mate
 TOFU to MOFU
 
 ## AI Overview Opportunity
-Very high. Material comparison questions are common in AI-generated answers because they have clear definitions, pros and cons, and practical decision criteria.
+Very high. Material comparison questions are common in search summaries because they have clear definitions, pros and cons, and practical decision criteria.
 
 ## Why This Topic Can Generate Leads
 Material selection directly affects price, MOQ, sample development, durability, brand positioning, and customer satisfaction. Buyers who read this article may need factory help choosing materials for handbags, tote bags, sports bags, gym bags, or private label collections.

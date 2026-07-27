@@ -119,7 +119,7 @@ Use:
 
 ## GEO Optimization Notes
 
-To improve citation potential in Google AI Overview, ChatGPT, Claude, Perplexity, and Gemini:
+To improve citation potential in search engines and buyer research tools:
 
 - Keep the direct answer within 40 to 60 words.
 - Use factual definitions before persuasive copy.
