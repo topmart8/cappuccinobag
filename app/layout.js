@@ -18,7 +18,7 @@ export const metadata = {
     siteName: "Cappuccino Bag",
     images: [
       {
-        url: "/assets/chatgpt-hero-racquet-lifestyle.jpg",
+        url: "/assets/cappuccino-racquet-bag-lifestyle.jpg",
         width: 1672,
         height: 941,
         alt: "Cappuccino Bag racket bags and outdoor sports bag manufacturing scene",
@@ -33,7 +33,7 @@ export const metadata = {
       "OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags",
     description:
       "Cappuccino Bag is an OEM/ODM bag manufacturer specializing in outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.",
-    images: ["/assets/chatgpt-hero-racquet-lifestyle.jpg"],
+    images: ["/assets/cappuccino-racquet-bag-lifestyle.jpg"],
   },
   robots: {
     index: true,
