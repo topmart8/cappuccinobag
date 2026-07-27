@@ -19,7 +19,7 @@ const fields = [
 
 export default async function InquiryPage({ params }) {
   const { id } = await params;
-  const rows = await supabaseRequest(`inquiries?id=eq.${encodeURIComponent(id)}&select=*&limit=1`);
+  const rows = await supabaseRequest(`inquiries?id=eq.${encodeURIComponent(id)}&select=*,customers(customer_number)&limit=1`);
   const inquiry = rows?.[0];
   if (!inquiry) notFound();
   const conversations = await supabaseRequest(`conversations?inquiry_id=eq.${id}&select=*&order=created_at.desc`);
@@ -29,7 +29,7 @@ export default async function InquiryPage({ params }) {
     : [];
   return <main className="detail">
     <Link href="/crm">← Back to CRM</Link>
-    <header><p>{inquiry.brand}</p><h1>{inquiry.inquiry_number}</h1><span>{inquiry.human_takeover ? "Human review required" : inquiry.reply_status}</span></header>
+    <header><p>{inquiry.brand} · {inquiry.customers?.customer_number || "Customer number pending"}</p><h1>{inquiry.inquiry_number}</h1><span>{inquiry.human_takeover ? "Human review required" : inquiry.reply_status}</span></header>
     <section className="summary"><h2>AI customer summary</h2><p>{inquiry.ai_customer_summary || "Not generated."}</p><strong>{inquiry.ai_recommended_action}</strong></section>
     <section className="grid">{fields.map(([label, key]) => <div key={key}><small>{label}</small><p>{String(inquiry[key] ?? "—")}</p></div>)}</section>
     <section><h2>Inquiry message</h2><pre>{inquiry.message || "—"}</pre></section>
@@ -40,4 +40,3 @@ export default async function InquiryPage({ params }) {
     `}</style>
   </main>;
 }
-

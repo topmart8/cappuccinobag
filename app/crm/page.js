@@ -11,7 +11,7 @@ const tabs = [
 ];
 
 function queryFor(filter) {
-  const base = "inquiries?select=*&order=created_at.desc&limit=250";
+  const base = "inquiries?select=*,customers(customer_number)&order=created_at.desc&limit=250";
   if (filter === "cappuccinobag" || filter === "novlane") return `${base}&site=eq.${filter}`;
   if (filter === "website" || filter === "whatsapp") return `${base}&source_channel=eq.${filter}`;
   if (filter === "unreplied") return `${base}&reply_status=eq.unreplied`;
@@ -38,7 +38,7 @@ export default async function CrmPage({ searchParams }) {
       {error ? <section className="notice">CRM data unavailable: {error}</section> : null}
       <section className="crm-table"><table><thead><tr><th>Customer #</th><th>Brand</th><th>Name / company</th><th>Country</th><th>Product</th><th>Qty</th><th>Channel</th><th>Score</th><th>Stage</th><th>Next follow-up</th></tr></thead>
         <tbody>{inquiries.map((item) => <tr key={item.id}>
-          <td><Link href={`/crm/inquiries/${item.id}`}>{item.inquiry_number}</Link></td>
+          <td><Link href={`/crm/inquiries/${item.id}`}>{item.customers?.customer_number || item.inquiry_number}</Link><small>{item.inquiry_number}</small></td>
           <td><span className={`brand ${item.site}`}>{item.brand}</span></td>
           <td>{item.name || "—"}<small>{item.company || ""}</small></td><td>{item.country || "—"}</td>
           <td>{item.product || item.product_category || "—"}</td><td>{item.quantity || "—"}</td>

@@ -2,6 +2,10 @@ create extension if not exists pgcrypto;
 
 create table if not exists public.customers (
   id uuid primary key default gen_random_uuid(),
+  customer_number text unique,
+  site text check (site in ('cappuccinobag', 'novlane')),
+  brand text check (brand in ('Cappuccino Bag', 'Novlane')),
+  source_channel text not null default 'website',
   email text,
   email_normalized text,
   whatsapp_phone text,
@@ -179,6 +183,12 @@ create index if not exists follow_up_due_idx on public.follow_up_tasks (status, 
 
 alter table public.inquiries add column if not exists brand_confirmed boolean not null default true;
 alter table public.conversations add column if not exists brand_confirmed boolean not null default true;
+alter table public.customers add column if not exists customer_number text;
+alter table public.customers add column if not exists site text check (site in ('cappuccinobag', 'novlane'));
+alter table public.customers add column if not exists brand text check (brand in ('Cappuccino Bag', 'Novlane'));
+alter table public.customers add column if not exists source_channel text not null default 'website';
+create unique index if not exists customers_customer_number_uidx on public.customers (customer_number)
+  where customer_number is not null;
 
 create or replace function public.set_updated_at()
 returns trigger language plpgsql as $$
@@ -187,6 +197,43 @@ begin
   return new;
 end;
 $$;
+
+create or replace function public.assign_customer_number()
+returns trigger language plpgsql as $$
+declare
+  prefix text;
+  date_part text;
+  next_value integer;
+begin
+  if new.customer_number is not null or new.site is null then return new; end if;
+  prefix := case when new.site = 'cappuccinobag' then 'CAP' else 'NOV' end;
+  date_part := to_char(coalesce(new.created_at, now()) at time zone 'UTC', 'YYYYMMDD');
+  perform pg_advisory_xact_lock(hashtext('customer-' || prefix || date_part));
+  select coalesce(max(nullif(split_part(customer_number, '-', 3), '')::integer), 0) + 1
+    into next_value
+    from public.customers
+   where customer_number like prefix || '-' || date_part || '-%';
+  new.customer_number := prefix || '-' || date_part || '-' || lpad(next_value::text, 4, '0');
+  return new;
+end;
+$$;
+
+drop trigger if exists customers_assign_number on public.customers;
+create trigger customers_assign_number before insert or update of site on public.customers
+for each row execute function public.assign_customer_number();
+
+with first_inquiry as (
+  select distinct on (customer_id) customer_id, site, brand, source_channel
+    from public.inquiries
+   order by customer_id, created_at asc
+)
+update public.customers as customer
+   set site = coalesce(customer.site, first_inquiry.site),
+       brand = coalesce(customer.brand, first_inquiry.brand),
+       source_channel = coalesce(customer.source_channel, first_inquiry.source_channel)
+  from first_inquiry
+ where customer.id = first_inquiry.customer_id
+   and (customer.site is null or customer.brand is null or customer.customer_number is null);
 
 create or replace function public.assign_inquiry_number()
 returns trigger language plpgsql as $$

@@ -1,7 +1,7 @@
 import { supabaseRequest } from "../../../../lib/crm/supabase";
 
 const columns = [
-  "inquiry_number", "site", "brand", "source_channel", "name", "company", "email", "phone", "whatsapp",
+  "customer_number", "inquiry_number", "site", "brand", "source_channel", "name", "company", "email", "phone", "whatsapp",
   "country", "language", "product", "product_category", "quantity", "material", "logo_method", "target_price",
   "target_delivery_date", "message", "uploaded_files", "lead_score", "intent", "risk_level", "assigned_owner",
   "stage", "next_follow_up", "human_takeover", "auto_reply_enabled", "first_landing_page", "current_page_url",
@@ -11,6 +11,7 @@ const columns = [
 ];
 
 function value(row, column) {
+  if (column === "customer_number") return String(row.customers?.customer_number ?? "");
   const item = row[column];
   return typeof item === "object" && item !== null ? JSON.stringify(item) : String(item ?? "");
 }
@@ -26,7 +27,7 @@ function xml(item) {
 }
 
 export async function GET(request) {
-  const rows = await supabaseRequest("inquiries?select=*&order=created_at.desc&limit=10000");
+  const rows = await supabaseRequest("inquiries?select=*,customers(customer_number)&order=created_at.desc&limit=10000");
   const format = new URL(request.url).searchParams.get("format") || "csv";
   if (format === "xls") {
     const table = [
@@ -39,4 +40,3 @@ export async function GET(request) {
   const body = [columns.join(","), ...rows.map((row) => columns.map((column) => csvCell(value(row, column))).join(","))].join("\n");
   return new Response(`\uFEFF${body}`, { headers: { "Content-Type": "text/csv; charset=utf-8", "Content-Disposition": 'attachment; filename="unified-crm.csv"' } });
 }
-
