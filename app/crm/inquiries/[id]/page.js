@@ -1,42 +1,49 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CrmActions from "../../../../components/CrmActions";
+import { getCrmActor } from "../../../../lib/crm/auth";
 import { supabaseRequest } from "../../../../lib/crm/supabase";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Inquiry detail | Unified CRM", robots: { index: false, follow: false } };
 
 const fields = [
-  ["Brand", "brand"], ["Channel", "source_channel"], ["Name", "name"], ["Company", "company"],
-  ["Email", "email"], ["Phone / WhatsApp", "whatsapp"], ["Country", "country"], ["Language", "language"],
-  ["Product", "product"], ["Category", "product_category"], ["Quantity", "quantity"], ["Material", "material"],
-  ["Logo method", "logo_method"], ["Target price", "target_price"], ["Target delivery", "target_delivery_date"],
-  ["First landing page", "first_landing_page"], ["Submit page", "current_page_url"], ["Referrer", "referrer"],
+  ["站点", "brand"], ["来源", "source_channel"], ["姓名", "name"], ["企业", "company"],
+  ["邮箱", "email"], ["电话 / WhatsApp", "whatsapp"], ["国家", "country"], ["语言", "language"],
+  ["产品", "product"], ["分类", "product_category"], ["数量", "quantity"], ["材料", "material"],
+  ["Logo 工艺", "logo_method"], ["目标价", "target_price"], ["目标交期", "target_delivery_date"],
+  ["首次落地页", "first_landing_page"], ["提交页", "current_page_url"], ["Referrer", "referrer"],
   ["UTM source", "utm_source"], ["UTM medium", "utm_medium"], ["UTM campaign", "utm_campaign"],
   ["UTM content", "utm_content"], ["UTM term", "utm_term"], ["gclid", "gclid"], ["msclkid", "msclkid"],
-  ["Device", "device"], ["Lead score", "lead_score"], ["Risk", "risk_level"], ["Stage", "stage"],
+  ["首次访问", "first_visit_time"], ["提交时间", "submit_time"], ["设备", "device"],
+  ["归因国家", "attribution_country"], ["评分", "lead_score"], ["风险", "risk_level"], ["阶段", "stage"],
 ];
 
 export default async function InquiryPage({ params }) {
+  const actor = await getCrmActor();
   const { id } = await params;
-  const rows = await supabaseRequest(`inquiries?id=eq.${encodeURIComponent(id)}&select=*,customers(customer_number)&limit=1`);
+  const rows = await supabaseRequest(`inquiries?id=eq.${encodeURIComponent(id)}&select=*,customers(customer_number,owner)&limit=1`);
   const inquiry = rows?.[0];
-  if (!inquiry) notFound();
+  if (!inquiry || (actor.role !== "admin" && inquiry.customers?.owner && inquiry.customers.owner !== actor.user)) notFound();
   const conversations = await supabaseRequest(`conversations?inquiry_id=eq.${id}&select=*&order=created_at.desc`);
-  const conversationIds = conversations.map((item) => item.id);
-  const messages = conversationIds.length
-    ? await supabaseRequest(`messages?conversation_id=in.(${conversationIds.join(",")})&select=*&order=created_at.asc`)
-    : [];
-  return <main className="detail">
-    <Link href="/crm">← Back to CRM</Link>
-    <header><p>{inquiry.brand} · {inquiry.customers?.customer_number || "Customer number pending"}</p><h1>{inquiry.inquiry_number}</h1><span>{inquiry.human_takeover ? "Human review required" : inquiry.reply_status}</span></header>
-    <section className="summary"><h2>AI customer summary</h2><p>{inquiry.ai_customer_summary || "Not generated."}</p><strong>{inquiry.ai_recommended_action}</strong></section>
-    <section className="grid">{fields.map(([label, key]) => <div key={key}><small>{label}</small><p>{String(inquiry[key] ?? "—")}</p></div>)}</section>
-    <section><h2>Inquiry message</h2><pre>{inquiry.message || "—"}</pre></section>
-    <section><h2>WhatsApp / conversation history</h2>{messages.length ? messages.map((message) => <article key={message.id}><strong>{message.direction}</strong><small>{new Date(message.created_at).toLocaleString()} · {message.status}</small><p>{message.body || `[${message.message_type}]`}</p></article>) : <p>No messages.</p>}</section>
-    <CrmActions inquiry={inquiry} />
-    <style>{`
-      *{box-sizing:border-box}.detail{max-width:1080px;margin:auto;padding:36px;color:#25211e;font:15px/1.55 Arial,sans-serif}.detail>a{color:#72472b}header{display:flex;align-items:end;gap:16px;margin:28px 0}header p{margin:0;color:#76543e}header h1{margin:0;font-size:34px}header span{margin-left:auto;padding:8px 12px;background:#f0e4d7;border-radius:8px}.summary,section{margin:18px 0;padding:22px;border:1px solid #ded7cf;border-radius:12px;background:#fff}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}.grid div{padding:10px;border-bottom:1px solid #eee}.grid small,article small{display:block;color:#786f68}.grid p{overflow-wrap:anywhere}pre{white-space:pre-wrap;font:inherit}.crm-actions textarea{width:100%;padding:12px}.crm-actions div{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.crm-actions button{padding:10px 13px;border:1px solid #cfc5bb;background:#fff;border-radius:7px}.crm-actions .primary{background:#2b2724;color:white}@media(max-width:760px){.grid{grid-template-columns:1fr}header{align-items:start;flex-direction:column}header span{margin:0}}
-    `}</style>
+  const ids = conversations.map((item) => item.id);
+  const [messages, activities, tasks] = await Promise.all([
+    ids.length ? supabaseRequest(`messages?conversation_id=in.(${ids.join(",")})&select=*&order=created_at.asc`) : [],
+    supabaseRequest(`activities?inquiry_id=eq.${id}&select=*&order=created_at.desc`).catch(() => []),
+    supabaseRequest(`tasks?inquiry_id=eq.${id}&select=*&order=created_at.desc`).catch(() => []),
+  ]);
+  return <main className="crm-content">
+    <div className="crm-heading"><div><Link href="/crm/inquiries">← 返回询盘</Link><h1 style={{ marginTop: 12 }}>{inquiry.inquiry_number}</h1><p>{inquiry.brand} · {inquiry.customers?.customer_number || "客户编号待生成"} · {inquiry.human_takeover ? "需要人工审核" : inquiry.reply_status}</p></div></div>
+    <div className="crm-detail-grid">
+      <div className="crm-stack">
+        <section className="crm-panel"><div className="crm-panel-header"><div><h2>客户摘要</h2><p>{inquiry.ai_recommended_action || "尚未生成建议动作"}</p></div></div><p>{inquiry.ai_customer_summary || "尚未生成摘要。"}</p></section>
+        <section className="crm-panel"><div className="crm-panel-header"><h2>询盘与来源追踪</h2></div><div className="crm-kv">{fields.map(([label, key]) => <div key={key}><small>{label}</small><p>{String(inquiry[key] ?? "—")}</p></div>)}</div></section>
+        <section className="crm-panel"><div className="crm-panel-header"><h2>询盘原文</h2></div><pre className="crm-message">{inquiry.message || "—"}</pre></section>
+        <section className="crm-panel"><div className="crm-panel-header"><h2>WhatsApp / 对话记录</h2></div>{messages.length ? messages.map((message) => <div className="crm-activity" key={message.id}><span className="crm-activity-dot" /><div><p>{message.direction} · {message.body || `[${message.message_type}]`}</p><small>{new Date(message.created_at).toLocaleString("zh-CN")} · {message.status}</small></div></div>) : <div className="crm-empty"><p>暂无对话记录。</p></div>}</section>
+      </div>
+      <div className="crm-stack">
+        <CrmActions inquiry={inquiry} />
+        <section className="crm-panel"><div className="crm-panel-header"><h2>活动与任务</h2></div>{[...activities, ...tasks.map((task) => ({ ...task, title: `任务：${task.title}`, body: task.status }))].map((item) => <div className="crm-activity" key={item.id}><span className="crm-activity-dot" /><div><p>{item.title}</p><small>{item.body || ""} · {new Date(item.created_at).toLocaleString("zh-CN")}</small></div></div>)}</section>
+      </div>
+    </div>
   </main>;
 }

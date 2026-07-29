@@ -1,16 +1,26 @@
 import { NextResponse } from "next/server";
 
 export function proxy(request) {
-  const user = process.env.CRM_ADMIN_USER;
-  const password = process.env.CRM_ADMIN_PASSWORD;
-  if (!user || !password) {
+  const accounts = [
+    { user: process.env.CRM_ADMIN_USER, password: process.env.CRM_ADMIN_PASSWORD, role: "admin" },
+    { user: process.env.CRM_SALES_USER, password: process.env.CRM_SALES_PASSWORD, role: "sales" },
+  ].filter((account) => account.user && account.password);
+  if (!accounts.length) {
     return new NextResponse("CRM access is not configured.", { status: 503 });
   }
   const authorization = request.headers.get("authorization") || "";
   if (authorization.startsWith("Basic ")) {
     try {
       const [providedUser, providedPassword] = atob(authorization.slice(6)).split(":");
-      if (providedUser === user && providedPassword === password) return NextResponse.next();
+      const account = accounts.find(
+        (item) => item.user === providedUser && item.password === providedPassword,
+      );
+      if (account) {
+        const requestHeaders = new Headers(request.headers);
+        requestHeaders.set("x-crm-user", account.user);
+        requestHeaders.set("x-crm-role", account.role);
+        return NextResponse.next({ request: { headers: requestHeaders } });
+      }
     } catch {}
   }
   return new NextResponse("Authentication required.", {

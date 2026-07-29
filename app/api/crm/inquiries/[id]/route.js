@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createAiDraft } from "../../../../../lib/crm/ai";
 import { normalizePhone, supabaseRequest } from "../../../../../lib/crm/supabase";
 import { sendCloudMessage } from "../../../../../lib/crm/whatsapp";
+import { getCrmActor } from "../../../../../lib/crm/auth";
 
 async function resend(to, subject, body) {
   if (!process.env.RESEND_API_KEY || !process.env.INQUIRY_FROM_EMAIL) throw new Error("Email delivery is not configured.");
@@ -15,13 +16,26 @@ async function resend(to, subject, body) {
 
 export async function PATCH(request, { params }) {
   try {
+    const actor = await getCrmActor();
     const { id } = await params;
     const input = await request.json();
     const rows = await supabaseRequest(`inquiries?id=eq.${encodeURIComponent(id)}&select=*&limit=1`);
     const inquiry = rows?.[0];
     if (!inquiry) return NextResponse.json({ message: "Inquiry not found." }, { status: 404 });
+    if (actor.role !== "admin" && inquiry.owner && inquiry.owner !== actor.user) {
+      return NextResponse.json({ message: "You can only update inquiries assigned to you." }, { status: 403 });
+    }
     if (input.action === "save_draft") {
-      await supabaseRequest(`inquiries?id=eq.${id}`, { method: "PATCH", body: { ai_reply_draft: String(input.draft || "").slice(0, 8000) } });
+      const body = String(input.draft || "").slice(0, 8000);
+      await supabaseRequest(`inquiries?id=eq.${id}`, { method: "PATCH", body: { ai_reply_draft: body } });
+      const table = inquiry.source_channel === "whatsapp" ? "whatsapp_drafts" : "email_drafts";
+      const draftBody = table === "whatsapp_drafts"
+        ? { recipient: inquiry.whatsapp || inquiry.phone, body, mode: "draft_only", source_page: inquiry.current_page_url, product_category: inquiry.product_category }
+        : { recipient: inquiry.email, subject: `${inquiry.brand} inquiry ${inquiry.inquiry_number}`, body, requires_human_review: true };
+      await supabaseRequest(table, {
+        method: "POST",
+        body: { customer_id: inquiry.customer_id, inquiry_id: id, site: inquiry.site, source: "crm", owner: actor.user, ...draftBody },
+      });
       return NextResponse.json({ message: "Draft saved." });
     }
     if (input.action === "reject") {
@@ -47,6 +61,14 @@ export async function PATCH(request, { params }) {
           risk_level: draft.risk_level,
         },
       });
+      const table = inquiry.source_channel === "whatsapp" ? "whatsapp_drafts" : "email_drafts";
+      const draftBody = table === "whatsapp_drafts"
+        ? { recipient: inquiry.whatsapp || inquiry.phone, body: draft.reply_body, mode: "draft_only", source_page: inquiry.current_page_url, product_category: inquiry.product_category }
+        : { recipient: inquiry.email, subject: `${inquiry.brand} inquiry ${inquiry.inquiry_number}`, body: draft.reply_body, requires_human_review: true };
+      await supabaseRequest(table, {
+        method: "POST",
+        body: { customer_id: inquiry.customer_id, inquiry_id: id, site: inquiry.site, source: "crm", owner: actor.user, ...draftBody },
+      });
       return NextResponse.json({ message: "Draft regenerated.", draft: draft.reply_body });
     }
     if (input.action === "approve") {
@@ -68,6 +90,10 @@ export async function PATCH(request, { params }) {
         method: "PATCH",
         body: { last_business_message_at: new Date().toISOString() },
       });
+      await supabaseRequest("activities", {
+        method: "POST",
+        body: { customer_id: inquiry.customer_id, inquiry_id: id, site: inquiry.site, source: "crm", owner: actor.user, activity_type: "reply_sent", title: "人工批准并发送回复", body: inquiry.source_channel },
+      });
       return NextResponse.json({ message: "Approved reply sent." });
     }
     return NextResponse.json({ message: "Unsupported action." }, { status: 400 });
@@ -75,4 +101,3 @@ export async function PATCH(request, { params }) {
     return NextResponse.json({ message: error.message || "CRM action failed." }, { status: 502 });
   }
 }
-

@@ -7,6 +7,8 @@ import { recognizeBrand, requiresHumanReview } from "../lib/crm/brand.js";
 import { validMetaSignature } from "../lib/crm/metaSignature.js";
 import { createInquiry, normalizePhone } from "../lib/crm/supabase.js";
 import { processWhatsAppPayload, sendCloudMessage } from "../lib/crm/whatsapp.js";
+import { mapImportRow, normalizeImportRow } from "../lib/crm/importer.js";
+import { scoreLead } from "../lib/crm/scoring.js";
 
 test("E.164 normalization and brand routing are deterministic", () => {
   assert.equal(normalizePhone("+86 (139) 2871-5568"), "+8613928715568");
@@ -112,3 +114,57 @@ test("migration contains constrained brand numbering and all shared tables", asy
   assert.match(sql, /lpad\(next_value::text, 4, '0'\)/);
 });
 
+test("lead scoring uses market, product, contacts, quantity, domain and trusted source", () => {
+  const result = scoreLead({
+    country: "United States",
+    product_category: "Padel Bags",
+    email: "buyer@example.com",
+    phone: "+1 555 111 2222",
+    whatsapp: "+1 555 111 2222",
+    quantity: "1200 pcs",
+    website: "https://buyer.example.com",
+    source: "website",
+  });
+  assert.equal(result.automatic, 93);
+  assert.equal(result.final, 93);
+  assert.ok(result.reasons.length >= 5);
+  assert.equal(scoreLead({ ...result, score_override: 61 }).final, 61);
+});
+
+test("CSV mapping normalizes fields and reports invalid rows before import", () => {
+  const mapped = mapImportRow(
+    { "Company Name": "Acme Sports", "Business Email": "BUYER@EXAMPLE.COM", Products: "padel bag;wallet" },
+    { "Company Name": "company", "Business Email": "email", Products: "product_keywords" },
+  );
+  const valid = normalizeImportRow(mapped, { site: "cappuccinobag", owner: "sales@example.com", source: "csv" });
+  assert.equal(valid.normalized.email, "buyer@example.com");
+  assert.deepEqual(valid.normalized.product_keywords, ["padel bag", "wallet"]);
+  assert.equal(valid.errors.length, 0);
+  const phone = normalizeImportRow(
+    { company: "Phone Co", whatsapp: "+1 (555) 111-2222" },
+    { site: "cappuccinobag", owner: "sales@example.com" },
+  );
+  assert.equal(phone.normalized.whatsapp_phone, "+15551112222");
+  const invalid = normalizeImportRow({ company: "No contact" }, { site: "novlane", owner: "sales@example.com" });
+  assert.match(invalid.errors.join(" "), /至少填写一项/);
+});
+
+test("CRM v2 migration includes roles, import audit, tasks, drafts and private storage", async () => {
+  const sql = await readFile(new URL("../supabase/migrations/20260730_lead_crm_v2.sql", import.meta.url), "utf8");
+  for (const table of ["profiles", "activities", "tasks", "email_drafts", "whatsapp_drafts", "imports", "import_rows"]) {
+    assert.match(sql, new RegExp(`create table if not exists public\\.${table}`));
+  }
+  assert.match(sql, /role in \('admin','sales'\)/);
+  assert.match(sql, /mode = 'draft_only'/);
+  assert.match(sql, /crm attachment members read/);
+  assert.match(sql, /customers_domain_idx/);
+  assert.match(sql, /table_name \|\| '_updated_at'/);
+});
+
+test("CRM proxy injects trusted role headers for admin and sales accounts", async () => {
+  const source = await readFile(new URL("../proxy.js", import.meta.url), "utf8");
+  assert.match(source, /CRM_ADMIN_USER/);
+  assert.match(source, /CRM_SALES_USER/);
+  assert.match(source, /x-crm-role/);
+  assert.match(source, /matcher: \["\/crm\/:path\*", "\/api\/crm\/:path\*"\]/);
+});

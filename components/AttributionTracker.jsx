@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const key = "cappuccino_first_touch";
 
 export default function AttributionTracker() {
+  const pathname = usePathname();
   useEffect(() => {
+    if (pathname?.startsWith("/crm")) return;
     const params = new URLSearchParams(window.location.search);
     const first = {
       site: "cappuccinobag",
@@ -27,7 +30,6 @@ export default function AttributionTracker() {
         document.cookie = `${key}=${encodeURIComponent(value)}; Max-Age=15552000; Path=/; SameSite=Lax; Secure`;
       }
     } catch {}
-  }, []);
+  }, [pathname]);
   return null;
 }
-

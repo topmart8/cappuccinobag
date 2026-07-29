@@ -18,17 +18,16 @@ export default function CrmActions({ inquiry }) {
     if (result.draft) setDraft(result.draft);
   }
 
-  return <section className="crm-actions">
-    <h2>AI reply draft</h2>
+  return <section className="crm-panel crm-reply-editor">
+    <div className="crm-panel-header"><div><h2>英文回复草稿</h2><p>发送前必须由业务员人工检查；敏感商业承诺不会自动发送。</p></div></div>
     <textarea value={draft} onChange={(event) => setDraft(event.target.value)} rows={12} />
-    <div>
-      <button onClick={() => act("save_draft", { draft })}>Save edit</button>
-      <button onClick={() => act("approve", { draft })} className="primary">Approve & send</button>
-      <button onClick={() => act("reject")}>Reject</button>
-      <button onClick={() => act("regenerate")}>Regenerate</button>
-      <button onClick={() => act("toggle_takeover", { value: !inquiry.human_takeover })}>{inquiry.human_takeover ? "Release takeover" : "Human takeover"}</button>
+    <div className="crm-actions" style={{ marginTop: 10 }}>
+      <button className="crm-button" onClick={() => act("save_draft", { draft })}>保存编辑</button>
+      <button className="crm-button primary" onClick={() => act("approve", { draft })}>人工批准并发送</button>
+      <button className="crm-button" onClick={() => act("reject")}>拒绝草稿</button>
+      <button className="crm-button" onClick={() => act("regenerate")}>重新生成</button>
+      <button className="crm-button danger" onClick={() => act("toggle_takeover", { value: !inquiry.human_takeover })}>{inquiry.human_takeover ? "解除人工接管" : "人工接管"}</button>
     </div>
     {status ? <p role="status">{status}</p> : null}
   </section>;
 }
-
