@@ -1,0 +1,694 @@
+{
+  "site": "cappuccinobag",
+  "generated_at": "2026-07-29T19:20:14.011Z",
+  "mode": "draft_only",
+  "summary": {
+    "total": 114
+  },
+  "items": [
+    {
+      "keyword": "about cappuccino bag",
+      "url": "/about-us/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "cappuccino bag company bio",
+      "url": "/blog/company-bio/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom cardholder manufacturer",
+      "url": "/custom-cardholder-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom hiking backpacks manufacturer",
+      "url": "/custom-hiking-backpacks/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom hiking daypacks & outdoor backpacks",
+      "url": "/custom-hiking-daypacks-outdoor-backpacks/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "hotel custom bag manufacturer",
+      "url": "/custom-hotel-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom padel bag manufacturer for private-label brands",
+      "url": "/custom-padel-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom pickleball bags manufacturer",
+      "url": "/custom-pickleball-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom pickleball paddle bags",
+      "url": "/custom-pickleball-paddle-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom rfid wallet manufacturer",
+      "url": "/custom-rfid-wallet-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom sports duffel bags manufacturer",
+      "url": "/custom-sports-duffel-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom tennis bags manufacturer",
+      "url": "/custom-tennis-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom tennis & padel racket bags",
+      "url": "/custom-tennis-padel-racket-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "cycling bags & bike bags",
+      "url": "/cycling-bags-bike-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "factory proof: craftsmanship, compliance & quality",
+      "url": "/factory-trust-materials/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "faq",
+      "url": "/faq/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "hotel group custom bag project guide",
+      "url": "/hotel-group-custom-bag-project-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "oem/odm functional bag manufacturer faq",
+      "url": "/oem-odm-functional-bag-manufacturer-faq/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "build a complete padel bag collection for your brand",
+      "url": "/padel-brand-collection-development/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom tennis bag guide",
+      "url": "/resources/custom-tennis-bag-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "hiking backpack customization guide",
+      "url": "/resources/hiking-backpack-customization-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "moq & sampling faq",
+      "url": "/resources/moq-sampling-faq/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "outdoor sports bag manufacturing guide",
+      "url": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "pickleball bag customization guide",
+      "url": "/resources/pickleball-bag-customization-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "quality inspection guide",
+      "url": "/resources/quality-inspection-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "rfid wallets & passport holders",
+      "url": "/rfid-wallets-passport-holders/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "running waist packs & running belt bags",
+      "url": "/running-waist-packs-running-belt-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom alcantara bags & accessories collection",
+      "url": "/alcantara-collection/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "bag hardware customization",
+      "url": "/bag-hardware-customization/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "from alcantara material sourcing to bulk production",
+      "url": "/blog/alcantara-bag-accessory-production-process/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "what our compliance documents actually mean for bag buyers",
+      "url": "/blog/bag-manufacturer-compliance-documents-explained/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "from brief to bulk order: how we control custom bag development",
+      "url": "/blog/custom-bag-development-quality-control-process/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "what to decide before sampling a custom cooler tote",
+      "url": "/blog/custom-cooler-tote-bag-development-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "how to source a custom waterproof roll-top backpack",
+      "url": "/blog/how-to-source-custom-waterproof-roll-top-backpack/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "how to choose a custom laptop backpack manufacturer",
+      "url": "/blog/laptop-travel-backpack-oem-buying-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "what buyers can verify before choosing a custom bag manufacturer",
+      "url": "/blog/verify-custom-bag-manufacturer-china/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "card holder customization guide",
+      "url": "/card-holder-customization-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "contact cappuccino bags",
+      "url": "/contact/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom alcantara card holder manufacturer",
+      "url": "/custom-alcantara-card-holder/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom alcantara duffle bag manufacturer",
+      "url": "/custom-alcantara-duffle-bag/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom alcantara iphone case manufacturer",
+      "url": "/custom-alcantara-iphone-case/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom backpacks manufacturer",
+      "url": "/custom-backpacks/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom crossbody bags manufacturer",
+      "url": "/custom-crossbody-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom gym bags manufacturer",
+      "url": "/custom-gym-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom gym duffel bags with wet/dry separation",
+      "url": "/custom-gym-duffel-bag-landing/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom hiking backpack manufacturer",
+      "url": "/custom-hiking-backpack-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom hiking daypacks & outdoor backpacks",
+      "url": "/custom-hiking-daypack-landing/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "insulated outdoor cooler backpack",
+      "url": "/custom-insulated-cooler-backpack/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom insulated cooler tote bag manufacturer",
+      "url": "/custom-insulated-cooler-tote-bag/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom laptop travel backpack manufacturer",
+      "url": "/custom-laptop-travel-backpack/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom magsafe cardholder manufacturer",
+      "url": "/custom-magsafe-cardholder-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom mountaineering backpack manufacturer",
+      "url": "/custom-mountaineering-backpack-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom outdoor multifunctional bag manufacturer",
+      "url": "/custom-outdoor-multifunctional-bag-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom outdoor sports bag manufacturer",
+      "url": "/custom-outdoor-sports-bag-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom outdoor sports bag manufacturer",
+      "url": "/custom-outdoor-sports-travel-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom bag packaging solutions",
+      "url": "/custom-packaging/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom padel bag manufacturer",
+      "url": "/custom-padel-bag-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom phone pouch manufacturer",
+      "url": "/custom-phone-pouch-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom pickleball bags with paddle compartments",
+      "url": "/custom-pickleball-bag-landing/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom pickleball bag manufacturer",
+      "url": "/custom-pickleball-bag-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom printing bags manufacturer",
+      "url": "/custom-printing-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom racket bags manufacturer",
+      "url": "/custom-racket-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom rfid wallets & card holders",
+      "url": "/custom-rfid-wallet-card-holder-landing/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom rfid wallet manufacturer",
+      "url": "/custom-rfid-wallet-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom shoulder bags manufacturer",
+      "url": "/custom-shoulder-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom tennis bag guide",
+      "url": "/custom-tennis-bag-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom tennis bag manufacturer",
+      "url": "/custom-tennis-bag-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom tennis & padel racket bags",
+      "url": "/custom-tennis-padel-racket-bag-landing/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom tennis & padel racket bags",
+      "url": "/custom-tennis-padel-racket-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom tote bags manufacturer",
+      "url": "/custom-tote-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom travel backpacks & weekender bags",
+      "url": "/custom-travel-backpacks-weekender-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom travel bag & luggage manufacturer",
+      "url": "/custom-travel-bag-luggage-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom travel bags manufacturer",
+      "url": "/custom-travel-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom travel weekender bags & duffel bags",
+      "url": "/custom-travel-weekender-bag-landing/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "40l/70l waterproof adventure duffel",
+      "url": "/custom-waterproof-adventure-duffel/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom waterproof roll-top backpack manufacturer",
+      "url": "/custom-waterproof-roll-top-backpack/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "40l/90l waterproof wheeled gear bag",
+      "url": "/custom-waterproof-wheeled-gear-bag/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom women's bags manufacturer for private labels",
+      "url": "/custom-womens-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "get cappuccino bags catalog & material options",
+      "url": "/download-catalog/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "eco-tech bag material guide",
+      "url": "/eco-tech-bag-material-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "eco-tech smart bag manufacturer",
+      "url": "/eco-tech-smart-bag-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "gps trackable bag guide",
+      "url": "/gps-trackable-bag-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "gps-ready smart bags & trackable travel products",
+      "url": "/gps-trackable-smart-bag-landing/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "hiking backpack customization guide",
+      "url": "/hiking-backpack-customization-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "hotel group custom bag project guide",
+      "url": "/hotel-group-custom-bag-project-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "custom outdoor & racquet sports bag manufacturer in china",
+      "url": "/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "start your custom outdoor bag, wallet or eco-tech smart product project",
+      "url": "/inquiry/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "logo customization guide",
+      "url": "/logo-customization-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "logo debossing for custom bags",
+      "url": "/logo-debossing/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "logo embossing for custom bags",
+      "url": "/logo-embossing/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "metal logo bags manufacturer",
+      "url": "/metal-logo-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "moq & sampling faq",
+      "url": "/moq-sampling-faq/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "mountaineering backpack manufacturing guide",
+      "url": "/mountaineering-backpack-manufacturing-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "from design brief to bulk bag shipment",
+      "url": "/oem-odm-bag-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "outdoor multifunctional bag manufacturing guide",
+      "url": "/outdoor-multifunctional-bag-manufacturing-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "outdoor sports bag manufacturing guide",
+      "url": "/outdoor-sports-bag-manufacturing-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "padel bag design guide",
+      "url": "/padel-bag-design-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "phone case cardholder gift set oem",
+      "url": "/phone-case-cardholder-gift-set-oem/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "pickleball bag customization guide",
+      "url": "/pickleball-bag-customization-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "private label handbags manufacturer",
+      "url": "/private-label-handbags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "private label packaging guide",
+      "url": "/private-label-packaging-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "quality inspection guide",
+      "url": "/quality-inspection-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "recycled material & eco-tech bags",
+      "url": "/recycled-eco-tech-bag-landing/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "recycled material bags manufacturer",
+      "url": "/recycled-material-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "request samples before bulk production",
+      "url": "/request-sample/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "knowledge center for global bag buyers",
+      "url": "/resources/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "rfid wallet customization guide",
+      "url": "/rfid-wallet-customization-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "rfid wallets, passport holders & card holders",
+      "url": "/rfid-wallet-passport-holder-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "sustainable bag & wallet materials guide",
+      "url": "/sustainable-bag-wallet-materials-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "travel bag & luggage customization guide",
+      "url": "/travel-bag-luggage-customization-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "vegan leather bags manufacturer",
+      "url": "/vegan-leather-bags/",
+      "page_type": "static",
+      "status": "existing"
+    },
+    {
+      "keyword": "vegan leather tech accessories manufacturer",
+      "url": "/vegan-leather-tech-accessories-manufacturer/",
+      "page_type": "commercial",
+      "status": "existing"
+    },
+    {
+      "keyword": "wallet materials guide",
+      "url": "/wallet-materials-guide/",
+      "page_type": "blog_or_guide",
+      "status": "existing"
+    },
+    {
+      "keyword": "why global buyers choose cappuccino bags",
+      "url": "/why-us/",
+      "page_type": "static",
+      "status": "existing"
+    }
+  ]
+}

@@ -1,0 +1,662 @@
+{
+  "site": "cappuccinobag",
+  "generated_at": "2026-07-29T19:20:14.011Z",
+  "mode": "draft_only",
+  "summary": {
+    "total": 163
+  },
+  "items": [
+    {
+      "path": "/assets/cappuccino-outdoor-bag-factory-workshop.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/cappuccino-outdoor-bag-factory-workshop.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/cappuccino-private-label-bag-craftsmanship-poster.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/cappuccino-racquet-bag-lifestyle.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/category-bag-open-storage-1200x1200.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/category-custom-printed-duffel-1200x1200.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/chatgpt-oem-workshop-lineup.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/chatgpt-padel-backpack-closeup.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/chatgpt-padel-collection-campaign.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/chatgpt-padel-duffel-closeup.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/custom-hiking-backpacks-1.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-hiking-backpacks-2.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-hiking-backpacks-3.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-hiking-backpacks-4.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-hotel-bags-1.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-hotel-bags-2.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-hotel-bags-3.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-hotel-bags-4.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-padel-bags-1.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-padel-bags-2.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-padel-bags-3.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-padel-bags-4.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-pickleball-bags-1.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-pickleball-bags-2.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-pickleball-bags-3.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-pickleball-bags-4.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-sports-duffel-bags-1.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-sports-duffel-bags-2.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-sports-duffel-bags-3.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-sports-duffel-bags-4.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-tennis-bags-1.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-tennis-bags-2.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-tennis-bags-3.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/custom-tennis-bags-4.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/hero-sports-bag-manufacturer.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/hiking-backpacks-image-set.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/hotel-custom-bags-image-set.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/padel-bags-image-set.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/padel-real-samples/accessories-format-reference.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/padel-real-samples/backpack-brand-panel-reference.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/padel-real-samples/duffel-side-pocket-reference.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/padel-real-samples/hero-racket-bag-sample.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/padel-real-samples/showroom-racket-bag-range-1.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/padel-real-samples/showroom-racket-bag-range-2.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/padel-real-samples/showroom-racket-bag-range-3.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/padel-real-samples/sling-storage-reference.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/padel-real-samples/tote-interior-reference.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/padel-real-samples/tournament-format-reference.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/pickleball-bags-image-set.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/sports-duffel-bags-image-set.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/tennis-bags-image-set.png",
+      "format": "png"
+    },
+    {
+      "path": "/assets/trust-bulk-and-family-lineup-1600x900.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/trust-real-factory-product-1600x900.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/assets/trust-showroom-1600x900.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/images/cappuccino-factory-bulk-production-poster.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/images/cappuccino-racquet-showroom-poster.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/images/cappuccino-travel-bag-production-poster.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/images/cappuccino-wallet-cardholder-production-poster.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/images/padel/S001/S001-01-main.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S001/S001-02-back.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S001/S001-03-open.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S001/S001-04-detail.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S001/S001-contact-sheet.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S002/S002-01-main.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S002/S002-02-back.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S002/S002-03-open.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S002/S002-04-detail.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S002/S002-contact-sheet.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S003/S003-01-main.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S003/S003-02-back.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S003/S003-03-open.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S003/S003-04-detail.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S003/S003-contact-sheet.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S004/S004-01-main.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S004/S004-02-back.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S004/S004-03-open.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S004/S004-04-detail.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/S004/S004-contact-sheet.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/cappuccino-padel-bag-collection-2026-banner.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/padel/cappuccino-padel-collection-2026-details.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/cappuccino-padel-collection-2026-lifestyle.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/cappuccino-padel-collection-2026-studio.png",
+      "format": "png"
+    },
+    {
+      "path": "/images/padel/hero-lifestyle-padel-court-cappuccino.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/padel/multi-functional-sports-backpack-detail-sheet.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/padel/original-back-panel-straps.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/padel/original-laptop-sleeve-detail.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/padel/padel-backpack-detail-sheet.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/padel/padel-duffel-bag-detail-sheet.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/padel/padel-racket-bag-detail-sheet.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/collection-concept.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/guide-cover.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/references/sample-back.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/references/sample-detail.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/references/sample-front.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/references/sample-inside.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/references/sample-open.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/references/sample-side.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw001/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw002/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw003/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw004/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw005/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw006/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw007/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw008/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw009/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw010/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw011/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw012/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw013/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw014/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw015/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw016/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw017/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw018/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw019/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw020/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw021/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw022/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw023/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw024/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw025/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw026/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw027/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw028/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw029/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/images/running/rw030/concept-development.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/site/assets/alcantara/alcantara-card-holder-open-detail.avif",
+      "format": "avif"
+    },
+    {
+      "path": "/site/assets/alcantara/alcantara-collection-duffle-phone-case-card-holder.avif",
+      "format": "avif"
+    },
+    {
+      "path": "/site/assets/alcantara/alcantara-duffle-bag-five-colours.avif",
+      "format": "avif"
+    },
+    {
+      "path": "/site/assets/alcantara/alcantara-magsafe-wallet-colours.avif",
+      "format": "avif"
+    },
+    {
+      "path": "/site/assets/alcantara/custom-alcantara-card-holder-passport-cover-colours.avif",
+      "format": "avif"
+    },
+    {
+      "path": "/site/assets/alcantara/custom-alcantara-duffle-bag-colours.avif",
+      "format": "avif"
+    },
+    {
+      "path": "/site/assets/alcantara/custom-alcantara-iphone-case-collection.avif",
+      "format": "avif"
+    },
+    {
+      "path": "/site/assets/asia-fashion-booth.png",
+      "format": "png"
+    },
+    {
+      "path": "/site/assets/asia-fashion-floorplan.png",
+      "format": "png"
+    },
+    {
+      "path": "/site/assets/asia-fashion-listing.png",
+      "format": "png"
+    },
+    {
+      "path": "/site/assets/cappuccino-coffee-logo-header.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/site/assets/cappuccino-coffee-logo.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/site/assets/cappuccino-coffee-wordmark-header.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/site/assets/cappuccino-coffee-wordmark.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/site/assets/cappuccino-company-logo-original.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/site/assets/cappuccino-insulated-cooler-backpack-concept.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/site/assets/cappuccino-insulated-cooler-tote-bag-concept.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/site/assets/cappuccino-laptop-travel-backpack-concept.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/site/assets/cappuccino-logo-script.png",
+      "format": "png"
+    },
+    {
+      "path": "/site/assets/cappuccino-logo-wordmark-cream.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/site/assets/cappuccino-logo-wordmark-full.jpg",
+      "format": "jpg"
+    },
+    {
+      "path": "/site/assets/cappuccino-logo.png",
+      "format": "png"
+    },
+    {
+      "path": "/site/assets/cappuccino-waterproof-adventure-duffel-concept.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/site/assets/cappuccino-waterproof-roll-top-backpack-concept.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/site/assets/cappuccino-waterproof-wheeled-gear-bag-concept.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/site/assets/cappuccion-logo.svg",
+      "format": "svg"
+    },
+    {
+      "path": "/site/assets/compliance/cappuccino-factory-compliance-credentials-cover.png",
+      "format": "png"
+    },
+    {
+      "path": "/site/assets/compliance/cappuccino-factory-compliance-credentials-cover.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/site/assets/factory-qc-branded.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/site/assets/factory-workshop-wide-hero.png",
+      "format": "png"
+    },
+    {
+      "path": "/site/assets/founder-ip-portrait.png",
+      "format": "png"
+    },
+    {
+      "path": "/site/assets/home-factory-banner.png",
+      "format": "png"
+    },
+    {
+      "path": "/site/assets/premium-lifestyle-bags.webp",
+      "format": "webp"
+    },
+    {
+      "path": "/site/assets/process-flow-overview-cropped.png",
+      "format": "png"
+    },
+    {
+      "path": "/site/assets/process-flow-overview-topcrop.png",
+      "format": "png"
+    },
+    {
+      "path": "/site/assets/process-flow-overview.png",
+      "format": "png"
+    }
+  ]
+}

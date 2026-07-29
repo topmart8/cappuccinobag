@@ -1,0 +1,498 @@
+{
+  "site": "cappuccinobag",
+  "generated_at": "2026-07-29T19:20:14.011Z",
+  "mode": "draft_only",
+  "summary": {
+    "total": 61
+  },
+  "items": [
+    {
+      "issue": "orphan_page",
+      "url": "/blog/company-bio/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-hiking-backpacks/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-hotel-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-padel-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-pickleball-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-sports-duffel-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-tennis-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/bag-hardware-customization/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/card-holder-customization-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-backpacks/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-crossbody-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-gym-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-gym-duffel-bag-landing/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-hiking-backpack-manufacturer/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-hiking-daypack-landing/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-mountaineering-backpack-manufacturer/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-outdoor-multifunctional-bag-manufacturer/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-outdoor-sports-travel-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-packaging/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-padel-bag-manufacturer/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-pickleball-bag-landing/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-pickleball-bag-manufacturer/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-printing-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-racket-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-rfid-wallet-card-holder-landing/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-shoulder-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-tennis-bag-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-tennis-bag-manufacturer/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-tennis-padel-racket-bag-landing/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-tote-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-travel-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-travel-weekender-bag-landing/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-waterproof-wheeled-gear-bag/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/custom-womens-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/download-catalog/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/eco-tech-bag-material-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/eco-tech-smart-bag-manufacturer/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/gps-trackable-bag-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/hiking-backpack-customization-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/logo-customization-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/logo-debossing/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/logo-embossing/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/metal-logo-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/moq-sampling-faq/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/mountaineering-backpack-manufacturing-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/oem-odm-bag-manufacturer/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/outdoor-multifunctional-bag-manufacturing-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/outdoor-sports-bag-manufacturing-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/padel-bag-design-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/pickleball-bag-customization-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/private-label-handbags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/private-label-packaging-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/quality-inspection-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/recycled-eco-tech-bag-landing/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/recycled-material-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/request-sample/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/rfid-wallet-customization-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/sustainable-bag-wallet-materials-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/travel-bag-luggage-customization-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/vegan-leather-bags/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "orphan_page",
+      "url": "/wallet-materials-guide/",
+      "severity": "high",
+      "recommendation": "Add a contextual link from a relevant category, product or guide page.",
+      "auto_fixable": false,
+      "human_review_required": true
+    }
+  ]
+}

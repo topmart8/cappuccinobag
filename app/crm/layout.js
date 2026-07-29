@@ -9,12 +9,12 @@ const copy = {
   zh: {
     dashboard: "工作台", leads: "企业线索", inquiries: "询盘", tasks: "任务",
     imports: "导入与导出", email: "邮件草稿", whatsapp: "WhatsApp 草稿",
-    team: "团队与权限", sales: "销售工作区", search: "搜索公司、联系人、邮箱…",
+    team: "团队与权限", seo: "SEO 自动化", sales: "销售工作区", search: "搜索公司、联系人、邮箱…",
   },
   en: {
     dashboard: "Dashboard", leads: "Companies", inquiries: "Inquiries", tasks: "Tasks",
     imports: "Import & Export", email: "Email drafts", whatsapp: "WhatsApp drafts",
-    team: "Team & roles", sales: "Sales workspace", search: "Search company, contact or email…",
+    team: "Team & roles", seo: "SEO automation", sales: "Sales workspace", search: "Search company, contact or email…",
   },
 };
 
@@ -35,6 +35,7 @@ export default async function CrmLayout({ children }) {
         <Link href="/crm/imports">{t.imports}</Link>
         <Link href="/crm/drafts?channel=email">{t.email}</Link>
         <Link href="/crm/drafts?channel=whatsapp">{t.whatsapp}</Link>
+        {actor.role === "admin" ? <Link href="/crm/seo">{t.seo}</Link> : null}
         {actor.role === "admin" ? <Link href="/crm/team">{t.team}</Link> : null}
       </nav>
       <div className="crm-user"><strong>{actor.user}</strong><small>{actor.role === "admin" ? "Admin" : "Sales"}</small></div>

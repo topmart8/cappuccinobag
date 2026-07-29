@@ -166,5 +166,5 @@ test("CRM proxy injects trusted role headers for admin and sales accounts", asyn
   assert.match(source, /CRM_ADMIN_USER/);
   assert.match(source, /CRM_SALES_USER/);
   assert.match(source, /x-crm-role/);
-  assert.match(source, /matcher: \["\/crm\/:path\*", "\/api\/crm\/:path\*"\]/);
+  assert.match(source, /matcher: \["\/crm\/:path\*", "\/api\/crm\/:path\*", "\/api\/seo\/:path\*"\]/);
 });
