@@ -34,6 +34,11 @@ export default function CrmNavigation({ labels, isAdmin, mobile = false }) {
         const base = href.split("?")[0];
         return <Link key={href} href={href} aria-current={current(pathname, base) ? "page" : undefined}>{label}</Link>;
       })}
+      {isAdmin ? <Link href="/crm/seo" aria-current={current(pathname, "/crm/seo") ? "page" : undefined}>{labels.seo}</Link> : null}
+      {isAdmin ? <Link href="/crm/team" aria-current={current(pathname, "/crm/team") ? "page" : undefined}>{labels.team}</Link> : null}
+    </nav>;
+}
+
       {isAdmin ? <Link href="/crm/team" aria-current={current(pathname, "/crm/team") ? "page" : undefined}>{labels.team}</Link> : null}
     </nav>;
 }
