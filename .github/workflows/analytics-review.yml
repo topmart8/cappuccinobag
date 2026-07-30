@@ -1,0 +1,25 @@
+name: Analytics review
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "37 2 * * 3"
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    env:
+      AUTOMATION_MODE: draft_only
+      CONTENT_AUTO_PUBLISH: "false"
+      GOOGLE_SEARCH_CONSOLE_CLIENT_EMAIL: ${{ secrets.GOOGLE_SEARCH_CONSOLE_CLIENT_EMAIL }}
+      GOOGLE_SEARCH_CONSOLE_PRIVATE_KEY: ${{ secrets.GOOGLE_SEARCH_CONSOLE_PRIVATE_KEY }}
+      GOOGLE_SEARCH_CONSOLE_SITE_URL: https://www.cappuccinobag.com/
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --ignore-scripts
+      - run: npm run automation:analytics
