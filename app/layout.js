@@ -1,9 +1,10 @@
 import "./globals.css";
 import BrandWhatsAppButton from "../components/BrandWhatsAppButton";
 import AttributionTracker from "../components/AttributionTracker";
+import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
 
 export const metadata = {
-  metadataBase: new URL("https://cappuccinobag.com"),
+  metadataBase: new URL("https://www.cappuccinobag.com"),
   title:
     "OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags",
   description:
@@ -47,9 +48,21 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const analyticsEnabled =
+    process.env.VERCEL_ENV === "production"
+    && process.env.NEXT_PUBLIC_ANALYTICS_ENABLED !== "false";
   return (
     <html lang="en">
-      <body><AttributionTracker />{children}<BrandWhatsAppButton /></body>
+      <body>
+        <AttributionTracker />
+        <AnalyticsProvider
+          enabled={analyticsEnabled}
+          gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ""}
+          clarityProjectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || ""}
+        />
+        {children}
+        <BrandWhatsAppButton />
+      </body>
     </html>
   );
 }

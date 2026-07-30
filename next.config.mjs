@@ -12,6 +12,22 @@ const redirectPairs = [
   ["/running-waist-packs-running-belt-bags", "/running-waist-packs/"],
 ];
 
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+  "object-src 'none'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://va.vercel-scripts.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https://*.clarity.ms https://c.bing.com",
+  "font-src 'self' data:",
+  "media-src 'self'",
+  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com https://vitals.vercel-insights.com",
+  "worker-src 'self' blob:",
+  "upgrade-insecure-requests",
+].join("; ");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: false,
@@ -35,6 +51,17 @@ const nextConfig = {
       },
       ...canonicalRedirects,
     ];
+  },
+  async headers() {
+    const headers = [
+      { key: "Content-Security-Policy", value: contentSecurityPolicy },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      { key: "X-Content-Type-Options", value: "nosniff" },
+    ];
+    if (process.env.VERCEL_ENV === "preview") {
+      headers.push({ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" });
+    }
+    return [{ source: "/:path*", headers }];
   },
 };
 
