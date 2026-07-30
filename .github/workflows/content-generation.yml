@@ -1,0 +1,32 @@
+name: Content generation
+on:
+  workflow_dispatch:
+    inputs:
+      task_id:
+        description: Approved content task UUID
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  generate-reviewed-draft:
+    runs-on: ubuntu-latest
+    env:
+      AUTOMATION_MODE: draft_only
+      CONTENT_AUTO_PUBLISH: "false"
+      CONTENT_AUTO_MERGE: "false"
+      IMAGE_AUTO_GENERATE: "false"
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+      SEO_TASK_ID: ${{ inputs.task_id }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --ignore-scripts
+      - run: npm run automation:content
+      - run: npm run automation:review
+      - run: npm run test:content

@@ -1,0 +1,44 @@
+name: Approved content pull request
+on:
+  workflow_dispatch:
+    inputs:
+      task_id:
+        description: Approved content task UUID
+        required: true
+        type: string
+      approval_status:
+        description: Must be exactly approved
+        required: true
+        type: string
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  draft-pr:
+    if: inputs.approval_status == 'approved'
+    runs-on: ubuntu-latest
+    env:
+      AUTOMATION_MODE: draft_only
+      CONTENT_AUTO_PUBLISH: "false"
+      CONTENT_AUTO_MERGE: "false"
+      GITHUB_DEFAULT_BRANCH: main
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --ignore-scripts
+      - run: npm run automation:publish
+      - run: npm test
+      - run: npm run lint
+      - run: npm run build
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: content/cappuccino-${{ inputs.task_id }}
+          base: main
+          title: "content: add approved Cappuccino SEO draft"
+          commit-message: "content: add approved Cappuccino SEO draft"
+          body: "Human-approved task converted to a draft PR. Vercel Preview and final content must be checked before merge."
+          draft: true
