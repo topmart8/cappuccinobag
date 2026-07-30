@@ -228,3 +228,80 @@ Use an already-authorized SSH credential if available. Otherwise the user must r
 - Reproducible: yes
 - Related files: `.github/workflows/*.yml`
 - Tags: github, oauth, workflow, push
+
+## [ERR-20260730-007] github-cli-install-assumptions
+
+**Logged**: 2026-07-30T22:45:53+08:00
+**Priority**: medium
+**Status**: resolved
+**Area**: infra
+
+### Summary
+
+The GitHub CLI installation fallback failed because neither Homebrew nor a macOS tarball asset was available.
+
+### Error
+
+```text
+zsh:1: command not found: brew
+curl: (56) The requested URL returned error: 404
+```
+
+### Context
+
+- Task attempted: install the missing GitHub CLI so the workflow-scope authorization can be refreshed
+- Command/tool/API: Homebrew, then the official GitHub CLI release download
+- Inputs: macOS arm64 environment and GitHub CLI v2.96.0
+- Environment: Darwin arm64 with no Homebrew
+
+### Suspected Cause
+
+The environment does not include Homebrew, and current GitHub CLI macOS release assets are distributed as ZIP or PKG files rather than the assumed tarball.
+
+### Suggested Fix
+
+Inspect the official release asset list first, then install the macOS arm64 ZIP binary into a user-owned executable directory.
+
+### Metadata
+
+- Reproducible: yes
+- Related files: `.learnings/ERRORS.md`
+- Tags: github-cli, macos, homebrew, release-assets
+
+## [ERR-20260731-008] github-device-code-network-timeout
+
+**Logged**: 2026-07-31T00:40:25+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+
+GitHub CLI timed out while requesting a fresh OAuth device code after the previous authorization request expired.
+
+### Error
+
+```text
+Post "https://github.com/login/device/code": dial tcp 20.205.243.166:443: i/o timeout
+```
+
+### Context
+
+- Task attempted: refresh the existing GitHub CLI token with the `workflow` scope
+- Command/tool/API: `gh auth refresh -h github.com -s workflow`
+- Inputs: authenticated `topmart8` GitHub CLI session
+- Environment: macOS arm64 over the current network connection
+
+### Suspected Cause
+
+A transient network timeout occurred while connecting to GitHub's device-code endpoint.
+
+### Suggested Fix
+
+Retry the device-code request once; if it fails again, stop and wait for the network path to recover.
+
+### Metadata
+
+- Reproducible: unknown
+- Related files: `.learnings/ERRORS.md`
+- Tags: github, oauth, device-flow, network
