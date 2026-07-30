@@ -77,6 +77,7 @@ export async function POST(request) {
   if (rateLimited(ip)) return NextResponse.json({ message: "Too many attempts. Please try again later." }, { status: 429 });
   try {
     const { data, files } = await parseRequest(request);
+    data.attribution_country ||= request.headers.get("x-vercel-ip-country") || "";
     if (data.website) return NextResponse.json({ ok: true });
     if (!data.name || !EMAIL.test(String(data.email || ""))) {
       return NextResponse.json({ message: "Name and a valid email are required." }, { status: 422 });
@@ -90,8 +91,9 @@ export async function POST(request) {
       ["Country", data.country], ["Product", data.product_needed || data.product],
       ["Quantity", data.quantity], ["Material", data.material], ["Logo", data.logo_method],
       ["Message", data.message], ["Landing page", data.first_landing_page],
-      ["Submit page", data.current_page_url || data.pageUrl], ["UTM source", data.utm_source],
-      ["UTM campaign", data.utm_campaign],
+      ["Submit page", data.current_page_url || data.pageUrl], ["First UTM source", data.utm_source],
+      ["First UTM campaign", data.utm_campaign], ["Current UTM source", data.current_utm_source],
+      ["Current UTM campaign", data.current_utm_campaign],
     ].map(([key, value]) => `<tr><th align="left">${key}</th><td>${escapeHtml(value || "—")}</td></tr>`).join("");
     await sendEmail({
       to: process.env.INQUIRY_TO_EMAIL || "info@cappuccinobag.net",
@@ -113,4 +115,3 @@ export async function POST(request) {
     return NextResponse.json({ message: error.message || "Inquiry could not be saved. Please email info@cappuccinobag.net." }, { status: 502 });
   }
 }
-

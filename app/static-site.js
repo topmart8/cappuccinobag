@@ -409,6 +409,7 @@ export async function generateMetadataForStaticPage({ params }) {
 function normalizeHtml(html) {
   return html
     .replace(/<script\b[\s\S]*?<\/script>/gi, "")
+    .replace(/<form(?![^>]*data-clarity-mask)/gi, '<form data-clarity-mask="true"')
     .replace(/src="(?:\.\.\/)?assets\//g, 'src="/site/assets/')
     .replace(/poster="(?:\.\.\/)?assets\//g, 'poster="/site/assets/')
     .replace(/href="(?:\.\.\/)?assets\//g, 'href="/site/assets/')
