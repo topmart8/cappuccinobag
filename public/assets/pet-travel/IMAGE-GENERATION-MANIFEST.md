@@ -1,6 +1,6 @@
 # Pet Travel Image Generation Manifest
 
-Status: **production asset pending** for every image listed below. No fake image files are included. Pages use an accessible CSS fallback until reviewed WebP or AVIF assets are supplied.
+Status: **production asset pending** for every image listed below. AI-assisted concept assets now exist for each `01-main.webp` and `09-lifestyle.webp`, plus the desktop and mobile collection banners. They are visibly disclosed on-page and remain subject to sample and photography approval. The other 144 product shots are not present; pages retain a safe visual fallback and do not reference those missing paths. No fake or empty image files are included.
 
 Global negative instructions: no floating straps, broken zippers, malformed animals, extra handles, fake text, incorrect logos, watermarks, exaggerated shadows, impossible structure, copied competitor design, marketplace badges, certification marks or airline-approval marks. Animals must appear comfortable and naturally positioned. Target product images below 220 KB and banners below 450 KB after approval and compression.
 

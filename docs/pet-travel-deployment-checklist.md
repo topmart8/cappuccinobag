@@ -3,8 +3,8 @@
 ## Automated checks
 
 - [x] Local ESLint passes.
-- [x] Existing tests pass: 17/17.
-- [x] Production build passes: 177 static/dynamic app routes generated.
+- [x] Existing tests pass: 21/21.
+- [x] Production build and TypeScript phase pass: 184 app routes generated.
 - [x] `git diff --check` passes.
 - [x] PT001–PT012 are present and unique.
 - [x] Commercial titles and descriptions are unique.
@@ -13,6 +13,7 @@
 - [x] Placeholder-text search passes; intentional product-photography status labels are not broken image references.
 - [x] 92 generated JSON-LD scripts parse successfully across 34 new HTML pages.
 - [x] 39 target routes and 53 extracted internal links return without 4xx errors.
+- [x] All 26 source WebP assets are non-empty, hash-unique and below the defined size limits; 35 rendered image URLs return successfully.
 - [x] Representative collection, product and article pages pass overflow/console checks at 390, 768, 1024 and 1440 px.
 
 ## Manual browser QA
@@ -26,8 +27,10 @@
 
 ## Required before final image launch
 
-- [ ] Produce and approve 168 product images from the manifest.
-- [ ] Produce desktop and mobile collection banners.
+- [x] Produce 24 distinct AI-assisted product concepts for PT001–PT012 (main and lifestyle).
+- [x] Produce distinct desktop and mobile AI-assisted collection banners.
+- [ ] Produce the remaining 144 detail images from the manifest.
+- [ ] Replace all AI-assisted concepts with approved real-sample photography before claiming final production assets.
 - [ ] Confirm final product dimensions before dimension graphics.
 - [ ] Compress product images below 220 KB where quality permits and banners below 450 KB.
-- [ ] Replace CSS placeholders only after construction and alt-text review.
+- [x] Render concept images over the existing safe CSS fallback with meaningful alt text and a visible production-pending disclosure.
