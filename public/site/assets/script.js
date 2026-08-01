@@ -83,7 +83,7 @@ function getAttribution() {
 function getWhatsAppUrl() {
   const page = window.location.href.slice(0, 700);
   const context = new URLSearchParams(window.location.search).get("product") || document.querySelector("h1")?.textContent?.trim() || "your products";
-  const code = /padel|pickleball|tennis/i.test(context) ? "CAP-PDL" : /travel/i.test(context) ? "CAP-TRV" : "CAP-OUT";
+  const code = /pet/i.test(context) ? "CAP-PET" : /padel|pickleball|tennis/i.test(context) ? "CAP-PDL" : /travel/i.test(context) ? "CAP-TRV" : "CAP-OUT";
   const message = `Hello Cappuccino Bag, I am interested in ${context}. I visited: ${page}. Source: ${code}`;
   return `${whatsappBase}?text=${encodeURIComponent(message)}`;
 }
@@ -95,6 +95,16 @@ function preselectInquiryContext(form) {
   const intention = form.elements.inquiry_intention;
   const product = form.elements.product_needed;
   const message = form.elements.message;
+
+  if (/pet/i.test(`${project} ${format}`)) {
+    if (intention) intention.value = "Pet Travel Bag Project";
+    if (product) {
+      const specific = Array.from(product.options).find((item) => format.toLowerCase().includes(item.value.toLowerCase()));
+      product.value = specific?.value || "Pet Travel Bags";
+    }
+    if (message && format) message.value = `Pet travel product: ${format}\n`;
+    return;
+  }
 
   if (/padel/i.test(project)) {
     if (intention) {

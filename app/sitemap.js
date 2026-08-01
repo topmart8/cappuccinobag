@@ -1,5 +1,7 @@
 import { runningArticles } from "./running-articles";
 import { runningProducts } from "./running-data";
+import { petArticles } from "./pet-travel-articles";
+import { petCategories, petProducts } from "./pet-travel-data";
 
 const baseUrl = "https://www.cappuccinobag.com";
 
@@ -30,6 +32,8 @@ const routes = [
   { path: "/running/phone-belts/", priority: 0.94 },
   { path: "/running/custom-oem-odm/", priority: 0.96 },
   { path: "/running-guides/", priority: 0.86 },
+  { path: "/pet-travel-bags/", priority: 0.96 },
+  { path: "/pet-travel-guides/", priority: 0.84 },
   { path: "/custom-pickleball-paddle-bags/", priority: 0.95 },
   { path: "/custom-hiking-daypacks-outdoor-backpacks/", priority: 0.95 },
   { path: "/custom-waterproof-adventure-duffel/", priority: 0.92 },
@@ -60,6 +64,8 @@ const routes = [
   { path: "/resources/quality-inspection-guide/", priority: 0.78 },
   { path: "/resources/moq-sampling-faq/", priority: 0.78 },
   { path: "/factory-trust-materials/", priority: 0.82 },
+  { path: "/recycled-material-bags/", priority: 0.84 },
+  { path: "/oem-odm-bag-manufacturer/", priority: 0.9 },
   { path: "/alcantara-collection/", priority: 0.94 },
   { path: "/custom-alcantara-duffle-bag/", priority: 0.92 },
   { path: "/custom-alcantara-iphone-case/", priority: 0.9 },
@@ -77,6 +83,9 @@ export default function sitemap() {
   const dynamicRoutes = [
     ...runningProducts.map((product) => ({ path: product.href, priority: 0.9 })),
     ...runningArticles.map((article) => ({ path: `/running-guides/${article.slug}/`, priority: 0.84 })),
+    ...Object.keys(petCategories).map((slug) => ({ path: `/pet-travel-bags/${slug}/`, priority: 0.9 })),
+    ...petProducts.map((product) => ({ path: product.href, priority: 0.92 })),
+    ...petArticles.map((article) => ({ path: `/pet-travel-guides/${article.slug}/`, priority: 0.82 })),
   ];
   return [...routes, ...dynamicRoutes].map((route) => ({
     url: `${baseUrl}${route.path}`,

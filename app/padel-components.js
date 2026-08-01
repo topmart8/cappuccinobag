@@ -17,6 +17,7 @@ export function PadelHeader() {
         <Link href="/custom-pickleball-paddle-bags/">Pickleball Bags</Link>
         <Link href="/custom-tennis-padel-racket-bags/">Tennis Bags</Link>
         <Link href="/custom-travel-backpacks-weekender-bags/">Travel Bags</Link>
+        <Link href="/pet-travel-bags/">Pet Travel Bags</Link>
         <Link href="/factory-trust-materials/">Factory Proof</Link>
         <Link href="/inquiry/">RFQ</Link>
       </nav>
@@ -33,6 +34,8 @@ export function PadelHeader() {
           <Link href="/running-waist-packs/">Running Packs</Link>
           <Link href="/custom-padel-bag-manufacturer/">Padel Bags</Link>
           <Link href="/padel-accessories/">Padel Accessories</Link>
+          <Link href="/custom-travel-backpacks-weekender-bags/">Travel Bags</Link>
+          <Link href="/pet-travel-bags/">Pet Travel Bags</Link>
           <Link href="/factory-trust-materials/">Factory Proof</Link>
           <Link href="/inquiry/">RFQ</Link>
         </nav>
@@ -62,6 +65,8 @@ export function PadelFooter() {
         <Link href="/running-guides/">Running Guides</Link>
         <Link href="/custom-padel-bag-manufacturer/">Padel Collection</Link>
         <Link href="/padel-accessories/">Padel Accessories</Link>
+        <Link href="/pet-travel-bags/">Pet Travel Bags</Link>
+        <Link href="/pet-travel-guides/">Pet Travel Guides</Link>
         <Link href="/inquiry/">RFQ</Link>
       </div>
     </footer>
