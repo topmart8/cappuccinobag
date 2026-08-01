@@ -1,5 +1,5 @@
 -- Cappuccino Bag SEO/content operations. Additive and draft-only by design.
--- Requires the existing CRM profiles table for authenticated admin access.
+-- Authenticated admin access uses protected app_metadata claims; service automation uses service_role.
 
 create extension if not exists pgcrypto;
 
