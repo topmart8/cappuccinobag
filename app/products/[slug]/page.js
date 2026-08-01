@@ -180,8 +180,8 @@ function Header() {
         <span>Cappuccino Bag</span>
       </Link>
       <nav className="desktop-nav" aria-label="Main navigation">
-        <Link href="/running-waist-packs/">Running Packs</Link>
         <Link href="/custom-padel-bag-manufacturer/">Padel Bags</Link>
+        <Link href="/running-waist-packs/">Running Packs</Link>
         <Link href="/custom-pickleball-paddle-bags/">Pickleball Bags</Link>
         <Link href="/custom-tennis-padel-racket-bags/">Tennis Bags</Link>
         <Link href="/custom-travel-backpacks-weekender-bags/">Travel Bags</Link>
@@ -193,8 +193,8 @@ function Header() {
         <summary aria-label="Open mobile navigation"><span /><span /></summary>
         <nav aria-label="Mobile navigation">
           <Link href="/">Home</Link>
-          <Link href="/running-waist-packs/">Running Packs</Link>
           <Link href="/custom-padel-bag-manufacturer/">Padel Bags</Link>
+          <Link href="/running-waist-packs/">Running Packs</Link>
           <Link href="/custom-tennis-padel-racket-bags/">Racket Bags</Link>
           <Link href="/factory-trust-materials/">Factory Proof</Link>
           <Link href="/inquiry/">RFQ</Link>
@@ -214,8 +214,8 @@ function Footer() {
       </div>
       <div className="footer-links">
         <Link href="/">Home</Link>
-        <Link href="/running-waist-packs/">Running Waist Packs</Link>
         <Link href="/custom-padel-bag-manufacturer/">Padel Collection</Link>
+        <Link href="/running-waist-packs/">Running Waist Packs</Link>
         <Link href="/contact/">Contact</Link>
         <Link href="/inquiry/">RFQ</Link>
       </div>
