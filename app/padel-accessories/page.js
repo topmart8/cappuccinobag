@@ -13,12 +13,12 @@ export const metadata = {
   title: "Custom Padel Accessories | Private Label OEM Development",
   description:
     "Explore private-label padel shoe bag and court essentials organizer concepts for coordinated retail, club, tournament and gift collections.",
-  alternates: { canonical: `${siteUrl}/padel-accessories/` },
+  alternates: { canonical: `${siteUrl}/padel-accessories` },
   openGraph: {
     title: "Custom Padel Accessories | Private Label OEM Development",
     description:
       "Private-label padel shoe bag and organizer pouch development for brands, clubs and specialist retailers.",
-    url: `${siteUrl}/padel-accessories/`,
+    url: `${siteUrl}/padel-accessories`,
     type: "website",
     images: [
       {
@@ -46,7 +46,7 @@ export default function PadelAccessoriesPage() {
         "@type": "ListItem",
         position: 2,
         name: "Padel Accessories",
-        item: `${siteUrl}/padel-accessories/`,
+        item: `${siteUrl}/padel-accessories`,
       },
     ],
   };
@@ -87,7 +87,7 @@ export default function PadelAccessoriesPage() {
               </Link>
               <Link
                 className="btn btn-secondary"
-                href="/custom-padel-bag-manufacturer/"
+                href="/custom-padel-bag-manufacturer"
               >
                 View Full Padel Collection
               </Link>

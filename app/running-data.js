@@ -70,7 +70,7 @@ export const runningProducts = rows.map(
       priceTier,
       launchPriority,
       fitGuidance: fitGuidance({ name, features }),
-      href: `/running-waist-packs/${slug}/`,
+      href: `/running-waist-packs/${slug}`,
       image: `/images/running/${sku.toLowerCase()}/concept-development.webp`,
       imageAlt: `${sku} ${name} clearly labeled concept development option for OEM and ODM review`,
       metaTitle: `${name} OEM Manufacturer | Cappuccino Bag`,

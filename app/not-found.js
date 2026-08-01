@@ -13,7 +13,7 @@ export default function NotFound() {
       <p>The product or resource may have moved. Continue with the main collections or send an RFQ.</p>
       <div>
         <Link href="/">Return home</Link>
-        <Link href="/inquiry/">Request a quote</Link>
+        <Link href="/inquiry">Request a quote</Link>
       </div>
     </main>
   );

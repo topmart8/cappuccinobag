@@ -1,13 +1,25 @@
-import { runningArticles } from "./running-articles";
-import { runningProducts } from "./running-data";
-import { petArticles } from "./pet-travel-articles";
-import { petCategories, petProducts } from "./pet-travel-data";
+import { runningArticles } from "./running-articles.js";
+import { runningProducts } from "./running-data.js";
+import { petArticles } from "./pet-travel-articles.js";
+import { petCategories, petProducts } from "./pet-travel-data.js";
 
 const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
   { path: "/", priority: 1.0 },
-  { path: "/inquiry/", priority: 0.95 },
+  { path: "/custom-padel-bag-manufacturer", priority: 0.95 },
+  { path: "/products", priority: 0.9 },
+  { path: "/inquiry", priority: 0.9 },
+  { path: "/custom-pickleball-paddle-bags", priority: 0.9 },
+  { path: "/custom-tennis-bag-manufacturer", priority: 0.9 },
+  { path: "/custom-outdoor-sports-bag-manufacturer", priority: 0.88 },
+  { path: "/custom-travel-backpacks-weekender-bags", priority: 0.88 },
+  { path: "/outdoor-multifunctional-bag-manufacturing-guide", priority: 0.7 },
+  { path: "/custom-tennis-bag-guide", priority: 0.7 },
+  { path: "/pickleball-bag-customization-guide", priority: 0.7 },
+  { path: "/hiking-backpack-customization-guide", priority: 0.68 },
+  { path: "/quality-inspection-guide", priority: 0.65 },
+  { path: "/moq-sampling-faq", priority: 0.65 },
   { path: "/contact/", priority: 0.9 },
   { path: "/privacy/", priority: 0.35 },
   { path: "/about-us/", priority: 0.9 },
@@ -92,10 +104,47 @@ export default function sitemap() {
     ...petProducts.map((product) => ({ path: product.href, priority: 0.92 })),
     ...petArticles.map((article) => ({ path: `/pet-travel-guides/${article.slug}/`, priority: 0.82 })),
   ];
-  return [...routes, ...dynamicRoutes].map((route) => ({
-    url: `${baseUrl}${route.path}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: route.priority,
-  }));
+  const redirectedPaths = new Set([
+    "/custom-padel-bags.html",
+    "/custom-pickleball-bags.html",
+    "/custom-pickleball-bag-manufacturer",
+    "/custom-tennis-bags.html",
+    "/custom-hiking-backpacks.html",
+    "/custom-hiking-backpack-manufacturer",
+    "/custom-hiking-daypacks-outdoor-backpacks",
+    "/custom-travel-bag-luggage-manufacturer",
+    "/rfq",
+    "/custom-convertible-padel-backpack-duffel",
+    "/resources/outdoor-multifunctional-bag-manufacturing-guide",
+    "/resources/custom-tennis-bag-guide",
+    "/resources/pickleball-bag-customization-guide",
+    "/resources/hiking-backpack-customization-guide",
+    "/resources/quality-inspection-guide",
+    "/resources/moq-sampling-faq",
+    "/custom-sports-duffel-bags.html",
+    "/custom-hotel-bags.html",
+  ]);
+  const priorityOverrides = new Map([
+    ["/custom-padel-bag-manufacturer", 0.95],
+    ["/inquiry", 0.9],
+    ["/custom-pickleball-paddle-bags", 0.9],
+    ["/custom-tennis-bag-manufacturer", 0.9],
+    ["/custom-outdoor-sports-bag-manufacturer", 0.88],
+    ["/custom-travel-backpacks-weekender-bags", 0.88],
+    ["/running-waist-packs", 0.82],
+    ["/pet-travel-bags", 0.78],
+  ]);
+  const unique = new Map();
+  for (const route of [...routes, ...dynamicRoutes]) {
+    const path = route.path === "/" ? "/" : route.path.replace(/\/+$/, "");
+    if (redirectedPaths.has(path) || path.startsWith("/crm") || path.startsWith("/api")) continue;
+    const isProduct = path.startsWith("/products/") || path.startsWith("/padel-bags/") || path.startsWith("/padel-accessories/");
+    unique.set(path, {
+      url: `${baseUrl}${path}`,
+      lastModified: route.updated || "2026-08-02",
+      changeFrequency: "weekly",
+      priority: priorityOverrides.get(path) || (isProduct ? Math.min(route.priority, 0.85) : route.priority),
+    });
+  }
+  return [...unique.values()];
 }

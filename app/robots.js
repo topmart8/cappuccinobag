@@ -3,7 +3,7 @@ export default function robots() {
   return {
     rules: preview
       ? { userAgent: "*", disallow: "/" }
-      : { userAgent: "*", allow: "/", disallow: ["/crm/", "/api/"] },
+      : { userAgent: "*", allow: "/", disallow: ["/crm/", "/api/", "/site/"] },
     ...(preview ? {} : { sitemap: "https://www.cappuccinobag.com/sitemap.xml" }),
     host: "https://www.cappuccinobag.com",
   };

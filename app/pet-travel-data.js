@@ -1,6 +1,6 @@
 export const petSiteUrl = "https://www.cappuccinobag.com";
-export const petCollectionUrl = "/pet-travel-bags/";
-export const petGuidesUrl = "/pet-travel-guides/";
+export const petCollectionUrl = "/pet-travel-bags";
+export const petGuidesUrl = "/pet-travel-guides";
 export const petWhatsappUrl = "https://wa.me/8613928715568?text=Hello%2C%20I%20am%20planning%20a%20custom%20pet%20travel%20bag%20project.";
 
 const sharedTiming = "Sampling and production lead times are confirmed after design, material and order requirements are reviewed.";
@@ -131,7 +131,7 @@ const rows = [
 
 export const petProducts = rows.map((product) => ({
   ...product,
-  href: `${petCollectionUrl}${product.slug}/`,
+  href: `${petCollectionUrl}/${product.slug}`,
   moq: sharedMoq,
   timing: sharedTiming,
   sampleNote: `A physical ${product.code} sample is developed against the approved brief. Fit, structure, access, materials, branding and packaging comments are recorded before approval.`,
@@ -163,7 +163,7 @@ export const petCategories = {
   "custom-oem-pet-bags": { name: "Custom OEM Pet Bags", h1: "Custom OEM Pet Bag Development", keyword: "OEM pet bag factory", description: "Concept-to-production development for original carriers, backpacks, organizers and walking accessories for private-label buyers." },
 };
 
-export const petCategoryMap = Object.fromEntries(Object.entries(petCategories).map(([slug, category]) => [slug, { ...category, slug, href: `${petCollectionUrl}${slug}/` }]));
+export const petCategoryMap = Object.fromEntries(Object.entries(petCategories).map(([slug, category]) => [slug, { ...category, slug, href: `${petCollectionUrl}/${slug}` }]));
 export function productsForPetCategory(slug) { return petProducts.filter((product) => product.categorySlug === slug); }
 
 export const collectionFaqs = [

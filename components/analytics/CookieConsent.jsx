@@ -25,7 +25,7 @@ export default function CookieConsent() {
             <p>
               Necessary storage keeps the site and your preference working. With your permission,
               analytics helps us understand page performance and improve inquiry journeys.
-              <Link href="/privacy/"> Privacy details</Link>
+              <Link href="/privacy"> Privacy details</Link>
             </p>
           </div>
           <div className="analytics-consent-actions">

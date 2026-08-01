@@ -14,7 +14,7 @@ function Link(props) {
 export function getPadelArticleMetadata(slug) {
   const article = padelWorkToteArticles[slug];
   if (!article) return {};
-  const canonical = `${siteUrl}/blog/${slug}/`;
+  const canonical = `${siteUrl}/blog/${slug}`;
   return {
     title: `${article.title} | Cappuccino Bag`,
     description: article.description,
@@ -34,7 +34,7 @@ export function getPadelArticleMetadata(slug) {
 export function PadelWorkToteArticle({ slug }) {
   const article = padelWorkToteArticles[slug];
   if (!article) notFound();
-  const canonical = `${siteUrl}/blog/${slug}/`;
+  const canonical = `${siteUrl}/blog/${slug}`;
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -52,7 +52,7 @@ export function PadelWorkToteArticle({ slug }) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Resources", item: `${siteUrl}/resources/` },
+      { "@type": "ListItem", position: 2, name: "Resources", item: `${siteUrl}/resources` },
       { "@type": "ListItem", position: 3, name: article.title, item: canonical },
     ],
   };
@@ -63,7 +63,7 @@ export function PadelWorkToteArticle({ slug }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <PadelHeader />
       <main className="pdb001-article-page">
-        <nav className="padel-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/resources/">Resources</Link><span aria-hidden="true">/</span><span>{article.title}</span></nav>
+        <nav className="padel-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/resources">Resources</Link><span aria-hidden="true">/</span><span>{article.title}</span></nav>
         <article>
           <header className="pdb001-article-hero">
             <div><p className="eyebrow">Padel buyer guide</p><h1>{article.title}</h1><p>{article.intro}</p><p className="pdb001-article-byline">By Cappuccino Bag Product Development Team · Last reviewed August 2, 2026</p></div>
@@ -71,7 +71,7 @@ export function PadelWorkToteArticle({ slug }) {
           </header>
           <div className="pdb001-article-body">
             {article.sections.map(([heading, paragraphs]) => <section key={heading}><h2>{heading}</h2>{paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</section>)}
-            <aside className="pdb001-article-cta"><h2>Develop an office-to-court padel bag</h2><p>Review the PDB001 product direction or send your target quantity, market, material, colour, laptop size, racket type and logo brief for an OEM/ODM review.</p><div><Link className="btn btn-primary" href="/products/padel-work-tote-backpack-pdb001">View PDB001</Link><Link className="btn btn-secondary" href="/rfq/?product=Padel%20Bags&format=PDB001%20Padel%20Work%20Tote%20Backpack">Request a custom sample</Link></div></aside>
+            <aside className="pdb001-article-cta"><h2>Develop an office-to-court padel bag</h2><p>Review the PDB001 product direction or send your target quantity, market, material, colour, laptop size, racket type and logo brief for an OEM/ODM review.</p><div><Link className="btn btn-primary" href="/products/padel-work-tote-backpack-pdb001">View PDB001</Link><Link className="btn btn-secondary" href="/inquiry?product=Padel%20Bags&format=PDB001%20Padel%20Work%20Tote%20Backpack">Request a custom sample</Link></div></aside>
           </div>
         </article>
       </main>

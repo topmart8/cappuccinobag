@@ -35,7 +35,7 @@ export async function getRunningCollectionMetadata({ params }) {
   const { category } = await params;
   const collection = runningCollections[category];
   if (!collection) return {};
-  const canonical = `${runningSiteUrl}/running/${category}/`;
+  const canonical = `${runningSiteUrl}/running/${category}`;
   const title = `${collection.h1} | Cappuccino Bag`;
   return {
     title,
@@ -58,7 +58,7 @@ export async function RunningCollectionPage({ params }) {
   const collection = runningCollections[category];
   if (!collection) notFound();
   const products = getProductsForCollection(category);
-  const canonical = `${runningSiteUrl}/running/${category}/`;
+  const canonical = `${runningSiteUrl}/running/${category}`;
   const isOem = category === "custom-oem-odm";
   const schemas = [
     {
@@ -66,7 +66,7 @@ export async function RunningCollectionPage({ params }) {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${runningSiteUrl}/` },
-        { "@type": "ListItem", position: 2, name: "Running Waist Packs", item: `${runningSiteUrl}/running-waist-packs/` },
+        { "@type": "ListItem", position: 2, name: "Running Waist Packs", item: `${runningSiteUrl}/running-waist-packs` },
         { "@type": "ListItem", position: 3, name: collection.name, item: canonical },
       ],
     },
@@ -87,7 +87,7 @@ export async function RunningCollectionPage({ params }) {
       <RunningShell>
         <main className="running-page">
           <RunningBreadcrumb items={[
-            { name: "Running Waist Packs", href: "/running-waist-packs/" },
+            { name: "Running Waist Packs", href: "/running-waist-packs" },
             { name: collection.name },
           ]} />
           <section className="running-collection-hero">

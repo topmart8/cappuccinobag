@@ -12,7 +12,7 @@ export async function getRunningArticleMetadata({ params }) {
   const { slug } = await params;
   const article = runningArticleMap[slug];
   if (!article) return {};
-  const canonical = `${runningSiteUrl}/running-guides/${article.slug}/`;
+  const canonical = `${runningSiteUrl}/running-guides/${article.slug}`;
   return {
     title: `${article.title} | Cappuccino Bag`,
     description: article.description,
@@ -36,7 +36,7 @@ export async function RunningArticlePage({ params }) {
   const { slug } = await params;
   const article = runningArticleMap[slug];
   if (!article) notFound();
-  const canonical = `${runningSiteUrl}/running-guides/${article.slug}/`;
+  const canonical = `${runningSiteUrl}/running-guides/${article.slug}`;
   const related = article.relatedSkus.map((sku) =>
     Object.values(runningProductMap).find((product) => product.sku === sku),
   ).filter(Boolean);
@@ -59,7 +59,7 @@ export async function RunningArticlePage({ params }) {
       <RunningShell>
         <main className="running-page running-article-page">
           <RunningBreadcrumb items={[
-            { name: "Running Guides", href: "/running-guides/" },
+            { name: "Running Guides", href: "/running-guides" },
             { name: article.title },
           ]} />
           <article>
@@ -94,7 +94,7 @@ export async function RunningArticlePage({ params }) {
             </div>
           </article>
           <section className="running-section">
-            <div className="running-heading"><div><p className="eyebrow">Related products</p><h2>Apply the buying criteria to these concepts</h2></div><Link className="running-text-link" href="/running-waist-packs/">View all 30 SKU</Link></div>
+            <div className="running-heading"><div><p className="eyebrow">Related products</p><h2>Apply the buying criteria to these concepts</h2></div><Link className="running-text-link" href="/running-waist-packs">View all 30 SKU</Link></div>
             <div className="running-product-grid">{related.map((product) => (
               <article className="running-product-card" key={product.sku}>
                 <Image src={product.image} width={1200} height={900} sizes="(max-width: 700px) calc(100vw - 28px), 24vw" alt={product.imageAlt} />
