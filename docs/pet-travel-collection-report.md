@@ -19,7 +19,7 @@
 - Unique metadata, canonicals, Open Graph/Twitter data, breadcrumbs and JSON-LD.
 - Header, mobile, footer, homepage, sitemap, RFQ and analytics integration.
 - PT001–PT012 product data with unique commercial intent, FAQ, customization, sampling, production, QC and sustainability copy.
-- 12 image folders, 168-shot manifest and 120 generation prompts.
+- 12 image folders, 168-shot manifest and 168 detailed generation prompts.
 
 ## Files created
 
@@ -49,13 +49,32 @@ Twelve buyer guides cover carrier development, materials, airline-compatible des
 
 ## Image status
 
-No approved pet product imagery was supplied. No fake or copied images were created. Pages use an accessible CSS placeholder; all final image requirements are documented.
+**Production asset pending.** No approved pet product imagery was supplied. No fake, copied, competitor or empty image files were created. Product and collection pages use an accessible CSS fallback, so no broken image URLs are published.
+
+Pet-specific Open Graph, Twitter and Article-schema image references are intentionally omitted until approved production assets exist; no existing website image is reused as a substitute.
+
+## Every missing product image
+
+- `PT001/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+- `PT002/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+- `PT003/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+- `PT004/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+- `PT005/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+- `PT006/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+- `PT007/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+- `PT008/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+- `PT009/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+- `PT010/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+- `PT011/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+- `PT012/`: `01-main.webp`, `02-front.webp`, `03-back.webp`, `04-side.webp`, `05-open-interior.webp`, `06-material-detail.webp`, `07-zipper-detail.webp`, `08-strap-detail.webp`, `09-lifestyle.webp`, `10-dimensions.webp`, `11-ventilation-detail.webp`, `12-base-detail.webp`, `13-logo-options.webp`, `14-packaging-options.webp`.
+
+Missing collection assets: `pet-travel-banner-desktop.webp` (2400 × 1100 px) and `pet-travel-banner-mobile.webp` (1200 × 1500 px). Both are production assets pending and are not referenced as image URLs until approved files exist.
 
 ## Testing and deployment
 
 - Local ESLint: pass.
-- Existing automated tests: 17/17 pass.
-- Next.js production build: pass; 177 pages/routes generated.
+- Existing automated tests: 21/21 pass.
+- Next.js production build: pass; 179 pages/routes generated.
 - Runtime route check: 39 target routes pass.
 - Runtime internal-link check: 53 links, no 4xx failures.
 - Structured data: 92 scripts across 34 generated pet pages parse as valid JSON.

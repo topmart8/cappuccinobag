@@ -1,6 +1,6 @@
 # Pet Travel Image Generation Manifest
 
-Status: all product images are required; no fake image files are included. Pages use an accessible CSS placeholder until reviewed WebP or AVIF assets are supplied.
+Status: **production asset pending** for every image listed below. No fake image files are included. Pages use an accessible CSS fallback until reviewed WebP or AVIF assets are supplied.
 
 Global negative instructions: no floating straps, broken zippers, malformed animals, extra handles, fake text, incorrect logos, watermarks, exaggerated shadows, impossible structure, copied competitor design, marketplace badges, certification marks or airline-approval marks. Animals must appear comfortable and naturally positioned. Target product images below 220 KB and banners below 450 KB after approval and compression.
 

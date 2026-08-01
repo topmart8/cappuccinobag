@@ -19,8 +19,8 @@ export function PetActions({ format = "Pet Travel Bags", secondary = false }) {
   return <div className="pet-actions"><Link className="btn btn-primary" href={inquiry}>Start Your Custom Project</Link>{secondary && <Link className="btn btn-secondary" href={petCollectionUrl}>Explore Pet Travel Bags</Link>}<a className="btn btn-secondary" href={petWhatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a></div>;
 }
 
-export function PetProductVisual({ product, purpose = "product photography pending" }) {
-  return <div className="pet-visual" role="img" aria-label={`${product.code} ${product.name}; ${purpose}`}><span>{product.code}</span><strong>{product.name}</strong><small>Product photography pending</small></div>;
+export function PetProductVisual({ product, purpose = "production asset pending" }) {
+  return <div className="pet-visual" role="img" aria-label={`${product.code} ${product.name}; ${purpose}`}><span>{product.code}</span><strong>{product.name}</strong><small>Production asset pending</small></div>;
 }
 
 export function PetProductCard({ product }) {

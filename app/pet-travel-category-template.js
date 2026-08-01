@@ -7,7 +7,7 @@ export function getPetCategoryMetadata(slug) {
   if (!category) return {};
   const canonical = `${petSiteUrl}${category.href}`;
   const title = `${category.h1} | Cappuccino Bag`;
-  return { title, description: category.description, alternates: { canonical }, openGraph: { title, description: category.description, url: canonical, type: "website", images: [{ url: `${petSiteUrl}/assets/cappuccino-outdoor-bag-factory-workshop.jpg`, width: 1600, height: 900, alt: "Cappuccino Bag custom bag manufacturing workshop" }] }, twitter: { card: "summary_large_image", title, description: category.description, images: ["/assets/cappuccino-outdoor-bag-factory-workshop.jpg"] }, robots: { index: true, follow: true } };
+  return { title, description: category.description, alternates: { canonical }, openGraph: { title, description: category.description, url: canonical, type: "website" }, twitter: { card: "summary", title, description: category.description }, robots: { index: true, follow: true } };
 }
 
 export function PetCategoryPage({ slug }) {

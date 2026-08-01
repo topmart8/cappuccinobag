@@ -2,7 +2,7 @@
 
 The complete 168-image production manifest is maintained with the destination folders at [public/assets/pet-travel/IMAGE-GENERATION-MANIFEST.md](../public/assets/pet-travel/IMAGE-GENERATION-MANIFEST.md).
 
-Current status: 0 approved product images supplied; 168 WebP assets remain required. Pages use accessible CSS placeholders and therefore have no broken product-image requests.
+Current status: **production asset pending**. Zero approved product images have been supplied; 168 WebP assets remain required. Pages use accessible CSS fallbacks and therefore have no broken product-image requests.
 
 Additional collection assets required:
 
