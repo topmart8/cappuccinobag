@@ -12,8 +12,8 @@ export function PadelHeader() {
         <span>Cappuccino Bag</span>
       </Link>
       <nav className="desktop-nav" aria-label="Main navigation">
-        <Link href="/running-waist-packs/">Running Packs</Link>
         <Link href="/custom-padel-bag-manufacturer/">Padel Bags</Link>
+        <Link href="/running-waist-packs/">Running Packs</Link>
         <Link href="/custom-pickleball-paddle-bags/">Pickleball Bags</Link>
         <Link href="/custom-tennis-padel-racket-bags/">Tennis Bags</Link>
         <Link href="/custom-travel-backpacks-weekender-bags/">Travel Bags</Link>
@@ -31,8 +31,8 @@ export function PadelHeader() {
         </summary>
         <nav aria-label="Mobile navigation">
           <Link href="/">Home</Link>
-          <Link href="/running-waist-packs/">Running Packs</Link>
           <Link href="/custom-padel-bag-manufacturer/">Padel Bags</Link>
+          <Link href="/running-waist-packs/">Running Packs</Link>
           <Link href="/padel-accessories/">Padel Accessories</Link>
           <Link href="/custom-travel-backpacks-weekender-bags/">Travel Bags</Link>
           <Link href="/pet-travel-bags/">Pet Travel Bags</Link>
@@ -61,10 +61,10 @@ export function PadelFooter() {
       </div>
       <div className="footer-links">
         <Link href="/">Home</Link>
-        <Link href="/running-waist-packs/">Running Waist Packs</Link>
-        <Link href="/running-guides/">Running Guides</Link>
         <Link href="/custom-padel-bag-manufacturer/">Padel Collection</Link>
         <Link href="/padel-accessories/">Padel Accessories</Link>
+        <Link href="/running-waist-packs/">Running Waist Packs</Link>
+        <Link href="/running-guides/">Running Guides</Link>
         <Link href="/pet-travel-bags/">Pet Travel Bags</Link>
         <Link href="/pet-travel-guides/">Pet Travel Guides</Link>
         <Link href="/inquiry/">RFQ</Link>
