@@ -201,7 +201,12 @@ export default function Pdb001ProductPage() {
             </dl>
             <div className="hero-actions">
               <Link className="btn btn-primary" href={inquiryUrl}>Request PDB001 Quote</Link>
-              <a className="btn btn-secondary" href="mailto:info@cappuccinobag.net">Email Product Brief</a>
+              <a
+                className="btn btn-secondary dark"
+                href="mailto:info@cappuccinobag.net?subject=PDB001%20Padel%20Work%20Tote%20Brief"
+              >
+                Email Product Brief
+              </a>
             </div>
           </div>
           <Pdb001Gallery />
@@ -285,6 +290,9 @@ export default function Pdb001ProductPage() {
           <Link className="btn btn-primary" href={inquiryUrl}>Request OEM/ODM Quote</Link>
         </section>
       </main>
+      <div className="pdb001-mobile-cta" aria-label="Request a PDB001 quotation">
+        <Link className="btn btn-primary" href={inquiryUrl}>Request PDB001 Quote</Link>
+      </div>
       <PadelFooter />
     </>
   );

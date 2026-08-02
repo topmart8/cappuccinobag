@@ -2,6 +2,8 @@ import { runningArticles } from "./running-articles.js";
 import { runningProducts } from "./running-data.js";
 import { petArticles } from "./pet-travel-articles.js";
 import { petCategories, petProducts } from "./pet-travel-data.js";
+import { hybridProductEntries } from "./hybrid-padel-data.js";
+import { hybridPadelArticles } from "./hybrid-padel-articles.js";
 
 const baseUrl = "https://www.cappuccinobag.com";
 
@@ -38,6 +40,7 @@ const routes = [
   { path: "/padel-accessories/custom-ventilated-padel-shoe-bag/", priority: 0.94 },
   { path: "/padel-accessories/custom-padel-organizer-pouch/", priority: 0.94 },
   { path: "/products/padel-work-tote-backpack-pdb001", priority: 0.97 },
+  { path: "/padel-bags/hybrid-lifestyle-series-2026", priority: 0.97 },
   { path: "/blog/how-to-choose-office-to-court-padel-bag/", priority: 0.84 },
   { path: "/blog/multi-pocket-organization-padel-commuter-bag/", priority: 0.84 },
   { path: "/blog/recycled-water-resistant-fabrics-custom-padel-bags/", priority: 0.84 },
@@ -98,6 +101,8 @@ const routes = [
 
 export default function sitemap() {
   const dynamicRoutes = [
+    ...hybridProductEntries.map((product) => ({ path: `/products/${product.slug}`, priority: 0.95 })),
+    ...Object.keys(hybridPadelArticles).map((slug) => ({ path: `/blog/${slug}`, priority: 0.84 })),
     ...runningProducts.map((product) => ({ path: product.href, priority: 0.9 })),
     ...runningArticles.map((article) => ({ path: `/running-guides/${article.slug}/`, priority: 0.84 })),
     ...Object.keys(petCategories).map((slug) => ({ path: `/pet-travel-bags/${slug}/`, priority: 0.9 })),
