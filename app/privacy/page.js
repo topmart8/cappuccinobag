@@ -1,14 +1,16 @@
 import Link from "next/link";
+import SiteFooter from "../../components/SiteFooter";
+import SiteHeader from "../../components/SiteHeader";
 
 export const metadata = {
   title: "Privacy and Analytics | Cappuccino Bag",
   description: "How Cappuccino Bag uses necessary storage and optional website analytics.",
-  alternates: { canonical: "/privacy/" },
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
   return (
-    <main className="privacy-page">
+    <><SiteHeader /><main className="privacy-page">
       <Link href="/">← Cappuccino Bag</Link>
       <h1>Privacy and analytics</h1>
       <p>Last updated: July 31, 2026</p>
@@ -43,6 +45,6 @@ export default function PrivacyPage() {
         Questions about this notice can be sent to
         {" "}<a href="mailto:info@cappuccinobag.net">info@cappuccinobag.net</a>.
       </p>
-    </main>
+    </main><SiteFooter /></>
   );
 }

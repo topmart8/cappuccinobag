@@ -6,7 +6,7 @@ import { PadelFooter, PadelHeader } from "../../padel-components";
 const siteUrl = "https://www.cappuccinobag.com";
 const canonical = `${siteUrl}/products/padel-work-tote-backpack-pdb001`;
 const inquiryUrl =
-  "/rfq/?product=Padel%20Bags&format=PDB001%20Padel%20Work%20Tote%20Backpack";
+  "/inquiry?product=Padel%20Bags&format=PDB001%20Padel%20Work%20Tote%20Backpack";
 
 function Link(props) {
   return <NextLink {...props} prefetch={false} />;
@@ -165,7 +165,7 @@ const schemas = [
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Padel Bags", item: `${siteUrl}/custom-padel-bag-manufacturer/` },
+      { "@type": "ListItem", position: 2, name: "Padel Bags", item: `${siteUrl}/custom-padel-bag-manufacturer` },
       { "@type": "ListItem", position: 3, name: "PDB001 Padel Work Tote Backpack", item: canonical },
     ],
   },
@@ -185,7 +185,7 @@ export default function Pdb001ProductPage() {
       <main className="pdb001-page">
         <nav className="padel-breadcrumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link><span aria-hidden="true">/</span>
-          <Link href="/custom-padel-bag-manufacturer/">Padel Bags</Link><span aria-hidden="true">/</span>
+          <Link href="/custom-padel-bag-manufacturer">Padel Bags</Link><span aria-hidden="true">/</span>
           <span>PDB001 Padel Work Tote Backpack</span>
         </nav>
 
@@ -201,7 +201,12 @@ export default function Pdb001ProductPage() {
             </dl>
             <div className="hero-actions">
               <Link className="btn btn-primary" href={inquiryUrl}>Request PDB001 Quote</Link>
-              <a className="btn btn-secondary" href="mailto:info@cappuccinobag.net">Email Product Brief</a>
+              <a
+                className="btn btn-secondary dark"
+                href="mailto:info@cappuccinobag.net?subject=PDB001%20Padel%20Work%20Tote%20Brief"
+              >
+                Email Product Brief
+              </a>
             </div>
           </div>
           <Pdb001Gallery />
@@ -249,14 +254,14 @@ export default function Pdb001ProductPage() {
         </section>
 
         <section className="pdb001-section pdb001-materials">
-          <div><p className="eyebrow">Materials</p><h2>Water-resistant fabric options with qualified claims</h2><p>Water-resistant nylon or polyester can be selected, including recycled-fabric options. Performance depends on the face fabric, coating, zipper, seams and construction. Certification language is only used when the chosen material and document scope are verified for the order.</p><Link href="/recycled-material-bags/">Review recycled material options</Link></div>
-          <div><p className="eyebrow">OEM/ODM</p><h2>Develop the layout around your buyer</h2><p>We can adjust laptop fit, racket compartment, pocket count, straps, lining, colour blocking, zippers, hardware, logo execution and packaging. A physical sample is recommended before bulk production.</p><Link href="/custom-padel-bag-manufacturer/">Work with a custom padel bag manufacturer</Link></div>
+          <div><p className="eyebrow">Materials</p><h2>Water-resistant fabric options with qualified claims</h2><p>Water-resistant nylon or polyester can be selected, including recycled-fabric options. Performance depends on the face fabric, coating, zipper, seams and construction. Certification language is only used when the chosen material and document scope are verified for the order.</p><Link href="/recycled-material-bags">Review recycled material options</Link></div>
+          <div><p className="eyebrow">OEM/ODM</p><h2>Develop the layout around your buyer</h2><p>We can adjust laptop fit, racket compartment, pocket count, straps, lining, colour blocking, zippers, hardware, logo execution and packaging. A physical sample is recommended before bulk production.</p><Link href="/custom-padel-bag-manufacturer">Work with a custom padel bag manufacturer</Link></div>
         </section>
 
         <section className="pdb001-section pdb001-sample-section">
           <div className="pdb001-heading"><p className="eyebrow">Actual sample photographs</p><h2>Real sample construction reference</h2><p>These are photographs of the physical sample, shown separately from the digital colour references. They provide evidence of the soft body, pockets, zipper access and convertible strap system.</p></div>
           <div className="pdb001-image-grid pdb001-sample-grid">{sampleImages.map(([file, alt]) => <Image key={file} src={`/images/padel/PDB001/real-sample-reference/${file}`} width={1400} height={1400} sizes="(max-width: 620px) calc(100vw - 28px), (max-width: 900px) 48vw, 31vw" alt={alt} />)}</div>
-          <div className="pdb001-trust-links"><Link href="/factory-trust-materials/">See our sample and production capability</Link><Link href={inquiryUrl}>Request a custom sample</Link></div>
+          <div className="pdb001-trust-links"><Link href="/factory-trust-materials">See our sample and production capability</Link><Link href={inquiryUrl}>Request a custom sample</Link></div>
         </section>
 
         <section className="pdb001-section pdb001-faq-section">
@@ -267,16 +272,16 @@ export default function Pdb001ProductPage() {
         <section className="pdb001-section pdb001-related">
           <div className="pdb001-heading"><p className="eyebrow">Related products</p><h2>Build a broader padel bag range</h2></div>
           <div className="pdb001-related-grid">
-            <article><Image src="/images/padel/S001/S001-01-main.png" width={1200} height={1200} alt="Custom 60L padel racket duffel bag" /><h3>Performance 60L Padel Racket Duffel</h3><Link href="/padel-bags/custom-60l-padel-racket-duffel/">View product direction</Link></article>
-            <article><Image src="/images/padel/S002/S002-01-main.png" width={1200} height={1200} alt="Custom 30L padel backpack" /><h3>Urban 30L Padel Backpack</h3><Link href="/padel-bags/custom-30l-padel-backpack/">View product direction</Link></article>
-            <article><Image src="/images/padel/S003/S003-01-main.png" width={1200} height={1200} alt="Custom ventilated padel shoe bag" /><h3>Ventilated Padel Shoe Bag</h3><Link href="/padel-accessories/custom-ventilated-padel-shoe-bag/">View product direction</Link></article>
+            <article><Image src="/images/padel/S001/S001-01-main.png" width={1200} height={1200} alt="Custom 60L padel racket duffel bag" /><h3>Performance 60L Padel Racket Duffel</h3><Link href="/padel-bags/custom-60l-padel-racket-duffel">View product direction</Link></article>
+            <article><Image src="/images/padel/S002/S002-01-main.png" width={1200} height={1200} alt="Custom 30L padel backpack" /><h3>Urban 30L Padel Backpack</h3><Link href="/padel-bags/custom-30l-padel-backpack">View product direction</Link></article>
+            <article><Image src="/images/padel/S003/S003-01-main.png" width={1200} height={1200} alt="Custom ventilated padel shoe bag" /><h3>Ventilated Padel Shoe Bag</h3><Link href="/padel-accessories/custom-ventilated-padel-shoe-bag">View product direction</Link></article>
           </div>
           <div className="pdb001-article-links">
             <h2>Supporting buyer guides</h2>
-            <Link href="/blog/how-to-choose-office-to-court-padel-bag/">How to choose an office-to-court padel bag</Link>
-            <Link href="/blog/multi-pocket-organization-padel-commuter-bag/">Why multi-pocket organization matters</Link>
-            <Link href="/blog/recycled-water-resistant-fabrics-custom-padel-bags/">Recycled water-resistant fabric guide</Link>
-            <Link href="/blog/one-lightweight-bag-office-to-padel-court/">One lightweight bag from office to padel court</Link>
+            <Link href="/blog/how-to-choose-office-to-court-padel-bag">How to choose an office-to-court padel bag</Link>
+            <Link href="/blog/multi-pocket-organization-padel-commuter-bag">Why multi-pocket organization matters</Link>
+            <Link href="/blog/recycled-water-resistant-fabrics-custom-padel-bags">Recycled water-resistant fabric guide</Link>
+            <Link href="/blog/one-lightweight-bag-office-to-padel-court">One lightweight bag from office to padel court</Link>
           </div>
         </section>
 
@@ -285,6 +290,9 @@ export default function Pdb001ProductPage() {
           <Link className="btn btn-primary" href={inquiryUrl}>Request OEM/ODM Quote</Link>
         </section>
       </main>
+      <div className="pdb001-mobile-cta" aria-label="Request a PDB001 quotation">
+        <Link className="btn btn-primary" href={inquiryUrl}>Request PDB001 Quote</Link>
+      </div>
       <PadelFooter />
     </>
   );

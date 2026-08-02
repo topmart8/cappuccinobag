@@ -1,6 +1,6 @@
 # Pet Travel Image Prompts
 
-Image status: **production asset pending** for all 168 prompts. These are production briefs only; every output requires human construction, proportion, material and claim review before publication. Global style: premium commercial product photography, realistic stitching, correct bag proportions and contemporary European/North American B2B presentation. Animals must appear comfortable and naturally positioned.
+Image status: **production asset pending** for all 168 prompts. AI-assisted concept outputs now exist for each `01-main.webp` and `09-lifestyle.webp`; the other 144 prompts remain unproduced. Every output requires human construction, proportion, material and claim review before it can be treated as final production photography. Global style: premium commercial product photography, realistic stitching, correct bag proportions and contemporary European/North American B2B presentation. Animals must appear comfortable and naturally positioned.
 
 ## PT001 — UrbanAir Soft-Sided Pet Carrier
 

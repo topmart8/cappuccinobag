@@ -2,10 +2,22 @@ import fs from "node:fs";
 import path from "node:path";
 import Script from "next/script";
 import { notFound } from "next/navigation";
+import {
+  footerNavigation,
+  moreCollectionsNavigation,
+  primaryNavigation,
+  utilityNavigation,
+} from "../lib/site-navigation";
 
 const siteRoot = path.join(process.cwd(), "public", "site");
 const publicRoot = path.join(process.cwd(), "public");
 const publicRootPages = new Set([
+  "about-us",
+  "faq",
+  "blog/company-bio",
+  "oem-odm-functional-bag-manufacturer-faq",
+  "custom-cardholder-manufacturer",
+  "rfid-wallets-passport-holders",
   "custom-hiking-daypacks-outdoor-backpacks",
   "custom-pickleball-paddle-bags",
   "factory-trust-materials",
@@ -121,17 +133,15 @@ function readStaticPage(slug = []) {
 
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
   const pageSlug = slug.join("/");
-  const existing = addPadelCollectionEntry(addRunningHomeEntry(addPadelHomeEntry(addBuyerGuideLinks(
-    addAlcantaraContextLinks(
-      addProductExpansionLinks(
-        addRunningNavigation(normalizeHtml(bodyMatch ? bodyMatch[1] : html)),
-        pageSlug
-      ),
-      pageSlug
-    ),
-    pageSlug
-  ), pageSlug), pageSlug), pageSlug);
-  return addPetTravelInquiry(addPetTravelHomeEntry(addPetTravelNavigation(existing), pageSlug), pageSlug);
+  let rendered = normalizeHtml(bodyMatch ? bodyMatch[1] : html);
+  rendered = addPetTravelInquiry(rendered, pageSlug);
+  rendered = addProductExpansionLinks(rendered, pageSlug);
+  rendered = addAlcantaraContextLinks(rendered, pageSlug);
+  rendered = addBuyerGuideLinks(rendered, pageSlug);
+  rendered = addPadelCollectionEntry(rendered, pageSlug);
+  rendered = addPadelLegacySections(rendered, pageSlug);
+  rendered = pageSlug === "" ? addHomePrioritySections(rendered) : rendered;
+  return applySharedNavigation(normalizeRenderedLinks(rendered));
 }
 
 function addPetTravelInquiry(html, pageSlug) {
@@ -142,66 +152,55 @@ function addPetTravelInquiry(html, pageSlug) {
     .replace('<label><span>Name <strong>*</strong></span>', '<label><span>Target Dimensions</span><input name="target_dimensions" placeholder="L × W × H or reference dimensions"></label><label><span>Intended Pet Size</span><input name="intended_pet_size" placeholder="Body length, seated height and approximate load"></label><label><span>Color</span><input name="color" placeholder="Stock color, Pantone direction or color reference"></label><label><span>Target Market</span><input name="target_market" placeholder="Country, retail channel or airline-oriented use"></label><label><span>Target Delivery Date</span><input name="target_delivery_date" type="date"></label><label><span>Name <strong>*</strong></span>');
 }
 
-function addPetTravelNavigation(html) {
-  if (html.includes('href="/pet-travel-bags/"')) return html;
-  const petLink = '<a href="/pet-travel-bags/">Pet Travel Bags</a>';
-  return insertNavigationLink(html, /Main navigation|Primary navigation/i, "Travel Bags", petLink)
-    .replace(
-      /(<nav[^>]*aria-label=["']Mobile navigation["'][^>]*>)([\s\S]*?)(<\/nav>)/i,
-      (_, open, links, close) =>
-        `${open}${insertAfterNavigationLabel(links, "Travel Bags", petLink)}${close}`,
-    )
-    .replace(/(<div class="footer-links">)/i, '$1<a href="/pet-travel-bags/">Pet Travel Bags</a>');
+function renderLinks(items) {
+  return items.map((item) => `<a href="${item.href}">${item.label}</a>`).join("");
 }
 
-function addPetTravelHomeEntry(html, pageSlug) {
-  if (pageSlug !== "" || html.includes('id="pet-travel-home-entry"')) return html;
-  const section = `<style>.pet-travel-home-entry{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:72px 0}.pet-travel-home-card{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;padding:36px;border:1px solid #c8d0c7;border-radius:16px;background:#e5ebe2;color:#173022}.pet-travel-home-card h2{margin:0;font-size:clamp(34px,4vw,52px);line-height:1.04}.pet-travel-home-card p{margin:0;line-height:1.75}.pet-travel-home-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}@media(max-width:760px){.pet-travel-home-entry{width:calc(100% - 28px);padding:52px 0}.pet-travel-home-card{grid-template-columns:1fr;gap:18px;padding:24px}}</style><section class="pet-travel-home-entry" id="pet-travel-home-entry"><div class="pet-travel-home-card"><div><p class="eyebrow">Additional functional bag category</p><h2>Custom Pet Travel Bags</h2></div><div><p>Private-label pet carriers, travel organizers, backpacks and accessories developed for modern pet travel brands.</p><div class="pet-travel-home-actions"><a class="btn btn-primary" href="/pet-travel-bags/">Explore Pet Travel Bags</a></div></div></div></section>`;
-  return html.replace(/<section class="section" id="collections">/, `${section}<section class="section" id="collections">`);
+function renderSharedHeader() {
+  const more = `<details class="nav-more"><summary>More Collections</summary><div class="nav-more-links">${renderLinks(moreCollectionsNavigation)}</div></details>`;
+  return `<header class="site-header"><a class="brand" href="/" aria-label="Cappuccino Bag home"><span class="brand-mark" aria-hidden="true"></span><span>Cappuccino Bag</span></a><nav class="desktop-nav" aria-label="Main navigation">${renderLinks(primaryNavigation)}${more}${renderLinks(utilityNavigation)}</nav><a class="header-cta" href="/inquiry">Request a Quote</a><details class="mobile-menu"><summary aria-label="Open mobile navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation">${renderLinks(primaryNavigation)}<details class="nav-more nav-more-mobile"><summary>More Collections</summary><div class="nav-more-links">${renderLinks(moreCollectionsNavigation)}</div></details>${renderLinks(utilityNavigation)}</nav></details></header>`;
 }
 
-function addRunningNavigation(html) {
-  if (html.includes('href="/running-waist-packs/"')) return html;
-  const runningLink = '<a href="/running-waist-packs/">Running Packs</a>';
-  return insertNavigationLink(html, /Main navigation|Primary navigation/i, "Padel Bags", runningLink)
-    .replace(
-      /(<nav[^>]*aria-label=["']Mobile navigation["'][^>]*>)([\s\S]*?)(<\/nav>)/i,
-      (_, open, links, close) =>
-        `${open}${insertAfterNavigationLabel(links, "Padel Bags", runningLink)}${close}`,
-    );
+function renderSharedFooter() {
+  const groups = footerNavigation.map((group) => `<section><h2>${group.title}</h2><nav aria-label="${group.title} footer navigation">${renderLinks(group.links)}</nav></section>`).join("");
+  return `<footer class="site-footer site-footer-unified"><div class="footer-brand"><strong>Cappuccino Bag</strong><p>Custom padel, racket sports, outdoor and functional bag manufacturing for global brands.</p><p class="footer-legal">Guangzhou Cappuccino Leather Handbag Co., Ltd.</p><a href="mailto:info@cappuccinobag.net">info@cappuccinobag.net</a></div><div class="footer-groups">${groups}</div></footer>`;
 }
 
-function insertAfterNavigationLabel(links, label, link) {
-  const anchor = new RegExp(`(<a[^>]*>${label}<\\/a>)`, "i");
-  return anchor.test(links) ? links.replace(anchor, `$1${link}`) : `${link}${links}`;
+function applySharedNavigation(html) {
+  const withoutHeader = html
+    .replace(/<header class="site-header">[\s\S]*?<\/header>/i, "")
+    .replace(/<header class="siteHeader">[\s\S]*?<\/header>/i, "")
+    .replace(/<header>(?=[\s\S]*?<a class="brand")[\s\S]*?<\/header>/i, "");
+  const withHeader = withoutHeader.replace(/<main\b/i, `${renderSharedHeader()}<main`);
+  const withoutFooter = withHeader
+    .replace(/<footer class="site-footer[^>]*>[\s\S]*?<\/footer>/i, "")
+    .replace(/<footer>[\s\S]*?<\/footer>/i, "");
+  return withoutFooter.replace(/<\/main>/i, `</main>${renderSharedFooter()}`);
 }
 
-function insertNavigationLink(html, ariaPattern, afterLabel, link) {
-  return html.replace(
-    /(<nav[^>]*aria-label=["']([^"']+)["'][^>]*>)([\s\S]*?)(<\/nav>)/i,
-    (match, open, ariaLabel, links, close) =>
-      ariaPattern.test(ariaLabel)
-        ? `${open}${insertAfterNavigationLabel(links, afterLabel, link)}${close}`
-        : match,
-  );
-}
-
-function addRunningHomeEntry(html, pageSlug) {
-  if (pageSlug !== "" || html.includes('id="running-collection-2026"')) return html;
-  const section = `<style>.running-home-entry{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:76px 0}.running-home-card{display:grid;grid-template-columns:.8fr 1.2fr;gap:42px;padding:38px;color:#fff;background:#1f3328;border-radius:16px}.running-home-card h2{margin:0;color:#fff;font-size:clamp(34px,4vw,54px);line-height:1.04}.running-home-card p{margin:0;color:#dfe9df;line-height:1.75}.running-home-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}@media(max-width:760px){.running-home-entry{width:calc(100% - 28px);padding:54px 0}.running-home-card{grid-template-columns:1fr;gap:18px;padding:25px}}</style><section class="running-home-entry" id="running-collection-2026"><div class="running-home-card"><div><p class="eyebrow">30 OEM/ODM development directions</p><h2>Cappuccino Running Collection 2026</h2></div><div><p>Explore custom running waist packs, hydration belts, trail carry, marathon race belts and phone belts for sports brands, retailers and clubs.</p><div class="running-home-actions"><a class="btn btn-primary" href="/running-waist-packs/">View 30 SKU Collection</a><a class="btn btn-secondary" href="/running/custom-oem-odm/">Running Belt OEM/ODM</a></div></div></div></section>`;
-  return html.replace(/<section class="section" id="collections">/, `${section}<section class="section" id="collections">`);
-}
-
-function addPadelHomeEntry(html, pageSlug) {
-  if (pageSlug !== "") return html;
+function addHomePrioritySections(html) {
+  const featuredPadel = `<section class="padel-home-collection home-priority-section" id="featured-padel"><div class="padel-home-banner"><img src="/images/padel/cappuccino-padel-collection-2026-lifestyle.png" width="1672" height="941" loading="eager" alt="Cappuccino Padel Collection 2026 racket bags, backpack, shoe bag and organizer"><div class="padel-home-banner-copy"><div><p class="eyebrow">Featured Padel Collection</p><h2>Padel Bags First: S001–S004 and PDB001</h2></div><div><p>Develop coordinated padel backpacks, racket duffels, shoe bags, organizers and accessories for clubs, tournaments and court-to-office programs.</p><div class="padel-home-banner-actions"><a class="btn btn-primary" href="/custom-padel-bag-manufacturer">Explore Custom Padel Bags</a><a class="btn btn-secondary" href="/inquiry?product=Padel%20Bags">Start a Padel Bag Project</a></div></div></div></div></section>`;
+  const core = `<section class="section home-priority-section" id="core-categories"><div class="section-heading"><p class="eyebrow">Core Product Categories</p><h2>Racket Sports, Outdoor and Travel Bag Programs</h2></div><div class="category-chip-grid">${renderLinks(primaryNavigation)}</div></section>`;
+  const secondary = `<section class="section home-priority-section" id="secondary-collections"><div class="section-heading"><p class="eyebrow">Secondary Growth Collections</p><h2>Running, Pet Travel and RFID Accessories</h2></div><div class="category-chip-grid">${renderLinks(moreCollectionsNavigation.slice(0, 3))}</div></section>`;
+  const materials = `<section class="section home-priority-section" id="material-capabilities"><div class="section-heading"><p class="eyebrow">Material Capabilities</p><h2>Material Options Selected for Each Project</h2><p>Recycled polyester, recycled nylon, vegan leather, apple leather, pineapple-based materials, washable kraft paper, Alcantara and genuine leather can be reviewed against the product brief. Certified or documented material options are subject to the selected supplier, material batch and project requirements.</p></div></section>`;
+  const process = `<section class="section home-priority-section" id="oem-odm-process"><div class="section-heading"><p class="eyebrow">OEM/ODM Manufacturing</p><h2>From Design Review to Export Packing</h2></div><div class="process-grid"><article>Design review</article><article>Material sourcing</article><article>Pattern development</article><article>Prototype</article><article>Revision</article><article>Pre-production sample</article><article>Bulk production</article><article>Quality inspection</article><article>Packing and export</article></div></section>`;
+  const priority = `${featuredPadel}${core}${secondary}${materials}${process}`;
   return html
-    .replace(
-      /<section class="section" id="collections">/,
-      '<style>.padel-home-collection{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:76px 0}.padel-home-banner{overflow:hidden;border-radius:16px;background:#171411;color:#fff}.padel-home-banner img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover}.padel-home-banner-copy{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:34px}.padel-home-banner-copy h2{margin:0;font-size:clamp(32px,4vw,52px);line-height:1.04}.padel-home-banner-copy p{margin:0;color:#e7ddd2;line-height:1.75}.padel-home-banner-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}@media(max-width:760px){.padel-home-collection{width:calc(100% - 28px);padding:54px 0}.padel-home-banner-copy{grid-template-columns:1fr;padding:24px}}</style><section class="padel-home-collection" id="padel-collection-2026"><div class="padel-home-banner"><img src="/images/padel/cappuccino-padel-collection-2026-lifestyle.png" width="1672" height="941" loading="lazy" alt="Cappuccino Padel Collection 2026 lifestyle scene for private-label sports bag development"><div class="padel-home-banner-copy"><div><p class="eyebrow">OEM/ODM development directions</p><h2>Cappuccino Padel Collection 2026</h2></div><div><p>Explore coordinated racket duffel, backpack, shoe bag and court organizer concepts. Final specifications, MOQ, price and lead time are confirmed during sampling and quotation.</p><div class="padel-home-banner-actions"><a class="btn btn-primary" href="/custom-padel-bag-manufacturer/">View Padel Collection</a><a class="btn btn-secondary" href="/inquiry/?product=Padel%20Bags&amp;format=Padel%20Collection%202026">Request OEM/ODM Quote</a></div></div></div></div></section><section class="section" id="collections">'
-    );
+    .replace(/<h1>[\s\S]*?<\/h1>/i, "<h1>Custom Padel, Racket Sports &amp; Functional Bag Manufacturer</h1>")
+    .replace(/(<div class="hero-content"><h1>[\s\S]*?<\/h1>)<p>[\s\S]*?<\/p><p>[\s\S]*?<\/p><div class="hero-actions">[\s\S]*?<\/div>/i, '$1<p>OEM/ODM bags for padel, pickleball, tennis, outdoor, travel, running and selected pet-travel programs.</p><div class="hero-actions"><a class="btn btn-primary" href="/inquiry?product=Padel%20Bags">Start a Padel Bag Project</a><a class="btn btn-secondary" href="/custom-padel-bag-manufacturer">Explore Custom Padel Bags</a></div>')
+    .replace(/<section class="section" id="collections">[\s\S]*?<\/section>/i, priority);
 }
 
 const padelCollectionCards = [
+  {
+    sku: "PDB014–PDB017",
+    name: "Cappuccino Padel Hybrid Lifestyle Series 2026",
+    category: "New Collection",
+    image:
+      "/images/padel/hybrid-lifestyle-2026/PDB014/PDB014-hero.webp",
+    alt: "Cappuccino PDB014 women’s lightweight padel tote with laptop sleeve and embroidered logo",
+    href: "/padel-bags/hybrid-lifestyle-series-2026",
+  },
   {
     sku: "PDB001",
     name: "Lightweight Padel Work Tote Backpack",
@@ -259,13 +258,22 @@ function addPadelCollectionEntry(html, pageSlug) {
         `<article class="padel-collection-card"><img src="${product.image}" width="1200" height="1200" loading="lazy" alt="${product.alt}"><div><p class="eyebrow">${product.sku} · ${product.category}</p><h3>${product.name}</h3><a href="${product.href}">View product direction</a></div></article>`,
     )
     .join("");
-  const padelHeader = `<header class="site-header"><a class="brand" href="/" aria-label="Cappuccino Bag home"><span class="brand-mark" aria-hidden="true"></span><span>Cappuccino Bag</span></a><nav class="desktop-nav" aria-label="Main navigation"><a href="/custom-padel-bag-manufacturer/">Padel Bags</a><a href="/running-waist-packs/">Running Packs</a><a href="/custom-pickleball-paddle-bags/">Pickleball Bags</a><a href="/custom-tennis-padel-racket-bags/">Tennis Bags</a><a href="/custom-travel-backpacks-weekender-bags/">Travel Bags</a><a href="/pet-travel-bags/">Pet Travel Bags</a><a href="/factory-trust-materials/">Factory Proof</a><a href="/inquiry/">RFQ</a></nav><a class="header-cta" href="/inquiry/">Request a Quote</a><details class="mobile-menu"><summary aria-label="Open mobile navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation"><a href="/">Home</a><a href="/custom-padel-bag-manufacturer/">Padel Bags</a><a href="/running-waist-packs/">Running Packs</a><a href="/padel-accessories/">Padel Accessories</a><a href="/pet-travel-bags/">Pet Travel Bags</a><a href="/factory-trust-materials/">Factory Proof</a><a href="/inquiry/">RFQ</a></nav></details></header>`;
-  const section = `<style>.padel-collection-page{padding-top:118px}.padel-collection-launch{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:76px 0}.padel-collection-hero{overflow:hidden;margin-bottom:42px;border-radius:16px;background:#171411;color:#fff}.padel-collection-hero img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover}.padel-collection-copy{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;padding:34px}.padel-collection-copy h2{margin:0;font-size:clamp(34px,4vw,54px);line-height:1.04}.padel-collection-copy p{margin:0;color:#e7ddd2;line-height:1.75}.padel-collection-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.padel-collection-card{overflow:hidden;background:#fff;border:1px solid #d8ded2;border-radius:14px}.padel-collection-card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#f3f1ec}.padel-collection-card>div{padding:24px}.padel-collection-card h3{margin:7px 0 14px;font-size:26px;line-height:1.12}.padel-collection-card a{color:#6f452d;font-weight:800;text-decoration:underline;text-underline-offset:3px}.padel-collection-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}@media(max-width:760px){.padel-collection-page{padding-top:92px}.padel-collection-launch{width:calc(100% - 28px);padding:54px 0}.padel-collection-copy,.padel-collection-grid{grid-template-columns:1fr}.padel-collection-copy{gap:18px;padding:24px}}</style><section class="padel-collection-launch" id="padel-collection-2026-products"><div class="padel-collection-hero"><img src="/images/padel/cappuccino-padel-collection-2026-studio.png" width="1672" height="941" loading="eager" alt="Cappuccino Padel Collection 2026 studio lineup of coordinated bags and accessories"><div class="padel-collection-copy"><h2>Cappuccino Padel Collection 2026</h2><p>Five OEM/ODM product development directions, including the new PDB001 office-to-court padel work tote. Final capacity, dimensions, materials, MOQ, price and lead time are confirmed during sampling and quotation.</p></div></div><div class="padel-collection-grid">${cards}</div><div class="padel-collection-links"><a class="btn btn-primary" href="/padel-accessories/">Explore Padel Accessories</a><a class="btn btn-secondary" href="/inquiry/?product=Padel%20Bags&amp;format=Padel%20Collection%202026">Request Collection Quote</a></div></section>`;
+  const section = `<style>.padel-collection-page{padding-top:118px}.padel-collection-launch{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:76px 0}.padel-collection-hero{overflow:hidden;margin-bottom:42px;border-radius:16px;background:#171411;color:#fff}.padel-collection-hero img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover}.padel-collection-copy{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;padding:34px}.padel-collection-copy h2{margin:0;font-size:clamp(34px,4vw,54px);line-height:1.04}.padel-collection-copy p{margin:0;color:#e7ddd2;line-height:1.75}.padel-collection-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.padel-collection-card{overflow:hidden;background:#fff;border:1px solid #d8ded2;border-radius:14px}.padel-collection-card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#f3f1ec}.padel-collection-card>div{padding:24px}.padel-collection-card h3{margin:7px 0 14px;font-size:26px;line-height:1.12}.padel-collection-card a{color:#6f452d;font-weight:800;text-decoration:underline;text-underline-offset:3px}.padel-collection-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}@media(max-width:760px){.padel-collection-page{padding-top:92px}.padel-collection-launch{width:calc(100% - 28px);padding:54px 0}.padel-collection-copy,.padel-collection-grid{grid-template-columns:1fr}.padel-collection-copy{gap:18px;padding:24px}}</style><section class="padel-collection-launch" id="padel-collection-2026-products"><div class="padel-collection-hero"><img src="/images/padel/cappuccino-padel-collection-2026-studio.png" width="1672" height="941" loading="eager" alt="Cappuccino Padel Collection 2026 studio lineup of coordinated bags and accessories"><div class="padel-collection-copy"><h2>Cappuccino Padel Collection 2026</h2><p>Explore the new PDB014–PDB017 Hybrid Lifestyle Series alongside PDB001 and the core padel range. Final capacity, dimensions, materials, MOQ, price and lead time are confirmed during sampling and quotation.</p></div></div><div class="padel-collection-grid">${cards}</div><div class="padel-collection-links"><a class="btn btn-primary" href="/padel-bags/hybrid-lifestyle-series-2026">Explore Hybrid Lifestyle Series</a><a class="btn btn-secondary" href="/inquiry/?product=Padel%20Bags&amp;format=Padel%20Collection%202026">Request Collection Quote</a></div></section>`;
 
   return html
-    .replace(/<header class="site-header">[\s\S]*?<\/header>/, padelHeader)
     .replace(/<main>/, '<main class="padel-collection-page">')
     .replace(/<section class="section">/, `${section}<section class="section">`);
+}
+
+function addPadelLegacySections(html, pageSlug) {
+  if (pageSlug !== "custom-padel-bag-manufacturer" || html.includes('id="padel-legacy-merged"')) return html;
+  const sourcePath = path.join(publicRoot, "custom-padel-bags.html");
+  if (!fs.existsSync(sourcePath)) return html;
+  const legacy = fs.readFileSync(sourcePath, "utf8");
+  const merged = legacy.match(/<section class="proof">([\s\S]*?)<section class="rfq">/i)?.[0]
+    ?.replace(/<section class="rfq">[\s\S]*$/i, "")
+    ?.replace('<section class="proof">', '<section class="proof" id="padel-legacy-merged">');
+  return merged ? html.replace(/<\/main>/i, `${normalizeHtml(merged)}</main>`) : html;
 }
 
 const productExpansionCards = {
@@ -365,6 +373,59 @@ function decodeHtmlEntities(text = "") {
     );
 }
 
+const canonicalPathRedirects = new Map([
+  ["/custom-padel-bags.html", "/custom-padel-bag-manufacturer"],
+  ["/custom-pickleball-bags.html", "/custom-pickleball-paddle-bags"],
+  ["/custom-pickleball-bag-manufacturer", "/custom-pickleball-paddle-bags"],
+  ["/custom-tennis-bags.html", "/custom-tennis-bag-manufacturer"],
+  ["/custom-hiking-backpacks.html", "/custom-outdoor-sports-bag-manufacturer"],
+  ["/custom-hiking-backpack-manufacturer", "/custom-outdoor-sports-bag-manufacturer"],
+  ["/custom-hiking-daypacks-outdoor-backpacks", "/custom-outdoor-sports-bag-manufacturer"],
+  ["/custom-travel-bag-luggage-manufacturer", "/custom-travel-backpacks-weekender-bags"],
+  ["/rfq", "/inquiry"],
+  ["/resources/outdoor-multifunctional-bag-manufacturing-guide", "/outdoor-multifunctional-bag-manufacturing-guide"],
+  ["/resources/custom-tennis-bag-guide", "/custom-tennis-bag-guide"],
+  ["/resources/pickleball-bag-customization-guide", "/pickleball-bag-customization-guide"],
+  ["/resources/hiking-backpack-customization-guide", "/hiking-backpack-customization-guide"],
+  ["/resources/quality-inspection-guide", "/quality-inspection-guide"],
+  ["/resources/moq-sampling-faq", "/moq-sampling-faq"],
+  ["/custom-convertible-padel-backpack-duffel", "/products/multi-functional-sports-backpack"],
+  ["/custom-sports-duffel-bags.html", "/custom-outdoor-sports-bag-manufacturer"],
+  ["/custom-hotel-bags.html", "/custom-travel-backpacks-weekender-bags"],
+]);
+
+function normalizePublicUrl(value = "") {
+  if (!value) return value;
+  try {
+    const url = new URL(value, "https://www.cappuccinobag.com");
+    if (!url.hostname.endsWith("cappuccinobag.com")) return value;
+    url.protocol = "https:";
+    url.hostname = "www.cappuccinobag.com";
+    const pathName = url.pathname.length > 1 ? url.pathname.replace(/\/+$/, "") : "/";
+    url.pathname = canonicalPathRedirects.get(pathName) || pathName;
+    return url.toString().replace(/\/$/, url.pathname === "/" ? "/" : "");
+  } catch {
+    return value;
+  }
+}
+
+function normalizeInternalHref(value = "") {
+  const match = value.match(/^([^?#]*)([?#].*)?$/);
+  if (!match) return value;
+  const pathName = match[1].length > 1 ? match[1].replace(/\/+$/, "") : match[1];
+  return `${canonicalPathRedirects.get(pathName) || pathName}${match[2] || ""}`;
+}
+
+function normalizeRenderedLinks(html) {
+  return html.replace(/href="(\/[^"']*)"/g, (_, href) => `href="${normalizeInternalHref(href)}"`);
+}
+
+const staticDescriptionOverrides = new Map([
+  ["about-us", "Learn how Cappuccino Bag supports global brands with OEM/ODM development, material sourcing, sampling, quality control and export-ready bag production."],
+  ["faq", "Get practical answers about custom bag MOQ, sampling, materials, logo methods, lead times, quality control, packaging and OEM/ODM project requirements."],
+  ["blog/company-bio", "Read the Cappuccino Bag company profile, manufacturing focus and experience developing custom padel, outdoor, travel and functional bags for global brands."],
+]);
+
 function extractMetadata(html, slug = []) {
   const pageSlug = slug.join("/");
   const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/i);
@@ -382,13 +443,17 @@ function extractMetadata(html, slug = []) {
   );
 
   const fallbackCanonical = pageSlug
-    ? `https://www.cappuccinobag.com/${pageSlug}/`
+    ? `https://www.cappuccinobag.com/${pageSlug}`
     : "https://www.cappuccinobag.com/";
 
+  const homeTitle = "Custom Padel & Functional Bag Manufacturer | Cappuccino Bag";
+
   return {
-    title: decodeHtmlEntities(titleMatch?.[1]?.trim() || ""),
-    description: decodeHtmlEntities(descriptionMatch?.[1]?.trim() || ""),
-    canonical: decodeHtmlEntities(canonicalMatch?.[1]?.trim() || "") || fallbackCanonical,
+    title: (pageSlug === "" ? homeTitle : decodeHtmlEntities(titleMatch?.[1]?.trim() || "")).replaceAll("Cappuccino Bags", "Cappuccino Bag"),
+    description: staticDescriptionOverrides.get(pageSlug) || decodeHtmlEntities(descriptionMatch?.[1]?.trim() || "")
+      .replace(/\s*Keywords include[^.]*\.?/i, "")
+      .replaceAll("Cappuccino Bags", "Cappuccino Bag"),
+    canonical: normalizePublicUrl(decodeHtmlEntities(canonicalMatch?.[1]?.trim() || "") || fallbackCanonical),
     ogImage: decodeHtmlEntities(ogImageMatch?.[1]?.trim() || ""),
     ogType: decodeHtmlEntities(ogTypeMatch?.[1]?.trim() || "website")
   };
@@ -400,8 +465,52 @@ function extractJsonLdScripts(html) {
       /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
     )
   )
-    .map((match) => match[1]?.trim())
+    .map((match) => match[1]?.trim()
+      .replaceAll("https://www.cappuccinobag.com/custom-padel-bags.html", "https://www.cappuccinobag.com/custom-padel-bag-manufacturer"))
+    .map((jsonLd) => {
+      try {
+        const data = JSON.parse(jsonLd);
+        const removeUnsupportedClaims = (value) => {
+          if (Array.isArray(value)) return value.map(removeUnsupportedClaims);
+          if (!value || typeof value !== "object") return value;
+          return Object.fromEntries(
+            Object.entries(value)
+              .filter(([key]) => !["makesOffer", "offers", "aggregateRating", "review", "ratingValue", "price", "priceCurrency", "availability"].includes(key))
+              .map(([key, child]) => [key, removeUnsupportedClaims(child)])
+          );
+        };
+        return JSON.stringify(removeUnsupportedClaims(data));
+      } catch {
+        return jsonLd;
+      }
+    })
     .filter(Boolean);
+}
+
+const collectionSchemaNames = new Map([
+  ["custom-padel-bag-manufacturer", "Custom Padel Bags"],
+  ["custom-pickleball-paddle-bags", "Custom Pickleball Bags"],
+  ["custom-tennis-bag-manufacturer", "Custom Tennis Bags"],
+  ["custom-tennis-padel-racket-bags", "Custom Racket Sports Bags"],
+  ["custom-outdoor-sports-bag-manufacturer", "Custom Outdoor and Hiking Bags"],
+  ["custom-travel-backpacks-weekender-bags", "Custom Travel Bags"],
+]);
+
+function createCollectionSchema(slug = []) {
+  const pageSlug = slug.join("/");
+  const name = collectionSchemaNames.get(pageSlug);
+  if (!name) return null;
+  const url = `https://www.cappuccinobag.com/${pageSlug}`;
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", name, url, isPartOf: { "@type": "WebSite", name: "Cappuccino Bag", url: "https://www.cappuccinobag.com" } },
+      { "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.cappuccinobag.com/" },
+        { "@type": "ListItem", position: 2, name, item: url },
+      ] },
+    ],
+  });
 }
 
 function extractInlineStyles(html) {
@@ -417,6 +526,7 @@ function extractLocalStylesheets(html) {
     )
   )
     .map((match) => match[1]?.trim())
+    .filter((href) => !href.startsWith("/_next/"))
     .filter(Boolean);
 }
 
@@ -460,6 +570,10 @@ export async function generateMetadataForStaticPage({ params }) {
 function normalizeHtml(html) {
   return html
     .replace(/<script\b[\s\S]*?<\/script>/gi, "")
+    .replace(/<section\b[^>]*>(?:(?!<section\b)[\s\S])*?<h2>Case Study Block<\/h2>[\s\S]*?<\/section>/gi, "")
+    .replace(/<p>Project focus:[\s\S]*?<\/p>/gi, "<p>Share your product format, quantity, materials, functions, branding, packaging and target timing for review.</p>")
+    .replaceAll("Cappuccino Bags", "Cappuccino Bag")
+    .replaceAll("padel bags projects", "padel bag projects")
     .replace(/<form(?![^>]*data-clarity-mask)/gi, '<form data-clarity-mask="true"')
     .replace(/src="(?:\.\.\/)?assets\//g, 'src="/site/assets/')
     .replace(/poster="(?:\.\.\/)?assets\//g, 'poster="/site/assets/')
@@ -473,6 +587,7 @@ function normalizeHtml(html) {
     .replace(/href="\.\.\/([^"]+)\/"/g, 'href="/$1/"')
     .replace(/href="(contact|download-catalog|inquiry|why-us|resources|custom-outdoor-multifunctional-bag-manufacturer|custom-outdoor-sports-bag-manufacturer|custom-tennis-bag-manufacturer|custom-pickleball-bag-manufacturer|custom-padel-bag-manufacturer|custom-hiking-backpack-manufacturer|custom-mountaineering-backpack-manufacturer|custom-travel-bag-luggage-manufacturer|custom-rfid-wallet-manufacturer|custom-magsafe-cardholder-manufacturer|custom-phone-pouch-manufacturer|phone-case-cardholder-gift-set-oem|vegan-leather-tech-accessories-manufacturer|eco-tech-smart-bag-manufacturer|rfid-wallet-passport-holder-manufacturer|custom-travel-backpacks-weekender-bags|custom-tennis-padel-racket-bags|custom-hiking-daypacks-outdoor-backpacks|custom-pickleball-paddle-bags|custom-waterproof-adventure-duffel|custom-waterproof-wheeled-gear-bag|custom-insulated-cooler-backpack|custom-waterproof-roll-top-backpack|custom-insulated-cooler-tote-bag|custom-laptop-travel-backpack|outdoor-multifunctional-bag-manufacturing-guide|outdoor-sports-bag-manufacturing-guide|custom-tennis-bag-guide|pickleball-bag-customization-guide|padel-bag-design-guide|hiking-backpack-customization-guide|mountaineering-backpack-manufacturing-guide|travel-bag-luggage-customization-guide|hotel-group-custom-bag-project-guide|wallet-materials-guide|rfid-wallet-customization-guide|card-holder-customization-guide|eco-tech-bag-material-guide|gps-trackable-bag-guide|logo-customization-guide|private-label-packaging-guide|moq-sampling-faq|quality-inspection-guide|sustainable-bag-wallet-materials-guide|custom-pickleball-bag-landing|custom-tennis-padel-racket-bag-landing|custom-hiking-daypack-landing|custom-gym-duffel-bag-landing|custom-travel-weekender-bag-landing|custom-rfid-wallet-card-holder-landing|gps-trackable-smart-bag-landing|recycled-eco-tech-bag-landing)\//g, 'href="/$1/')
     .replace(/href="#/g, 'href="/#')
+    .replace(/href="(\/[^"']*)"/g, (_, href) => `href="${normalizeInternalHref(href)}"`)
     .replace(/id="home"/g, 'id="home" data-rendered-by="next"');
 }
 
@@ -484,6 +599,8 @@ export async function StaticSitePage({ params }) {
   if (!html) notFound();
 
   const jsonLdScripts = sourceHtml ? extractJsonLdScripts(sourceHtml) : [];
+  const collectionSchema = createCollectionSchema(slug);
+  if (collectionSchema) jsonLdScripts.push(collectionSchema);
   const inlineStyles = sourceHtml ? extractInlineStyles(sourceHtml) : [];
   const localStylesheets = sourceHtml ? extractLocalStylesheets(sourceHtml) : [];
 

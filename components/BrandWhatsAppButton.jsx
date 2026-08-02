@@ -8,9 +8,14 @@ export default function BrandWhatsAppButton() {
   const [href, setHref] = useState("https://wa.me/8613928715568?text=Hello%20Cappuccino%20Bag.%20Source%3A%20CAP-OUT");
   useEffect(() => {
     if (pathname?.startsWith("/crm")) return;
+    let active = true;
     const title = document.querySelector("h1")?.textContent?.trim() || "Cappuccino Bag products";
     const code = /padel|pickleball|tennis/i.test(title) ? "CAP-PDL" : /travel/i.test(title) ? "CAP-TRV" : "CAP-OUT";
-    setHref(`https://wa.me/8613928715568?text=${encodeURIComponent(`Hello Cappuccino Bag, I am interested in ${title}. I visited: ${window.location.href.slice(0, 700)}. Source: ${code}`)}`);
+    const nextHref = `https://wa.me/8613928715568?text=${encodeURIComponent(`Hello Cappuccino Bag, I am interested in ${title}. I visited: ${window.location.href.slice(0, 700)}. Source: ${code}`)}`;
+    queueMicrotask(() => {
+      if (active) setHref(nextHref);
+    });
+    return () => { active = false; };
   }, [pathname]);
   if (pathname?.startsWith("/crm")) return null;
   return <a className="whatsapp-float" href={href} target="_blank" rel="noopener noreferrer" aria-label="Contact Cappuccino Bag on WhatsApp"><span className="whatsapp-icon">☎</span><span className="whatsapp-pulse" /></a>;

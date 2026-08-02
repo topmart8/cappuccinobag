@@ -17,7 +17,7 @@ function getProduct(categorySlug, slug) {
 }
 
 function getProductUrl(product, slug) {
-  return `${siteUrl}/${product.categorySlug}/${slug}/`;
+  return `${siteUrl}/${product.categorySlug}/${slug}`;
 }
 
 function getInquiryUrl(product) {
@@ -73,8 +73,8 @@ export async function PadelProductPage({ params, categorySlug }) {
   const canonical = getProductUrl(product, slug);
   const categoryUrl =
     product.categorySlug === "padel-accessories"
-      ? `${siteUrl}/padel-accessories/`
-      : `${siteUrl}/custom-padel-bag-manufacturer/`;
+      ? `${siteUrl}/padel-accessories`
+      : `${siteUrl}/custom-padel-bag-manufacturer`;
   const categoryHref =
     product.categorySlug === "padel-accessories"
       ? "/padel-accessories/"

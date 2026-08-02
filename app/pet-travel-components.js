@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import Image from "next/image";
 import { PadelFooter, PadelHeader } from "./padel-components";
 import { petCollectionUrl, petWhatsappUrl } from "./pet-travel-data";
 
@@ -20,7 +21,32 @@ export function PetActions({ format = "Pet Travel Bags", secondary = false }) {
 }
 
 export function PetProductVisual({ product, purpose = "production asset pending" }) {
-  return <div className="pet-visual" role="img" aria-label={`${product.code} ${product.name}; ${purpose}`}><span>{product.code}</span><strong>{product.name}</strong><small>Production asset pending</small></div>;
+  return <div className="pet-visual" aria-label={`${product.code} ${product.name}; ${purpose}`}>
+    <Image className="pet-visual-image" src={`/assets/pet-travel/${product.code}/01-main.webp`} width={1600} height={1600} sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 34vw" alt={`${product.code} ${product.name} AI-assisted product concept on a neutral studio background`} />
+    <div className="pet-asset-status"><span>{product.code}</span><small>AI-assisted concept · Production asset pending</small></div>
+  </div>;
+}
+
+const petLifestyleAlt = {
+  PT001: "European woman travelling with a cat in the PT001 UrbanAir soft-sided pet carrier at an airport",
+  PT002: "European woman using the PT002 ExpandAir expandable pet carrier with a small dog at a train station",
+  PT003: "European man carrying a cat in the PT003 MetroPaw pet carrier backpack in an urban plaza",
+  PT004: "European woman hiking with a dog in the PT004 TrailPaw outdoor pet carrier backpack",
+  PT005: "North American man securing a dog beside the PT005 RoadNest pet car seat travel bag in a parked vehicle",
+  PT006: "European woman packing the PT006 Weekender pet travel organizer with a dog nearby in a hotel room",
+  PT007: "North American man feeding a dog outdoors using the PT007 FeedMate pet feeding organizer",
+  PT008: "European woman carrying a cat in the PT008 CityPaw premium pet carrier tote at a boutique hotel",
+  PT009: "European woman walking a dog with the PT009 WalkReady pet walking crossbody bag",
+  PT010: "North American woman training a dog while wearing the PT010 TrainPro dog training treat pouch",
+  PT011: "Northern European man travelling by rail with a cat in the PT011 EcoPaw recycled-material pet carrier",
+  PT012: "Two European product developers reviewing the PT012 FlexForm custom OEM pet bag prototype and components",
+};
+
+export function PetLifestyleVisual({ product }) {
+  return <figure className="pet-lifestyle-visual">
+    <Image src={`/assets/pet-travel/${product.code}/09-lifestyle.webp`} width={1800} height={1200} sizes="(max-width: 1000px) 100vw, 56vw" alt={petLifestyleAlt[product.code] || `${product.code} ${product.name} pet travel lifestyle concept`} />
+    <figcaption>AI-assisted lifestyle concept · Production asset pending. Final photography will replace this image after sample approval.</figcaption>
+  </figure>;
 }
 
 export function PetProductCard({ product }) {
