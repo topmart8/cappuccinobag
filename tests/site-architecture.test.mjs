@@ -47,6 +47,16 @@ test("inquiry compatibility keeps legacy product fields and three collection pre
   assert.match(client, /product\.value = "Padel Bags"/);
   assert.match(client, /product\.value = "Outdoor Sports Bags"/);
   assert.match(client, /"Pet Travel Bags"/);
+  assert.match(client, /sort\(\(a, b\) => b\.value\.length - a\.value\.length\)/);
+});
+
+test("inquiry forms initialize after Next.js client navigation", async () => {
+  const client = await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8");
+  assert.match(client, /function initializeInquiryForm\(form\)/);
+  assert.match(client, /form\.dataset\.inquiryInitialized === "true"/);
+  assert.match(client, /new MutationObserver/);
+  assert.match(client, /node\.querySelectorAll\("\.inquiry-form"\)\.forEach\(initializeInquiryForm\)/);
+  assert.match(client, /if \(inquiryForm\) preselectInquiryContext\(inquiryForm\)/);
 });
 
 test("PDB001 and Padel S001-S004 product assets remain present", async () => {
