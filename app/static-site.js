@@ -411,6 +411,12 @@ function normalizeRenderedLinks(html) {
   return html.replace(/href="(\/[^"']*)"/g, (_, href) => `href="${normalizeInternalHref(href)}"`);
 }
 
+const staticDescriptionOverrides = new Map([
+  ["about-us", "Learn how Cappuccino Bag supports global brands with OEM/ODM development, material sourcing, sampling, quality control and export-ready bag production."],
+  ["faq", "Get practical answers about custom bag MOQ, sampling, materials, logo methods, lead times, quality control, packaging and OEM/ODM project requirements."],
+  ["blog/company-bio", "Read the Cappuccino Bag company profile, manufacturing focus and experience developing custom padel, outdoor, travel and functional bags for global brands."],
+]);
+
 function extractMetadata(html, slug = []) {
   const pageSlug = slug.join("/");
   const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/i);
@@ -435,7 +441,7 @@ function extractMetadata(html, slug = []) {
 
   return {
     title: (pageSlug === "" ? homeTitle : decodeHtmlEntities(titleMatch?.[1]?.trim() || "")).replaceAll("Cappuccino Bags", "Cappuccino Bag"),
-    description: decodeHtmlEntities(descriptionMatch?.[1]?.trim() || "")
+    description: staticDescriptionOverrides.get(pageSlug) || decodeHtmlEntities(descriptionMatch?.[1]?.trim() || "")
       .replace(/\s*Keywords include[^.]*\.?/i, "")
       .replaceAll("Cappuccino Bags", "Cappuccino Bag"),
     canonical: normalizePublicUrl(decodeHtmlEntities(canonicalMatch?.[1]?.trim() || "") || fallbackCanonical),
@@ -511,6 +517,7 @@ function extractLocalStylesheets(html) {
     )
   )
     .map((match) => match[1]?.trim())
+    .filter((href) => !href.startsWith("/_next/"))
     .filter(Boolean);
 }
 
