@@ -18,6 +18,7 @@
     "automation:publish": "node automation/cli.js publish",
     "automation:analytics": "node automation/cli.js analytics",
     "automation:supabase-smoke": "node automation/smoke/supabase-smoke.js",
+    "automation:single-chain-smoke": "node automation/smoke/single-chain-smoke.js",
     "test:seo": "node --test tests/seo-automation.test.mjs",
     "test:links": "node --test --test-name-pattern='link|orphan|404|anchor' tests/seo-automation.test.mjs",
     "test:images": "node --test --test-name-pattern='image|alt' tests/seo-automation.test.mjs",
