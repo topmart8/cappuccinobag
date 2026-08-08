@@ -60,7 +60,7 @@ export function RunningNavCards() {
     <div className="running-nav-grid">
       <Link href={runningCollectionUrl}><strong>All 30 SKU</strong><span>Complete running waist pack collection</span></Link>
       {Object.entries(runningCollections).map(([slug, collection]) => (
-        <Link href={`/running/${slug}/`} key={slug}>
+        <Link href={`/running/${slug}`} key={slug}>
           <strong>{collection.name}</strong>
           <span>{collection.eyebrow}</span>
         </Link>

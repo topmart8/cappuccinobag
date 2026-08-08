@@ -15,7 +15,7 @@ import {
   runningSiteUrl,
 } from "../running-data";
 
-const canonical = `${runningSiteUrl}/running-waist-packs/`;
+const canonical = `${runningSiteUrl}/running-waist-packs`;
 
 export const metadata = {
   title: "Custom Running Waist Pack Manufacturer | 30 OEM/ODM Concepts",

@@ -1,5 +1,4 @@
 const forms = document.querySelectorAll(".lead-form");
-const inquiryForms = document.querySelectorAll(".inquiry-form");
 const whatsappBase = "https://wa.me/8613928715568";
 const attributionKey = "cappuccino_first_touch";
 const currentAttributionKey = "cappuccino_current_visit";
@@ -83,7 +82,7 @@ function getAttribution() {
 function getWhatsAppUrl() {
   const page = window.location.href.slice(0, 700);
   const context = new URLSearchParams(window.location.search).get("product") || document.querySelector("h1")?.textContent?.trim() || "your products";
-  const code = /padel|pickleball|tennis/i.test(context) ? "CAP-PDL" : /travel/i.test(context) ? "CAP-TRV" : "CAP-OUT";
+  const code = /pet/i.test(context) ? "CAP-PET" : /padel|pickleball|tennis/i.test(context) ? "CAP-PDL" : /travel/i.test(context) ? "CAP-TRV" : "CAP-OUT";
   const message = `Hello Cappuccino Bag, I am interested in ${context}. I visited: ${page}. Source: ${code}`;
   return `${whatsappBase}?text=${encodeURIComponent(message)}`;
 }
@@ -95,6 +94,18 @@ function preselectInquiryContext(form) {
   const intention = form.elements.inquiry_intention;
   const product = form.elements.product_needed;
   const message = form.elements.message;
+
+  if (/pet/i.test(`${project} ${format}`)) {
+    if (intention) intention.value = "Pet Travel Bag Project";
+    if (product) {
+      const specific = Array.from(product.options)
+        .filter((item) => format.toLowerCase().includes(item.value.toLowerCase()))
+        .sort((a, b) => b.value.length - a.value.length)[0];
+      product.value = specific?.value || "Pet Travel Bags";
+    }
+    if (message && format) message.value = `Pet travel product: ${format}\n`;
+    return;
+  }
 
   if (/padel/i.test(project)) {
     if (intention) {
@@ -197,8 +208,12 @@ function validateInquiryForm(form) {
   return isValid;
 }
 
-inquiryForms.forEach((form) => {
+function initializeInquiryForm(form) {
   preselectInquiryContext(form);
+
+  if (form.dataset.inquiryInitialized === "true") return;
+  form.dataset.inquiryInitialized = "true";
+
   form.addEventListener("input", (event) => {
     const field = event.target;
     if (!field.matches("input, textarea")) return;
@@ -276,7 +291,26 @@ inquiryForms.forEach((form) => {
       submitButton.textContent = "Send My Project";
     }
   });
+}
+
+document.querySelectorAll(".inquiry-form").forEach(initializeInquiryForm);
+
+const inquiryFormObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    mutation.addedNodes.forEach((node) => {
+      if (node.nodeType !== 1) return;
+      if (node.matches(".inquiry-form")) initializeInquiryForm(node);
+      node.querySelectorAll(".inquiry-form").forEach(initializeInquiryForm);
+
+      const inquiryForm = node.matches("option")
+        ? node.closest(".inquiry-form")
+        : node.querySelector("option")?.closest(".inquiry-form");
+      if (inquiryForm) preselectInquiryContext(inquiryForm);
+    });
+  });
 });
+
+inquiryFormObserver.observe(document.body, { childList: true, subtree: true });
 
 document.querySelectorAll("[data-track]").forEach((element) => {
   element.addEventListener("click", () => {

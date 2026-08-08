@@ -77,6 +77,7 @@ export async function POST(request) {
   if (rateLimited(ip)) return NextResponse.json({ message: "Too many attempts. Please try again later." }, { status: 429 });
   try {
     const { data, files } = await parseRequest(request);
+    data.product_category = data.product_category || data.product_needed || data.product || "";
     data.attribution_country ||= request.headers.get("x-vercel-ip-country") || "";
     if (data.website) return NextResponse.json({ ok: true });
     if (!data.name || !EMAIL.test(String(data.email || ""))) {
@@ -88,8 +89,11 @@ export async function POST(request) {
     const details = [
       ["Reference", reference], ["Brand", "Cappuccino Bag"], ["Name", data.name],
       ["Company", data.company], ["Email", data.email], ["WhatsApp", data.phone],
-      ["Country", data.country], ["Product", data.product_needed || data.product],
+      ["Country", data.country], ["Product", data.product_category],
       ["Quantity", data.quantity], ["Material", data.material], ["Logo", data.logo_method],
+      ["Target dimensions", data.target_dimensions], ["Intended pet size", data.intended_pet_size],
+      ["Color", data.color], ["Packaging", data.packaging], ["Target market", data.target_market],
+      ["Target delivery date", data.target_delivery_date],
       ["Message", data.message], ["Landing page", data.first_landing_page],
       ["Submit page", data.current_page_url || data.pageUrl], ["First UTM source", data.utm_source],
       ["First UTM campaign", data.utm_campaign], ["Current UTM source", data.current_utm_source],
@@ -97,7 +101,7 @@ export async function POST(request) {
     ].map(([key, value]) => `<tr><th align="left">${key}</th><td>${escapeHtml(value || "—")}</td></tr>`).join("");
     await sendEmail({
       to: process.env.INQUIRY_TO_EMAIL || "info@cappuccinobag.net",
-      subject: `[Cappuccino RFQ] ${reference} | ${data.product_needed || "Product to confirm"}`,
+      subject: `[Cappuccino RFQ] ${reference} | ${data.product_category || "Product to confirm"}`,
       html: `<h2>New Cappuccino Bag inquiry</h2><table>${details}</table>`,
       replyTo: data.email,
     });

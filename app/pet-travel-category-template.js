@@ -1,0 +1,20 @@
+import { notFound } from "next/navigation";
+import { JsonLd, Link, PetActions, PetBreadcrumb, PetProductCard, PetShell } from "./pet-travel-components";
+import { collectionFaqs, petCategoryMap, petCollectionUrl, petSiteUrl, productsForPetCategory } from "./pet-travel-data";
+
+export function getPetCategoryMetadata(slug) {
+  const category = petCategoryMap[slug];
+  if (!category) return {};
+  const canonical = `${petSiteUrl}${category.href}`;
+  const title = `${category.h1} | Cappuccino Bag`;
+  return { title, description: category.description, alternates: { canonical }, openGraph: { title, description: category.description, url: canonical, type: "website" }, twitter: { card: "summary", title, description: category.description }, robots: { index: true, follow: true } };
+}
+
+export function PetCategoryPage({ slug }) {
+  const category = petCategoryMap[slug];
+  if (!category) notFound();
+  const products = productsForPetCategory(slug);
+  const canonical = `${petSiteUrl}${category.href}`;
+  const schemas = [{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: `${petSiteUrl}/` }, { "@type": "ListItem", position: 2, name: "Pet Travel Bags", item: `${petSiteUrl}${petCollectionUrl}` }, { "@type": "ListItem", position: 3, name: category.name, item: canonical }] }, { "@context": "https://schema.org", "@type": "CollectionPage", name: category.h1, description: category.description, url: canonical, mainEntity: { "@type": "ItemList", numberOfItems: products.length, itemListElement: products.map((product, index) => ({ "@type": "ListItem", position: index + 1, url: `${petSiteUrl}${product.href}`, name: product.name })) } }];
+  return <>{schemas.map((schema) => <JsonLd key={schema["@type"]} value={schema} />)}<PetShell><main className="pet-page"><PetBreadcrumb items={[{ name: "Pet Travel Bags", href: petCollectionUrl }, { name: category.name }]} /><section className="pet-simple-hero"><p className="eyebrow">Pet Travel Bags · OEM/ODM</p><h1>{category.h1}</h1><p className="pet-lead">{category.description}</p><p><strong>Answer:</strong> Cappuccino Bag develops this category for brands, retailers and distributors through custom dimensions, materials, structure, branding, sampling and bulk-production review.</p><PetActions format={category.name} /></section><section className="pet-section"><div className="pet-heading"><div><p className="eyebrow">{products.length || "Custom"} development direction{products.length === 1 ? "" : "s"}</p><h2>{products.length ? `Explore ${category.name}` : "Develop an original product for this category"}</h2></div><p>Primary search intent: {category.keyword}. Final specifications follow sampling and approval.</p></div>{products.length ? <div className="pet-product-grid">{products.map((product) => <PetProductCard key={product.code} product={product} />)}</div> : <div className="pet-empty-category"><h3>Custom development service</h3><p>This subcategory is supported through the FlexForm OEM/ODM program. Share your product format, intended use, dimensions, quantity, materials and reference files for review.</p><Link className="btn btn-primary" href={`${petCollectionUrl}/flexform-custom-oem-pet-bag-program`}>View custom OEM program</Link></div>}</section><section className="pet-section pet-dark"><div className="pet-heading"><div><p className="eyebrow">Procurement answers</p><h2>Customization and sourcing FAQ</h2></div><p>Factual guidance without fixed MOQ, lead time or unsupported certification claims.</p></div><div className="pet-faq">{collectionFaqs.slice(1, 7).map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section><section className="pet-rfq"><div><p className="eyebrow">Start a category project</p><h2>Build a private-label {category.name.toLowerCase()} range</h2><p>Send dimensions, intended pet or load, material, quantity, logo, packaging, market and timeline.</p></div><PetActions format={category.name} /></section></main></PetShell></>;
+}

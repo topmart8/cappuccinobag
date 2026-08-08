@@ -385,7 +385,7 @@ export const padelProductEntries = Object.entries(padelProducts).map(
   ([slug, product]) => ({
     ...product,
     slug,
-    href: `/${product.categorySlug}/${slug}/`,
+    href: `/${product.categorySlug}/${slug}`,
   }),
 );
 

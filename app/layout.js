@@ -17,7 +17,7 @@ export const metadata = {
       "OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags",
     description:
       "Cappuccino Bag is an OEM/ODM bag manufacturer specializing in outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.",
-    url: "https://cappuccinobag.com/",
+    url: "https://www.cappuccinobag.com/",
     siteName: "Cappuccino Bag",
     images: [
       {
