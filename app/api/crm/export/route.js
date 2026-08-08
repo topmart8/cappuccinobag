@@ -7,6 +7,8 @@ const inquiryColumns = [
   "target_delivery_date", "message", "uploaded_files", "lead_score", "intent", "risk_level", "assigned_owner",
   "stage", "next_follow_up", "human_takeover", "auto_reply_enabled", "first_landing_page", "current_page_url",
   "referrer", "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "msclkid",
+  "current_referrer", "current_utm_source", "current_utm_medium", "current_utm_campaign",
+  "current_utm_content", "current_utm_term", "current_gclid", "current_msclkid",
   "first_visit_time", "submit_time", "device", "attribution_country", "ai_customer_summary",
   "ai_recommended_action", "ai_reply_draft", "reply_status", "created_at", "updated_at",
 ];

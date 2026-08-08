@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "lint": "eslint app components lib automation tests",
+    "lint": "eslint app components lib automation scripts tests --max-warnings=0",
     "test": "node --test tests/*.test.mjs",
     "typecheck": "find automation -name '*.js' -print0 | xargs -0 -n1 node --check",
     "build": "next build",
@@ -24,9 +24,14 @@
     "test:sitemap": "node --test --test-name-pattern='sitemap' tests/seo-automation.test.mjs",
     "test:metadata": "node --test --test-name-pattern='metadata|canonical' tests/seo-automation.test.mjs",
     "test:content": "node --test --test-name-pattern='content|claim|MOQ|lead time|brand' tests/seo-automation.test.mjs",
-    "test:email": "node --test --test-name-pattern='email' tests/seo-automation.test.mjs"
+    "test:email": "node --test --test-name-pattern='email' tests/seo-automation.test.mjs",
+    "audit:site": "node scripts/audit-site.mjs"
   },
   "dependencies": {
+    "@next/third-parties": "16.2.12",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "google-auth-library": "^10.9.1",
     "next": "16.2.12",
     "react": "19.2.8",
     "react-dom": "19.2.8",

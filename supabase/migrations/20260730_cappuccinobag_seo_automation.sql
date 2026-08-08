@@ -1,5 +1,5 @@
 -- Cappuccino Bag SEO/content operations. Additive and draft-only by design.
--- Requires the existing CRM profiles table for authenticated admin access.
+-- Authenticated admin access uses protected app_metadata claims; service automation uses service_role.
 
 create extension if not exists pgcrypto;
 
@@ -202,12 +202,12 @@ create index if not exists seo_pages_url_idx on public.seo_pages (url);
 create index if not exists seo_pages_category_idx on public.seo_pages (category, status);
 create index if not exists content_tasks_status_idx on public.content_tasks (site, review_status, created_at desc);
 create index if not exists content_tasks_target_url_idx on public.content_tasks (target_url);
-create index if not exists content_reviews_task_idx on public.content_reviews (content_task_id, created_at desc);
+create index if not exists content_tasks_keyword_cluster_idx on public.content_tasks (keyword_cluster_id); create index if not exists content_reviews_task_idx on public.content_reviews (content_task_id, created_at desc);
 create index if not exists internal_links_status_idx on public.internal_link_suggestions (site, status, relevance_score desc);
 create index if not exists internal_links_source_idx on public.internal_link_suggestions (source_url);
 create index if not exists internal_links_target_idx on public.internal_link_suggestions (target_url);
 create index if not exists image_jobs_status_idx on public.image_jobs (site, status, created_at desc);
-create index if not exists publishing_runs_status_idx on public.publishing_runs (site, approval_status, created_at desc);
+create index if not exists image_jobs_content_task_idx on public.image_jobs (content_task_id); create index if not exists publishing_runs_status_idx on public.publishing_runs (site, approval_status, created_at desc);
 create index if not exists analytics_page_date_idx on public.analytics_page_performance (url, date desc);
 create index if not exists analytics_decay_idx on public.analytics_page_performance (site, content_decay_score desc, date desc);
 
@@ -222,7 +222,7 @@ begin
     execute format('alter table public.%I enable row level security', table_name);
     execute format('drop policy if exists "seo admins manage" on public.%I', table_name);
     execute format(
-      'create policy "seo admins manage" on public.%I for all to authenticated using (public.crm_is_admin()) with check (public.crm_is_admin())',
+      'create policy "seo admins manage" on public.%I for all to authenticated using (coalesce(((select auth.jwt()) -> ''app_metadata'' ->> ''role'') = ''admin'', false)) with check (coalesce(((select auth.jwt()) -> ''app_metadata'' ->> ''role'') = ''admin'', false))',
       table_name
     );
     execute format('drop policy if exists "seo service role manages" on public.%I', table_name);

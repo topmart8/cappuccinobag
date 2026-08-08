@@ -14,6 +14,10 @@ const fields = [
   ["首次落地页", "first_landing_page"], ["提交页", "current_page_url"], ["Referrer", "referrer"],
   ["UTM source", "utm_source"], ["UTM medium", "utm_medium"], ["UTM campaign", "utm_campaign"],
   ["UTM content", "utm_content"], ["UTM term", "utm_term"], ["gclid", "gclid"], ["msclkid", "msclkid"],
+  ["当前 Referrer", "current_referrer"], ["当前 UTM source", "current_utm_source"],
+  ["当前 UTM medium", "current_utm_medium"], ["当前 UTM campaign", "current_utm_campaign"],
+  ["当前 UTM content", "current_utm_content"], ["当前 UTM term", "current_utm_term"],
+  ["当前 gclid", "current_gclid"], ["当前 msclkid", "current_msclkid"],
   ["首次访问", "first_visit_time"], ["提交时间", "submit_time"], ["设备", "device"],
   ["归因国家", "attribution_country"], ["评分", "lead_score"], ["风险", "risk_level"], ["阶段", "stage"],
 ];

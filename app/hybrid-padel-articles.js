@@ -1,0 +1,58 @@
+export const hybridPadelArticles = {
+  "from-desk-to-court-cappuccino-padel-collection": {
+    title: "From Desk to Court: The Cappuccino Padel Hybrid Collection Story",
+    description: "The design story behind four Cappuccino hybrid padel bags created for work, club, weekend and travel routines.",
+    image: "/images/padel/hybrid-lifestyle-2026/PDB014/PDB014-scene.webp",
+    imageAlt: "Woman using Cappuccino PDB014 padel tote beside laptop and padel racket at a modern club",
+    intro: "Padel increasingly sits inside a wider daily routine. A match may follow work, begin a club weekend or become one stop in a short trip, so the bag needs to work before and after the court.",
+    sections: [
+      ["Why the collection begins outside the court", ["Traditional racket bags prioritize equipment capacity. The Hybrid Lifestyle Series begins with the full day: laptop, charger, bottle, personal items, travel documents and a racket all need deliberate positions without making the silhouette feel like match-only luggage."]],
+      ["Four formats for four routines", ["PDB014 is the women’s lifestyle tote, PDB015 is the urban commuter, PDB016 adds room for match weekends and PDB017 provides hands-free travel organization. Together they form one coherent Cappuccino-branded development platform."]],
+      ["Organization is the shared design language", ["Each concept separates laptop and racket storage, then adds an appropriate mix of bottle, valuables, organizer, luggage and footwear details. The final pocket map is adjusted around the buyer’s target user and confirmed during sampling."]],
+      ["Materials and claims stay project-specific", ["Water-resistant nylon and polyester, including recycled options, can be reviewed. Certification and performance language must match the exact selected material, construction and available documentation."]],
+      ["A collection for OEM/ODM development", ["Buyers can coordinate material, color, trim, embroidery, lining and packaging across the four models. Digital images guide development, while swatches and physical samples confirm the final appearance and fit."]],
+    ],
+  },
+  "work-to-court-padel-bags": {
+    title: "Work-to-Court Padel Bags: Building a Lifestyle-Led Product Range",
+    description: "A B2B guide to work-to-court padel bag formats, laptop and racket separation, commuter details and OEM/ODM development decisions.",
+    image: "/images/padel/hybrid-lifestyle-2026/PDB015/PDB015-scene.webp",
+    imageAlt: "Cappuccino PDB015 padel work tote used beside laptop and racket at an urban padel court",
+    intro: "A work-to-court bag is not simply a racket bag with a laptop sleeve added. Its weight, opening, pocket order and carry system must support the full commute before the user reaches the club.",
+    sections: [
+      ["Start with the daily load", ["List the target laptop, racket count, bottle, charger, clothing and small essentials before drawing compartments. This prevents unnecessary pockets and gives the sample team a load plan to test."]],
+      ["Protect the laptop from court equipment", ["The device sleeve should have its own padding and securing method. It should not share direct contact with rackets, bottles or footwear, and fit should be checked with the target device dimensions rather than screen size alone."]],
+      ["Make racket access clear", ["A curved external racket compartment gives the product a visible sports function and keeps racket handles accessible. Opening direction, padding and capacity for one or two rackets require physical sample testing."]],
+      ["Choose details that earn their weight", ["A hidden valuables pocket, bottle position, internal organizer and luggage sleeve can reduce friction. Every extra panel or pocket adds material and sewing, so features should follow the intended routine."]],
+      ["Compare PDB014 and PDB015", ["PDB014 focuses on a soft women’s lifestyle tote, while PDB015 adds a 15-inch laptop direction, hidden back pocket and travel details for urban commuter programs."]],
+    ],
+  },
+  "choosing-the-right-padel-bag-style": {
+    title: "How to Choose the Right Hybrid Padel Bag Style for Your Brand",
+    description: "Compare padel totes, commuter bags, weekend carryalls and travel backpacks before starting a custom sample.",
+    image: "/images/padel/hybrid-lifestyle-2026/PDB016/PDB016-scene.webp",
+    imageAlt: "Cappuccino PDB016 weekend padel carryall packed for a club trip beside an open car",
+    intro: "The right padel bag format follows the target customer’s routine, not a generic feature checklist. Brands should choose the silhouette first, then develop capacity and organization around it.",
+    sections: [
+      ["Choose a tote for lifestyle-led carry", ["A tote presents a cleaner profile outside the court and suits office-to-club or women’s lifestyle positioning. PDB014 provides the softest direction, while PDB015 supports more structured commuter and travel organization."]],
+      ["Choose a carryall for match weekends", ["PDB016 gives clothing, towel and personal items more space than a daily tote while keeping the laptop and racket in separate zones. It suits club weekends, short trips and resort programs."]],
+      ["Choose a backpack for hands-free travel", ["PDB017 is the functional unisex direction, with a 15.6-inch laptop concept, dedicated racket storage, a side shoe or accessory compartment and trolley compatibility."]],
+      ["Confirm the variables before sampling", ["Define target dimensions, laptop size, racket count, carrying method, material, color, logo execution, target price and quantity direction. MOQ and lead time should be quoted only after those variables are reviewed."]],
+      ["Build a range without repeating one silhouette", ["A balanced collection can cover daily tote, commuter, weekend and travel needs while coordinating material, trim and branding. This gives buyers distinct use cases instead of four minor versions of the same bag."]],
+    ],
+  },
+  "recycled-water-resistant-materials-padel-bags": {
+    title: "Selecting Recycled and Water-Resistant Materials for Hybrid Padel Bags",
+    description: "A sourcing framework for recycled nylon, recycled polyester, coatings, documentation and responsible water-resistance claims in custom padel bags.",
+    image: "/images/padel/hybrid-lifestyle-2026/PDB017/PDB017-detail-board.webp",
+    imageAlt: "Cappuccino PDB017 details showing 15.6-inch laptop sleeve, racket compartment, shoe pocket and water-resistant fabric",
+    intro: "Material selection shapes hand feel, weight, structure, abrasion performance and the claims a brand can responsibly make. The fiber name alone does not define the finished bag.",
+    sections: [
+      ["Compare nylon and polyester as complete constructions", ["Fabric weight, weave, backing and coating change how recycled nylon or polyester behaves. A soft tote may need a different balance from a structured travel backpack even when both use recycled fibers."]],
+      ["Use water-resistant language accurately", ["A water-resistant face fabric can help with light rain and splashes. Waterproof performance depends on seams, zippers, needle holes and finished construction, so stronger claims require applicable testing."]],
+      ["Verify the certification scope", ["A recycled material option does not automatically make every finished product GRS certified. Check the selected supplier, material, transaction documentation and order scope before using certification language or marks."]],
+      ["Approve color and hand feel physically", ["Digital images are useful development references, but coatings, recycled yarns and different production lots can affect texture and color. Approve a swatch and physical sample before bulk production."]],
+      ["Design for useful life and efficient material use", ["Durable zippers, reinforced high-contact areas, sensible pocket counts and a multi-use design can support longer use. Sustainability decisions should consider the whole construction, not one marketing label."]],
+    ],
+  },
+};

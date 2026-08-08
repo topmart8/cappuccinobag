@@ -1,15 +1,34 @@
 const forms = document.querySelectorAll(".lead-form");
-const inquiryForms = document.querySelectorAll(".inquiry-form");
 const whatsappBase = "https://wa.me/8613928715568";
 const attributionKey = "cappuccino_first_touch";
+const currentAttributionKey = "cappuccino_current_visit";
+
+function cleanUrl(value) {
+  try {
+    const url = new URL(value, window.location.origin);
+    const sensitive = /name|mail|phone|whats|address|message|company|contact/i;
+    [...url.searchParams.keys()].forEach((key) => {
+      const value = url.searchParams.get(key) || "";
+      if (
+        sensitive.test(key)
+        || /[^\s@]+@[^\s@]+\.[^\s@]+/.test(value)
+        || /^\+?[\d\s().-]{7,}$/.test(value)
+      ) url.searchParams.delete(key);
+    });
+    url.hash = "";
+    return url.toString();
+  } catch {
+    return "";
+  }
+}
 
 function getAttribution() {
   const params = new URLSearchParams(window.location.search);
   const current = {
     site: "cappuccinobag",
-    first_landing_page: window.location.href,
-    first_visit_time: new Date().toISOString(),
-    referrer: document.referrer || "",
+    landing_page: cleanUrl(window.location.href),
+    visit_time: new Date().toISOString(),
+    referrer: cleanUrl(document.referrer),
     utm_source: params.get("utm_source") || "",
     utm_medium: params.get("utm_medium") || "",
     utm_campaign: params.get("utm_campaign") || "",
@@ -19,27 +38,51 @@ function getAttribution() {
     msclkid: params.get("msclkid") || "",
   };
   try {
-    const saved = JSON.parse(window.localStorage.getItem(attributionKey) || "null");
-    const value = saved || current;
-    if (!saved) {
-      window.localStorage.setItem(attributionKey, JSON.stringify(value));
-      document.cookie = `${attributionKey}=${encodeURIComponent(JSON.stringify(value))}; Max-Age=15552000; Path=/; SameSite=Lax; Secure`;
-    }
+    const first = JSON.parse(window.localStorage.getItem(attributionKey) || "null") || {
+      ...current,
+      first_landing_page: current.landing_page,
+      first_visit_time: current.visit_time,
+    };
+    const visit = JSON.parse(window.sessionStorage.getItem(currentAttributionKey) || "null")
+      || JSON.parse(window.localStorage.getItem(currentAttributionKey) || "null")
+      || current;
     return {
-      ...value,
-      current_page_url: window.location.href,
+      site: "cappuccinobag",
+      first_landing_page: first.first_landing_page || first.landing_page,
+      first_visit_time: first.first_visit_time || first.visit_time,
+      referrer: first.referrer || "",
+      utm_source: first.utm_source || "",
+      utm_medium: first.utm_medium || "",
+      utm_campaign: first.utm_campaign || "",
+      utm_content: first.utm_content || "",
+      utm_term: first.utm_term || "",
+      gclid: first.gclid || "",
+      msclkid: first.msclkid || "",
+      current_page_url: cleanUrl(window.location.href),
+      current_referrer: visit.referrer || "",
+      current_utm_source: visit.utm_source || "",
+      current_utm_medium: visit.utm_medium || "",
+      current_utm_campaign: visit.utm_campaign || "",
+      current_utm_content: visit.utm_content || "",
+      current_utm_term: visit.utm_term || "",
+      current_gclid: visit.gclid || "",
+      current_msclkid: visit.msclkid || "",
       submit_time: new Date().toISOString(),
       device: /Mobi|Android/i.test(navigator.userAgent) ? "mobile" : "desktop",
     };
   } catch {
-    return { ...current, current_page_url: window.location.href, submit_time: new Date().toISOString() };
+    return {
+      first_landing_page: current.landing_page,
+      current_page_url: cleanUrl(window.location.href),
+      submit_time: new Date().toISOString(),
+    };
   }
 }
 
 function getWhatsAppUrl() {
   const page = window.location.href.slice(0, 700);
   const context = new URLSearchParams(window.location.search).get("product") || document.querySelector("h1")?.textContent?.trim() || "your products";
-  const code = /padel|pickleball|tennis/i.test(context) ? "CAP-PDL" : /travel/i.test(context) ? "CAP-TRV" : "CAP-OUT";
+  const code = /pet/i.test(context) ? "CAP-PET" : /padel|pickleball|tennis/i.test(context) ? "CAP-PDL" : /travel/i.test(context) ? "CAP-TRV" : "CAP-OUT";
   const message = `Hello Cappuccino Bag, I am interested in ${context}. I visited: ${page}. Source: ${code}`;
   return `${whatsappBase}?text=${encodeURIComponent(message)}`;
 }
@@ -51,6 +94,18 @@ function preselectInquiryContext(form) {
   const intention = form.elements.inquiry_intention;
   const product = form.elements.product_needed;
   const message = form.elements.message;
+
+  if (/pet/i.test(`${project} ${format}`)) {
+    if (intention) intention.value = "Pet Travel Bag Project";
+    if (product) {
+      const specific = Array.from(product.options)
+        .filter((item) => format.toLowerCase().includes(item.value.toLowerCase()))
+        .sort((a, b) => b.value.length - a.value.length)[0];
+      product.value = specific?.value || "Pet Travel Bags";
+    }
+    if (message && format) message.value = `Pet travel product: ${format}\n`;
+    return;
+  }
 
   if (/padel/i.test(project)) {
     if (intention) {
@@ -95,7 +150,13 @@ forms.forEach((form) => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
+        const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error("Lead endpoint failed.");
+        window.cappuccinoAnalytics?.trackLeadSuccess(
+          formName === "sample" ? "sample_request" : "product_inquiry",
+          result.inquiryNumber,
+          { product_category: payload.product_category || payload.product || "" },
+        );
         showToast(
           "Submitted successfully. Our sales team will contact you soon.",
         );
@@ -108,11 +169,6 @@ forms.forEach((form) => {
       );
     }
 
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: `${formName}_submit`,
-      form_name: formName,
-    });
   });
 });
 
@@ -152,8 +208,12 @@ function validateInquiryForm(form) {
   return isValid;
 }
 
-inquiryForms.forEach((form) => {
+function initializeInquiryForm(form) {
   preselectInquiryContext(form);
+
+  if (form.dataset.inquiryInitialized === "true") return;
+  form.dataset.inquiryInitialized = "true";
+
   form.addEventListener("input", (event) => {
     const field = event.target;
     if (!field.matches("input, textarea")) return;
@@ -204,14 +264,14 @@ inquiryForms.forEach((form) => {
                 body: JSON.stringify(payload),
               },
         );
+        const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error("Inquiry endpoint failed.");
+        window.cappuccinoAnalytics?.trackLeadSuccess(
+          "rfq",
+          result.inquiryNumber,
+          { product_category: payload.product_needed || payload.product || "" },
+        );
       }
-
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "b2b_inquiry_submit",
-        form_name: form.dataset.form || "b2b_inquiry",
-      });
 
       setInquiryStatus(
         form,
@@ -231,7 +291,26 @@ inquiryForms.forEach((form) => {
       submitButton.textContent = "Send My Project";
     }
   });
+}
+
+document.querySelectorAll(".inquiry-form").forEach(initializeInquiryForm);
+
+const inquiryFormObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    mutation.addedNodes.forEach((node) => {
+      if (node.nodeType !== 1) return;
+      if (node.matches(".inquiry-form")) initializeInquiryForm(node);
+      node.querySelectorAll(".inquiry-form").forEach(initializeInquiryForm);
+
+      const inquiryForm = node.matches("option")
+        ? node.closest(".inquiry-form")
+        : node.querySelector("option")?.closest(".inquiry-form");
+      if (inquiryForm) preselectInquiryContext(inquiryForm);
+    });
+  });
 });
+
+inquiryFormObserver.observe(document.body, { childList: true, subtree: true });
 
 document.querySelectorAll("[data-track]").forEach((element) => {
   element.addEventListener("click", () => {
