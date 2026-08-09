@@ -136,12 +136,27 @@ function showToast(message) {
   window.setTimeout(() => toast.remove(), 4200);
 }
 
+function submissionIdFor(form) {
+  if (!form.dataset.submissionId) {
+    form.dataset.submissionId = window.crypto.randomUUID();
+  }
+  return form.dataset.submissionId;
+}
+
+function completeSubmission(form) {
+  delete form.dataset.submissionId;
+}
+
 forms.forEach((form) => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formName = form.dataset.form || "inquiry";
     const endpoint = "/api/inquiries";
-    const payload = { ...Object.fromEntries(new FormData(form).entries()), ...getAttribution() };
+    const payload = {
+      ...Object.fromEntries(new FormData(form).entries()),
+      ...getAttribution(),
+      submission_id: submissionIdFor(form),
+    };
 
     if (endpoint) {
       try {
@@ -152,6 +167,7 @@ forms.forEach((form) => {
         });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error("Lead endpoint failed.");
+        completeSubmission(form);
         window.cappuccinoAnalytics?.trackLeadSuccess(
           formName === "sample" ? "sample_request" : "product_inquiry",
           result.inquiryNumber,
@@ -242,6 +258,7 @@ function initializeInquiryForm(form) {
     const formData = new FormData(form);
     formData.delete("website");
     Object.entries(getAttribution()).forEach(([key, value]) => formData.set(key, value || ""));
+    formData.set("submission_id", submissionIdFor(form));
     const hasFile = Array.from(
       form.querySelectorAll('input[type="file"]'),
     ).some((input) => input.files && input.files.length);
@@ -266,6 +283,7 @@ function initializeInquiryForm(form) {
         );
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error("Inquiry endpoint failed.");
+        completeSubmission(form);
         window.cappuccinoAnalytics?.trackLeadSuccess(
           "rfq",
           result.inquiryNumber,

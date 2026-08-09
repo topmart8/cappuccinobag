@@ -48,8 +48,10 @@ Configure these in the Cappuccino Vercel project:
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SUPABASE_URL` | yes | Shared Supabase project URL |
+| `SUPABASE_URL` | yes | Server-only shared Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_URL` | compatibility only | Legacy fallback; server ingest prefers `SUPABASE_URL` |
 | `SUPABASE_SERVICE_ROLE_KEY` | yes | Server-only database/storage access |
+| `SHARED_CRM_INGEST_SECRET` | yes for Novlane | Server-only bearer secret for the shared ingest route |
 | `SUPABASE_STORAGE_BUCKET` | yes | Private attachment bucket, normally `crm-attachments` |
 | `CRM_ADMIN_USER` / `CRM_ADMIN_PASSWORD` | yes | Initial admin login |
 | `CRM_SALES_USER` / `CRM_SALES_PASSWORD` | optional | Initial sales login |

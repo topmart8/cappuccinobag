@@ -4,21 +4,22 @@
     "dev": "next dev",
     "lint": "eslint app components lib scripts tests --max-warnings=0",
     "test": "node --test tests/*.test.mjs",
+    "typecheck": "next typegen",
     "build": "next build",
     "start": "next start",
     "audit:site": "node scripts/audit-site.mjs"
   },
   "dependencies": {
-    "@next/third-parties": "16.2.12",
+    "@next/third-parties": "16.3.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "google-auth-library": "^10.9.1",
-    "next": "16.2.12",
+    "next": "16.3.0",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
     "eslint": "^9.39.5",
-    "eslint-config-next": "16.2.12"
+    "eslint-config-next": "16.3.0"
   }
 }
