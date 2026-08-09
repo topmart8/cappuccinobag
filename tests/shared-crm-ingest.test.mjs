@@ -366,6 +366,19 @@ test("shared CRM migration adds the canonical columns and unique submission cons
   assert.match(sql, /email_status in \('pending', 'sent', 'skipped', 'failed'\)/);
 });
 
+test("shared CRM hardening migration restricts anonymous Data API access", async () => {
+  const sql = await readFile(
+    new URL("../supabase/migrations/20260809051623_harden_shared_crm_data_api.sql", import.meta.url),
+    "utf8",
+  );
+  assert.match(sql, /set search_path = public, pg_temp/);
+  for (const table of ["customers", "inquiries", "ai_reply_logs", "activities", "email_drafts"]) {
+    assert.match(sql, new RegExp(`revoke all on table public\\.${table} from anon`));
+  }
+  assert.match(sql, /revoke execute on function public\.crm_is_admin\(\) from public, anon/);
+  assert.match(sql, /revoke execute on function public\.crm_can_access\(text, text\) from public, anon/);
+});
+
 test("shared website ingest never writes a legacy lead or submission table", async () => {
   const originalFetch = global.fetch;
   const savedUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
