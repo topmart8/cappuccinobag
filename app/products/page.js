@@ -78,6 +78,14 @@ export default function ProductsPage() {
             </article>
           ))}
         </section>
+        <section className="padel-product-section">
+          <div className="padel-product-heading">
+            <p className="eyebrow">Development Proof</p>
+            <h2>See how custom briefs become manufacturable products</h2>
+            <p>Review hospitality, vegan leather beauty accessory and rhinestone handbag projects before preparing your own product brief.</p>
+          </div>
+          <Link className="padel-text-link" href="/case-studies">Explore customer case studies</Link>
+        </section>
         <section className="padel-product-rfq">
           <div><p className="eyebrow">Project Review</p><h2>Need help choosing a collection?</h2><p>Send the intended product, quantity, material direction, functions, target market and timing for a practical development route.</p></div>
           <Link className="btn btn-primary" href="/inquiry">Start an RFQ</Link>
