@@ -18,6 +18,7 @@ const leadColumns = [
   "email", "phone", "whatsapp_phone", "facebook_url", "instagram_url", "linkedin_url",
   "product_keywords", "source", "source_url", "owner", "stage", "score", "score_override",
   "tags", "notes", "next_follow_up", "created_at", "updated_at",
+  "is_existing_customer", "do_not_prospect", "blocked_reason", "duplicate_review", "duplicate_of", "last_contacted_at",
 ];
 
 function value(row, column) {

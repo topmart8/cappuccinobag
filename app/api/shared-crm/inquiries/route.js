@@ -41,6 +41,7 @@ export async function POST(request) {
       inquiryNumber: saved.inquiry.inquiry_number,
       submissionId: saved.inquiry.submission_id,
       idempotent: saved.idempotent,
+      identityStatus: saved.identityStatus,
       humanReviewRequired: saved.draft?.human_review_required ?? saved.inquiry.human_takeover ?? false,
     });
   } catch (error) {

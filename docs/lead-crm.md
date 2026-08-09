@@ -55,7 +55,9 @@ The authenticated cross-site endpoint is `POST /api/crm/intake`. The legacy
 | `NEXT_PUBLIC_SUPABASE_URL` | compatibility only | Legacy fallback; server ingest prefers `SUPABASE_URL` |
 | `SUPABASE_SERVICE_ROLE_KEY` | yes | Server-only database/storage access |
 | `SHARED_CRM_INGEST_SECRET` | yes for cross-site ingest | Server-only bearer secret for the shared ingest route |
+| `CRM_PROSPECT_CHECK_SECRET` | future outbound only | Server-only bearer secret for the pre-outreach eligibility endpoint; may fall back to the shared ingest secret |
 | `CRM_EXPECTED_SUPABASE_PROJECT_REF` | recommended | Server-only guard that rejects writes when `SUPABASE_URL` points at an unexpected project |
+| `CRM_AUTOMATED_EMAIL_ENABLED` | yes | Keep `false` throughout Phase 4A; only a separately authorized email rollout may set it to `true` |
 | `SUPABASE_STORAGE_BUCKET` | yes | Private attachment bucket, normally `crm-attachments` |
 | `CRM_ADMIN_USER` / `CRM_ADMIN_PASSWORD` | yes | Initial admin login |
 | `CRM_SALES_USER` / `CRM_SALES_PASSWORD` | optional | Initial sales login |
@@ -84,26 +86,48 @@ Meta, OpenAI or Resend secret through a `NEXT_PUBLIC_` variable.
 - Basic authentication is the deployment-safe bootstrap login.
 - `profiles` and RLS are ready for Supabase Auth invitations when multi-user
   identity management is enabled.
-- Receipt confirmations may send automatically only for low-risk inquiries.
+- Phase 4A creates review tasks and drafts but never sends email while
+  `CRM_AUTOMATED_EMAIL_ENABLED=false`.
 - Price, quotation, PI, payment, bank details, contract, complaints,
   compensation, shipping cost and final delivery-date content always requires
   a person to review and press the send action.
 - Facebook support means recording lawful public source URLs or imported
   public/business data. The application does not scrape private Facebook data.
 
-## Deployment checklist
+## Phase 4A Production readiness checklist
 
-1. Apply both migrations to the shared Supabase project.
-2. Add the environment variables to both Vercel projects.
-3. Deploy both `main` branches.
-4. Open `/crm` with the admin bootstrap login.
-5. Submit Cappuccino `/inquiry/` and Novlane `/rfq` plus `/contact`.
-6. Verify `site`, attribution, product category, receipt confirmation and
-   private attachment metadata in the CRM.
-7. Open both WhatsApp buttons and confirm their prefilled text includes source
-   page and a brand/product source code.
-8. Generate email and WhatsApp drafts, confirming no message sends without
-   explicit human approval.
+Do not apply these steps without separate Production authorization.
+
+1. Confirm the target Supabase project ref and pre-change counts.
+2. Apply, in order, the shared-ingest contract migration, Data API hardening,
+   Cappuccino alignment correction, `crm_identity_suppression`, then
+   `harden_crm_attachments`.
+3. Confirm the existing rows are unchanged and the new identity columns remain
+   nullable on historical records; no backfill is required.
+4. Confirm `crm_suppressions` has RLS enabled, anonymous access revoked, admin
+   management policy present, and service-role select/insert/update access.
+5. Configure server-only Vercel variables in Preview first:
+   `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_STORAGE_BUCKET`,
+   `SHARED_CRM_INGEST_SECRET`, `CRM_EXPECTED_SUPABASE_PROJECT_REF`,
+   `INQUIRY_TO_EMAIL`, and `CRM_AUTOMATED_EMAIL_ENABLED=false`.
+6. Confirm no secret uses a `NEXT_PUBLIC_` prefix and that both sites point to
+   the same Supabase project.
+   The Novlane server must call the Cappuccino Preview URL ending in
+   `/api/crm/intake`, send `site_source=novlane`, and use the same
+   `SHARED_CRM_INGEST_SECRET`; never expose that secret to browser JavaScript.
+7. Run separately authorized Cappuccino and Novlane canaries using unique
+   `submission_id` values; retry each ID once and confirm one inquiry per ID.
+8. Verify `site_source`, `brand`, customer identity link, attribution,
+   identity classification, activity, review task, draft and `email_status`.
+9. Verify a manual email/domain suppression produces `blocked`, an urgent
+   review task, no email draft and no automated delivery.
+10. Confirm `CRM_AUTOMATED_EMAIL_ENABLED=false`, Production counts after
+    cleanup, and no unrelated deployment or branch merge occurred.
+
+Before future Snov.io outreach, call the CRM outbound-eligibility check first.
+Snov.io remains discovery/enrichment/outreach infrastructure only; Supabase CRM
+is the source of truth. Existing/old customers, blocked or duplicate contacts,
+suppliers, previous inquiries and active opportunities must be skipped.
 
 ## Google Search Console and GA4
 

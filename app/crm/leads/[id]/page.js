@@ -12,6 +12,9 @@ const fields = [
   ["Facebook", "facebook_url"], ["Instagram", "instagram_url"], ["LinkedIn", "linkedin_url"],
   ["来源", "source"], ["来源 URL", "source_url"], ["负责人", "owner"], ["阶段", "stage"],
   ["自动评分", "score"], ["人工评分", "score_override"], ["下次跟进", "next_follow_up"],
+  ["老客户", "is_existing_customer"], ["禁止客户开发", "do_not_prospect"],
+  ["屏蔽原因", "blocked_reason"], ["等待重复复核", "duplicate_review"],
+  ["重复于客户", "duplicate_of"], ["最后联系", "last_contacted_at"],
 ];
 
 export default async function LeadDetailPage({ params }) {

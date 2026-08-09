@@ -81,8 +81,18 @@ test("same email keeps one master customer and separate brand inquiries", async 
   const master = { id: "customer-1", email_normalized: "buyer@example.com", language: "en" };
   global.fetch = async (url, options = {}) => {
     const target = String(url);
+    if (target.endsWith("/rpc/crm_resolve_customer")) {
+      return Response.json({
+        customer: master,
+        created: false,
+        match_method: "email",
+        duplicate_review: false,
+        suppression_id: null,
+      });
+    }
     if (target.includes("customers?select")) return Response.json([master]);
-    if (target.includes("customers?id=")) return Response.json([master]);
+    if (target.includes("crm_suppressions?")) return Response.json([]);
+    if (target.includes("customers?id=")) throw new Error("existing customer must not be overwritten");
     if (target.endsWith("/inquiries")) {
       const body = JSON.parse(options.body);
       return Response.json([{ id: `${body.site}-inquiry`, ...body }]);

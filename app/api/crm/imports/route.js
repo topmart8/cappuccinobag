@@ -1,16 +1,11 @@
 import { NextResponse } from "next/server";
 import { getCrmActor } from "../../../../lib/crm/auth";
 import { mapImportRow, normalizeImportRow } from "../../../../lib/crm/importer";
-import { supabaseRequest } from "../../../../lib/crm/supabase";
-
-function duplicateFilter(identifiers) {
-  const clauses = [];
-  if (identifiers.email) clauses.push(`email_normalized.eq.${encodeURIComponent(identifiers.email)}`);
-  if (identifiers.phone) clauses.push(`phone.eq.${encodeURIComponent(`+${identifiers.phone}`)}`);
-  if (identifiers.whatsapp) clauses.push(`whatsapp_phone.eq.${encodeURIComponent(`+${identifiers.whatsapp}`)}`);
-  if (identifiers.domain) clauses.push(`domain.eq.${encodeURIComponent(identifiers.domain)}`);
-  return clauses.length ? `or=(${clauses.join(",")})` : "";
-}
+import {
+  resolveCustomerIdentity,
+  resolveOrCreateCustomer,
+  supabaseRequest,
+} from "../../../../lib/crm/supabase";
 
 async function previewRows(rows, mapping, context) {
   const previews = [];
@@ -19,11 +14,10 @@ async function previewRows(rows, mapping, context) {
     const result = normalizeImportRow(mapped, context);
     let duplicate = null;
     if (!result.errors.length) {
-      const filter = duplicateFilter(result.identifiers);
-      if (filter) {
-        const existing = await supabaseRequest(`customers?select=id,customer_number,company,email,phone,whatsapp_phone,domain&${filter}&limit=1`);
-        duplicate = existing[0] || null;
-      }
+      const identity = await resolveCustomerIdentity(result.normalized);
+      duplicate = identity.customer
+        ? { ...identity.customer, match_method: identity.matchMethod }
+        : identity.suppression ? { suppression: true } : null;
     }
     previews.push({
       row_number: index + 2,
@@ -76,18 +70,25 @@ export async function POST(request) {
         message = "与现有企业联系方式或域名重复";
       } else {
         try {
-          const created = await supabaseRequest("customers", {
-            method: "POST", body: preview.normalized, prefer: "return=representation",
-          });
-          customerId = created[0].id;
-          imported += 1;
-          status = "imported";
+          const resolved = await resolveOrCreateCustomer(preview.normalized);
+          customerId = resolved.customer.id;
+          if (!resolved.created) {
+            duplicates += 1;
+            status = "duplicate";
+            message = `归入已有客户（${resolved.matchMethod}）`;
+          } else {
+            imported += 1;
+            status = "imported";
+            message = resolved.matchMethod === "company_review" ? "公司名称相似，等待重复复核" : null;
+          }
           await supabaseRequest("activities", {
             method: "POST",
             body: {
               customer_id: customerId, site, source: "csv", owner,
-              activity_type: "lead_imported", title: "CSV 导入企业线索",
+              activity_type: resolved.created ? "lead_imported" : "lead_identity_matched",
+              title: resolved.created ? "CSV 导入企业线索" : "CSV 线索归入已有客户",
               body: preview.normalized.company || preview.normalized.name,
+              metadata: { identity_match_method: resolved.matchMethod },
             },
           });
         } catch (error) {

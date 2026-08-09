@@ -155,6 +155,7 @@ test("same submission_id returns success without duplicate writes or emails", as
     },
     persistWorkflow: async () => { workflowWrites += 1; },
     deliverEmails: async () => { emailRuns += 1; return "sent"; },
+    deliveryEnabled: true,
     setEmailStatus: async () => {},
   };
   const request = {
@@ -336,6 +337,15 @@ test("concurrent same-submission writes converge on one inquiry", async () => {
     if (target.includes("/inquiries?") && method === "GET") {
       return Response.json(storedInquiry ? [storedInquiry] : []);
     }
+    if (target.endsWith("/rpc/crm_resolve_customer") && method === "POST") {
+      return Response.json({
+        customer,
+        created: false,
+        match_method: "email",
+        duplicate_review: false,
+        suppression_id: null,
+      });
+    }
     if (target.includes("/customers?select") && method === "GET") {
       customerLookups += 1;
       if (customerLookups <= 2) {
@@ -344,6 +354,9 @@ test("concurrent same-submission writes converge on one inquiry", async () => {
         return Response.json([]);
       }
       return Response.json([customer]);
+    }
+    if (target.includes("/crm_suppressions?") && method === "GET") {
+      return Response.json([]);
     }
     if (target.endsWith("/customers") && method === "POST") {
       customerCreates += 1;
@@ -445,6 +458,16 @@ test("shared website ingest never writes a legacy lead or submission table", asy
     const target = new URL(String(url));
     const table = target.pathname.split("/").pop();
     if (options.method && options.method !== "GET") writes.push(table);
+    if (table === "crm_resolve_customer") {
+      return Response.json({
+        customer: { id: "customer-2", email_normalized: "nora@example.com" },
+        created: false,
+        match_method: "email",
+        duplicate_review: false,
+        suppression_id: null,
+      });
+    }
+    if (table === "crm_suppressions") return Response.json([]);
     if (table === "inquiries" && options.method === "POST") {
       const body = JSON.parse(options.body);
       return Response.json([{ id: "inquiry-2", inquiry_number: "NOV-20260809-0001", ...body }]);

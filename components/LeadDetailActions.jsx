@@ -34,7 +34,18 @@ export default function LeadDetailActions({ lead, actor }) {
         <div className="crm-field"><label>阶段</label><select name="stage" defaultValue={lead.stage}>{["new","qualified","contacted","replied","quoted","sample","negotiation","won","lost"].map((stage) => <option key={stage}>{stage}</option>)}</select></div>
         <div className="crm-field"><label>人工评分（留空自动）</label><input name="score_override" type="number" min="0" max="100" defaultValue={lead.score_override ?? ""} /></div>
         <div className="crm-field"><label>下次跟进</label><input name="next_follow_up" type="datetime-local" defaultValue={lead.next_follow_up ? new Date(lead.next_follow_up).toISOString().slice(0, 16) : ""} /></div>
+        <div className="crm-field"><label>最后联系时间</label><input name="last_contacted_at" type="datetime-local" defaultValue={lead.last_contacted_at ? new Date(lead.last_contacted_at).toISOString().slice(0, 16) : ""} /></div>
         {actor.role === "admin" ? <div className="crm-field"><label>负责人邮箱</label><input name="owner" defaultValue={lead.owner || ""} /></div> : null}
+        {actor.role === "admin" ? <>
+          <div className="crm-field"><label>客户关系</label><select name="relationship_status" defaultValue={lead.relationship_status || "existing_lead"}>{[
+            ["new_lead", "新线索"], ["existing_lead", "已有线索"], ["existing_customer", "现有客户"],
+            ["old_customer", "老客户"], ["blocked", "屏蔽 / 禁止联系"], ["supplier_non_buyer", "供应商 / 非买家"],
+          ].map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></div>
+          <div className="crm-field"><label><input name="do_not_prospect" type="checkbox" value="true" defaultChecked={Boolean(lead.do_not_prospect)} /> 禁止客户开发</label></div>
+          <div className="crm-field"><label><input name="duplicate_review" type="checkbox" value="true" defaultChecked={Boolean(lead.duplicate_review)} /> 等待重复复核</label></div>
+          <div className="crm-field"><label>重复于客户 ID</label><input name="duplicate_of" defaultValue={lead.duplicate_of || ""} placeholder="UUID（留空表示未合并）" /></div>
+          <div className="crm-field full"><label>屏蔽原因</label><textarea name="blocked_reason" maxLength="1000" defaultValue={lead.blocked_reason || ""} /></div>
+        </> : null}
         <div className="crm-field full"><button className="crm-button primary">保存</button></div>
       </form>
     </section>
