@@ -59,6 +59,15 @@ test("inquiry forms initialize after Next.js client navigation", async () => {
   assert.match(client, /if \(inquiryForm\) preselectInquiryContext\(inquiryForm\)/);
 });
 
+test("Cappuccino inquiry retries reuse one submission_id until success", async () => {
+  const client = await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8");
+  assert.match(client, /function submissionIdFor\(form\)/);
+  assert.match(client, /form\.dataset\.submissionId = window\.crypto\.randomUUID\(\)/);
+  assert.match(client, /submission_id: submissionIdFor\(form\)/);
+  assert.match(client, /formData\.set\("submission_id", submissionIdFor\(form\)\)/);
+  assert.equal((client.match(/completeSubmission\(form\)/g) || []).length, 3);
+});
+
 test("PDB001 and Padel S001-S004 product assets remain present", async () => {
   const files = [
     "../app/products/padel-work-tote-backpack-pdb001/page.js",

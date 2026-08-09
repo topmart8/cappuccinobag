@@ -1,10 +1,22 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from "next/server.js";
 import {
   ingestSharedInquiry,
   validSharedSecret,
-} from "../../../../lib/crm/shared-ingest";
+} from "../../../../lib/crm/shared-ingest.js";
 
 export const runtime = "nodejs";
+
+const attempts = globalThis.__sharedCrmRateLimit
+  || (globalThis.__sharedCrmRateLimit = new Map());
+
+function rateLimited(request) {
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
+  const now = Date.now();
+  const recent = (attempts.get(ip) || []).filter((time) => now - time < 10 * 60 * 1000);
+  recent.push(now);
+  attempts.set(ip, recent);
+  return recent.length > 30;
+}
 
 function bearerSecret(request) {
   const authorization = request.headers.get("authorization") || "";
@@ -13,6 +25,9 @@ function bearerSecret(request) {
 }
 
 export async function POST(request) {
+  if (rateLimited(request)) {
+    return NextResponse.json({ message: "Too many attempts." }, { status: 429 });
+  }
   if (!validSharedSecret(bearerSecret(request))) {
     return NextResponse.json({ message: "Unauthorized." }, { status: 401 });
   }

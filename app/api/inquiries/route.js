@@ -1,7 +1,7 @@
 import { randomBytes } from "node:crypto";
 import { NextResponse } from "next/server";
-import { ingestSharedInquiry } from "../../../lib/crm/shared-ingest";
-import { storageUpload } from "../../../lib/crm/supabase";
+import { ingestSharedInquiry } from "../../../lib/crm/shared-ingest.js";
+import { storageUpload } from "../../../lib/crm/supabase.js";
 
 export const runtime = "nodejs";
 
@@ -64,11 +64,11 @@ export async function POST(request) {
     if (!data.name || !EMAIL.test(String(data.email || ""))) {
       return NextResponse.json({ message: "Name and a valid email are required." }, { status: 422 });
     }
-    const uploadedFiles = await upload(files);
     const saved = await ingestSharedInquiry({
       siteSource: "cappuccino",
       raw: data,
-      uploadedFiles,
+      pendingFiles: files,
+      uploadFiles: upload,
     });
     const reference = saved.inquiry.inquiry_number;
     return NextResponse.json({
