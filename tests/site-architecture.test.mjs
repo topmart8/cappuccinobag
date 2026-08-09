@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 import sitemap from "../app/sitemap.js";
+import nextConfig from "../next.config.mjs";
 import {
   footerNavigation,
   moreCollectionsNavigation,
@@ -28,11 +29,70 @@ test("sitemap contains only canonical no-trailing-slash URLs and prioritizes Pad
   assert.ok(urls.includes("https://www.cappuccinobag.com/custom-padel-bag-manufacturer"));
   assert.ok(urls.includes("https://www.cappuccinobag.com/products"));
   assert.ok(!urls.includes("https://www.cappuccinobag.com/custom-padel-bags.html"));
+  assert.ok(!urls.some((url) => url.includes("/site/")));
   assert.ok(!urls.some((url) => url !== "https://www.cappuccinobag.com/" && url.endsWith("/")));
   const priority = (path) => entries.find((entry) => entry.url.endsWith(path))?.priority;
   assert.ok(priority("/custom-padel-bag-manufacturer") > priority("/running-waist-packs"));
   assert.ok(priority("/running-waist-packs") > priority("/pet-travel-bags"));
   assert.ok(entries.every((entry) => typeof entry.lastModified === "string"));
+});
+
+test("the public Padel duplicate redirects permanently to the canonical page", async () => {
+  const redirects = await nextConfig.redirects();
+  const destination = "/custom-padel-bag-manufacturer";
+  for (const source of [
+    "/site/custom-padel-bag-manufacturer",
+    "/site/custom-padel-bag-manufacturer/",
+  ]) {
+    assert.deepEqual(
+      redirects.find((redirect) => redirect.source === source),
+      { source, destination, statusCode: 301 },
+    );
+  }
+});
+
+test("site fonts are self-hosted by Next without a Google Fonts CSS request", async () => {
+  const [layout, globalStyles, staticStyles] = await Promise.all([
+    readFile(new URL("../app/layout.js", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+    readFile(new URL("../public/site/assets/styles.css", import.meta.url), "utf8"),
+  ]);
+  assert.match(layout, /from "next\/font\/google"/);
+  assert.match(layout, /--font-inter/);
+  assert.match(layout, /--font-montserrat/);
+  assert.match(globalStyles, /var\(--font-inter\)/);
+  assert.match(staticStyles, /var\(--font-montserrat\)/);
+  assert.doesNotMatch(staticStyles, /fonts\.googleapis\.com|fonts\.gstatic\.com/);
+});
+
+test("Padel FAQPage schema exactly matches all eight visible FAQ answers", async () => {
+  const html = await readFile(
+    new URL("../public/site/custom-padel-bag-manufacturer/index.html", import.meta.url),
+    "utf8",
+  );
+  const normalize = (value = "") => value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const faqSection = html.match(
+    /<section class="section faq-section"[\s\S]*?<div class="faq-grid">([\s\S]*?)<\/div>\s*<\/section>/i,
+  )?.[1];
+  assert.ok(faqSection);
+  const visible = Array.from(faqSection.matchAll(/<article>([\s\S]*?)<\/article>/gi)).map((match) => ({
+    question: normalize(match[1].match(/<h3>([\s\S]*?)<\/h3>/i)?.[1]),
+    answer: Array.from(match[1].matchAll(/<p>([\s\S]*?)<\/p>/gi))
+      .map((paragraph) => normalize(paragraph[1]))
+      .join(" "),
+  }));
+  const scripts = Array.from(
+    html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi),
+  ).map((match) => JSON.parse(match[1]));
+  const graph = scripts.flatMap((script) => script["@graph"] || [script]);
+  const faq = graph.find((node) => node["@type"] === "FAQPage");
+  assert.ok(faq);
+  const schema = faq.mainEntity.map((entry) => ({
+    question: entry.name,
+    answer: entry.acceptedAnswer.text,
+  }));
+  assert.equal(visible.length, 8);
+  assert.deepEqual(schema, visible);
 });
 
 test("inquiry compatibility keeps legacy product fields and three collection presets", async () => {
