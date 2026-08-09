@@ -1,0 +1,91 @@
+{
+  "site": "cappuccinobag",
+  "generated_at": "2026-07-29T19:20:14.011Z",
+  "mode": "draft_only",
+  "summary": {
+    "total": 9
+  },
+  "items": [
+    {
+      "issue": "internal_link_not_in_inventory",
+      "url": "/custom-padel-bags/",
+      "target_url": "/custom-padel-bags.html",
+      "severity": "high",
+      "recommendation": "Verify the route or update the link after human review.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "internal_link_not_in_inventory",
+      "url": "/padel-brand-collection-development/",
+      "target_url": "/custom-padel-bags.html",
+      "severity": "high",
+      "recommendation": "Verify the route or update the link after human review.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "internal_link_not_in_inventory",
+      "url": "/padel-brand-collection-development/",
+      "target_url": "/custom-padel-bags.html",
+      "severity": "high",
+      "recommendation": "Verify the route or update the link after human review.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "internal_link_not_in_inventory",
+      "url": "/padel-brand-collection-development/",
+      "target_url": "/custom-padel-bags.html",
+      "severity": "high",
+      "recommendation": "Verify the route or update the link after human review.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "internal_link_not_in_inventory",
+      "url": "/padel-brand-collection-development/",
+      "target_url": "/custom-padel-bags.html",
+      "severity": "high",
+      "recommendation": "Verify the route or update the link after human review.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "internal_link_not_in_inventory",
+      "url": "/",
+      "target_url": "/custom-padel-bags.html",
+      "severity": "high",
+      "recommendation": "Verify the route or update the link after human review.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "internal_link_not_in_inventory",
+      "url": "/",
+      "target_url": "/custom-padel-bags.html",
+      "severity": "high",
+      "recommendation": "Verify the route or update the link after human review.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "internal_link_not_in_inventory",
+      "url": "/",
+      "target_url": "/custom-padel-bags.html",
+      "severity": "high",
+      "recommendation": "Verify the route or update the link after human review.",
+      "auto_fixable": false,
+      "human_review_required": true
+    },
+    {
+      "issue": "internal_link_not_in_inventory",
+      "url": "/",
+      "target_url": "/custom-padel-bags.html",
+      "severity": "high",
+      "recommendation": "Verify the route or update the link after human review.",
+      "auto_fixable": false,
+      "human_review_required": true
+    }
+  ]
+}

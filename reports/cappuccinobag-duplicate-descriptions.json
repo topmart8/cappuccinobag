@@ -1,0 +1,56 @@
+{
+  "site": "cappuccinobag",
+  "generated_at": "2026-07-29T19:20:14.011Z",
+  "mode": "draft_only",
+  "summary": {
+    "total": 3
+  },
+  "items": [
+    {
+      "issue": "duplicate_meta_description",
+      "url": "/about-us/",
+      "severity": "high",
+      "recommendation": "Choose one primary URL and review competing pages.",
+      "auto_fixable": false,
+      "human_review_required": true,
+      "detail": {
+        "value": "cappuccino bag is an oem/odm bag manufacturer specializing in outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.",
+        "urls": [
+          "/about-us/",
+          "/blog/company-bio/",
+          "/faq/"
+        ]
+      }
+    },
+    {
+      "issue": "duplicate_meta_description",
+      "url": "/custom-outdoor-sports-bag-manufacturer/",
+      "severity": "high",
+      "recommendation": "Choose one primary URL and review competing pages.",
+      "auto_fixable": false,
+      "human_review_required": true,
+      "detail": {
+        "value": "custom outdoor sports bag manufacturer for global buyers. keywords include custom outdoor sports bag manufacturer, oem sports bag manufacturer, outdoor sports bag factory, custom multifunctional sports bag supplier. oem/odm support with customization, sampling, qc, packing and export communication.",
+        "urls": [
+          "/custom-outdoor-sports-bag-manufacturer/",
+          "/custom-outdoor-sports-travel-bags/"
+        ]
+      }
+    },
+    {
+      "issue": "duplicate_meta_description",
+      "url": "/custom-tennis-padel-racket-bag-landing/",
+      "severity": "high",
+      "recommendation": "Choose one primary URL and review competing pages.",
+      "auto_fixable": false,
+      "human_review_required": true,
+      "detail": {
+        "value": "custom tennis bags, padel bags and racket bags with racket compartments, shoe pocket, thermal lining options, durable zippers, logo customization and export-ready packaging.",
+        "urls": [
+          "/custom-tennis-padel-racket-bag-landing/",
+          "/custom-tennis-padel-racket-bags/"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+name: Content briefs
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  drafts:
+    runs-on: ubuntu-latest
+    env:
+      AUTOMATION_MODE: draft_only
+      CONTENT_AUTO_PUBLISH: "false"
+      CONTENT_AUTO_MERGE: "false"
+      GITHUB_OWNER: topmart8
+      GITHUB_REPO: cappuccinobag
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --ignore-scripts
+      - run: npm run automation:briefs

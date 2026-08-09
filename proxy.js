@@ -30,5 +30,5 @@ export function proxy(request) {
 }
 
 export const config = {
-  matcher: ["/crm/:path*", "/api/crm/:path*"],
+  matcher: ["/crm/:path*", "/api/crm/:path*", "/api/seo/:path*"],
 };

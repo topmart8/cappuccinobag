@@ -1,0 +1,25 @@
+{
+  "site": "cappuccinobag",
+  "generated_at": "2026-07-29T19:20:14.011Z",
+  "mode": "draft_only",
+  "summary": {
+    "total": 1
+  },
+  "items": [
+    {
+      "issue": "duplicate_title",
+      "url": "/custom-outdoor-sports-bag-manufacturer/",
+      "severity": "high",
+      "recommendation": "Choose one primary URL and review competing pages.",
+      "auto_fixable": false,
+      "human_review_required": true,
+      "detail": {
+        "value": "custom outdoor sports bag manufacturer | cappuccino bags",
+        "urls": [
+          "/custom-outdoor-sports-bag-manufacturer/",
+          "/custom-outdoor-sports-travel-bags/"
+        ]
+      }
+    }
+  ]
+}

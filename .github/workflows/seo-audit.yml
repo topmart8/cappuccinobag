@@ -1,0 +1,23 @@
+name: SEO audit
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "11 4 * * *"
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    env:
+      AUTOMATION_MODE: draft_only
+      CONTENT_AUTO_PUBLISH: "false"
+      CONTENT_AUTO_MERGE: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm install --ignore-scripts
+      - run: npm run automation:scan
+      - run: npm run test:seo
+      - run: npm run test:email

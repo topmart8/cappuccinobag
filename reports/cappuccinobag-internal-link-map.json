@@ -1,0 +1,6427 @@
+{
+  "site": "cappuccinobag",
+  "generated_at": "2026-07-29T19:20:14.011Z",
+  "mode": "draft_only",
+  "summary": {
+    "total": 114
+  },
+  "items": [
+    {
+      "url": "/about-us/",
+      "inbound_internal_links": 6,
+      "outbound_internal_links": 5,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/about-us/",
+          "text": "About",
+          "normalized": "/about-us/"
+        },
+        {
+          "href": "/oem-odm-functional-bag-manufacturer-faq/",
+          "text": "FAQ",
+          "normalized": "/oem-odm-functional-bag-manufacturer-faq/"
+        },
+        {
+          "href": "/custom-rfid-wallet-manufacturer/",
+          "text": "RFID Wallets",
+          "normalized": "/custom-rfid-wallet-manufacturer/"
+        },
+        {
+          "href": "/custom-cardholder-manufacturer/",
+          "text": "Cardholders",
+          "normalized": "/custom-cardholder-manufacturer/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Request Quote",
+          "normalized": "/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Contact Cappuccino Bag",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/blog/company-bio/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 5,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/about-us/",
+          "text": "About Us",
+          "normalized": "/about-us/"
+        },
+        {
+          "href": "/rfid-wallets-passport-holders/",
+          "text": "Wallets & Cardholders",
+          "normalized": "/rfid-wallets-passport-holders/"
+        },
+        {
+          "href": "/faq/",
+          "text": "FAQ",
+          "normalized": "/faq/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Request Sample",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-cardholder-manufacturer/",
+      "inbound_internal_links": 3,
+      "outbound_internal_links": 4,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/about-us/",
+          "text": "About",
+          "normalized": "/about-us/"
+        },
+        {
+          "href": "/custom-rfid-wallet-manufacturer/",
+          "text": "RFID Wallets",
+          "normalized": "/custom-rfid-wallet-manufacturer/"
+        },
+        {
+          "href": "/oem-odm-functional-bag-manufacturer-faq/",
+          "text": "FAQ",
+          "normalized": "/oem-odm-functional-bag-manufacturer-faq/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Request Quote",
+          "normalized": "/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Request Cardholder Quote",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-hiking-backpacks/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Samples",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request OEM/ODM Support",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Start a Project",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-hiking-daypacks-outdoor-backpacks/",
+      "inbound_internal_links": 14,
+      "outbound_internal_links": 6,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Resources",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Start OEM Project",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Ask for MOQ & Lead Time",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-hotel-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Samples",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request OEM/ODM Support",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Start a Project",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-padel-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 13,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-padel-bags.html",
+          "text": "Padel",
+          "normalized": "/custom-padel-bags.html"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Racket Bags",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project",
+          "text": "Start a Padel Project",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project",
+          "text": "Request Sample Development",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Pro%20Tournament%20Padel%20Bag",
+          "text": "Request Details →",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Pro%20Tournament%20Padel%20Bag"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Urban%20Padel%20Backpack",
+          "text": "Request Details →",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Urban%20Padel%20Backpack"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Hybrid%20Padel%20Duffel",
+          "text": "Request Details →",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Hybrid%20Padel%20Duffel"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Padel%20Tote%20Collection",
+          "text": "Request Details →",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Padel%20Tote%20Collection"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Compact%20Racket%20Sling",
+          "text": "Request Details →",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Compact%20Racket%20Sling"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Padel%20Accessories",
+          "text": "Request Details →",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project&amp;format=Padel%20Accessories"
+        },
+        {
+          "href": "/padel-brand-collection-development/",
+          "text": "Explore Padel Collection Development →",
+          "normalized": "/padel-brand-collection-development/"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project",
+          "text": "Start Your Padel RFQ",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project"
+        }
+      ]
+    },
+    {
+      "url": "/custom-pickleball-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Samples",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request OEM/ODM Support",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Start a Project",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-pickleball-paddle-bags/",
+      "inbound_internal_links": 14,
+      "outbound_internal_links": 6,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Resources",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Start OEM Project",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Ask for MOQ & Lead Time",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-rfid-wallet-manufacturer/",
+      "inbound_internal_links": 3,
+      "outbound_internal_links": 4,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/about-us/",
+          "text": "About",
+          "normalized": "/about-us/"
+        },
+        {
+          "href": "/custom-cardholder-manufacturer/",
+          "text": "Cardholders",
+          "normalized": "/custom-cardholder-manufacturer/"
+        },
+        {
+          "href": "/oem-odm-functional-bag-manufacturer-faq/",
+          "text": "FAQ",
+          "normalized": "/oem-odm-functional-bag-manufacturer-faq/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Request Quote",
+          "normalized": "/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Request RFID Wallet Quote",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-sports-duffel-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Samples",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request OEM/ODM Support",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Start a Project",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-tennis-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Samples",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request OEM/ODM Support",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Start a Project",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-tennis-padel-racket-bags/",
+      "inbound_internal_links": 16,
+      "outbound_internal_links": 6,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Resources",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Start OEM Project",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Ask for MOQ & Lead Time",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/cycling-bags-bike-bags/",
+      "inbound_internal_links": 2,
+      "outbound_internal_links": 7,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/running-waist-packs-running-belt-bags/",
+          "text": "Running Bags",
+          "normalized": "/running-waist-packs-running-belt-bags/"
+        },
+        {
+          "href": "/cycling-bags-bike-bags/",
+          "text": "Cycling Bags",
+          "normalized": "/cycling-bags-bike-bags/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Start OEM Project",
+          "normalized": "/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Ask for MOQ & Lead Time",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/factory-trust-materials/",
+      "inbound_internal_links": 22,
+      "outbound_internal_links": 8,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/blog/bag-manufacturer-compliance-documents-explained/",
+          "text": "Compliance Guide",
+          "normalized": "/blog/bag-manufacturer-compliance-documents-explained/"
+        },
+        {
+          "href": "/inquiry/?topic=Compliance%20Documentation%20Request",
+          "text": "Request Documents",
+          "normalized": "/inquiry/?topic=Compliance%20Documentation%20Request"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?topic=Compliance%20Documentation%20Request",
+          "text": "Request Documents",
+          "normalized": "/inquiry/?topic=Compliance%20Documentation%20Request"
+        },
+        {
+          "href": "/inquiry/?product=Private%20Label%20Bag%20Manufacturing",
+          "text": "Request an OEM/ODM Quote",
+          "normalized": "/inquiry/?product=Private%20Label%20Bag%20Manufacturing"
+        },
+        {
+          "href": "/blog/bag-manufacturer-compliance-documents-explained/",
+          "text": "Understand the Scope",
+          "normalized": "/blog/bag-manufacturer-compliance-documents-explained/"
+        },
+        {
+          "href": "/inquiry/?product=Private%20Label%20Bag%20Manufacturing",
+          "text": "Send Your Product Brief",
+          "normalized": "/inquiry/?product=Private%20Label%20Bag%20Manufacturing"
+        },
+        {
+          "href": "/inquiry/?product=Private%20Label%20Bag%20Manufacturing",
+          "text": "Request an OEM/ODM Quote",
+          "normalized": "/inquiry/?product=Private%20Label%20Bag%20Manufacturing"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/faq/",
+      "inbound_internal_links": 2,
+      "outbound_internal_links": 5,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/about-us/",
+          "text": "About Us",
+          "normalized": "/about-us/"
+        },
+        {
+          "href": "/rfid-wallets-passport-holders/",
+          "text": "Wallets & Cardholders",
+          "normalized": "/rfid-wallets-passport-holders/"
+        },
+        {
+          "href": "/faq/",
+          "text": "FAQ",
+          "normalized": "/faq/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Request Sample",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/hotel-group-custom-bag-project-guide/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 6,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Resources",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Start OEM Project",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Ask for MOQ & Lead Time",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/oem-odm-functional-bag-manufacturer-faq/",
+      "inbound_internal_links": 3,
+      "outbound_internal_links": 4,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/about-us/",
+          "text": "About",
+          "normalized": "/about-us/"
+        },
+        {
+          "href": "/custom-rfid-wallet-manufacturer/",
+          "text": "RFID Wallets",
+          "normalized": "/custom-rfid-wallet-manufacturer/"
+        },
+        {
+          "href": "/custom-cardholder-manufacturer/",
+          "text": "Cardholders",
+          "normalized": "/custom-cardholder-manufacturer/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Request Quote",
+          "normalized": "/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Contact Sales",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/padel-brand-collection-development/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 6,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-padel-bags.html",
+          "text": "Padel",
+          "normalized": "/custom-padel-bags.html"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Racket Bags",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project",
+          "text": "Start a Padel Project",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-padel-bags.html",
+          "text": "Padel Bags",
+          "normalized": "/custom-padel-bags.html"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project",
+          "text": "Start Collection Development",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project"
+        },
+        {
+          "href": "/custom-padel-bags.html#formats",
+          "text": "Compare Product Formats",
+          "normalized": "/custom-padel-bags.html"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project",
+          "text": "Start Your Collection RFQ",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-padel-bags.html",
+          "text": "Padel Collection",
+          "normalized": "/custom-padel-bags.html"
+        },
+        {
+          "href": "/inquiry/?product=Padel%20Bag%20Project",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=Padel%20Bag%20Project"
+        }
+      ]
+    },
+    {
+      "url": "/resources/custom-tennis-bag-guide/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 6,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Resources",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Contact Sales",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/resources/hiking-backpack-customization-guide/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 6,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Resources",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Contact Sales",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/resources/moq-sampling-faq/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 6,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Resources",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Contact Sales",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+      "inbound_internal_links": 12,
+      "outbound_internal_links": 6,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Resources",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Contact Sales",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/resources/pickleball-bag-customization-guide/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 6,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Resources",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Contact Sales",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/resources/quality-inspection-guide/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 6,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Resources",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Contact Sales",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/rfid-wallets-passport-holders/",
+      "inbound_internal_links": 2,
+      "outbound_internal_links": 6,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Resources",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Start OEM Project",
+          "normalized": "/"
+        },
+        {
+          "href": "/#contact",
+          "text": "Ask for MOQ & Lead Time",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/running-waist-packs-running-belt-bags/",
+      "inbound_internal_links": 2,
+      "outbound_internal_links": 7,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/running-waist-packs-running-belt-bags/",
+          "text": "Running Bags",
+          "normalized": "/running-waist-packs-running-belt-bags/"
+        },
+        {
+          "href": "/cycling-bags-bike-bags/",
+          "text": "Cycling Bags",
+          "normalized": "/cycling-bags-bike-bags/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis & Padel",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Outdoor Packs",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Request Sample",
+          "normalized": "/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Start OEM Project",
+          "normalized": "/"
+        },
+        {
+          "href": "/#inquiry",
+          "text": "Ask for MOQ & Lead Time",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/alcantara-collection/",
+      "inbound_internal_links": 5,
+      "outbound_internal_links": 12,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Travel Bags",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/custom-magsafe-cardholder-manufacturer/",
+          "text": "Phone Accessories",
+          "normalized": "/custom-magsafe-cardholder-manufacturer/"
+        },
+        {
+          "href": "/rfid-wallet-passport-holder-manufacturer/",
+          "text": "Card Holders",
+          "normalized": "/rfid-wallet-passport-holder-manufacturer/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=alcantara-collection",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/?product=alcantara-collection"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-alcantara-duffle-bag/",
+          "text": "Duffle Bag",
+          "normalized": "/custom-alcantara-duffle-bag/"
+        },
+        {
+          "href": "/custom-alcantara-iphone-case/",
+          "text": "iPhone Case",
+          "normalized": "/custom-alcantara-iphone-case/"
+        },
+        {
+          "href": "/custom-alcantara-card-holder/",
+          "text": "Card Holder",
+          "normalized": "/custom-alcantara-card-holder/"
+        },
+        {
+          "href": "/inquiry/?product=alcantara-collection",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=alcantara-collection"
+        },
+        {
+          "href": "/inquiry/?product=alcantara-collection#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=alcantara-collection"
+        },
+        {
+          "href": "/inquiry/?product=alcantara-collection",
+          "text": "Request Material Swatches",
+          "normalized": "/inquiry/?product=alcantara-collection"
+        },
+        {
+          "href": "/custom-alcantara-duffle-bag/",
+          "text": "Explore the duffle bag",
+          "normalized": "/custom-alcantara-duffle-bag/"
+        },
+        {
+          "href": "/custom-alcantara-iphone-case/",
+          "text": "Explore the iPhone case",
+          "normalized": "/custom-alcantara-iphone-case/"
+        },
+        {
+          "href": "/custom-alcantara-card-holder/",
+          "text": "Explore the card holder",
+          "normalized": "/custom-alcantara-card-holder/"
+        },
+        {
+          "href": "/blog/alcantara-bag-accessory-production-process/",
+          "text": "Read the complete Alcantara production guide",
+          "normalized": "/blog/alcantara-bag-accessory-production-process/"
+        },
+        {
+          "href": "/inquiry/?product=alcantara-collection#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=alcantara-collection"
+        },
+        {
+          "href": "/inquiry/?product=alcantara-collection",
+          "text": "Develop a Sample",
+          "normalized": "/inquiry/?product=alcantara-collection"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/blog/alcantara-bag-accessory-production-process/",
+          "text": "Production Guide",
+          "normalized": "/blog/alcantara-bag-accessory-production-process/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/bag-hardware-customization/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/blog/alcantara-bag-accessory-production-process/",
+      "inbound_internal_links": 4,
+      "outbound_internal_links": 8,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-alcantara-duffle-bag/",
+          "text": "Duffle Bag",
+          "normalized": "/custom-alcantara-duffle-bag/"
+        },
+        {
+          "href": "/custom-alcantara-iphone-case/",
+          "text": "iPhone Case",
+          "normalized": "/custom-alcantara-iphone-case/"
+        },
+        {
+          "href": "/custom-alcantara-card-holder/",
+          "text": "Card Holder",
+          "normalized": "/custom-alcantara-card-holder/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=alcantara-project",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/?product=alcantara-project"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-alcantara-duffle-bag/",
+          "text": "Duffle Bag",
+          "normalized": "/custom-alcantara-duffle-bag/"
+        },
+        {
+          "href": "/custom-alcantara-iphone-case/",
+          "text": "iPhone Case",
+          "normalized": "/custom-alcantara-iphone-case/"
+        },
+        {
+          "href": "/custom-alcantara-card-holder/",
+          "text": "Card Holder",
+          "normalized": "/custom-alcantara-card-holder/"
+        },
+        {
+          "href": "/inquiry/?product=alcantara-project",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=alcantara-project"
+        },
+        {
+          "href": "/inquiry/?product=alcantara-project#upload-design",
+          "text": "Upload Your Technical Pack",
+          "normalized": "/inquiry/?product=alcantara-project"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Explore the Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-alcantara-duffle-bag/",
+          "text": "Custom Alcantara Duffle Bag",
+          "normalized": "/custom-alcantara-duffle-bag/"
+        },
+        {
+          "href": "/custom-alcantara-iphone-case/",
+          "text": "Custom Alcantara iPhone Case",
+          "normalized": "/custom-alcantara-iphone-case/"
+        },
+        {
+          "href": "/custom-alcantara-card-holder/",
+          "text": "Custom Alcantara Card Holder",
+          "normalized": "/custom-alcantara-card-holder/"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/inquiry/?product=alcantara-project#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=alcantara-project"
+        },
+        {
+          "href": "/inquiry/?product=alcantara-project",
+          "text": "Request Material Swatches",
+          "normalized": "/inquiry/?product=alcantara-project"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/blog/bag-manufacturer-compliance-documents-explained/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 7,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/blog/verify-custom-bag-manufacturer-china/",
+          "text": "Buyer Verification",
+          "normalized": "/blog/verify-custom-bag-manufacturer-china/"
+        },
+        {
+          "href": "/inquiry/?topic=Compliance%20Documentation%20Request",
+          "text": "Request Documents",
+          "normalized": "/inquiry/?topic=Compliance%20Documentation%20Request"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?topic=Compliance%20Documentation%20Request",
+          "text": "Request Documents",
+          "normalized": "/inquiry/?topic=Compliance%20Documentation%20Request"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Compliance & Quality Credentials",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/blog/verify-custom-bag-manufacturer-china/",
+          "text": "buyer verification checklist",
+          "normalized": "/blog/verify-custom-bag-manufacturer-china/"
+        },
+        {
+          "href": "/inquiry/?topic=Compliance%20Documentation%20Request",
+          "text": "Request Compliance Documents",
+          "normalized": "/inquiry/?topic=Compliance%20Documentation%20Request"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/blog/custom-bag-development-quality-control-process/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 7,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/blog/verify-custom-bag-manufacturer-china/",
+          "text": "Buyer Verification",
+          "normalized": "/blog/verify-custom-bag-manufacturer-china/"
+        },
+        {
+          "href": "/inquiry/?topic=OEM%2FODM%20Project%20Review",
+          "text": "Discuss a Project",
+          "normalized": "/inquiry/?topic=OEM%2FODM%20Project%20Review"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?topic=OEM%2FODM%20Project%20Review",
+          "text": "Discuss a Project",
+          "normalized": "/inquiry/?topic=OEM%2FODM%20Project%20Review"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Compliance & Quality Credentials",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/inquiry/?topic=OEM%2FODM%20Project%20Review",
+          "text": "Discuss Your Project",
+          "normalized": "/inquiry/?topic=OEM%2FODM%20Project%20Review"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/blog/custom-cooler-tote-bag-development-guide/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 8,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-outdoor-sports-bag-manufacturer/",
+          "text": "Outdoor",
+          "normalized": "/custom-outdoor-sports-bag-manufacturer/"
+        },
+        {
+          "href": "/custom-insulated-cooler-tote-bag/",
+          "text": "Cooler Tote",
+          "normalized": "/custom-insulated-cooler-tote-bag/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/inquiry/?product=custom-insulated-cooler-tote-bag",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/?product=custom-insulated-cooler-tote-bag"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-insulated-cooler-tote-bag/",
+          "text": "Product",
+          "normalized": "/custom-insulated-cooler-tote-bag/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=custom-insulated-cooler-tote-bag",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=custom-insulated-cooler-tote-bag"
+        },
+        {
+          "href": "/custom-insulated-cooler-tote-bag/",
+          "text": "custom insulated cooler tote bag manufacturer page",
+          "normalized": "/custom-insulated-cooler-tote-bag/"
+        },
+        {
+          "href": "/custom-insulated-cooler-backpack/",
+          "text": "custom insulated cooler backpack",
+          "normalized": "/custom-insulated-cooler-backpack/"
+        },
+        {
+          "href": "/inquiry/?product=custom-insulated-cooler-tote-bag",
+          "text": "Request a Factory Quote",
+          "normalized": "/inquiry/?product=custom-insulated-cooler-tote-bag"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-source-custom-waterproof-roll-top-backpack/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 8,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-outdoor-sports-bag-manufacturer/",
+          "text": "Outdoor",
+          "normalized": "/custom-outdoor-sports-bag-manufacturer/"
+        },
+        {
+          "href": "/custom-waterproof-roll-top-backpack/",
+          "text": "Roll-Top Backpack",
+          "normalized": "/custom-waterproof-roll-top-backpack/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/inquiry/?product=custom-waterproof-roll-top-backpack",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/?product=custom-waterproof-roll-top-backpack"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-waterproof-roll-top-backpack/",
+          "text": "Product",
+          "normalized": "/custom-waterproof-roll-top-backpack/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=custom-waterproof-roll-top-backpack",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=custom-waterproof-roll-top-backpack"
+        },
+        {
+          "href": "/custom-waterproof-roll-top-backpack/",
+          "text": "custom waterproof roll-top backpack manufacturer page",
+          "normalized": "/custom-waterproof-roll-top-backpack/"
+        },
+        {
+          "href": "/custom-waterproof-adventure-duffel/",
+          "text": "waterproof adventure duffel",
+          "normalized": "/custom-waterproof-adventure-duffel/"
+        },
+        {
+          "href": "/inquiry/?product=custom-waterproof-roll-top-backpack",
+          "text": "Request a Factory Quote",
+          "normalized": "/inquiry/?product=custom-waterproof-roll-top-backpack"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/blog/laptop-travel-backpack-oem-buying-guide/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 8,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-travel-bag-luggage-manufacturer/",
+          "text": "Travel",
+          "normalized": "/custom-travel-bag-luggage-manufacturer/"
+        },
+        {
+          "href": "/custom-laptop-travel-backpack/",
+          "text": "Laptop Backpack",
+          "normalized": "/custom-laptop-travel-backpack/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/inquiry/?product=custom-laptop-travel-backpack",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/?product=custom-laptop-travel-backpack"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-laptop-travel-backpack/",
+          "text": "Product",
+          "normalized": "/custom-laptop-travel-backpack/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=custom-laptop-travel-backpack",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=custom-laptop-travel-backpack"
+        },
+        {
+          "href": "/custom-laptop-travel-backpack/",
+          "text": "custom laptop travel backpack manufacturer page",
+          "normalized": "/custom-laptop-travel-backpack/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "custom travel backpack and weekender collection",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/inquiry/?product=custom-laptop-travel-backpack",
+          "text": "Request a Factory Quote",
+          "normalized": "/inquiry/?product=custom-laptop-travel-backpack"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/blog/verify-custom-bag-manufacturer-china/",
+      "inbound_internal_links": 2,
+      "outbound_internal_links": 7,
+      "page_depth": 2,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/blog/custom-bag-development-quality-control-process/",
+          "text": "Development Process",
+          "normalized": "/blog/custom-bag-development-quality-control-process/"
+        },
+        {
+          "href": "/inquiry/?topic=Product%20and%20Compliance%20Review",
+          "text": "Request a Review",
+          "normalized": "/inquiry/?topic=Product%20and%20Compliance%20Review"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?topic=Product%20and%20Compliance%20Review",
+          "text": "Request a Review",
+          "normalized": "/inquiry/?topic=Product%20and%20Compliance%20Review"
+        },
+        {
+          "href": "/blog/custom-bag-development-quality-control-process/",
+          "text": "custom bag development and quality-control guide",
+          "normalized": "/blog/custom-bag-development-quality-control-process/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Compliance & Quality Credentials",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/inquiry/?topic=Product%20and%20Compliance%20Review",
+          "text": "Request a Review",
+          "normalized": "/inquiry/?topic=Product%20and%20Compliance%20Review"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/card-holder-customization-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/contact/",
+      "inbound_internal_links": 3,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-alcantara-card-holder/",
+      "inbound_internal_links": 4,
+      "outbound_internal_links": 9,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-alcantara-duffle-bag/",
+          "text": "Duffle Bag",
+          "normalized": "/custom-alcantara-duffle-bag/"
+        },
+        {
+          "href": "/custom-alcantara-iphone-case/",
+          "text": "iPhone Case",
+          "normalized": "/custom-alcantara-iphone-case/"
+        },
+        {
+          "href": "/rfid-wallet-passport-holder-manufacturer/",
+          "text": "Wallets",
+          "normalized": "/rfid-wallet-passport-holder-manufacturer/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-card-holder",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/?product=custom-alcantara-card-holder"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-alcantara-duffle-bag/",
+          "text": "Duffle Bag",
+          "normalized": "/custom-alcantara-duffle-bag/"
+        },
+        {
+          "href": "/custom-alcantara-iphone-case/",
+          "text": "iPhone Case",
+          "normalized": "/custom-alcantara-iphone-case/"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-card-holder",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=custom-alcantara-card-holder"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-card-holder#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=custom-alcantara-card-holder"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-card-holder",
+          "text": "Develop a Sample",
+          "normalized": "/inquiry/?product=custom-alcantara-card-holder"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-alcantara-duffle-bag/",
+          "text": "View product",
+          "normalized": "/custom-alcantara-duffle-bag/"
+        },
+        {
+          "href": "/custom-alcantara-iphone-case/",
+          "text": "View product",
+          "normalized": "/custom-alcantara-iphone-case/"
+        },
+        {
+          "href": "/blog/alcantara-bag-accessory-production-process/",
+          "text": "Read guide",
+          "normalized": "/blog/alcantara-bag-accessory-production-process/"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-card-holder#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=custom-alcantara-card-holder"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-card-holder",
+          "text": "Request Material Swatches",
+          "normalized": "/inquiry/?product=custom-alcantara-card-holder"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-alcantara-duffle-bag/",
+      "inbound_internal_links": 4,
+      "outbound_internal_links": 9,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Travel Bags",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/custom-alcantara-iphone-case/",
+          "text": "iPhone Case",
+          "normalized": "/custom-alcantara-iphone-case/"
+        },
+        {
+          "href": "/custom-alcantara-card-holder/",
+          "text": "Card Holder",
+          "normalized": "/custom-alcantara-card-holder/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-duffle-bag",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/?product=custom-alcantara-duffle-bag"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-alcantara-iphone-case/",
+          "text": "iPhone Case",
+          "normalized": "/custom-alcantara-iphone-case/"
+        },
+        {
+          "href": "/custom-alcantara-card-holder/",
+          "text": "Card Holder",
+          "normalized": "/custom-alcantara-card-holder/"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-duffle-bag",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=custom-alcantara-duffle-bag"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-duffle-bag#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=custom-alcantara-duffle-bag"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-duffle-bag",
+          "text": "Develop a Sample",
+          "normalized": "/inquiry/?product=custom-alcantara-duffle-bag"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-alcantara-iphone-case/",
+          "text": "View product",
+          "normalized": "/custom-alcantara-iphone-case/"
+        },
+        {
+          "href": "/custom-alcantara-card-holder/",
+          "text": "View product",
+          "normalized": "/custom-alcantara-card-holder/"
+        },
+        {
+          "href": "/blog/alcantara-bag-accessory-production-process/",
+          "text": "Read guide",
+          "normalized": "/blog/alcantara-bag-accessory-production-process/"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-duffle-bag#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=custom-alcantara-duffle-bag"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-duffle-bag",
+          "text": "Request Material Swatches",
+          "normalized": "/inquiry/?product=custom-alcantara-duffle-bag"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-alcantara-iphone-case/",
+      "inbound_internal_links": 4,
+      "outbound_internal_links": 9,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-alcantara-duffle-bag/",
+          "text": "Duffle Bag",
+          "normalized": "/custom-alcantara-duffle-bag/"
+        },
+        {
+          "href": "/custom-magsafe-cardholder-manufacturer/",
+          "text": "Tech Accessories",
+          "normalized": "/custom-magsafe-cardholder-manufacturer/"
+        },
+        {
+          "href": "/custom-alcantara-card-holder/",
+          "text": "Card Holder",
+          "normalized": "/custom-alcantara-card-holder/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-iphone-case",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/?product=custom-alcantara-iphone-case"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/custom-alcantara-duffle-bag/",
+          "text": "Duffle Bag",
+          "normalized": "/custom-alcantara-duffle-bag/"
+        },
+        {
+          "href": "/custom-alcantara-card-holder/",
+          "text": "Card Holder",
+          "normalized": "/custom-alcantara-card-holder/"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-iphone-case",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=custom-alcantara-iphone-case"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-iphone-case#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=custom-alcantara-iphone-case"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-iphone-case",
+          "text": "Request Material Swatches",
+          "normalized": "/inquiry/?product=custom-alcantara-iphone-case"
+        },
+        {
+          "href": "/custom-alcantara-duffle-bag/",
+          "text": "View product",
+          "normalized": "/custom-alcantara-duffle-bag/"
+        },
+        {
+          "href": "/custom-alcantara-card-holder/",
+          "text": "View product",
+          "normalized": "/custom-alcantara-card-holder/"
+        },
+        {
+          "href": "/blog/alcantara-bag-accessory-production-process/",
+          "text": "Read guide",
+          "normalized": "/blog/alcantara-bag-accessory-production-process/"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-iphone-case#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=custom-alcantara-iphone-case"
+        },
+        {
+          "href": "/inquiry/?product=custom-alcantara-iphone-case",
+          "text": "Develop a Sample",
+          "normalized": "/inquiry/?product=custom-alcantara-iphone-case"
+        },
+        {
+          "href": "/alcantara-collection/",
+          "text": "Alcantara Collection",
+          "normalized": "/alcantara-collection/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-backpacks/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-crossbody-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-gym-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-gym-duffel-bag-landing/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-hiking-backpack-manufacturer/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-hiking-daypack-landing/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-insulated-cooler-backpack/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-insulated-cooler-tote-bag/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 9,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-outdoor-sports-bag-manufacturer/",
+          "text": "Outdoor Bags",
+          "normalized": "/custom-outdoor-sports-bag-manufacturer/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Travel Bags",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=custom-insulated-cooler-tote-bag",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/?product=custom-insulated-cooler-tote-bag"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-outdoor-sports-bag-manufacturer/",
+          "text": "Outdoor Bags",
+          "normalized": "/custom-outdoor-sports-bag-manufacturer/"
+        },
+        {
+          "href": "/inquiry/?product=custom-insulated-cooler-tote-bag",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=custom-insulated-cooler-tote-bag"
+        },
+        {
+          "href": "/inquiry/?product=custom-insulated-cooler-tote-bag",
+          "text": "Request a Factory Quote",
+          "normalized": "/inquiry/?product=custom-insulated-cooler-tote-bag"
+        },
+        {
+          "href": "/inquiry/?product=custom-insulated-cooler-tote-bag#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=custom-insulated-cooler-tote-bag"
+        },
+        {
+          "href": "/blog/custom-cooler-tote-bag-development-guide/",
+          "text": "Read the development guide",
+          "normalized": "/blog/custom-cooler-tote-bag-development-guide/"
+        },
+        {
+          "href": "/inquiry/?product=custom-insulated-cooler-tote-bag",
+          "text": "Start an RFQ",
+          "normalized": "/inquiry/?product=custom-insulated-cooler-tote-bag"
+        },
+        {
+          "href": "/contact/",
+          "text": "Contact",
+          "normalized": "/contact/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-laptop-travel-backpack/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 9,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Travel Bags",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/custom-outdoor-sports-bag-manufacturer/",
+          "text": "Outdoor Bags",
+          "normalized": "/custom-outdoor-sports-bag-manufacturer/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=custom-laptop-travel-backpack",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/?product=custom-laptop-travel-backpack"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Travel Bags",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/inquiry/?product=custom-laptop-travel-backpack",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=custom-laptop-travel-backpack"
+        },
+        {
+          "href": "/inquiry/?product=custom-laptop-travel-backpack",
+          "text": "Request a Factory Quote",
+          "normalized": "/inquiry/?product=custom-laptop-travel-backpack"
+        },
+        {
+          "href": "/inquiry/?product=custom-laptop-travel-backpack#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=custom-laptop-travel-backpack"
+        },
+        {
+          "href": "/blog/laptop-travel-backpack-oem-buying-guide/",
+          "text": "Read the buying guide",
+          "normalized": "/blog/laptop-travel-backpack-oem-buying-guide/"
+        },
+        {
+          "href": "/inquiry/?product=custom-laptop-travel-backpack",
+          "text": "Start an RFQ",
+          "normalized": "/inquiry/?product=custom-laptop-travel-backpack"
+        },
+        {
+          "href": "/contact/",
+          "text": "Contact",
+          "normalized": "/contact/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-magsafe-cardholder-manufacturer/",
+      "inbound_internal_links": 3,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#small-accessories",
+          "text": "Tech Accessories",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-mountaineering-backpack-manufacturer/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-outdoor-multifunctional-bag-manufacturer/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-outdoor-sports-bag-manufacturer/",
+      "inbound_internal_links": 6,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-outdoor-sports-travel-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-packaging/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-padel-bag-manufacturer/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-phone-pouch-manufacturer/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#small-accessories",
+          "text": "Tech Accessories",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-pickleball-bag-landing/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-pickleball-bag-manufacturer/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-printing-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-racket-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-rfid-wallet-card-holder-landing/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-rfid-wallet-manufacturer/",
+      "inbound_internal_links": 3,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-shoulder-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-tennis-bag-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-tennis-bag-manufacturer/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-tennis-padel-racket-bag-landing/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-tennis-padel-racket-bags/",
+      "inbound_internal_links": 16,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home Products Trend Matrix Outdoor Solutions Applications Why Us",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-tote-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-travel-backpacks-weekender-bags/",
+      "inbound_internal_links": 7,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home Products Trend Matrix Outdoor Solutions Applications Why Us",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-travel-bag-luggage-manufacturer/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-travel-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-travel-weekender-bag-landing/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-waterproof-adventure-duffel/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-waterproof-roll-top-backpack/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 9,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "Cappuccino Bag",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-outdoor-sports-bag-manufacturer/",
+          "text": "Outdoor Bags",
+          "normalized": "/custom-outdoor-sports-bag-manufacturer/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Travel Bags",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/resources/",
+          "text": "Resources",
+          "normalized": "/resources/"
+        },
+        {
+          "href": "/inquiry/?product=custom-waterproof-roll-top-backpack",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/?product=custom-waterproof-roll-top-backpack"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/custom-outdoor-sports-bag-manufacturer/",
+          "text": "Outdoor Bags",
+          "normalized": "/custom-outdoor-sports-bag-manufacturer/"
+        },
+        {
+          "href": "/inquiry/?product=custom-waterproof-roll-top-backpack",
+          "text": "RFQ",
+          "normalized": "/inquiry/?product=custom-waterproof-roll-top-backpack"
+        },
+        {
+          "href": "/inquiry/?product=custom-waterproof-roll-top-backpack",
+          "text": "Request a Factory Quote",
+          "normalized": "/inquiry/?product=custom-waterproof-roll-top-backpack"
+        },
+        {
+          "href": "/inquiry/?product=custom-waterproof-roll-top-backpack#upload-design",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/?product=custom-waterproof-roll-top-backpack"
+        },
+        {
+          "href": "/blog/how-to-source-custom-waterproof-roll-top-backpack/",
+          "text": "Read the sourcing guide",
+          "normalized": "/blog/how-to-source-custom-waterproof-roll-top-backpack/"
+        },
+        {
+          "href": "/inquiry/?product=custom-waterproof-roll-top-backpack",
+          "text": "Start an RFQ",
+          "normalized": "/inquiry/?product=custom-waterproof-roll-top-backpack"
+        },
+        {
+          "href": "/contact/",
+          "text": "Contact",
+          "normalized": "/contact/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-waterproof-wheeled-gear-bag/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/custom-womens-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Capabilities",
+          "normalized": "/"
+        },
+        {
+          "href": "/#process",
+          "text": "OEM/ODM",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Get a Quote",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/download-catalog/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/eco-tech-bag-material-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/eco-tech-smart-bag-manufacturer/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/gps-trackable-bag-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/gps-trackable-smart-bag-landing/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/hiking-backpack-customization-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/hotel-group-custom-bag-project-guide/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/",
+      "inbound_internal_links": 114,
+      "outbound_internal_links": 22,
+      "page_depth": 0,
+      "links": [
+        {
+          "href": "/custom-padel-bags.html",
+          "text": "Padel Bags",
+          "normalized": "/custom-padel-bags.html"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball Bags",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis Bags",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Hiking Backpacks",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Travel Bags",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/rfid-wallet-passport-holder-manufacturer/",
+          "text": "RFID Wallets",
+          "normalized": "/rfid-wallet-passport-holder-manufacturer/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/custom-padel-bags.html",
+          "text": "Padel Bags",
+          "normalized": "/custom-padel-bags.html"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Pickleball Bags",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Tennis Bags",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Hiking Backpacks",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Travel Bags",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/rfid-wallet-passport-holder-manufacturer/",
+          "text": "RFID Wallets",
+          "normalized": "/rfid-wallet-passport-holder-manufacturer/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Factory Proof",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "RFQ",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Ask for MOQ & Sample Time",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Get Factory Photos",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/custom-outdoor-sports-bag-manufacturer/",
+          "text": "Outdoor Sports Bags",
+          "normalized": "/custom-outdoor-sports-bag-manufacturer/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Travel Backpacks",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Racket Sports Bags",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/rfid-wallet-passport-holder-manufacturer/",
+          "text": "Wallets & Cardholders",
+          "normalized": "/rfid-wallet-passport-holder-manufacturer/"
+        },
+        {
+          "href": "/vegan-leather-tech-accessories-manufacturer/",
+          "text": "Smart Eco-Friendly Bags",
+          "normalized": "/vegan-leather-tech-accessories-manufacturer/"
+        },
+        {
+          "href": "/custom-magsafe-cardholder-manufacturer/",
+          "text": "Custom MagSafe cardholder OEM",
+          "normalized": "/custom-magsafe-cardholder-manufacturer/"
+        },
+        {
+          "href": "/custom-phone-pouch-manufacturer/",
+          "text": "Custom phone pouch manufacturer",
+          "normalized": "/custom-phone-pouch-manufacturer/"
+        },
+        {
+          "href": "/phone-case-cardholder-gift-set-oem/",
+          "text": "Phone case cardholder gift set OEM",
+          "normalized": "/phone-case-cardholder-gift-set-oem/"
+        },
+        {
+          "href": "/vegan-leather-tech-accessories-manufacturer/",
+          "text": "Vegan leather tech accessories",
+          "normalized": "/vegan-leather-tech-accessories-manufacturer/"
+        },
+        {
+          "href": "/custom-magsafe-cardholder-manufacturer/",
+          "text": "Custom MagSafe Cardholders",
+          "normalized": "/custom-magsafe-cardholder-manufacturer/"
+        },
+        {
+          "href": "/custom-phone-pouch-manufacturer/",
+          "text": "Phone Pouches",
+          "normalized": "/custom-phone-pouch-manufacturer/"
+        },
+        {
+          "href": "/custom-phone-pouch-manufacturer/",
+          "text": "Crossbody Phone Bags",
+          "normalized": "/custom-phone-pouch-manufacturer/"
+        },
+        {
+          "href": "/phone-case-cardholder-gift-set-oem/",
+          "text": "Phone Wallet Cases",
+          "normalized": "/phone-case-cardholder-gift-set-oem/"
+        },
+        {
+          "href": "/rfid-wallet-passport-holder-manufacturer/",
+          "text": "RFID Cardholders",
+          "normalized": "/rfid-wallet-passport-holder-manufacturer/"
+        },
+        {
+          "href": "/rfid-wallet-passport-holder-manufacturer/",
+          "text": "Passport Holders",
+          "normalized": "/rfid-wallet-passport-holder-manufacturer/"
+        },
+        {
+          "href": "/vegan-leather-tech-accessories-manufacturer/",
+          "text": "Key Pouches",
+          "normalized": "/vegan-leather-tech-accessories-manufacturer/"
+        },
+        {
+          "href": "/phone-case-cardholder-gift-set-oem/",
+          "text": "Gift Sets",
+          "normalized": "/phone-case-cardholder-gift-set-oem/"
+        },
+        {
+          "href": "/vegan-leather-tech-accessories-manufacturer/",
+          "text": "vegan leather tech accessories",
+          "normalized": "/vegan-leather-tech-accessories-manufacturer/"
+        },
+        {
+          "href": "/custom-magsafe-cardholder-manufacturer/",
+          "text": "custom MagSafe cardholders",
+          "normalized": "/custom-magsafe-cardholder-manufacturer/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Get Factory Photos",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Outdoor Sports Bag Manufacturing Guide",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/resources/custom-tennis-bag-guide/",
+          "text": "Custom Tennis Bag Guide",
+          "normalized": "/resources/custom-tennis-bag-guide/"
+        },
+        {
+          "href": "/resources/pickleball-bag-customization-guide/",
+          "text": "Pickleball Bag Customization Guide",
+          "normalized": "/resources/pickleball-bag-customization-guide/"
+        },
+        {
+          "href": "/custom-padel-bags.html",
+          "text": "Padel Bag Design Guide",
+          "normalized": "/custom-padel-bags.html"
+        },
+        {
+          "href": "/resources/hiking-backpack-customization-guide/",
+          "text": "Hiking Backpack Customization Guide",
+          "normalized": "/resources/hiking-backpack-customization-guide/"
+        },
+        {
+          "href": "/resources/hiking-backpack-customization-guide/",
+          "text": "Mountaineering Backpack Manufacturing Guide",
+          "normalized": "/resources/hiking-backpack-customization-guide/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Travel Bag & Luggage Customization Guide",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/hotel-group-custom-bag-project-guide/",
+          "text": "Hotel Group Custom Bag Project Guide",
+          "normalized": "/hotel-group-custom-bag-project-guide/"
+        },
+        {
+          "href": "/rfid-wallet-passport-holder-manufacturer/",
+          "text": "RFID Wallet Customization Guide",
+          "normalized": "/rfid-wallet-passport-holder-manufacturer/"
+        },
+        {
+          "href": "/resources/outdoor-multifunctional-bag-manufacturing-guide/",
+          "text": "Smart Eco-Friendly Bag Material Guide",
+          "normalized": "/resources/outdoor-multifunctional-bag-manufacturing-guide/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "GPS Trackable Bag Guide",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/resources/moq-sampling-faq/",
+          "text": "MOQ & Sampling FAQ",
+          "normalized": "/resources/moq-sampling-faq/"
+        },
+        {
+          "href": "/resources/quality-inspection-guide/",
+          "text": "Quality Inspection Guide",
+          "normalized": "/resources/quality-inspection-guide/"
+        },
+        {
+          "href": "/custom-magsafe-cardholder-manufacturer/",
+          "text": "Custom MagSafe Cardholder Manufacturer",
+          "normalized": "/custom-magsafe-cardholder-manufacturer/"
+        },
+        {
+          "href": "/custom-phone-pouch-manufacturer/",
+          "text": "Custom Phone Pouch Manufacturer",
+          "normalized": "/custom-phone-pouch-manufacturer/"
+        },
+        {
+          "href": "/phone-case-cardholder-gift-set-oem/",
+          "text": "Phone Case & Cardholder Gift Set OEM",
+          "normalized": "/phone-case-cardholder-gift-set-oem/"
+        },
+        {
+          "href": "/vegan-leather-tech-accessories-manufacturer/",
+          "text": "Vegan Leather Tech Accessories Manufacturer",
+          "normalized": "/vegan-leather-tech-accessories-manufacturer/"
+        },
+        {
+          "href": "/custom-padel-bags.html",
+          "text": "Custom Padel Bag with Shoe Compartment",
+          "normalized": "/custom-padel-bags.html"
+        },
+        {
+          "href": "/custom-pickleball-paddle-bags/",
+          "text": "Custom Pickleball Paddle Backpack",
+          "normalized": "/custom-pickleball-paddle-bags/"
+        },
+        {
+          "href": "/custom-tennis-padel-racket-bags/",
+          "text": "Thermal Tennis Racket Bag",
+          "normalized": "/custom-tennis-padel-racket-bags/"
+        },
+        {
+          "href": "/custom-hiking-daypacks-outdoor-backpacks/",
+          "text": "Lightweight Hiking Daypack 20L-35L",
+          "normalized": "/custom-hiking-daypacks-outdoor-backpacks/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Outdoor Travel Backpack",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/custom-travel-backpacks-weekender-bags/",
+          "text": "Weekend Travel Duffel Bag",
+          "normalized": "/custom-travel-backpacks-weekender-bags/"
+        },
+        {
+          "href": "/rfid-wallet-passport-holder-manufacturer/",
+          "text": "RFID Passport Holder",
+          "normalized": "/rfid-wallet-passport-holder-manufacturer/"
+        },
+        {
+          "href": "/rfid-wallet-passport-holder-manufacturer/",
+          "text": "RFID Card Holder",
+          "normalized": "/rfid-wallet-passport-holder-manufacturer/"
+        },
+        {
+          "href": "/vegan-leather-tech-accessories-manufacturer/",
+          "text": "Vegan Leather Wallet",
+          "normalized": "/vegan-leather-tech-accessories-manufacturer/"
+        },
+        {
+          "href": "/gps-trackable-smart-bag-landing/",
+          "text": "GPS-ready Smart Travel Bag",
+          "normalized": "/gps-trackable-smart-bag-landing/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Request Quote",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Ask for MOQ & Sample Time",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/factory-trust-materials/",
+          "text": "Get Factory Photos",
+          "normalized": "/factory-trust-materials/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Request a Quote",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Upload Your Design",
+          "normalized": "/inquiry/"
+        },
+        {
+          "href": "/#resources",
+          "text": "Download Catalog",
+          "normalized": "/"
+        },
+        {
+          "href": "/hotel-group-custom-bag-project-guide/",
+          "text": "Hotel Group Guide",
+          "normalized": "/hotel-group-custom-bag-project-guide/"
+        }
+      ]
+    },
+    {
+      "url": "/inquiry/",
+      "inbound_internal_links": 18,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/logo-customization-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/logo-debossing/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/logo-embossing/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/metal-logo-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/moq-sampling-faq/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/mountaineering-backpack-manufacturing-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/oem-odm-bag-manufacturer/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 3,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Capabilities",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Certifications",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/inquiry/",
+          "text": "Get a Quote",
+          "normalized": "/inquiry/"
+        }
+      ]
+    },
+    {
+      "url": "/outdoor-multifunctional-bag-manufacturing-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/outdoor-sports-bag-manufacturing-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/padel-bag-design-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/phone-case-cardholder-gift-set-oem/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#small-accessories",
+          "text": "Tech Accessories",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/pickleball-bag-customization-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/private-label-handbags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/private-label-packaging-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/quality-inspection-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/recycled-eco-tech-bag-landing/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/recycled-material-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/request-sample/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Capabilities",
+          "normalized": "/"
+        },
+        {
+          "href": "/#process",
+          "text": "OEM/ODM",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/resources/",
+      "inbound_internal_links": 17,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#hot-products",
+          "text": "Trend Matrix",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/rfid-wallet-customization-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/rfid-wallet-passport-holder-manufacturer/",
+      "inbound_internal_links": 3,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home Products Trend Matrix Outdoor Solutions Applications Why Us",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/sustainable-bag-wallet-materials-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/travel-bag-luggage-customization-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/vegan-leather-bags/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 2,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/why-us/",
+          "text": "Why Us",
+          "normalized": "/why-us/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory Proof",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/vegan-leather-tech-accessories-manufacturer/",
+      "inbound_internal_links": 1,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#small-accessories",
+          "text": "Tech Accessories",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/wallet-materials-guide/",
+      "inbound_internal_links": 0,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    },
+    {
+      "url": "/why-us/",
+      "inbound_internal_links": 27,
+      "outbound_internal_links": 1,
+      "page_depth": 1,
+      "links": [
+        {
+          "href": "/",
+          "text": "",
+          "normalized": "/"
+        },
+        {
+          "href": "/",
+          "text": "Home",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        },
+        {
+          "href": "/#solutions",
+          "text": "Outdoor Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#smart-eco",
+          "text": "Smart & Eco Solutions",
+          "normalized": "/"
+        },
+        {
+          "href": "/#applications",
+          "text": "Applications",
+          "normalized": "/"
+        },
+        {
+          "href": "/#factory",
+          "text": "Factory",
+          "normalized": "/"
+        },
+        {
+          "href": "/#case-studies",
+          "text": "Case Studies",
+          "normalized": "/"
+        },
+        {
+          "href": "/#products",
+          "text": "Products",
+          "normalized": "/"
+        }
+      ]
+    }
+  ]
+}

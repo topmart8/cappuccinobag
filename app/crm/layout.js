@@ -10,12 +10,12 @@ const copy = {
   zh: {
     dashboard: "工作台", analytics: "SEO 与流量", leads: "企业线索", inquiries: "询盘", tasks: "任务",
     imports: "导入与导出", email: "邮件草稿", whatsapp: "WhatsApp 草稿",
-    team: "团队与权限", sales: "销售工作区", search: "搜索公司、联系人、邮箱…",
+    team: "团队与权限", seo: "SEO 自动化", sales: "销售工作区", search: "搜索公司、联系人、邮箱…",
   },
   en: {
     dashboard: "Dashboard", analytics: "SEO & Analytics", leads: "Companies", inquiries: "Inquiries", tasks: "Tasks",
     imports: "Import & Export", email: "Email drafts", whatsapp: "WhatsApp drafts",
-    team: "Team & roles", sales: "Sales workspace", search: "Search company, contact or email…",
+    team: "Team & roles", seo: "SEO automation", sales: "Sales workspace", search: "Search company, contact or email…",
   },
 };
 
