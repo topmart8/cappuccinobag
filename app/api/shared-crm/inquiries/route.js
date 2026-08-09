@@ -35,9 +35,6 @@ export async function POST(request) {
   try {
     const data = await request.json();
     if (data.website) return NextResponse.json({ ok: true });
-    if (data.site_source !== "novlane") {
-      return NextResponse.json({ message: "site_source must be novlane." }, { status: 422 });
-    }
     const saved = await ingestSharedInquiry({ siteSource: data.site_source, raw: data });
     return NextResponse.json({
       ok: true,

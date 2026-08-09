@@ -46,12 +46,16 @@ clearly marked examples and never writes them to Supabase.
 
 Configure these in the Cappuccino Vercel project:
 
+The authenticated cross-site endpoint is `POST /api/crm/intake`. The legacy
+`POST /api/shared-crm/inquiries` path remains as a compatibility alias.
+
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `SUPABASE_URL` | yes | Server-only shared Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_URL` | compatibility only | Legacy fallback; server ingest prefers `SUPABASE_URL` |
 | `SUPABASE_SERVICE_ROLE_KEY` | yes | Server-only database/storage access |
-| `SHARED_CRM_INGEST_SECRET` | yes for Novlane | Server-only bearer secret for the shared ingest route |
+| `SHARED_CRM_INGEST_SECRET` | yes for cross-site ingest | Server-only bearer secret for the shared ingest route |
+| `CRM_EXPECTED_SUPABASE_PROJECT_REF` | recommended | Server-only guard that rejects writes when `SUPABASE_URL` points at an unexpected project |
 | `SUPABASE_STORAGE_BUCKET` | yes | Private attachment bucket, normally `crm-attachments` |
 | `CRM_ADMIN_USER` / `CRM_ADMIN_PASSWORD` | yes | Initial admin login |
 | `CRM_SALES_USER` / `CRM_SALES_PASSWORD` | optional | Initial sales login |
