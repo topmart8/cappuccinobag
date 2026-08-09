@@ -415,3 +415,13 @@ test("identity and suppression migration is additive, constrained and protected"
   assert.doesNotMatch(sql, /update public\.customers/);
   assert.doesNotMatch(sql, /set email_normalized/);
 });
+
+test("new CRM identity foreign keys have supporting indexes", async () => {
+  const sql = await readFile(
+    new URL("../supabase/migrations/20260810010716_index_crm_identity_foreign_keys.sql", import.meta.url),
+    "utf8",
+  );
+  assert.match(sql, /on public\.customers \(duplicate_of\)/);
+  assert.match(sql, /on public\.inquiries \(suppression_id\)/);
+  assert.doesNotMatch(sql, /update |delete |drop /i);
+});

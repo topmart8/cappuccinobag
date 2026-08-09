@@ -101,7 +101,7 @@ Do not apply these steps without separate Production authorization.
 1. Confirm the target Supabase project ref and pre-change counts.
 2. Apply, in order, the shared-ingest contract migration, Data API hardening,
    Cappuccino alignment correction, `crm_identity_suppression`, then
-   `harden_crm_attachments`.
+   `harden_crm_attachments` and `index_crm_identity_foreign_keys`.
 3. Confirm the existing rows are unchanged and the new identity columns remain
    nullable on historical records; no backfill is required.
 4. Confirm `crm_suppressions` has RLS enabled, anonymous access revoked, admin
