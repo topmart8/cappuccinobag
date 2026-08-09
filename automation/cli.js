@@ -28,10 +28,13 @@ async function main() {
     console.log(JSON.stringify({ ok: true, records: processKeywords(rows, scan.pages) }, null, 2));
     return;
   }
-  if (["briefs", "content", "review", "images", "publish"].includes(command)) {
+  if (command === "briefs") {
     const result = await generateInitialKeywordTasks();
     console.log(JSON.stringify({ ok: true, command, tasks: result.tasks.length, mode: "draft_only", supabase: result.supabase }));
     return;
+  }
+  if (["content", "review", "images", "publish"].includes(command)) {
+    throw new Error(`${command} requires an approved task-specific implementation; no action was taken.`);
   }
   if (command === "analytics") {
     console.log(JSON.stringify({ ok: true, command, message: "Import a GSC CSV or use the protected API route.", mode: "draft_only" }));

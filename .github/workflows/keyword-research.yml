@@ -1,8 +1,6 @@
 name: Keyword research
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "17 2 * * 1"
 permissions:
   contents: read
 concurrency:

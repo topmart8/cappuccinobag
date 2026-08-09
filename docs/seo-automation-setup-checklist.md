@@ -33,6 +33,8 @@
 - [ ] Keep `AUTOMATION_MODE=draft_only`
 - [ ] Keep all five auto-action flags `false`
 - [ ] Run each workflow once with `workflow_dispatch`
+- [ ] Keep keyword research and content briefs manual-only until task-specific persistence is validated
+- [ ] Do not run content generation or content PR workflows until approved-task commands are implemented
 - [ ] Confirm no workflow pushes or merges `main`
 - [ ] Confirm content PRs are drafts
 

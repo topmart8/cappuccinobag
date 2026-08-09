@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
+import { spawnSync } from "node:child_process";
 import test from "node:test";
 import {
   assignCategories, assignPageType, classifyIntent, deduplicateKeywords,
@@ -190,4 +191,24 @@ test("draft_only safety gate blocks publish and auto merge", () => {
   assert.equal(assertSafeAutomationEnvironment(environment).ok, true);
   assert.equal(canPublishPage("manual_review", environment), false);
   assert.equal(canPublishPage("approved", environment), false);
+});
+
+test("unimplemented task-specific automation commands fail closed", () => {
+  for (const command of ["content", "review", "images", "publish"]) {
+    const result = spawnSync(process.execPath, ["automation/cli.js", command], {
+      cwd: root,
+      encoding: "utf8",
+      env: { ...process.env, AUTOMATION_MODE: "draft_only" },
+    });
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /requires an approved task-specific implementation; no action was taken/);
+  }
+});
+
+test("keyword and brief workflows remain manual-only", () => {
+  for (const workflow of ["keyword-research.yml", "content-briefs.yml"]) {
+    const source = fs.readFileSync(path.join(root, ".github", "workflows", workflow), "utf8");
+    assert.doesNotMatch(source, /^\s*schedule:/m);
+    assert.match(source, /^\s*workflow_dispatch:/m);
+  }
 });

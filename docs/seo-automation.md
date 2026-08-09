@@ -110,7 +110,7 @@ Generated page data is `noindex, nofollow` and `manual_review` until a human-app
 
 ## GitHub Actions
 
-Seven workflows separate weekly keyword research, briefs, manual content generation, daily link and SEO audits, manual content PRs, and weekly analytics. Workflows use GitHub Secrets, never push directly to `main`, never merge, and never publish. `content-pr.yml` only runs when its explicit `approval_status` input is `approved`, opens a draft PR, and leaves Vercel Preview review to a person.
+Seven workflows separate keyword research, briefs, manual content generation, scheduled link and SEO audits, manual content PRs, and scheduled analytics. Keyword research and brief generation remain manual-only until task-specific persistence is validated. Workflows use GitHub Secrets, never push directly to `main`, never merge, and never publish. Task-specific content, review, image and publishing commands fail closed until their approved-task implementation is completed. `content-pr.yml` only runs when its explicit `approval_status` input is `approved`, and must not be used until that implementation is complete.
 
 ## Vercel Preview and production verification
 

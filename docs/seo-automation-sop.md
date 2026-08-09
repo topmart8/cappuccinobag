@@ -13,7 +13,7 @@ This is a draft-first process. Never merge or publish a page until copy, claims,
 9. Open `/crm/seo/internal-links`; approve varied, relevant anchors. Do not link legal/payment pages.
 10. Open `/crm/seo/image-jobs`; use real product photos for product structure. Label concept images and reject changed pockets, zippers, straps, hardware, logos or certifications.
 11. Mark the task approved only after all reviews are complete.
-12. Manually trigger “Approved content pull request” with the approved task ID and `approval_status=approved`.
+12. After the approved-task content and publishing commands are implemented and validated, manually trigger “Approved content pull request” with the approved task ID and `approval_status=approved`.
 13. Open the draft PR and wait for the Vercel Preview.
 14. Check desktop/mobile layout, metadata, structured data, all links, images, RFQ and contact paths.
 15. Ask an authorized person to merge. Automation must not merge `main`.

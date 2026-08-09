@@ -1,8 +1,6 @@
 name: Content briefs
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "23 2 * * 2"
 permissions:
   contents: read
 jobs:
