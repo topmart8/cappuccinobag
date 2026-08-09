@@ -1,6 +1,6 @@
 import { randomBytes } from "node:crypto";
 import { NextResponse } from "next/server";
-import { saveWebsiteInquiry } from "../../../lib/crm/inquiry";
+import { ingestSharedInquiry } from "../../../lib/crm/shared-ingest";
 import { storageUpload } from "../../../lib/crm/supabase";
 
 export const runtime = "nodejs";
@@ -53,25 +53,6 @@ async function upload(files) {
   return uploaded;
 }
 
-async function sendEmail({ to, subject, html, replyTo }) {
-  if (!process.env.RESEND_API_KEY || !process.env.INQUIRY_FROM_EMAIL) return false;
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ from: process.env.INQUIRY_FROM_EMAIL, to: [to], subject, html, ...(replyTo ? { reply_to: replyTo } : {}) }),
-  });
-  return response.ok;
-}
-
-function escapeHtml(value = "") {
-  return String(value).replace(/[&<>"']/g, (character) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
-  })[character]);
-}
-
 export async function POST(request) {
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
   if (rateLimited(ip)) return NextResponse.json({ message: "Too many attempts. Please try again later." }, { status: 429 });
@@ -84,38 +65,23 @@ export async function POST(request) {
       return NextResponse.json({ message: "Name and a valid email are required." }, { status: 422 });
     }
     const uploadedFiles = await upload(files);
-    const saved = await saveWebsiteInquiry("cappuccinobag", data, uploadedFiles);
-    const reference = saved.inquiry.inquiry_number;
-    const details = [
-      ["Reference", reference], ["Brand", "Cappuccino Bag"], ["Name", data.name],
-      ["Company", data.company], ["Email", data.email], ["WhatsApp", data.phone],
-      ["Country", data.country], ["Product", data.product_category],
-      ["Quantity", data.quantity], ["Material", data.material], ["Logo", data.logo_method],
-      ["Target dimensions", data.target_dimensions], ["Intended pet size", data.intended_pet_size],
-      ["Color", data.color], ["Packaging", data.packaging], ["Target market", data.target_market],
-      ["Target delivery date", data.target_delivery_date],
-      ["Message", data.message], ["Landing page", data.first_landing_page],
-      ["Submit page", data.current_page_url || data.pageUrl], ["First UTM source", data.utm_source],
-      ["First UTM campaign", data.utm_campaign], ["Current UTM source", data.current_utm_source],
-      ["Current UTM campaign", data.current_utm_campaign],
-    ].map(([key, value]) => `<tr><th align="left">${key}</th><td>${escapeHtml(value || "—")}</td></tr>`).join("");
-    await sendEmail({
-      to: process.env.INQUIRY_TO_EMAIL || "info@cappuccinobag.net",
-      subject: `[Cappuccino RFQ] ${reference} | ${data.product_category || "Product to confirm"}`,
-      html: `<h2>New Cappuccino Bag inquiry</h2><table>${details}</table>`,
-      replyTo: data.email,
+    const saved = await ingestSharedInquiry({
+      siteSource: "cappuccino",
+      raw: data,
+      uploadedFiles,
     });
-    const enabled = process.env.CAP_INQUIRY_AUTO_REPLY_ENABLED !== "false";
-    const safeAuto = (process.env.CAP_INQUIRY_REPLY_MODE || "safe_auto") === "safe_auto";
-    if (enabled && safeAuto && !saved.draft.human_review_required) {
-      await sendEmail({
-        to: data.email,
-        subject: `We received your Cappuccino Bag inquiry — ${reference}`,
-        html: `<p>${escapeHtml(saved.draft.reply_body).replace(/\n/g, "<br>")}</p>`,
-      });
-    }
-    return NextResponse.json({ ok: true, inquiryNumber: reference, humanReviewRequired: saved.draft.human_review_required });
+    const reference = saved.inquiry.inquiry_number;
+    return NextResponse.json({
+      ok: true,
+      inquiryNumber: reference,
+      submissionId: saved.inquiry.submission_id,
+      idempotent: saved.idempotent,
+      humanReviewRequired: saved.draft?.human_review_required ?? saved.inquiry.human_takeover ?? false,
+    });
   } catch (error) {
-    return NextResponse.json({ message: error.message || "Inquiry could not be saved. Please email info@cappuccinobag.net." }, { status: 502 });
+    return NextResponse.json(
+      { message: error.message || "Inquiry could not be saved. Please email info@cappuccinobag.net." },
+      { status: error.status || 502 },
+    );
   }
 }
