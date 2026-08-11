@@ -11,6 +11,7 @@ const baseUrl = "https://www.cappuccinobag.com";
 const routes = [
   { path: "/", priority: 1.0 },
   { path: "/custom-padel-bag-manufacturer", priority: 0.95 },
+  { path: "/racket-sports/padel-bags", priority: 0.98, updated: "2026-08-12" },
   { path: "/products", priority: 0.9 },
   { path: "/case-studies", priority: 0.86, updated: "2026-08-09" },
   { path: "/fletcher-hotels-custom-bag", priority: 0.84, updated: "2026-08-09" },
@@ -139,6 +140,7 @@ export default function sitemap() {
     "/custom-hotel-bags.html",
   ]);
   const priorityOverrides = new Map([
+    ["/racket-sports/padel-bags", 0.98],
     ["/custom-padel-bag-manufacturer", 0.95],
     ["/inquiry", 0.9],
     ["/custom-pickleball-paddle-bags", 0.9],
