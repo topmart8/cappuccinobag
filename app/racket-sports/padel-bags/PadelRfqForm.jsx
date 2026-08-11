@@ -17,6 +17,7 @@ export default function PadelRfqForm() {
     data.set("product_category", data.get("product_type"));
     data.set("pageUrl", window.location.href);
     data.set("message", [
+      `Reference / design notes: ${data.get("reference_notes") || "Not specified"}`,
       `Target price range: ${data.get("target_price_range") || "Not specified"}`,
       `Shoe compartment: ${data.get("shoe_compartment") || "Not specified"}`,
       `Racket sleeves: ${data.get("racket_sleeve_quantity") || "Not specified"}`,
@@ -64,7 +65,9 @@ export default function PadelRfqForm() {
           <span>Product type *</span>
           <select name="product_type" defaultValue="Premium padel duffel" required>
             <option>Premium padel duffel</option>
-            <option>Entry padel backpack</option>
+            <option>Padel backpack</option>
+            <option>Tournament / club bag</option>
+            <option>Entry-level launch program</option>
             <option>Custom padel bag design</option>
           </select>
         </label>
@@ -131,6 +134,10 @@ export default function PadelRfqForm() {
         <label>
           <span>Bulk delivery deadline</span>
           <input name="bulk_delivery_deadline" type="date" />
+        </label>
+        <label className={styles.fullField}>
+          <span>Reference / design notes</span>
+          <textarea name="reference_notes" placeholder="Share the intended use, dimensions, material direction, colours and any reference design details." />
         </label>
       </div>
       <label className={styles.honeypot} aria-hidden="true">
