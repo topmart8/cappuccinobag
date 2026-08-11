@@ -116,7 +116,7 @@ export default function PadelBagsLandingPage() {
             </nav>
             <div className={styles.heroCopy}>
               <h1>Custom Padel Bags for European and American Sports Brands</h1>
-              <p>OEM/ODM padel racket bags with protected racket storage, ventilated shoe compartments, durable Oxford nylon, and flexible small-batch development.</p>
+              <p>Cappuccino Bag Factory is a China-based OEM/ODM padel bag manufacturer supporting private-label racket bags with custom logos, protected storage, ventilated shoe compartments, durable Oxford nylon, and flexible small-batch development.</p>
               <div className={styles.actions}>
                 <a className={styles.primaryButton} href="#padel-rfq">Request OEM Padel Bag Quote</a>
                 <a className={styles.secondaryButton} href="#entry-model">View Entry-Level 50 pcs Options</a>
@@ -198,9 +198,12 @@ export default function PadelBagsLandingPage() {
           <dl className={styles.specGrid}>
             <div><dt>Fabric</dt><dd>1680D Oxford, recycled polyester, coated nylon, or vegan leather trim</dd></div>
             <div><dt>Colour</dt><dd>Black, navy, forest green, or a custom Pantone direction</dd></div>
-            <div><dt>Branding</dt><dd>Rubber patch, woven label, heat transfer, embroidery, or zipper pull logo</dd></div>
+            <div><dt>Private label</dt><dd>Custom logo by rubber patch, woven label, heat transfer, embroidery, or zipper pull</dd></div>
             <div><dt>Function</dt><dd>Shoe compartment, racket sleeve quantity, laptop pocket, and accessory pocket</dd></div>
-            <div><dt>Order stage</dt><dd>Physical sample, small trial order, and bulk production after approval</dd></div>
+            <div><dt>Sample development</dt><dd>Confirm construction, material, logo, fit and carry details on a physical sample</dd></div>
+            <div><dt>Production lead time</dt><dd>Confirmed after the approved sample, order quantity, materials, packaging and delivery requirements are fixed</dd></div>
+            <div><dt>Quality control</dt><dd>Check materials, construction, dimensions, logo, function and packing against the approved specification and sample</dd></div>
+            <div><dt>Export markets</dt><dd>Develop specifications and packaging for buyer requirements in the EU, UK, US, Australia and other agreed markets</dd></div>
             <div><dt>Consistency lock</dt><dd>Approve dimensions, racket fit, shoe zone, colour, trim and carry method before bulk production</dd></div>
           </dl>
         </section>
