@@ -99,7 +99,7 @@ export default function PadelBagsLandingPage() {
         <script key={schema["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
       <SiteHeader />
-      <main className={styles.page}>
+      <main className={`${styles.page} padel-bags-page`}>
         <section className={styles.hero}>
           <Image
             className={styles.heroImage}
