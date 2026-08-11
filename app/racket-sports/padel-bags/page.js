@@ -36,8 +36,8 @@ export const metadata = {
 
 const faqs = [
   {
-    question: "Can I start with a small padel bag test order?",
-    answer: "A compact entry-level padel backpack may be discussed from around 50 pcs when the construction, stock materials and branding method are suitable. More structured custom padel bags usually need a different order strategy, so MOQ is confirmed only after specification review.",
+    question: "How is the MOQ for a padel bag program determined?",
+    answer: "MOQ is reviewed after the bag structure, materials, colour requirements, branding method and packaging are defined. A focused launch design may support a different production plan from a highly customized premium bag.",
   },
   {
     question: "Which materials suit premium padel bags?",
@@ -53,56 +53,44 @@ const faqs = [
   },
 ];
 
-const priorities = [
-  "Racket protection",
-  "Separate shoe storage",
-  "Durable performance materials",
-  "Comfortable carry",
-  "Private-label branding",
-  "Order strategy matched to launch stage",
+const partnershipReasons = [
+  ["OEM/ODM development experience", "Turn a design brief, reference sample or early concept into a production-ready direction."],
+  ["Flexible production programs", "Plan the product around the brand's launch stage, specification and approved materials."],
+  ["Material sourcing support", "Compare practical fabric, trim, colour and branding options for the intended market."],
+  ["Quality control", "Use the approved sample and written specification as the reference for production checks."],
+  ["Long-term partnership", "Keep product decisions documented so future colours, formats and range extensions stay consistent."],
 ];
 
 const programs = [
   {
-    name: "Premium Padel Duffel",
+    name: "Premium Club Series",
     image: `${imageBase}/01-premium-padel-duffel-master-product.png`,
     width: 1402,
     height: 1122,
     alt: "Premium black custom padel duffel with racket and shoe storage",
-    fit: "For established brands building a premium court and travel range.",
-    features: ["Protected racket storage", "Separate shoe compartment", "Structured material and trim direction"],
-    guidance: "Best for specification-led programs after sample approval.",
+    buyer: "Established brands, clubs and specialist distributors",
+    value: "A refined, high-capacity direction for premium court and travel collections.",
+    features: ["Protected racket storage", "Separate footwear zone", "Structured materials and trims"],
   },
   {
-    name: "Padel Backpack",
-    image: "/images/padel/hybrid-lifestyle-2026/PDB017/PDB017-hero.webp",
-    width: 1400,
-    height: 1400,
-    alt: "Structured padel backpack with padded carry straps and organized storage",
-    fit: "For brands wanting a versatile training, commute and travel format.",
-    features: ["Padded backpack carry", "Dedicated racket zone", "Organized accessory pockets"],
-    guidance: "Suitable for core retail collections and range extensions.",
-  },
-  {
-    name: "Tournament / Club Bag",
-    image: "/assets/padel-real-samples/hero-racket-bag-sample.jpg",
-    width: 1280,
-    height: 720,
-    alt: "Racket sports tournament bag reference beside a court",
-    fit: "For clubs, events and team programs that need visible capacity.",
-    features: ["High-capacity main zone", "Racket and footwear separation", "Club-ready branding surfaces"],
-    guidance: "Develop around the final load, event use and packing plan.",
-  },
-  {
-    name: "Entry-Level Launch Program",
+    name: "Brand Launch Series",
     image: `${imageBase}/08-entry-padel-backpack-50pcs.png`,
     width: 1122,
     height: 1402,
-    alt: "Compact entry-level black padel backpack for a test launch",
-    fit: "For new brands validating a simpler product before scaling.",
-    features: ["Streamlined construction", "Storage for 1–2 rackets", "Focused logo and colour options"],
-    guidance: "Around 50 pcs may be discussed, subject to specification review.",
-    id: "entry-model",
+    alt: "Compact black padel backpack for a focused brand launch program",
+    buyer: "New and growing padel brands",
+    value: "A focused starting point with controlled options and clear sample approval.",
+    features: ["Streamlined construction", "Core private-label details", "Scalable range planning"],
+  },
+  {
+    name: "Custom Development",
+    image: `${imageBase}/07-oem-customization-swatch-table.png`,
+    width: 1536,
+    height: 1024,
+    alt: "Padel bag development table with fabric, zipper, colour and branding options",
+    buyer: "Product teams creating an original padel bag",
+    value: "A specification-led route for a distinctive structure, material story and brand finish.",
+    features: ["Material and trim direction", "Custom storage architecture", "Sample-led specification lock"],
   },
 ];
 
@@ -120,9 +108,6 @@ const processSteps = ["Brief Review", "Material & Structure Direction", "Sample 
 const manufacturingProof = [
   ["Material inspection", "/site/assets/factory-qc-branded.webp", 1600, 900, "Factory team reviewing bag materials and construction"],
   ["Construction review", "/images/padel/PDB001/real-sample-reference/PDB001-real-sample-zipper-and-interior.webp", 1400, 1400, "Approved padel sample zipper and interior construction reference"],
-  ["Dimensions", "/images/padel/PDB001/angles/PDB001-dimensions-31x38x15cm.webp", 1000, 1000, "Padel sample dimensions reference used during specification review"],
-  ["Logo approval", "/assets/padel-real-samples/backpack-brand-panel-reference.jpg", 385, 545, "Padel bag brand panel and logo placement reference"],
-  ["Packing", "/images/cappuccino-factory-bulk-production-poster.jpg", 1280, 720, "Bulk bag production and packing reference at the factory"],
   ["Approved sample reference", "/images/padel/PDB001/real-sample-reference/PDB001-real-sample-front-angle.webp", 1400, 1400, "Approved physical bag sample shown from the front angle"],
 ];
 
@@ -140,7 +125,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Custom Padel Bags for European and North American Sports Brands",
-    headline: "Custom Padel Bags Built for Growing Sports Brands",
+    headline: "Your Padel Bag Development Partner",
     description: metadata.description,
     url: `${siteUrl}${pagePath}`,
     isPartOf: { "@type": "WebSite", name: "Cappuccino Bag", url: siteUrl },
@@ -178,8 +163,8 @@ export default function PadelBagsLandingPage() {
             <nav className={styles.breadcrumb} aria-label="Breadcrumb">
               <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/custom-tennis-padel-racket-bags">Racket Sports</Link><span aria-hidden="true">/</span><span>Padel Bags</span>
             </nav>
-            <h1>Custom Padel Bags Built for Growing Sports Brands</h1>
-            <p>OEM &amp; ODM padel bag manufacturing for European and North American brands, with custom materials, private-label branding, structured storage and scalable production programs.</p>
+            <h1>Your Padel Bag Development Partner</h1>
+            <p>From material direction to an approved production sample, Cappuccino helps sports brands build considered padel bag collections for their market and growth plan.</p>
             <div className={styles.actions}>
               <a className={styles.primaryButton} href="#padel-rfq">Request a Custom Quote</a>
               <a className={styles.secondaryButton} href="#product-programs">Explore Padel Bag Programs</a>
@@ -191,31 +176,34 @@ export default function PadelBagsLandingPage() {
         </section>
 
         <section className={`${styles.section} ${styles.prioritySection}`}>
-          <div className={styles.sectionIntro}>
-            <p className={styles.sectionLabel}>What padel brands prioritize</p>
-            <h2>Start With Function, Then Build the Brand</h2>
+          <div className={styles.partnershipLayout}>
+            <div className={styles.sectionIntro}>
+              <p className={styles.sectionLabel}>A considered manufacturing partnership</p>
+              <h2>Why Brands Work With Cappuccino</h2>
+              <p>Clear decisions at development stage create a stronger product and a more consistent path into production.</p>
+            </div>
+            <div className={styles.partnershipReasons}>
+              {partnershipReasons.map(([title, description]) => <article key={title}><h3>{title}</h3><p>{description}</p></article>)}
+            </div>
           </div>
-          <ol className={styles.priorityList}>
-            {priorities.map((priority, index) => <li key={priority}><span>{String(index + 1).padStart(2, "0")}</span><strong>{priority}</strong></li>)}
-          </ol>
         </section>
 
         <section className={`${styles.section} ${styles.programSection}`} id="product-programs">
           <div className={styles.sectionIntro}>
             <p className={styles.sectionLabel}>Product programs</p>
-            <h2>Choose the Right Padel Bag Program</h2>
+            <h2>Three Ways to Build Your Range</h2>
           </div>
           <div className={styles.programGrid}>
             {programs.map((program) => (
-              <article className={styles.program} id={program.id} key={program.name}>
+              <article className={styles.program} key={program.name}>
                 <div className={styles.programImage}>
-                  <Image src={program.image} width={program.width} height={program.height} sizes="(max-width: 760px) 100vw, 42vw" alt={program.alt} />
+                  <Image src={program.image} width={program.width} height={program.height} sizes="(max-width: 760px) 100vw, 33vw" alt={program.alt} />
                 </div>
                 <div className={styles.programCopy}>
                   <h3>{program.name}</h3>
-                  <p>{program.fit}</p>
+                  <p className={styles.suitableBuyer}><span>Suitable for</span>{program.buyer}</p>
+                  <p>{program.value}</p>
                   <ul>{program.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
-                  <p className={styles.orderGuidance}>{program.guidance}</p>
                 </div>
               </article>
             ))}
@@ -268,7 +256,7 @@ export default function PadelBagsLandingPage() {
           <div className={styles.sectionIntro}>
             <p className={styles.sectionLabel}>Quality &amp; manufacturing proof</p>
             <h2>Approve the Details That Control Production</h2>
-            <p>Factory, sampling and product references make each checkpoint visible without implying unverified certifications.</p>
+            <p>Each checkpoint stays tied to the approved sample and written specification.</p>
           </div>
           <div className={styles.manufacturingGrid}>
             {manufacturingProof.map(([caption, src, width, height, alt]) => (
@@ -289,7 +277,6 @@ export default function PadelBagsLandingPage() {
 
         <section className={`${styles.section} ${styles.faqSection}`}>
           <div className={styles.sectionIntro}>
-            <p className={styles.sectionLabel}>Padel bag manufacturing FAQ</p>
             <h2>Padel Bag Manufacturing FAQ</h2>
           </div>
           <div className={styles.faqList}>
