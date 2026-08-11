@@ -36,20 +36,24 @@ export const metadata = {
 
 const faqs = [
   {
-    question: "How is the MOQ for a padel bag program determined?",
-    answer: "MOQ is reviewed after the bag structure, materials, colour requirements, branding method and packaging are defined. A focused launch design may support a different production plan from a highly customized premium bag.",
+    question: "Can I start with a small padel bag order?",
+    answer: "A smaller starting order may be discussed for a focused design using suitable materials and branding methods. Final MOQ is confirmed after the structure, materials, colour requirements and packaging are reviewed.",
   },
   {
-    question: "Which materials suit premium padel bags?",
-    answer: "Common directions include 1680D Oxford, recycled polyester, coated nylon, breathable mesh and vegan leather trim. The best choice depends on the target market, retail position, structure, colour requirements and planned quantity.",
+    question: "What customization options are available?",
+    answer: "Options can include fabrics, colours, racket and shoe storage, lining, trims, zipper pulls, carry systems, logo methods, labels and packaging. The available combination is reviewed against the bag construction and production plan.",
   },
   {
-    question: "What should I send before sampling?",
-    answer: "Send your target quantity, market, reference design or tech pack, racket capacity, shoe-storage requirement, material direction, logo method, packaging needs and target timing. A clear brief helps the China manufacturing team review feasibility before quotation and sample development.",
+    question: "How does OEM padel bag development work?",
+    answer: "We review the product brief and target market, confirm materials and construction, develop a prototype, refine the sample and lock the approved specification before bulk production and quality control.",
   },
   {
-    question: "How is quality checked before bulk production?",
-    answer: "The approved sample and written specification establish the reference for dimensions, materials, racket fit, shoe compartment, construction, logo position, carry system and packing. Bulk-production checks are then planned against that agreed standard.",
+    question: "What materials can be used for padel bags?",
+    answer: "Common options include 1680D Oxford, recycled polyester, coated nylon, breathable mesh and vegan leather trim. Material selection depends on the target position, structure, colour direction and functional requirements.",
+  },
+  {
+    question: "How do you control quality before shipment?",
+    answer: "Checks cover incoming materials, construction, logo execution, alignment with the approved sample and final packing. The written specification and approved sample remain the production reference.",
   },
 ];
 
@@ -68,7 +72,7 @@ const programs = [
     width: 1402,
     height: 1122,
     alt: "Premium black custom padel duffel with racket and shoe storage",
-    buyer: "Established brands, clubs and specialist distributors",
+    buyer: "Established brands requiring premium construction",
     value: "A refined, high-capacity direction for premium court and travel collections.",
     features: ["Protected racket storage", "Separate footwear zone", "Structured materials and trims"],
   },
@@ -78,17 +82,17 @@ const programs = [
     width: 1122,
     height: 1402,
     alt: "Compact black padel backpack for a focused brand launch program",
-    buyer: "New and growing padel brands",
+    buyer: "New brands testing the market",
     value: "A focused starting point with controlled options and clear sample approval.",
     features: ["Streamlined construction", "Core private-label details", "Scalable range planning"],
   },
   {
     name: "Custom Development",
-    image: `${imageBase}/07-oem-customization-swatch-table.png`,
+    image: `${imageBase}/04-oem-colorways-product-family.png`,
     width: 1536,
     height: 1024,
-    alt: "Padel bag development table with fabric, zipper, colour and branding options",
-    buyer: "Product teams creating an original padel bag",
+    alt: "Custom padel bag product family in coordinated OEM colourways",
+    buyer: "Brands with unique designs or special requirements",
     value: "A specification-led route for a distinctive structure, material story and brand finish.",
     features: ["Material and trim direction", "Custom storage architecture", "Sample-led specification lock"],
   },
@@ -103,12 +107,26 @@ const specifications = [
   ["Function", ["Racket sleeves", "Shoe compartment", "Accessory pockets", "Carry configuration"]],
 ];
 
-const processSteps = ["Brief Review", "Material & Structure Direction", "Sample Development", "Approval & QC Standard", "Bulk Production"];
+const processSteps = [
+  ["Design Review", "Review product direction, target market and construction requirements."],
+  ["Material Selection", "Confirm fabrics, trims, hardware and functional requirements."],
+  ["Prototype Development", "Develop samples and refine structure, details and branding."],
+  ["Sample Approval", "Confirm final specifications before production."],
+  ["Bulk Production & QC", "Manufacture according to approved standards and inspect before shipment."],
+];
+
+const qualityChecks = [
+  ["Material inspection", "Confirm the selected fabrics, trims and hardware before use."],
+  ["Construction checking", "Review stitching, reinforcement, compartments and carry points."],
+  ["Logo approval", "Check placement, scale, colour and execution against approval."],
+  ["Sample confirmation", "Use the approved sample and specification as the production reference."],
+  ["Packing inspection", "Review finished presentation and packing before shipment."],
+];
 
 const manufacturingProof = [
-  ["Material inspection", "/site/assets/factory-qc-branded.webp", 1600, 900, "Factory team reviewing bag materials and construction"],
-  ["Construction review", "/images/padel/PDB001/real-sample-reference/PDB001-real-sample-zipper-and-interior.webp", 1400, 1400, "Approved padel sample zipper and interior construction reference"],
-  ["Approved sample reference", "/images/padel/PDB001/real-sample-reference/PDB001-real-sample-front-angle.webp", 1400, 1400, "Approved physical bag sample shown from the front angle"],
+  ["Carry-system review", `${imageBase}/06-comfort-carry-lifestyle.png`, 1122, 1402, "Padel backpack carry system shown in real court use"],
+  ["Construction checking", "/images/padel/PDB001/real-sample-reference/PDB001-real-sample-zipper-and-interior.webp", 1400, 1400, "Physical padel bag sample zipper and interior construction reference"],
+  ["Sample confirmation", "/images/padel/PDB001/real-sample-reference/PDB001-real-sample-front-angle.webp", 1400, 1400, "Approved physical bag sample shown from the front angle"],
 ];
 
 const relatedLinks = [
@@ -244,20 +262,23 @@ export default function PadelBagsLandingPage() {
 
         <section className={`${styles.section} ${styles.processSection}`}>
           <div className={styles.sectionIntro}>
-            <p className={styles.sectionLabel}>From brief to bulk production</p>
-            <h2>A Clear Route From Direction to Delivery</h2>
+            <p className={styles.sectionLabel}>OEM development process</p>
+            <h2>From Concept to Production</h2>
           </div>
           <ol className={styles.processList}>
-            {processSteps.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, "0")}</span><strong>{step}</strong></li>)}
+            {processSteps.map(([title, description], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}
           </ol>
         </section>
 
         <section className={`${styles.section} ${styles.manufacturingSection}`}>
           <div className={styles.sectionIntro}>
-            <p className={styles.sectionLabel}>Quality &amp; manufacturing proof</p>
-            <h2>Approve the Details That Control Production</h2>
-            <p>Each checkpoint stays tied to the approved sample and written specification.</p>
+            <p className={styles.sectionLabel}>Production confidence</p>
+            <h2>Manufacturing &amp; Quality Control</h2>
+            <p>Practical checks keep materials, construction, branding and packing aligned with the approved product.</p>
           </div>
+          <ol className={styles.qualityChecks}>
+            {qualityChecks.map(([title, description], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}
+          </ol>
           <div className={styles.manufacturingGrid}>
             {manufacturingProof.map(([caption, src, width, height, alt]) => (
               <figure key={caption}>
@@ -288,7 +309,7 @@ export default function PadelBagsLandingPage() {
           <div className={styles.rfqIntro}>
             <p className={styles.sectionLabel}>Project RFQ</p>
             <h2>Start Your Padel Bag Project</h2>
-            <p>Tell us your target quantity, material direction, logo method, target market and reference design. We review the construction before confirming MOQ, sampling plan and quotation.</p>
+            <p>Tell us your target quantity, materials, branding method and reference design. We review the construction before confirming MOQ, sampling plan and quotation.</p>
             <div className={styles.contactLinks}>
               <a href="https://wa.me/8613928715568?text=Hello%20Cappuccino%20Bag.%20I%20need%20an%20OEM%20padel%20bag%20quote." target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a>
               <a href="mailto:info@cappuccinobag.net?subject=OEM%20Padel%20Bag%20RFQ">Email <span aria-hidden="true">↗</span></a>
