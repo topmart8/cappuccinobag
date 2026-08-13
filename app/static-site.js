@@ -136,12 +136,24 @@ function readStaticPage(slug = []) {
   let rendered = normalizeHtml(bodyMatch ? bodyMatch[1] : html);
   rendered = addPetTravelInquiry(rendered, pageSlug);
   rendered = addProductExpansionLinks(rendered, pageSlug);
+  rendered = addTechGiftSetLinks(rendered, pageSlug);
   rendered = addAlcantaraContextLinks(rendered, pageSlug);
   rendered = addBuyerGuideLinks(rendered, pageSlug);
   rendered = addPadelCollectionEntry(rendered, pageSlug);
   rendered = addPadelLegacySections(rendered, pageSlug);
   rendered = pageSlug === "" ? addHomePrioritySections(rendered) : rendered;
   return applySharedNavigation(normalizeRenderedLinks(rendered));
+}
+
+function addTechGiftSetLinks(html, pageSlug) {
+  const relevantPages = new Set([
+    "oem-odm-bag-manufacturer",
+    "custom-laptop-travel-backpack",
+    "phone-case-cardholder-gift-set-oem",
+  ]);
+  if (!relevantPages.has(pageSlug) || html.includes('id="corporate-tech-gift-link"')) return html;
+  const section = `<style>.tech-gift-context{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:54px 0;border-top:1px solid #d8ded2}.tech-gift-context h2{margin:0 0 12px;color:#10261c;font-size:clamp(28px,3vw,42px);line-height:1.08}.tech-gift-context p{max-width:780px;line-height:1.72}.tech-gift-context a{display:inline-flex;margin-top:10px;color:#6f452d;font-weight:800;text-decoration:underline;text-underline-offset:3px}@media(max-width:620px){.tech-gift-context{width:calc(100% - 28px);padding:42px 0}}</style><section class="tech-gift-context" id="corporate-tech-gift-link"><h2>Corporate &amp; Tech Gift Solutions</h2><p>Explore a backpack-led 3-in-1 corporate gift set with flexible headphones, speaker, private-label branding and custom packaging options.</p><a href="/products/3-in-1-tech-gift-set-backpack-headphones-speaker">View the 3-in-1 tech gift set</a></section>`;
+  return html.replace(/<\/main>/i, `${section}</main>`);
 }
 
 function addPetTravelInquiry(html, pageSlug) {

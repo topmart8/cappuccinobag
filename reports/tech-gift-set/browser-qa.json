@@ -1,0 +1,164 @@
+{
+  "commit": "c636f235885b7334be3ed1d429444e8fdf91cb32",
+  "generatedAt": "2026-08-13T15:52:08.403Z",
+  "results": [
+    {
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900
+      },
+      "title": "3-in-1 Tech Gift Set | Water-Resistant Laptop Backpack with Headphones & Speaker | Cappuccino Bag",
+      "description": "Explore Cappuccino Bag’s 3-in-1 tech gift set featuring a water-resistant laptop backpack, wireless headphones and Bluetooth speaker. Ideal for corporate gifts, promotional campaigns and private label projects.",
+      "canonical": "https://www.cappuccinobag.com/products/3-in-1-tech-gift-set-backpack-headphones-speaker",
+      "h1": "3-in-1 Tech Gift Set",
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "schemas": [
+        "Product",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "faqVisible": 8,
+      "imageFailures": [],
+      "requiredAltsPresent": [
+        "3 in 1 tech gift set with water resistant laptop backpack wireless headphones and bluetooth speaker",
+        "what is included in a 3 in 1 tech gift set backpack headphones speaker and gift box",
+        "water resistant laptop backpack exterior features for daily commute",
+        "smart laptop backpack interior organization for laptop tablet documents phone and accessories",
+        "corporate tech gift set applications for business promotions employee kits campus and travel",
+        "private label customization for backpack speaker gift box barcode and manual",
+        "flexible promotional gift set options backpack only headphones speaker and full set",
+        "one stop OEM ODM service for custom branded corporate tech gift sets",
+        "corporate tech gift set applications for business promotions employee kits campus and travel",
+        "smart laptop backpack interior organization for laptop tablet documents phone and accessories",
+        "one stop OEM ODM service for custom branded corporate tech gift sets"
+      ],
+      "ctaHref": "/inquiry?product=Corporate%20Tech%20Gift%20Set&format=3-in-1%20Backpack%20Headphones%20Speaker",
+      "ctaUrl": "http://localhost:3100/inquiry?product=Corporate%20Tech%20Gift%20Set&format=3-in-1%20Backpack%20Headphones%20Speaker",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "checks": {
+        "http200": true,
+        "title": true,
+        "description": true,
+        "canonical": true,
+        "h1": true,
+        "noOverflow": true,
+        "schemas": true,
+        "faq": true,
+        "images": true,
+        "console": true,
+        "ctaHref": true,
+        "ctaNavigation": true
+      },
+      "passed": true
+    },
+    {
+      "viewport": {
+        "name": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      "title": "3-in-1 Tech Gift Set | Water-Resistant Laptop Backpack with Headphones & Speaker | Cappuccino Bag",
+      "description": "Explore Cappuccino Bag’s 3-in-1 tech gift set featuring a water-resistant laptop backpack, wireless headphones and Bluetooth speaker. Ideal for corporate gifts, promotional campaigns and private label projects.",
+      "canonical": "https://www.cappuccinobag.com/products/3-in-1-tech-gift-set-backpack-headphones-speaker",
+      "h1": "3-in-1 Tech Gift Set",
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "schemas": [
+        "Product",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "faqVisible": 8,
+      "imageFailures": [],
+      "requiredAltsPresent": [
+        "3 in 1 tech gift set with water resistant laptop backpack wireless headphones and bluetooth speaker",
+        "what is included in a 3 in 1 tech gift set backpack headphones speaker and gift box",
+        "water resistant laptop backpack exterior features for daily commute",
+        "smart laptop backpack interior organization for laptop tablet documents phone and accessories",
+        "corporate tech gift set applications for business promotions employee kits campus and travel",
+        "private label customization for backpack speaker gift box barcode and manual",
+        "flexible promotional gift set options backpack only headphones speaker and full set",
+        "one stop OEM ODM service for custom branded corporate tech gift sets",
+        "corporate tech gift set applications for business promotions employee kits campus and travel",
+        "smart laptop backpack interior organization for laptop tablet documents phone and accessories",
+        "one stop OEM ODM service for custom branded corporate tech gift sets"
+      ],
+      "ctaHref": "/inquiry?product=Corporate%20Tech%20Gift%20Set&format=3-in-1%20Backpack%20Headphones%20Speaker",
+      "ctaUrl": "http://localhost:3100/inquiry?product=Corporate%20Tech%20Gift%20Set&format=3-in-1%20Backpack%20Headphones%20Speaker",
+      "consoleErrors": [],
+      "failedRequests": [],
+      "checks": {
+        "http200": true,
+        "title": true,
+        "description": true,
+        "canonical": true,
+        "h1": true,
+        "noOverflow": true,
+        "schemas": true,
+        "faq": true,
+        "images": true,
+        "console": true,
+        "ctaHref": true,
+        "ctaNavigation": true
+      },
+      "passed": true
+    }
+  ],
+  "routeChecks": [
+    {
+      "route": "/corporate-tech-gift-solutions",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "route": "/products/3-in-1-tech-gift-set-backpack-headphones-speaker",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "route": "/blog/why-3-in-1-tech-gift-sets-are-popular-for-corporate-promotions",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "route": "/blog/how-to-choose-a-branded-backpack-gift-set-for-business-campaigns",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "route": "/blog/one-stop-oem-solution-for-custom-corporate-gift-sets",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "route": "/sitemap.xml",
+      "status": 200,
+      "passed": true
+    }
+  ],
+  "sitemapChecks": [
+    {
+      "path": "/products/3-in-1-tech-gift-set-backpack-headphones-speaker",
+      "present": true
+    },
+    {
+      "path": "/corporate-tech-gift-solutions",
+      "present": true
+    },
+    {
+      "path": "/card-holders",
+      "present": true
+    },
+    {
+      "path": "/racket-sports/padel-bags",
+      "present": true
+    }
+  ],
+  "articleSchema": [
+    "Article"
+  ],
+  "passed": true
+}
