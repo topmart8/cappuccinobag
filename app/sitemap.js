@@ -5,12 +5,14 @@ import { petCategories, petProducts } from "./pet-travel-data.js";
 import { hybridProductEntries } from "./hybrid-padel-data.js";
 import { hybridPadelArticles } from "./hybrid-padel-articles.js";
 import { techGiftArticles, techGiftProductPath } from "./corporate-tech-gift-data.js";
+import { cardHolderProducts } from "./card-holder-data.js";
 
 const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
   { path: "/", priority: 1.0 },
   { path: "/custom-padel-bag-manufacturer", priority: 0.95 },
+  { path: "/racket-sports/padel-bags", priority: 0.98, updated: "2026-08-12" },
   { path: "/products", priority: 0.9 },
   { path: "/corporate-tech-gift-solutions", priority: 0.92, updated: "2026-08-13" },
   { path: techGiftProductPath, priority: 0.95, updated: "2026-08-13" },
@@ -61,6 +63,9 @@ const routes = [
   { path: "/running-guides/", priority: 0.86 },
   { path: "/pet-travel-bags/", priority: 0.96 },
   { path: "/pet-travel-guides/", priority: 0.84 },
+  { path: "/card-holders/", priority: 0.96, updated: "2026-08-09" },
+  { path: "/rfid-card-holder-manufacturer/", priority: 0.94, updated: "2026-08-09" },
+  { path: "/custom-leather-card-holder/", priority: 0.94, updated: "2026-08-09" },
   { path: "/custom-pickleball-paddle-bags/", priority: 0.95 },
   { path: "/custom-hiking-daypacks-outdoor-backpacks/", priority: 0.95 },
   { path: "/custom-waterproof-adventure-duffel/", priority: 0.92 },
@@ -116,6 +121,7 @@ export default function sitemap() {
     ...Object.keys(petCategories).map((slug) => ({ path: `/pet-travel-bags/${slug}/`, priority: 0.9 })),
     ...petProducts.map((product) => ({ path: product.href, priority: 0.92 })),
     ...petArticles.map((article) => ({ path: `/pet-travel-guides/${article.slug}/`, priority: 0.82 })),
+    ...cardHolderProducts.map((product) => ({ path: product.href, priority: 0.92, updated: "2026-08-09" })),
   ];
   const redirectedPaths = new Set([
     "/custom-padel-bags.html",
@@ -138,6 +144,7 @@ export default function sitemap() {
     "/custom-hotel-bags.html",
   ]);
   const priorityOverrides = new Map([
+    ["/racket-sports/padel-bags", 0.98],
     ["/custom-padel-bag-manufacturer", 0.95],
     ["/inquiry", 0.9],
     ["/custom-pickleball-paddle-bags", 0.9],
