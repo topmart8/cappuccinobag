@@ -4,6 +4,7 @@ import SiteHeader from "../../components/SiteHeader";
 
 const siteUrl = "https://www.cappuccinobag.com";
 const collections = [
+  { name: "Corporate & Tech Gift Solutions", href: "/corporate-tech-gift-solutions", description: "Backpack-led corporate gifts, employee kits, promotional electronics sets and private-label packaging." },
   { name: "Padel Bags", href: "/custom-padel-bag-manufacturer", description: "Racket duffels, backpacks, shoe bags, organizers and court-to-office formats." },
   { name: "Pickleball Bags", href: "/custom-pickleball-paddle-bags", description: "Paddle storage, compact tournament carry, club programs and US retail formats." },
   { name: "Tennis Bags", href: "/custom-tennis-bag-manufacturer", description: "Custom racket capacity, thermal sections, footwear storage and club collections." },
