@@ -10,6 +10,7 @@ export const metadata = {
   description: "Explore private-label corporate and promotional gift solutions led by functional laptop backpacks, flexible tech accessories and custom packaging.",
   alternates: { canonical }, robots: { index: true, follow: true },
   openGraph: { title: "Corporate & Tech Gift Solutions", description: "Backpack-led OEM gift sets for corporate promotions, welcome kits, distributors and Latin America programs.", url: canonical, type: "website", images: [{ url: `${techGiftSiteUrl}${techGiftImages[0].src}`, width: 1254, height: 1254, alt: techGiftImages[0].alt }] },
+  twitter: { card: "summary_large_image", title: "Corporate & Tech Gift Solutions | Cappuccino Bag", description: "Backpack-led OEM tech gift sets for corporate promotions, employee welcome kits, distributors and Latin America programs.", images: [`${techGiftSiteUrl}${techGiftImages[0].src}`] },
 };
 
 export default function CorporateTechGiftSolutionsPage() {
