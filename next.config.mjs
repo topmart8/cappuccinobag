@@ -1,4 +1,6 @@
 const redirectPairs = [
+  ["/custom-outdoor-sports-travel-bags", "/custom-outdoor-sports-bag-manufacturer"],
+  ["/custom-tennis-padel-racket-bag-landing", "/custom-tennis-padel-racket-bags"],
   ["/custom-padel-bags.html", "/custom-padel-bag-manufacturer"],
   ["/custom-padel-bag-with-shoe-compartment", "/custom-padel-bag-manufacturer"],
   ["/custom-pickleball-bags.html", "/custom-pickleball-paddle-bags"],

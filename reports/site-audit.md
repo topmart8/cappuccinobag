@@ -1,13 +1,13 @@
 # Cappuccino Bag Site Audit
 
-Generated: 2026-08-01T20:06:50.370Z
+Generated: 2026-08-15T17:33:52.736Z
 
 ## Summary
 
-- Pages crawled: 145
-- Sitemap URLs: 143
-- Internal targets checked: 264
-- Images checked: 124
+- Pages crawled: 175
+- Sitemap URLs: 175
+- Internal targets checked: 323
+- Images checked: 217
 
 ## Issue counts
 
@@ -27,8 +27,8 @@ Generated: 2026-08-01T20:06:50.370Z
 | redirectedInternalLinks | 0 |
 | brokenImages | 0 |
 | redirectErrors | 0 |
-| headerOrder | 0 |
-| mobileOrder | 0 |
+| headerOrder | 1 |
+| mobileOrder | 1 |
 | footerOrder | 0 |
 | schemaParseErrors | 0 |
 | faqSchemaMismatch | 0 |
@@ -39,6 +39,8 @@ Generated: 2026-08-01T20:06:50.370Z
 
 | Source | Status | Location |
 |---|---:|---|
+| /custom-outdoor-sports-travel-bags | 301 | /custom-outdoor-sports-bag-manufacturer |
+| /custom-tennis-padel-racket-bag-landing | 301 | /custom-tennis-padel-racket-bags |
 | /custom-padel-bags.html | 301 | /custom-padel-bag-manufacturer |
 | /custom-pickleball-bags.html | 301 | /custom-pickleball-paddle-bags |
 | /custom-pickleball-bag-manufacturer | 301 | /custom-pickleball-paddle-bags |
@@ -63,9 +65,17 @@ Generated: 2026-08-01T20:06:50.370Z
 | Path | Status | Title | H1 | Canonical | Robots |
 |---|---:|---|---|---|---|
 | / | 200 | Custom Padel & Functional Bag Manufacturer | Cappuccino Bag | Custom Padel, Racket Sports & Functional Bag Manufacturer | https://www.cappuccinobag.com | index, follow |
-| /custom-padel-bag-manufacturer | 200 | Custom Padel Bag Manufacturer | Cappuccino Bag | Custom Padel Bag Manufacturer | https://www.cappuccinobag.com/custom-padel-bag-manufacturer | index, follow |
+| /custom-padel-bag-manufacturer | 200 | Reliable Padel Bag Manufacturer in China | OEM/ODM | Reliable Custom Padel Bag Manufacturer in China | https://www.cappuccinobag.com/custom-padel-bag-manufacturer | index, follow |
+| /racket-sports/padel-bags | 200 | Custom Padel Bag Manufacturer | OEM Padel Racket Bags | Your Padel Bag Development Partner | https://www.cappuccinobag.com/racket-sports/padel-bags | index, follow |
 | /products | 200 | Custom Bag Product Collections | Cappuccino Bag | Custom Bag Collections for OEM/ODM Projects | https://www.cappuccinobag.com/products | index, follow |
+| /corporate-tech-gift-solutions | 200 | Corporate & Tech Gift Solutions | Custom Backpack Gift Sets | Corporate & Tech Gift Solutions | https://www.cappuccinobag.com/corporate-tech-gift-solutions | index, follow |
+| /products/3-in-1-tech-gift-set-backpack-headphones-speaker | 200 | 3-in-1 Tech Gift Set | Water-Resistant Laptop Backpack with Headphones & Speaker | Cappuccino Bag | 3-in-1 Tech Gift Set | https://www.cappuccinobag.com/products/3-in-1-tech-gift-set-backpack-headphones-speaker | index, follow |
+| /case-studies | 200 | Custom Bag Manufacturing Case Studies | Cappuccino Bag | Custom products, solved through practical development | https://www.cappuccinobag.com/case-studies | index, follow |
+| /fletcher-hotels-custom-bag | 200 | Fletcher Hotels Custom Bag Case Study | Cappuccino Bag | Fletcher Hotels Custom Branded Activity Bag Development | https://www.cappuccinobag.com/fletcher-hotels-custom-bag | index, follow |
+| /noeve-vegan-beauty-accessory | 200 | NOÉVE Vegan Beauty Accessory Case Study | Cappuccino | NOÉVE Luxury Vegan Leather Beauty Accessory Development | https://www.cappuccinobag.com/noeve-vegan-beauty-accessory | index, follow |
+| /kitty-couture-rhinestone-handbag | 200 | Kitty Couture Rhinestone Handbag Case Study | Kitty Couture Rhinestone Fashion Handbag Manufacturing | https://www.cappuccinobag.com/kitty-couture-rhinestone-handbag | index, follow |
 | /inquiry | 200 | Start Your Custom Outdoor Bag, Wallet or Eco-Tech Smart Product Project | Cappuccino Bag | Start Your Custom Outdoor Bag, Wallet or Eco-Tech Smart Product Project | https://www.cappuccinobag.com/inquiry | index, follow |
+| /resources | 200 | Resources & Buyer Guides for Outdoor, Racquet Sports & Travel Bags | Cappuccino Bag | Knowledge Center for Global Bag Buyers | https://www.cappuccinobag.com/resources | index, follow |
 | /custom-pickleball-paddle-bags | 200 | Custom Pickleball Paddle Bags | Cappuccino Bag | Custom Pickleball Paddle Bags | https://www.cappuccinobag.com/custom-pickleball-paddle-bags | index, follow |
 | /custom-tennis-bag-manufacturer | 200 | Custom Tennis Bag Manufacturer | Cappuccino Bag | Custom Tennis Bag Manufacturer | https://www.cappuccinobag.com/custom-tennis-bag-manufacturer | index, follow |
 | /custom-outdoor-sports-bag-manufacturer | 200 | Custom Outdoor Sports Bag Manufacturer | Cappuccino Bag | Custom Outdoor Sports Bag Manufacturer | https://www.cappuccinobag.com/custom-outdoor-sports-bag-manufacturer | index, follow |
@@ -93,6 +103,7 @@ Generated: 2026-08-01T20:06:50.370Z
 | /padel-accessories/custom-ventilated-padel-shoe-bag | 200 | Custom Padel Shoe Bag | Ventilated Private Label OEM | Custom Ventilated Padel Shoe Bag with Wipe-Clean Lining & Reinforced Base | https://www.cappuccinobag.com/padel-accessories/custom-ventilated-padel-shoe-bag | index, follow |
 | /padel-accessories/custom-padel-organizer-pouch | 200 | Custom Padel Accessories Pouch | Private Label OEM | Custom Padel Accessories Organizer Pouch for Grips, Tech & Court Essentials | https://www.cappuccinobag.com/padel-accessories/custom-padel-organizer-pouch | index, follow |
 | /products/padel-work-tote-backpack-pdb001 | 200 | Lightweight Padel Work Tote Backpack | OEM Manufacturer | Custom Lightweight Padel Work Tote Backpack with Laptop & Racket Compartment | https://www.cappuccinobag.com/products/padel-work-tote-backpack-pdb001 | index, follow |
+| /padel-bags/hybrid-lifestyle-series-2026 | 200 | Custom Lightweight Padel Tote, Commuter & Travel Bags | Cappuccino Bag | Custom Padel Hybrid Lifestyle Bags for Work, Club and Travel | https://www.cappuccinobag.com/padel-bags/hybrid-lifestyle-series-2026 | index, follow |
 | /blog/how-to-choose-office-to-court-padel-bag | 200 | How to Choose an Office-to-Court Padel Bag | Cappuccino Bag | How to Choose an Office-to-Court Padel Bag | https://www.cappuccinobag.com/blog/how-to-choose-office-to-court-padel-bag | index, follow |
 | /blog/multi-pocket-organization-padel-commuter-bag | 200 | Why Multi-Pocket Organization Matters in a Padel Commuter Bag | Cappuccino Bag | Why Multi-Pocket Organization Matters in a Padel Commuter Bag | https://www.cappuccinobag.com/blog/multi-pocket-organization-padel-commuter-bag | index, follow |
 | /blog/recycled-water-resistant-fabrics-custom-padel-bags | 200 | Recycled Water-Resistant Fabrics for Custom Padel Bags | Cappuccino Bag | Recycled Water-Resistant Fabrics for Custom Padel Bags | https://www.cappuccinobag.com/blog/recycled-water-resistant-fabrics-custom-padel-bags | index, follow |
@@ -106,6 +117,9 @@ Generated: 2026-08-01T20:06:50.370Z
 | /running-guides | 200 | Running Belt OEM Buyer Guides | Cappuccino Bag | Running Belt OEM Development Guides | https://www.cappuccinobag.com/running-guides | index, follow |
 | /pet-travel-bags | 200 | Custom Pet Travel Bag Manufacturer | Cappuccino Bag | Custom Pet Travel Bag Manufacturer | https://www.cappuccinobag.com/pet-travel-bags | index, follow |
 | /pet-travel-guides | 200 | Pet Travel Bag OEM Buyer Guides | Cappuccino Bag | Pet Travel Bag OEM Buyer Guides | https://www.cappuccinobag.com/pet-travel-guides | index, follow |
+| /card-holders | 200 | Custom Card Holder Manufacturer | Cappuccino Bag | Custom Card Holder Manufacturer for Private-Label Projects | https://www.cappuccinobag.com/card-holders | index, follow |
+| /rfid-card-holder-manufacturer | 200 | RFID Card Holder Manufacturer | Custom OEM Wallets | RFID Card Holder Manufacturer | https://www.cappuccinobag.com/rfid-card-holder-manufacturer | index, follow |
+| /custom-leather-card-holder | 200 | Custom Leather Card Holder Manufacturer | OEM Factory | Custom Leather Card Holder Manufacturer | https://www.cappuccinobag.com/custom-leather-card-holder | index, follow |
 | /custom-waterproof-adventure-duffel | 200 | Custom 40L/70L Waterproof Adventure Duffel | OEM Manufacturer | 40L/70L Waterproof Adventure Duffel | https://www.cappuccinobag.com/custom-waterproof-adventure-duffel | index, follow |
 | /custom-waterproof-wheeled-gear-bag | 200 | Custom 40L/90L Waterproof Wheeled Gear Bag | OEM Factory | 40L/90L Waterproof Wheeled Gear Bag | https://www.cappuccinobag.com/custom-waterproof-wheeled-gear-bag | index, follow |
 | /custom-insulated-cooler-backpack | 200 | Custom Insulated Outdoor Cooler Backpack | OEM/ODM Factory | Insulated Outdoor Cooler Backpack | https://www.cappuccinobag.com/custom-insulated-cooler-backpack | index, follow |
@@ -119,6 +133,7 @@ Generated: 2026-08-01T20:06:50.370Z
 | /vegan-leather-tech-accessories-manufacturer | 200 | Vegan Leather Tech Accessories Manufacturer | Cappuccino Bag | Vegan Leather Tech Accessories Manufacturer | https://www.cappuccinobag.com/vegan-leather-tech-accessories-manufacturer | index, follow |
 | /custom-cardholder-manufacturer | 200 | Custom Cardholder Manufacturer | Cappuccino Bag | Custom Cardholder Manufacturer | https://www.cappuccinobag.com/custom-cardholder-manufacturer | index, follow |
 | /rfid-wallets-passport-holders | 200 | RFID Wallets & Passport Holders | Cappuccino Bag | RFID Wallets & Passport Holders | https://www.cappuccinobag.com/rfid-wallets-passport-holders | index, follow |
+| /rfid-wallet-passport-holder-manufacturer | 200 | RFID Wallet & Passport Holder Manufacturer | OEM Card Holder & Travel Accessory Factory | RFID Wallets, Passport Holders & Card Holders | https://www.cappuccinobag.com/rfid-wallet-passport-holder-manufacturer | index, follow |
 | /hotel-group-custom-bag-project-guide | 200 | Hotel Group Custom Bag Project Guide | OEM Travel, Staff & Guest Bag Manufacturing | Hotel Group Custom Bag Project Guide | https://www.cappuccinobag.com/hotel-group-custom-bag-project-guide | index, follow |
 | /padel-brand-collection-development | 200 | Complete Padel Bag Collection Development | OEM/ODM Manufacturer | Build a Complete Padel Bag Collection for Your Brand | https://www.cappuccinobag.com/padel-brand-collection-development | index, follow |
 | /factory-trust-materials | 200 | Factory Proof: Manufacturing Video, Compliance & Quality | Cappuccino Bag | Factory Proof: Craftsmanship, Compliance & Quality | https://www.cappuccinobag.com/factory-trust-materials | index, follow |
@@ -135,6 +150,17 @@ Generated: 2026-08-01T20:06:50.370Z
 | /blog/verify-custom-bag-manufacturer-china | 200 | How to Verify a Custom Bag Manufacturer in China | Cappuccino | What Buyers Can Verify Before Choosing a Custom Bag Manufacturer | https://www.cappuccinobag.com/blog/verify-custom-bag-manufacturer-china | index, follow |
 | /blog/custom-bag-development-quality-control-process | 200 | Custom Bag Development & Quality Control Process | Cappuccino | From Brief to Bulk Order: How We Control Custom Bag Development | https://www.cappuccinobag.com/blog/custom-bag-development-quality-control-process | index, follow |
 | /blog/bag-manufacturer-compliance-documents-explained | 200 | BSCI, RoHS & LUCID Documents Explained for Bag Buyers | What Our Compliance Documents Actually Mean for Bag Buyers | https://www.cappuccinobag.com/blog/bag-manufacturer-compliance-documents-explained | index, follow |
+| /products/womens-lightweight-padel-tote-pdb014 | 200 | Women’s Lightweight Padel Tote PDB014 | Cappuccino Bag | Custom Women’s Lightweight Padel Tote Bag with Laptop Sleeve & Curved Racket Compartment | https://www.cappuccinobag.com/products/womens-lightweight-padel-tote-pdb014 | index, follow |
+| /products/work-court-padel-commuter-tote-pdb015 | 200 | Work-to-Court Padel Commuter Tote PDB015 | Cappuccino Bag | Custom Work-to-Court Padel Commuter Tote with 15-Inch Laptop Sleeve | https://www.cappuccinobag.com/products/work-court-padel-commuter-tote-pdb015 | index, follow |
+| /products/weekend-padel-carryall-pdb016 | 200 | Weekend Padel Carryall PDB016 | Cappuccino Bag | Custom Large-Capacity Weekend Padel Carryall with Laptop and Racket Compartments | https://www.cappuccinobag.com/products/weekend-padel-carryall-pdb016 | index, follow |
+| /products/travel-padel-utility-backpack-pdb017 | 200 | Travel Padel Utility Backpack PDB017 | Cappuccino Bag | Custom Travel Padel Backpack with Laptop Sleeve, Racket and Shoe Compartment | https://www.cappuccinobag.com/products/travel-padel-utility-backpack-pdb017 | index, follow |
+| /blog/from-desk-to-court-cappuccino-padel-collection | 200 | From Desk to Court: The Cappuccino Padel Hybrid Collection Story | Cappuccino Bag | From Desk to Court: The Cappuccino Padel Hybrid Collection Story | https://www.cappuccinobag.com/blog/from-desk-to-court-cappuccino-padel-collection | index, follow |
+| /blog/work-to-court-padel-bags | 200 | Work-to-Court Padel Bags: Building a Lifestyle-Led Product Range | Cappuccino Bag | Work-to-Court Padel Bags: Building a Lifestyle-Led Product Range | https://www.cappuccinobag.com/blog/work-to-court-padel-bags | index, follow |
+| /blog/choosing-the-right-padel-bag-style | 200 | How to Choose the Right Hybrid Padel Bag Style for Your Brand | Cappuccino Bag | How to Choose the Right Hybrid Padel Bag Style for Your Brand | https://www.cappuccinobag.com/blog/choosing-the-right-padel-bag-style | index, follow |
+| /blog/recycled-water-resistant-materials-padel-bags | 200 | Selecting Recycled and Water-Resistant Materials for Hybrid Padel Bags | Cappuccino Bag | Selecting Recycled and Water-Resistant Materials for Hybrid Padel Bags | https://www.cappuccinobag.com/blog/recycled-water-resistant-materials-padel-bags | index, follow |
+| /blog/why-3-in-1-tech-gift-sets-are-popular-for-corporate-promotions | 200 | Why 3-in-1 Tech Gift Sets Work for Corporate Promotions | Cappuccino Bag | Why 3-in-1 Tech Gift Sets Are Popular for Corporate Promotions | https://www.cappuccinobag.com/blog/why-3-in-1-tech-gift-sets-are-popular-for-corporate-promotions | index, follow |
+| /blog/how-to-choose-a-branded-backpack-gift-set-for-business-campaigns | 200 | How to Choose a Branded Backpack Gift Set | B2B Buyer Guide | How to Choose a Branded Backpack Gift Set for Business Campaigns | https://www.cappuccinobag.com/blog/how-to-choose-a-branded-backpack-gift-set-for-business-campaigns | index, follow |
+| /blog/one-stop-oem-solution-for-custom-corporate-gift-sets | 200 | One-Stop OEM Solution for Custom Corporate Gift Sets | Cappuccino Bag | One-Stop OEM Solution for Custom Corporate Gift Sets | https://www.cappuccinobag.com/blog/one-stop-oem-solution-for-custom-corporate-gift-sets | index, follow |
 | /running-waist-packs/performance-running-waist-pack | 200 | Performance Running Waist Pack OEM Manufacturer | Cappuccino Bag | Performance Running Waist Pack OEM/ODM Development | https://www.cappuccinobag.com/running-waist-packs/performance-running-waist-pack | index, follow |
 | /running-waist-packs/hydration-running-belt-500ml | 200 | Hydration Running Belt 500ml OEM Manufacturer | Cappuccino Bag | Hydration Running Belt 500ml OEM/ODM Development | https://www.cappuccinobag.com/running-waist-packs/hydration-running-belt-500ml | index, follow |
 | /running-waist-packs/marathon-race-belt | 200 | Marathon Race Belt OEM Manufacturer | Cappuccino Bag | Marathon Race Belt OEM/ODM Development | https://www.cappuccinobag.com/running-waist-packs/marathon-race-belt | index, follow |
@@ -205,5 +231,11 @@ Generated: 2026-08-01T20:06:50.370Z
 | /pet-travel-guides/build-coordinated-pet-travel-accessories-collection | 200 | Build a Coordinated Pet Travel Accessories Collection | How to Build a Coordinated Pet Travel Accessories Collection | https://www.cappuccinobag.com/pet-travel-guides/build-coordinated-pet-travel-accessories-collection | index, follow |
 | /pet-travel-guides/dog-walking-bag-design-trends-private-label | 200 | Dog Walking Bag Design Trends for Private Labels | Dog Walking Bag Design Trends for Private-Label Brands | https://www.cappuccinobag.com/pet-travel-guides/dog-walking-bag-design-trends-private-label | index, follow |
 | /pet-travel-guides/questions-ask-pet-bag-manufacturer-before-ordering | 200 | Questions to Ask a Pet Bag Manufacturer | Questions to Ask a Pet Bag Manufacturer Before Ordering | https://www.cappuccinobag.com/pet-travel-guides/questions-ask-pet-bag-manufacturer-before-ordering | index, follow |
-| /rfid-wallet-passport-holder-manufacturer | 200 | RFID Wallet & Passport Holder Manufacturer | OEM Card Holder & Travel Accessory Factory | RFID Wallets, Passport Holders & Card Holders | https://www.cappuccinobag.com/rfid-wallet-passport-holder-manufacturer | index, follow |
-| /resources | 200 | Resources & Buyer Guides for Outdoor, Racquet Sports & Travel Bags | Cappuccino Bag | Knowledge Center for Global Bag Buyers | https://www.cappuccinobag.com/resources | index, follow |
+| /card-holders/full-grain-vegetable-tanned-leather-card-holder | 200 | Full-Grain Leather Card Holder | CAP-CH-001 | Full-Grain Vegetable-Tanned Leather Slim Card Holder | https://www.cappuccinobag.com/card-holders/full-grain-vegetable-tanned-leather-card-holder | index, follow |
+| /card-holders/custom-logo-rfid-genuine-leather-card-holder | 200 | Custom Logo RFID Card Holder | CAP-CH-002 | Custom Logo RFID Genuine Leather Card Holder | https://www.cappuccinobag.com/card-holders/custom-logo-rfid-genuine-leather-card-holder | index, follow |
+| /card-holders/snap-closure-rfid-genuine-leather-card-holder | 200 | Snap-Closure RFID Card Holder | CAP-CH-003 | Snap-Closure RFID Genuine Leather Card Holder | https://www.cappuccinobag.com/card-holders/snap-closure-rfid-genuine-leather-card-holder | index, follow |
+| /card-holders/pull-tab-slim-rfid-leather-card-holder | 200 | Pull-Tab RFID Leather Card Holder | CAP-CH-004 | Pull-Tab Slim RFID Leather Card Holder | https://www.cappuccinobag.com/card-holders/pull-tab-slim-rfid-leather-card-holder | index, follow |
+| /card-holders/cross-grain-cowhide-rfid-id-card-holder | 200 | Cowhide RFID ID Card Holder | CAP-CH-005 | Cross-Grain Cowhide RFID ID Card Holder | https://www.cappuccinobag.com/card-holders/cross-grain-cowhide-rfid-id-card-holder | index, follow |
+| /card-holders/magnetic-money-clip-rfid-leather-card-holder | 200 | RFID Money Clip Card Holder | CAP-CH-006 | Magnetic Money Clip RFID Leather Card Holder | https://www.cappuccinobag.com/card-holders/magnetic-money-clip-rfid-leather-card-holder | index, follow |
+| /card-holders/patterned-leather-slim-card-holder | 200 | Patterned Leather Slim Card Holder | CAP-CH-007 | Patterned Leather Slim Card Holder | https://www.cappuccinobag.com/card-holders/patterned-leather-slim-card-holder | index, follow |
+| /card-holders/custom-printed-rfid-promotional-card-holder | 200 | Custom Printed RFID Card Holder | CAP-CH-008 | Custom Printed RFID Promotional Card Holder | https://www.cappuccinobag.com/card-holders/custom-printed-rfid-promotional-card-holder | index, follow |
