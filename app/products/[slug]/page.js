@@ -190,7 +190,7 @@ export default async function ProductPage({ params }) {
           "@type": "ListItem",
           position: 2,
           name: "Padel Bag Collection",
-          item: `${siteUrl}/custom-padel-bag-manufacturer`,
+          item: `${siteUrl}/racket-sports/padel-bags`,
         },
         { "@type": "ListItem", position: 3, name: product.h1, item: canonical },
       ],
@@ -231,7 +231,7 @@ export default async function ProductPage({ params }) {
       <main className="padel-product-page">
         <nav className="padel-breadcrumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link><span aria-hidden="true">/</span>
-          <Link href="/custom-padel-bag-manufacturer">Padel Collection</Link><span aria-hidden="true">/</span>
+          <Link href="/racket-sports/padel-bags">Padel Collection</Link><span aria-hidden="true">/</span>
           <span>{product.h1}</span>
         </nav>
 
@@ -244,7 +244,7 @@ export default async function ProductPage({ params }) {
               <Link className="btn btn-primary" href={`/inquiry/?product=${encodeURIComponent(product.h1)}`}>
                 Get Factory Review &amp; Sample Quote
               </Link>
-              <Link className="btn btn-secondary" href="/custom-padel-bag-manufacturer">
+              <Link className="btn btn-secondary" href="/racket-sports/padel-bags">
                 View Padel Collection
               </Link>
             </div>

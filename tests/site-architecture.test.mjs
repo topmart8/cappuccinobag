@@ -35,9 +35,41 @@ test("sitemap contains only canonical no-trailing-slash URLs and prioritizes Pad
   assert.ok(!urls.includes("https://www.cappuccinobag.com/custom-tennis-padel-racket-bag-landing"));
   assert.ok(!urls.some((url) => url !== "https://www.cappuccinobag.com/" && url.endsWith("/")));
   const priority = (path) => entries.find((entry) => entry.url.endsWith(path))?.priority;
+  assert.ok(priority("/racket-sports/padel-bags") > priority("/custom-padel-bag-manufacturer"));
+  assert.ok(priority("/custom-padel-bag-manufacturer") > priority("/custom-tennis-padel-racket-bags"));
   assert.ok(priority("/custom-padel-bag-manufacturer") > priority("/running-waist-packs"));
   assert.ok(priority("/running-waist-packs") > priority("/pet-travel-bags"));
   assert.ok(entries.every((entry) => typeof entry.lastModified === "string"));
+});
+
+test("Padel PR B keeps three URLs but assigns distinct search-intent roles", async () => {
+  const [manufacturer, collection, overview, staticSite, products] = await Promise.all([
+    readFile(new URL("../public/site/custom-padel-bag-manufacturer/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../app/racket-sports/padel-bags/page.js", import.meta.url), "utf8"),
+    readFile(new URL("../public/site/custom-tennis-padel-racket-bags/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../app/static-site.js", import.meta.url), "utf8"),
+    readFile(new URL("../app/products/page.js", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(manufacturer, /<title>Custom Padel Bag Manufacturer in China \| OEM\/ODM Factory<\/title>/);
+  assert.match(manufacturer, /<h1>OEM\/ODM Padel Bag Manufacturer in China<\/h1>/);
+  assert.match(manufacturer, /How Buyers Develop Custom Padel Bags With a Manufacturer/);
+  assert.match(manufacturer, /href="\/racket-sports\/padel-bags"/);
+
+  assert.match(collection, /title: "Custom Padel Bags Collection \| Racket Bags, Backpacks & Duffels"/);
+  assert.match(collection, /<h1>Custom Padel Bags: Racket Bags, Backpacks &amp; Duffels<\/h1>/);
+  assert.match(collection, /What Types of Custom Padel Bags Can Brands Develop\?/);
+  assert.match(collection, /href="\/custom-padel-bag-manufacturer"/);
+
+  assert.match(overview, /<title>Racquet Sports Bag Guide \| Tennis, Padel &amp; Pickleball<\/title>/);
+  assert.match(overview, /<h1>Racquet Sports Bags: Tennis, Padel &amp; Pickleball<\/h1>/);
+  assert.match(overview, /What is different about padel, tennis and pickleball bag design\?/);
+  assert.match(overview, /href="\/racket-sports\/padel-bags"/);
+  assert.match(overview, /href="\/custom-padel-bag-manufacturer"/);
+
+  assert.match(products, /name: "Padel Bags", href: "\/racket-sports\/padel-bags"/);
+  assert.match(staticSite, /href="\/racket-sports\/padel-bags">Explore Padel Bags<\/a>/);
+  assert.doesNotMatch(staticSite, /id="padel-collection-2026-products"/);
 });
 
 test("confirmed shadow and legacy landing routes redirect permanently", async () => {

@@ -74,11 +74,11 @@ export async function PadelProductPage({ params, categorySlug }) {
   const categoryUrl =
     product.categorySlug === "padel-accessories"
       ? `${siteUrl}/padel-accessories`
-      : `${siteUrl}/custom-padel-bag-manufacturer`;
+      : `${siteUrl}/racket-sports/padel-bags`;
   const categoryHref =
     product.categorySlug === "padel-accessories"
       ? "/padel-accessories/"
-      : "/custom-padel-bag-manufacturer/";
+      : "/racket-sports/padel-bags";
   const relatedProducts = padelProductEntries.filter(
     (related) => related.sku !== product.sku,
   );

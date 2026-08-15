@@ -165,7 +165,7 @@ const schemas = [
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-      { "@type": "ListItem", position: 2, name: "Padel Bags", item: `${siteUrl}/custom-padel-bag-manufacturer` },
+      { "@type": "ListItem", position: 2, name: "Padel Bags", item: `${siteUrl}/racket-sports/padel-bags` },
       { "@type": "ListItem", position: 3, name: "PDB001 Padel Work Tote Backpack", item: canonical },
     ],
   },
@@ -185,7 +185,7 @@ export default function Pdb001ProductPage() {
       <main className="pdb001-page">
         <nav className="padel-breadcrumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link><span aria-hidden="true">/</span>
-          <Link href="/custom-padel-bag-manufacturer">Padel Bags</Link><span aria-hidden="true">/</span>
+          <Link href="/racket-sports/padel-bags">Padel Bags</Link><span aria-hidden="true">/</span>
           <span>PDB001 Padel Work Tote Backpack</span>
         </nav>
 
