@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 import sitemap from "../app/sitemap.js";
+import nextConfig from "../next.config.mjs";
 import {
   footerNavigation,
   moreCollectionsNavigation,
@@ -27,12 +28,74 @@ test("sitemap contains only canonical no-trailing-slash URLs and prioritizes Pad
   assert.equal(new Set(urls).size, urls.length);
   assert.ok(urls.includes("https://www.cappuccinobag.com/custom-padel-bag-manufacturer"));
   assert.ok(urls.includes("https://www.cappuccinobag.com/products"));
+  assert.ok(urls.includes("https://www.cappuccinobag.com/resources"));
+  assert.ok(urls.includes("https://www.cappuccinobag.com/rfid-wallet-passport-holder-manufacturer"));
   assert.ok(!urls.includes("https://www.cappuccinobag.com/custom-padel-bags.html"));
+  assert.ok(!urls.includes("https://www.cappuccinobag.com/custom-outdoor-sports-travel-bags"));
+  assert.ok(!urls.includes("https://www.cappuccinobag.com/custom-tennis-padel-racket-bag-landing"));
   assert.ok(!urls.some((url) => url !== "https://www.cappuccinobag.com/" && url.endsWith("/")));
   const priority = (path) => entries.find((entry) => entry.url.endsWith(path))?.priority;
   assert.ok(priority("/custom-padel-bag-manufacturer") > priority("/running-waist-packs"));
   assert.ok(priority("/running-waist-packs") > priority("/pet-travel-bags"));
   assert.ok(entries.every((entry) => typeof entry.lastModified === "string"));
+});
+
+test("confirmed shadow and legacy landing routes redirect permanently", async () => {
+  const redirects = await nextConfig.redirects();
+  for (const [source, destination] of [
+    ["/custom-outdoor-sports-travel-bags", "/custom-outdoor-sports-bag-manufacturer"],
+    ["/custom-tennis-padel-racket-bag-landing", "/custom-tennis-padel-racket-bags"],
+  ]) {
+    for (const variant of [source, `${source}/`]) {
+      assert.deepEqual(
+        redirects.find((redirect) => redirect.source === variant),
+        { source: variant, destination, statusCode: 301 },
+      );
+    }
+  }
+});
+
+test("site fonts are self-hosted by Next without a Google Fonts CSS request", async () => {
+  const [layout, globalStyles, staticStyles] = await Promise.all([
+    readFile(new URL("../app/layout.js", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+    readFile(new URL("../public/site/assets/styles.css", import.meta.url), "utf8"),
+  ]);
+  assert.match(layout, /from "next\/font\/google"/);
+  assert.match(layout, /--font-inter/);
+  assert.match(layout, /--font-montserrat/);
+  assert.match(globalStyles, /var\(--font-inter\)/);
+  assert.match(staticStyles, /var\(--font-montserrat\)/);
+  assert.doesNotMatch(staticStyles, /fonts\.googleapis\.com|fonts\.gstatic\.com/);
+});
+
+test("audited static pages link directly to the canonical inquiry route", async () => {
+  const pages = [
+    "custom-gym-duffel-bag-landing",
+    "custom-hiking-daypack-landing",
+    "custom-insulated-cooler-backpack",
+    "custom-outdoor-sports-bag-manufacturer",
+    "custom-pickleball-bag-landing",
+    "custom-rfid-wallet-card-holder-landing",
+    "custom-rfid-wallet-manufacturer",
+    "custom-tennis-bag-manufacturer",
+    "custom-tennis-padel-racket-bags",
+    "custom-travel-backpacks-weekender-bags",
+    "custom-travel-weekender-bag-landing",
+    "custom-waterproof-adventure-duffel",
+    "custom-waterproof-wheeled-gear-bag",
+    "gps-trackable-smart-bag-landing",
+    "hotel-group-custom-bag-project-guide",
+    "recycled-eco-tech-bag-landing",
+    "recycled-material-bags",
+    "rfid-wallet-passport-holder-manufacturer",
+  ];
+  const sources = await Promise.all(pages.map((page) => readFile(
+    new URL(`../public/site/${page}/index.html`, import.meta.url),
+    "utf8",
+  )));
+  assert.ok(sources.every((source) => !/(?:\.\.\/|\/)inquiry\//.test(source)));
+  assert.ok(sources.every((source) => source.includes("/inquiry")));
 });
 
 test("inquiry compatibility keeps legacy product fields and three collection presets", async () => {

@@ -13,7 +13,7 @@ const productLinks = [
 const manufacturingLinks = [
   ["Custom Bag Manufacturing", "/oem-odm-bag-manufacturer"],
   ["Factory Proof", "/factory-trust-materials"],
-  ["Quality Control", "/resources/quality-inspection-guide"],
+  ["Quality Control", "/quality-inspection-guide"],
 ];
 
 function Caret() {

@@ -1,7 +1,20 @@
 import "./globals.css";
+import { Inter, Montserrat } from "next/font/google";
 import BrandWhatsAppButton from "../components/BrandWhatsAppButton";
 import AttributionTracker from "../components/AttributionTracker";
 import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-montserrat",
+});
 
 export const metadata = {
   metadataBase: new URL("https://www.cappuccinobag.com"),
@@ -52,7 +65,7 @@ export default function RootLayout({ children }) {
     process.env.VERCEL_ENV === "production"
     && process.env.NEXT_PUBLIC_ANALYTICS_ENABLED !== "false";
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <body>
         <AttributionTracker />
         <AnalyticsProvider

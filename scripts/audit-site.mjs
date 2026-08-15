@@ -23,6 +23,8 @@ const requiredPaths = [
   "/sitemap.xml", "/robots.txt",
 ];
 const legacyRedirects = new Map([
+  ["/custom-outdoor-sports-travel-bags", "/custom-outdoor-sports-bag-manufacturer"],
+  ["/custom-tennis-padel-racket-bag-landing", "/custom-tennis-padel-racket-bags"],
   ["/custom-padel-bags.html", "/custom-padel-bag-manufacturer"],
   ["/custom-pickleball-bags.html", "/custom-pickleball-paddle-bags"],
   ["/custom-pickleball-bag-manufacturer", "/custom-pickleball-paddle-bags"],
@@ -212,6 +214,7 @@ try {
   await writeFile(path.join(process.cwd(), "reports", "site-audit.md"), markdown);
 
   const productionStatus = new Map([
+    ["/custom-outdoor-sports-travel-bags", 200], ["/custom-tennis-padel-racket-bag-landing", 200],
     ["/custom-padel-bags.html", 200], ["/custom-pickleball-bags.html", 200],
     ["/custom-pickleball-bag-manufacturer", 200], ["/custom-tennis-bags.html", 200],
     ["/custom-hiking-backpacks.html", 200], ["/custom-hiking-backpack-manufacturer", 200],

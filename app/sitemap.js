@@ -21,6 +21,7 @@ const routes = [
   { path: "/noeve-vegan-beauty-accessory", priority: 0.84, updated: "2026-08-09" },
   { path: "/kitty-couture-rhinestone-handbag", priority: 0.84, updated: "2026-08-09" },
   { path: "/inquiry", priority: 0.9 },
+  { path: "/resources", priority: 0.82, updated: "2026-08-16" },
   { path: "/custom-pickleball-paddle-bags", priority: 0.9 },
   { path: "/custom-tennis-bag-manufacturer", priority: 0.9 },
   { path: "/custom-outdoor-sports-bag-manufacturer", priority: 0.88 },
@@ -81,6 +82,7 @@ const routes = [
   { path: "/vegan-leather-tech-accessories-manufacturer/", priority: 0.86 },
   { path: "/custom-cardholder-manufacturer/", priority: 0.9 },
   { path: "/rfid-wallets-passport-holders/", priority: 0.88 },
+  { path: "/rfid-wallet-passport-holder-manufacturer", priority: 0.9, updated: "2026-08-16" },
   { path: "/hotel-group-custom-bag-project-guide/", priority: 0.88 },
   { path: "/custom-padel-bags.html", priority: 0.9 },
   { path: "/padel-brand-collection-development/", priority: 0.9 },
@@ -124,6 +126,8 @@ export default function sitemap() {
     ...cardHolderProducts.map((product) => ({ path: product.href, priority: 0.92, updated: "2026-08-09" })),
   ];
   const redirectedPaths = new Set([
+    "/custom-outdoor-sports-travel-bags",
+    "/custom-tennis-padel-racket-bag-landing",
     "/custom-padel-bags.html",
     "/custom-pickleball-bags.html",
     "/custom-pickleball-bag-manufacturer",
