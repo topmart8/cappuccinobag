@@ -7,15 +7,15 @@
 - Production deployment: `dpl_CgycbK43yejtn3izR6be54R5TMaS`
 - Audit crawl timestamp: `2026-08-15T16:35:44Z`
 
-## Included fixes
+## Fix matrix
 
-| Finding | Production evidence | Implementation | Risk | Verification |
-| --- | --- | --- | --- | --- |
-| Outdoor shadow URL is indexable with a canonical pointing elsewhere | `/custom-outdoor-sports-travel-bags` returns 200 and canonicalizes to `/custom-outdoor-sports-bag-manufacturer` | Permanent redirect to the canonical URL | Low | Redirect config test and build |
-| Legacy Tennis/Padel landing duplicates the retained overview | `/custom-tennis-padel-racket-bag-landing` and `/custom-tennis-padel-racket-bags` both return 200 and are self-canonical; audit body similarity is 0.8336 | Permanent redirect from the legacy landing to the retained overview; no Padel copy changes | Low | Redirect config test and build |
-| Two approved indexable pages are absent from the sitemap | `/resources` and `/rfid-wallet-passport-holder-manufacturer` return 200 | Add only these two approved URLs | Low | Sitemap unit test and generated sitemap inspection |
-| Audited internal links incur a trailing-slash redirect | Audit reports 36 Cappuccino links from `/inquiry/` to `/inquiry` through a 308 | Normalize only the audited static-page inquiry links while preserving query strings and fragments | Low | Static-source link test and audit |
-| Google Fonts stylesheet is blocked by the current CSP | `public/site/assets/styles.css` imports `fonts.googleapis.com` while CSP allows only self-hosted fonts | Use `next/font` variables and remove the external stylesheet import | Low | Unit test, build, browser console and visual checks |
+| Issue | Site | URL | Current state | Planned fix | Source file | Risk | Validation |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Canonical shadow URL | Cappuccino | `/custom-outdoor-sports-travel-bags` → `/custom-outdoor-sports-bag-manufacturer` | Source returns 200 and canonicalizes to another indexable URL | 301 both slash variants to the canonical URL and update the Pet Travel internal link | `next.config.mjs`; `app/sitemap.js`; `app/pet-travel-bags/page.js` | Low | Redirect unit test; final crawl reports 301 to the intended target and no internal redirect |
+| Duplicate legacy Tennis/Padel route | Cappuccino | `/custom-tennis-padel-racket-bag-landing` → `/custom-tennis-padel-racket-bags` | Both return 200 and are self-canonical; audit body similarity is 0.8336 | 301 both slash variants and update the Resources link; no Padel copy change | `next.config.mjs`; `app/sitemap.js`; `public/site/resources/index.html` | Low | Redirect unit test; final crawl reports 301 to the intended target and no internal redirect |
+| Approved sitemap omissions | Cappuccino | `/resources`; `/rfid-wallet-passport-holder-manufacturer` | Both return 200, are indexable and canonical, but were absent from the 173-URL Production sitemap | Add only these two owner-approved URLs | `app/sitemap.js` | Low | Sitemap unit test; final sitemap contains both as 200 canonical URLs and has 175 URLs total |
+| Redirected internal links | Cappuccino | 36 audited internal targets, including `/inquiry/`, `/inquiry/?product=…`, `/inquiry/#upload-design`, `/resources/quality-inspection-guide`, and the two route sources above | Links resolve through 301/308 instead of directly to their final targets | Normalize the audited static inquiry links and three remaining canonical source links | 18 audited `public/site/*/index.html` files; `app/pet-travel-bags/page.js`; `app/racket-sports/padel-bags/PadelHeader.jsx`; `public/site/resources/index.html` | Low | Static-source unit test; final crawl reports 0 redirected internal targets |
+| Google Fonts/CSP conflict | Cappuccino | Site-wide static pages, confirmed on `/custom-padel-bag-manufacturer` | Static CSS requests `fonts.googleapis.com`, while CSP permits only self-hosted font/style resources | Use `next/font` variables, preserve Inter/Montserrat intent, and remove external stylesheet import | `app/layout.js`; `app/globals.css`; `public/site/assets/styles.css` | Low | Unit test, lint, build, source scan, desktop/mobile computed-font and console checks |
 
 ## Confirmed no-change and deferred items
 
@@ -45,3 +45,15 @@
 - Final crawl failures: 0 non-200 sitemap URLs, 0 broken internal links, 0 redirected internal links, 0 broken images, 0 redirect errors, 0 invalid or duplicate canonicals, 0 schema parse errors, and 0 FAQ/schema mismatches.
 - Browser QA: desktop 1440×900 and mobile 390×844 loaded without horizontal overflow, framework error overlays, or console errors; computed fonts use self-hosted Inter and Montserrat.
 - Existing audit-only navigation-order warnings remain on `/racket-sports/padel-bags` (one desktop and one mobile warning) and are deferred because navigation architecture is not part of PR A.
+
+## Before/after audit summary
+
+| Check | Production before | Branch after |
+| --- | ---: | ---: |
+| P0 findings | 0 | 0 |
+| Broken internal links | 0 | 0 |
+| Broken images | 0 | 0 |
+| Confirmed canonical conflicts | 1 | 0 |
+| Owner-approved sitemap inconsistencies | 2 | 0 |
+| Confirmed FAQ/schema mismatches | 0 | 0 |
+| Redirected internal link targets | 36 | 0 |
