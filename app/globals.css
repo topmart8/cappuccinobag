@@ -1074,10 +1074,15 @@ img {
   margin: 0 auto;
 }
 
-.home-buyer-grid,
-.home-featured-grid {
+.home-buyer-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.home-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -1129,7 +1134,7 @@ img {
 }
 
 .home-featured-padel {
-  grid-column: span 2;
+  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
   gap: 28px;
@@ -1200,6 +1205,16 @@ img {
 
 .home-project-cta {
   align-items: center;
+}
+
+.inquiry-section.home-project-cta {
+  color: #fffdf7;
+  background: var(--heading);
+}
+
+body:has(#home-hero) .site-footer {
+  color: rgba(255, 253, 247, 0.78);
+  background: var(--dark);
 }
 
 .home-project-actions {

@@ -398,7 +398,7 @@ function extractMetadata(html, slug = []) {
   };
 }
 
-function extractJsonLdScripts(html) {
+function extractJsonLdScripts(html, { excludeFaqPage = false } = {}) {
   return Array.from(
     html.matchAll(
       /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
@@ -409,6 +409,9 @@ function extractJsonLdScripts(html) {
     .map((jsonLd) => {
       try {
         const data = JSON.parse(jsonLd);
+        const visibleSchema = excludeFaqPage && Array.isArray(data["@graph"])
+          ? { ...data, "@graph": data["@graph"].filter((node) => node["@type"] !== "FAQPage") }
+          : data;
         const removeUnsupportedClaims = (value) => {
           if (Array.isArray(value)) return value.map(removeUnsupportedClaims);
           if (!value || typeof value !== "object") return value;
@@ -418,7 +421,7 @@ function extractJsonLdScripts(html) {
               .map(([key, child]) => [key, removeUnsupportedClaims(child)])
           );
         };
-        return JSON.stringify(removeUnsupportedClaims(data));
+        return JSON.stringify(removeUnsupportedClaims(visibleSchema));
       } catch {
         return jsonLd;
       }
@@ -536,7 +539,9 @@ export async function StaticSitePage({ params }) {
   const html = readStaticPage(slug);
   if (!html) notFound();
 
-  const jsonLdScripts = sourceHtml ? extractJsonLdScripts(sourceHtml) : [];
+  const jsonLdScripts = sourceHtml
+    ? extractJsonLdScripts(sourceHtml, { excludeFaqPage: slug.length === 0 })
+    : [];
   const collectionSchema = createCollectionSchema(slug);
   if (collectionSchema) jsonLdScripts.push(collectionSchema);
   const inlineStyles = sourceHtml ? extractInlineStyles(sourceHtml) : [];

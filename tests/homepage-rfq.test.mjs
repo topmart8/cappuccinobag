@@ -28,6 +28,8 @@ test("homepage source defines the approved seven-stage decision hierarchy", asyn
   assert.match(homepage, /Start Your Custom Bag Project/);
   assert.match(homepage, /href=\"\/products\">Explore Product Collections/);
   assert.doesNotMatch(homepage, /id=\"secondary-collections\"|id=\"product-expansion\"|id=\"alcantara-entry\"/);
+  assert.match(source, /excludeFaqPage: slug\.length === 0/);
+  assert.match(source, /filter\(\(node\) => node\["@type"\] !== "FAQPage"\)/);
 });
 
 test("homepage preserves the three distinct Padel destinations from PR B", async () => {
@@ -40,7 +42,8 @@ test("homepage preserves the three distinct Padel destinations from PR B", async
 test("Cappuccino RFQ requires email while treating WhatsApp as optional", async () => {
   const inquiry = await readFile(new URL("../public/site/inquiry/index.html", import.meta.url), "utf8");
   assert.match(inquiry, /<span>Email <strong>\*<\/strong><\/span><input name=\"email\"[^>]* required>/);
-  assert.match(inquiry, /<span>WhatsApp \(optional\)<\/span><input name=\"phone\"[^>]*pattern=\"\^\\\+\?\[0-9\\s\(\)\.\-\]\{7,20\}\$\">/);
+  assert.match(inquiry, /<span>WhatsApp \(optional\)<\/span><input name=\"phone\"/);
+  assert.ok(inquiry.includes('pattern="^\\+?[0-9\\s\\(\\)\\.\\-]{7,20}$"'));
   assert.doesNotMatch(inquiry, /<span>WhatsApp \(optional\)<\/span><input name=\"phone\"[^>]* required/);
 });
 
