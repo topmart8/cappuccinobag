@@ -140,7 +140,6 @@ function readStaticPage(slug = []) {
   rendered = addAlcantaraContextLinks(rendered, pageSlug);
   rendered = addBuyerGuideLinks(rendered, pageSlug);
   rendered = addPadelCollectionEntry(rendered, pageSlug);
-  rendered = addPadelLegacySections(rendered, pageSlug);
   rendered = pageSlug === "" ? addHomePrioritySections(rendered) : rendered;
   return applySharedNavigation(normalizeRenderedLinks(rendered));
 }
@@ -191,7 +190,7 @@ function applySharedNavigation(html) {
 }
 
 function addHomePrioritySections(html) {
-  const featuredPadel = `<section class="padel-home-collection home-priority-section" id="featured-padel"><div class="padel-home-banner"><img src="/images/padel/cappuccino-padel-collection-2026-lifestyle.png" width="1672" height="941" loading="eager" alt="Cappuccino Padel Collection 2026 racket bags, backpack, shoe bag and organizer"><div class="padel-home-banner-copy"><div><p class="eyebrow">Featured Padel Collection</p><h2>Padel Bags First: S001–S004 and PDB001</h2></div><div><p>Develop coordinated padel backpacks, racket duffels, shoe bags, organizers and accessories for clubs, tournaments and court-to-office programs.</p><div class="padel-home-banner-actions"><a class="btn btn-primary" href="/custom-padel-bag-manufacturer">Explore Custom Padel Bags</a><a class="btn btn-secondary" href="/inquiry?product=Padel%20Bags">Start a Padel Bag Project</a></div></div></div></div></section>`;
+  const featuredPadel = `<section class="padel-home-collection home-priority-section" id="featured-padel"><div class="padel-home-banner"><img src="/images/padel/cappuccino-padel-collection-2026-lifestyle.png" width="1672" height="941" loading="eager" alt="Cappuccino Padel Collection 2026 racket bags, backpack, shoe bag and organizer"><div class="padel-home-banner-copy"><div><p class="eyebrow">Featured Padel Collection</p><h2>Padel Bags First: S001–S004 and PDB001</h2></div><div><p>Develop coordinated padel backpacks, racket duffels, shoe bags, organizers and accessories for clubs, tournaments and court-to-office programs.</p><div class="padel-home-banner-actions"><a class="btn btn-primary" href="/racket-sports/padel-bags">Explore Padel Bags</a><a class="btn btn-secondary" href="/inquiry?product=Padel%20Bags">Start a Padel Bag Project</a></div></div></div></div></section>`;
   const core = `<section class="section home-priority-section" id="core-categories"><div class="section-heading"><p class="eyebrow">Core Product Categories</p><h2>Racket Sports, Outdoor and Travel Bag Programs</h2></div><div class="category-chip-grid">${renderLinks(primaryNavigation)}</div></section>`;
   const secondary = `<section class="section home-priority-section" id="secondary-collections"><div class="section-heading"><p class="eyebrow">Secondary Growth Collections</p><h2>Running, Pet Travel and RFID Accessories</h2></div><div class="category-chip-grid">${renderLinks(moreCollectionsNavigation.slice(0, 3))}</div></section>`;
   const materials = `<section class="section home-priority-section" id="material-capabilities"><div class="section-heading"><p class="eyebrow">Material Capabilities</p><h2>Material Options Selected for Each Project</h2><p>Recycled polyester, recycled nylon, vegan leather, apple leather, pineapple-based materials, washable kraft paper, Alcantara and genuine leather can be reviewed against the product brief. Certified or documented material options are subject to the selected supplier, material batch and project requirements.</p></div></section>`;
@@ -199,95 +198,24 @@ function addHomePrioritySections(html) {
   const priority = `${featuredPadel}${core}${secondary}${materials}${process}`;
   return html
     .replace(/<h1>[\s\S]*?<\/h1>/i, "<h1>Custom Padel, Racket Sports &amp; Functional Bag Manufacturer</h1>")
-    .replace(/(<div class="hero-content"><h1>[\s\S]*?<\/h1>)<p>[\s\S]*?<\/p><p>[\s\S]*?<\/p><div class="hero-actions">[\s\S]*?<\/div>/i, '$1<p>OEM/ODM bags for padel, pickleball, tennis, outdoor, travel, running and selected pet-travel programs.</p><div class="hero-actions"><a class="btn btn-primary" href="/inquiry?product=Padel%20Bags">Start a Padel Bag Project</a><a class="btn btn-secondary" href="/custom-padel-bag-manufacturer">Explore Custom Padel Bags</a></div>')
+    .replace(/(<div class="hero-content"><h1>[\s\S]*?<\/h1>)<p>[\s\S]*?<\/p><p>[\s\S]*?<\/p><div class="hero-actions">[\s\S]*?<\/div>/i, '$1<p>OEM/ODM bags for padel, pickleball, tennis, outdoor, travel, running and selected pet-travel programs.</p><div class="hero-actions"><a class="btn btn-primary" href="/inquiry?product=Padel%20Bags">Start a Padel Bag Project</a><a class="btn btn-secondary" href="/custom-padel-bag-manufacturer">Padel Bag Manufacturer</a></div>')
     .replace(/<section class="section" id="collections">[\s\S]*?<\/section>/i, priority);
 }
-
-const padelCollectionCards = [
-  {
-    sku: "PDB014–PDB017",
-    name: "Cappuccino Padel Hybrid Lifestyle Series 2026",
-    category: "New Collection",
-    image:
-      "/images/padel/hybrid-lifestyle-2026/PDB014/PDB014-hero.webp",
-    alt: "Cappuccino PDB014 women’s lightweight padel tote with laptop sleeve and embroidered logo",
-    href: "/padel-bags/hybrid-lifestyle-series-2026",
-  },
-  {
-    sku: "PDB001",
-    name: "Lightweight Padel Work Tote Backpack",
-    category: "New · Padel Bags",
-    image:
-      "/images/padel/PDB001/hero-colors/PDB001-charcoal-grey-main.webp",
-    alt: "Charcoal grey PDB001 lightweight office-to-court padel tote backpack",
-    href: "/products/padel-work-tote-backpack-pdb001",
-  },
-  {
-    sku: "S001",
-    name: "Performance 60L Padel Racket Duffel",
-    category: "Padel Bags",
-    image: "/images/padel/S001/S001-01-main.png",
-    alt: "Custom full-size padel racket duffel bag in graphite and warm stone",
-    href: "/padel-bags/custom-60l-padel-racket-duffel/",
-  },
-  {
-    sku: "S002",
-    name: "Urban 30L Padel Backpack",
-    category: "Padel Bags",
-    image: "/images/padel/S002/S002-01-main.png",
-    alt: "Custom 30L padel backpack in graphite and warm stone",
-    href: "/padel-bags/custom-30l-padel-backpack/",
-  },
-  {
-    sku: "S003",
-    name: "Ventilated Padel Shoe Bag",
-    category: "Padel Accessories",
-    image: "/images/padel/S003/S003-01-main.png",
-    alt: "Custom ventilated padel shoe bag",
-    href: "/padel-accessories/custom-ventilated-padel-shoe-bag/",
-  },
-  {
-    sku: "S004",
-    name: "Court Essentials Organizer Pouch",
-    category: "Padel Accessories",
-    image: "/images/padel/S004/S004-01-main.png",
-    alt: "Custom padel accessories organizer pouch",
-    href: "/padel-accessories/custom-padel-organizer-pouch/",
-  },
-];
 
 function addPadelCollectionEntry(html, pageSlug) {
   if (
     pageSlug !== "custom-padel-bag-manufacturer" ||
-    html.includes('id="padel-collection-2026-products"')
+    html.includes('id="padel-collection-path"')
   ) {
     return html;
   }
 
-  const cards = padelCollectionCards
-    .map(
-      (product) =>
-        `<article class="padel-collection-card"><img src="${product.image}" width="1200" height="1200" loading="lazy" alt="${product.alt}"><div><p class="eyebrow">${product.sku} · ${product.category}</p><h3>${product.name}</h3><a href="${product.href}">View product direction</a></div></article>`,
-    )
-    .join("");
-  const section = `<style>.padel-collection-page{padding-top:118px}.padel-collection-launch{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:76px 0}.padel-collection-hero{overflow:hidden;margin-bottom:42px;border-radius:16px;background:#171411;color:#fff}.padel-collection-hero img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover}.padel-collection-copy{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;padding:34px}.padel-collection-copy h2{margin:0;font-size:clamp(34px,4vw,54px);line-height:1.04}.padel-collection-copy p{margin:0;color:#e7ddd2;line-height:1.75}.padel-collection-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.padel-collection-card{overflow:hidden;background:#fff;border:1px solid #d8ded2;border-radius:14px}.padel-collection-card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#f3f1ec}.padel-collection-card>div{padding:24px}.padel-collection-card h3{margin:7px 0 14px;font-size:26px;line-height:1.12}.padel-collection-card a{color:#6f452d;font-weight:800;text-decoration:underline;text-underline-offset:3px}.padel-collection-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}@media(max-width:760px){.padel-collection-page{padding-top:92px}.padel-collection-launch{width:calc(100% - 28px);padding:54px 0}.padel-collection-copy,.padel-collection-grid{grid-template-columns:1fr}.padel-collection-copy{gap:18px;padding:24px}}</style><section class="padel-collection-launch" id="padel-collection-2026-products"><div class="padel-collection-hero"><img src="/images/padel/cappuccino-padel-collection-2026-studio.png" width="1672" height="941" loading="eager" alt="Cappuccino Padel Collection 2026 studio lineup of coordinated bags and accessories"><div class="padel-collection-copy"><h2>Cappuccino Padel Collection 2026</h2><p>Explore the new PDB014–PDB017 Hybrid Lifestyle Series alongside PDB001 and the core padel range. Final capacity, dimensions, materials, MOQ, price and lead time are confirmed during sampling and quotation.</p></div></div><div class="padel-collection-grid">${cards}</div><div class="padel-collection-links"><a class="btn btn-primary" href="/padel-bags/hybrid-lifestyle-series-2026">Explore Hybrid Lifestyle Series</a><a class="btn btn-secondary" href="/inquiry/?product=Padel%20Bags&amp;format=Padel%20Collection%202026">Request Collection Quote</a></div></section>`;
+  const section = `<style>.padel-manufacturer-page{padding-top:118px}.padel-collection-path{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:54px 0 18px}.padel-collection-path>div{display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;padding:30px;background:#f3efe8;border:1px solid #d8d1c7;border-radius:14px}.padel-collection-path h2{margin:0;font-size:clamp(30px,3.5vw,46px);line-height:1.06}.padel-collection-path p{margin:0 0 20px;line-height:1.7}.padel-collection-path-links{display:flex;flex-wrap:wrap;gap:12px}@media(max-width:760px){.padel-manufacturer-page{padding-top:92px}.padel-collection-path{width:calc(100% - 28px);padding-top:36px}.padel-collection-path>div{grid-template-columns:1fr;gap:16px;padding:24px}}</style><section class="padel-collection-path" id="padel-collection-path"><div><h2>Choose a Padel Bag Format Before Factory Review</h2><div><p>This manufacturer page covers OEM/ODM sourcing, sampling, production and QC. Use the collection hub to compare racket duffels, backpacks, totes, shoe bags and organizers first.</p><div class="padel-collection-path-links"><a class="btn btn-primary" href="/racket-sports/padel-bags">Explore Custom Padel Bags</a><a class="btn btn-secondary" href="/custom-tennis-padel-racket-bags">Compare Racquet Sports Bags</a></div></div></div></section>`;
 
   return html
-    .replace(/<main>/, '<main class="padel-collection-page">')
+    .replace(/<main>/, '<main class="padel-manufacturer-page">')
     .replace(/<section class="section">/, `${section}<section class="section">`);
 }
-
-function addPadelLegacySections(html, pageSlug) {
-  if (pageSlug !== "custom-padel-bag-manufacturer" || html.includes('id="padel-legacy-merged"')) return html;
-  const sourcePath = path.join(publicRoot, "custom-padel-bags.html");
-  if (!fs.existsSync(sourcePath)) return html;
-  const legacy = fs.readFileSync(sourcePath, "utf8");
-  const merged = legacy.match(/<section class="proof">([\s\S]*?)<section class="rfq">/i)?.[0]
-    ?.replace(/<section class="rfq">[\s\S]*$/i, "")
-    ?.replace('<section class="proof">', '<section class="proof" id="padel-legacy-merged">');
-  return merged ? html.replace(/<\/main>/i, `${normalizeHtml(merged)}</main>`) : html;
-}
-
 const productExpansionCards = {
   adventure: `<article class="expansion-card"><img src="/site/assets/cappuccino-waterproof-adventure-duffel-concept.webp" width="1200" height="800" loading="lazy" alt="Original waterproof adventure duffel concept"><div><p class="eyebrow">40L / 70L</p><h3>Waterproof Adventure Duffel</h3><p>Coated material options, wet/dry separation, a reinforced base and removable backpack straps.</p><a href="/custom-waterproof-adventure-duffel/">Explore the adventure duffel</a></div></article>`,
   wheeled: `<article class="expansion-card"><img src="/site/assets/cappuccino-waterproof-wheeled-gear-bag-concept.webp" width="1200" height="800" loading="lazy" alt="Original waterproof wheeled gear bag concepts"><div><p class="eyebrow">40L / 90L</p><h3>Waterproof Wheeled Gear Bag</h3><p>Reinforced wheels, pull-handle development and separated wet or dirty equipment storage.</p><a href="/custom-waterproof-wheeled-gear-bag/">Explore the wheeled gear bag</a></div></article>`,
@@ -500,7 +428,6 @@ function extractJsonLdScripts(html) {
 }
 
 const collectionSchemaNames = new Map([
-  ["custom-padel-bag-manufacturer", "Custom Padel Bags"],
   ["custom-pickleball-paddle-bags", "Custom Pickleball Bags"],
   ["custom-tennis-bag-manufacturer", "Custom Tennis Bags"],
   ["custom-tennis-padel-racket-bags", "Custom Racket Sports Bags"],

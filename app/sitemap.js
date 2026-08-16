@@ -11,8 +11,8 @@ const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
   { path: "/", priority: 1.0 },
-  { path: "/custom-padel-bag-manufacturer", priority: 0.95 },
-  { path: "/racket-sports/padel-bags", priority: 0.98, updated: "2026-08-12" },
+  { path: "/custom-padel-bag-manufacturer", priority: 0.95, updated: "2026-08-16" },
+  { path: "/racket-sports/padel-bags", priority: 0.98, updated: "2026-08-16" },
   { path: "/products", priority: 0.9 },
   { path: "/corporate-tech-gift-solutions", priority: 0.92, updated: "2026-08-13" },
   { path: techGiftProductPath, priority: 0.95, updated: "2026-08-13" },
@@ -38,7 +38,7 @@ const routes = [
   { path: "/faq/", priority: 0.86 },
   { path: "/blog/company-bio/", priority: 0.75 },
   { path: "/oem-odm-functional-bag-manufacturer-faq/", priority: 0.9 },
-  { path: "/custom-tennis-padel-racket-bags/", priority: 0.95 },
+  { path: "/custom-tennis-padel-racket-bags/", priority: 0.88, updated: "2026-08-16" },
   { path: "/custom-convertible-padel-backpack-duffel/", priority: 0.94 },
   { path: "/products/custom-padel-backpack-racket-compartment", priority: 0.94 },
   { path: "/products/premium-padel-racket-bag", priority: 0.94 },
@@ -150,6 +150,7 @@ export default function sitemap() {
   const priorityOverrides = new Map([
     ["/racket-sports/padel-bags", 0.98],
     ["/custom-padel-bag-manufacturer", 0.95],
+    ["/custom-tennis-padel-racket-bags", 0.88],
     ["/inquiry", 0.9],
     ["/custom-pickleball-paddle-bags", 0.9],
     ["/custom-tennis-bag-manufacturer", 0.9],

@@ -10,12 +10,12 @@ const pagePath = "/racket-sports/padel-bags";
 const imageBase = "/images/padel-bags";
 
 export const metadata = {
-  title: "Custom Padel Bag Manufacturer | OEM Padel Racket Bags",
-  description: "OEM/ODM custom padel bags for European and North American sports brands, with private-label branding, material development, sampling, QC and scalable production.",
+  title: "Custom Padel Bags Collection | Racket Bags, Backpacks & Duffels",
+  description: "Explore custom padel racket bags, backpacks, duffels, totes and shoe bags. Compare storage, carry systems, materials and private-label design options.",
   alternates: { canonical: `${siteUrl}${pagePath}` },
   openGraph: {
-    title: "Custom Padel Bag Manufacturer | OEM Padel Racket Bags",
-    description: "OEM/ODM custom padel bags for European and North American sports brands, from entry launch programs to premium racket duffels.",
+    title: "Custom Padel Bags Collection | Racket Bags, Backpacks & Duffels",
+    description: "Compare custom padel bag formats, storage layouts, carry systems and private-label design options for a focused product range.",
     url: `${siteUrl}${pagePath}`,
     type: "website",
     images: [{
@@ -27,8 +27,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Padel Bag Manufacturer | OEM Padel Racket Bags",
-    description: "OEM/ODM custom padel bag programs for growing sports brands.",
+    title: "Custom Padel Bags Collection | Racket Bags, Backpacks & Duffels",
+    description: "Explore custom padel bag formats and shortlist a product direction for your brand.",
     images: [`${siteUrl}${imageBase}/02-padel-club-hero-lifestyle.png`],
   },
   robots: { index: true, follow: true },
@@ -36,64 +36,64 @@ export const metadata = {
 
 const faqs = [
   {
-    question: "Can I start with a small padel bag order?",
-    answer: "A smaller starting order may be discussed for a focused design using suitable materials and branding methods. Final MOQ is confirmed after the structure, materials, colour requirements and packaging are reviewed.",
+    question: "What types of custom padel bags can brands develop?",
+    answer: "Brands can develop racket duffels, backpacks, totes, sling bags, shoe bags and organizers. The right format depends on racket capacity, footwear separation, carried accessories, travel needs and the intended retail position.",
   },
   {
-    question: "What customization options are available?",
-    answer: "Options can include fabrics, colours, racket and shoe storage, lining, trims, zipper pulls, carry systems, logo methods, labels and packaging. The available combination is reviewed against the bag construction and production plan.",
+    question: "How should buyers choose between a padel duffel and backpack?",
+    answer: "A duffel supports higher capacity and broad compartment access, while a backpack prioritizes hands-free carry and a more compact profile. Buyers should compare racket count, shoe storage, clothing volume and travel use before shortlisting a format.",
   },
   {
-    question: "How does OEM padel bag development work?",
-    answer: "We review the product brief and target market, confirm materials and construction, develop a prototype, refine the sample and lock the approved specification before bulk production and quality control.",
+    question: "Which compartments are useful in a custom padel racket bag?",
+    answer: "Common choices include protected racket storage, a ventilated shoe section, wet or dry separation, bottle storage, accessory pockets and an optional laptop sleeve. The layout should reflect the buyer's intended player and carry scenario.",
   },
   {
-    question: "What materials can be used for padel bags?",
-    answer: "Common options include 1680D Oxford, recycled polyester, coated nylon, breathable mesh and vegan leather trim. Material selection depends on the target position, structure, colour direction and functional requirements.",
+    question: "What can be customized across a padel bag collection?",
+    answer: "Material, colour, lining, pocket layout, racket and shoe storage, straps, hardware, zipper pulls, logo execution, labels and packaging can be reviewed against the selected format and target market.",
   },
   {
-    question: "How do you control quality before shipment?",
-    answer: "Checks cover incoming materials, construction, logo execution, alignment with the approved sample and final packing. The written specification and approved sample remain the production reference.",
+    question: "How does a product shortlist become an OEM project?",
+    answer: "After choosing a format, buyers can send the intended quantity, target market, functions, material direction, branding and reference images to the padel bag manufacturer for specification, MOQ and sampling review.",
   },
 ];
 
-const partnershipReasons = [
-  ["OEM/ODM development experience", "Turn a design brief, reference sample or early concept into a production-ready direction."],
-  ["Flexible production programs", "Plan the product around the brand's launch stage, specification and approved materials."],
-  ["Material sourcing support", "Compare practical fabric, trim, colour and branding options for the intended market."],
-  ["Quality control", "Use the approved sample and written specification as the reference for production checks."],
-  ["Long-term partnership", "Keep product decisions documented so future colours, formats and range extensions stay consistent."],
+const selectionCriteria = [
+  ["Player load", "List the racket count, shoes, clothing, balls, bottle and accessories the bag must organize."],
+  ["Carry scenario", "Decide whether the buyer needs court-only carry, club travel, commuting or a hybrid lifestyle format."],
+  ["Bag structure", "Compare a high-capacity duffel, compact backpack, tote, sling or supporting accessory."],
+  ["Design language", "Coordinate colour blocking, material hand feel, trims and logo placement across the range."],
+  ["Range logic", "Choose one anchor product and supporting formats instead of repeating the same storage layout."],
 ];
 
 const programs = [
   {
-    name: "Premium Club Series",
+    name: "Padel Racket Duffels",
     image: `${imageBase}/01-premium-padel-duffel-master-product.png`,
     width: 1402,
     height: 1122,
     alt: "Premium black custom padel duffel with racket and shoe storage",
-    buyer: "Established brands requiring premium construction",
-    value: "A refined, high-capacity direction for premium court and travel collections.",
+    buyer: "Players carrying multiple rackets, shoes and clothing",
+    value: "A high-capacity direction with wide access for court, club and tournament travel.",
     features: ["Protected racket storage", "Separate footwear zone", "Structured materials and trims"],
   },
   {
-    name: "Brand Launch Series",
+    name: "Padel Backpacks",
     image: `${imageBase}/08-entry-padel-backpack-50pcs.png`,
     width: 1122,
     height: 1402,
     alt: "Compact black padel backpack for a focused brand launch program",
-    buyer: "New brands testing the market",
-    value: "A focused starting point with controlled options and clear sample approval.",
+    buyer: "Players prioritizing compact hands-free carry",
+    value: "A focused format for racket protection, daily essentials and easier movement between locations.",
     features: ["Streamlined construction", "Core private-label details", "Scalable range planning"],
   },
   {
-    name: "Custom Development",
+    name: "Totes & Hybrid Lifestyle Bags",
     image: `${imageBase}/04-oem-colorways-product-family.png`,
     width: 1536,
     height: 1024,
     alt: "Custom padel bag product family in coordinated OEM colourways",
-    buyer: "Brands with unique designs or special requirements",
-    value: "A specification-led route for a distinctive structure, material story and brand finish.",
+    buyer: "Court-to-office and lifestyle collections",
+    value: "A lighter direction that combines racket storage with work, travel or everyday organization.",
     features: ["Material and trim direction", "Custom storage architecture", "Sample-led specification lock"],
   },
 ];
@@ -107,20 +107,20 @@ const specifications = [
   ["Function", ["Racket sleeves", "Shoe compartment", "Accessory pockets", "Carry configuration"]],
 ];
 
-const processSteps = [
-  ["Design Review", "Review product direction, target market and construction requirements."],
-  ["Material Selection", "Confirm fabrics, trims, hardware and functional requirements."],
-  ["Prototype Development", "Develop samples and refine structure, details and branding."],
-  ["Sample Approval", "Confirm final specifications before production."],
-  ["Bulk Production & QC", "Manufacture according to approved standards and inspect before shipment."],
+const shortlistSteps = [
+  ["Define the use case", "Choose club, tournament, travel, commuter or lifestyle use."],
+  ["Choose the format", "Compare duffel, backpack, tote, sling and accessory directions."],
+  ["Map the storage", "Prioritize rackets, shoes, clothing, bottle, balls, laptop and small items."],
+  ["Set the design direction", "Align materials, colour blocking, trims, carry and branding."],
+  ["Prepare the project brief", "Send the shortlist to the manufacturer for specification and sampling review."],
 ];
 
-const qualityChecks = [
-  ["Material inspection", "Confirm the selected fabrics, trims and hardware before use."],
-  ["Construction checking", "Review stitching, reinforcement, compartments and carry points."],
-  ["Logo approval", "Check placement, scale, colour and execution against approval."],
-  ["Sample confirmation", "Use the approved sample and specification as the production reference."],
-  ["Packing inspection", "Review finished presentation and packing before shipment."],
+const comparisonChecks = [
+  ["Racket fit", "Compare racket count, opening shape, padding and protection placement."],
+  ["Shoe separation", "Decide whether footwear needs ventilation, lining or a removable divider."],
+  ["Carry system", "Review handles, shoulder straps and backpack straps for the intended load."],
+  ["Organization", "Map quick-access pockets, bottle storage, clothing and small accessories."],
+  ["Range extension", "Check whether colours and details can translate into related formats."],
 ];
 
 const manufacturingProof = [
@@ -130,11 +130,12 @@ const manufacturingProof = [
 ];
 
 const relatedLinks = [
+  ["Racquet Sports Bag Overview", "/custom-tennis-padel-racket-bags"],
+  ["Padel Bag Manufacturer", "/custom-padel-bag-manufacturer"],
   ["Tennis Bags", "/custom-tennis-bag-manufacturer"],
   ["Pickleball Bags", "/custom-pickleball-paddle-bags"],
-  ["Outdoor & Hiking", "/custom-outdoor-sports-bag-manufacturer"],
-  ["Travel Bags", "/custom-travel-backpacks-weekender-bags"],
-  ["Custom Bag Manufacturing", "/oem-odm-bag-manufacturer"],
+  ["All Product Collections", "/products"],
+  ["Materials & Factory Proof", "/factory-trust-materials"],
   ["Case Studies", "/case-studies"],
 ];
 
@@ -142,8 +143,8 @@ const schemas = [
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Custom Padel Bags for European and North American Sports Brands",
-    headline: "Your Padel Bag Development Partner",
+    name: "Custom Padel Bags Collection",
+    headline: "Custom Padel Racket Bags, Backpacks, Duffels and Totes",
     description: metadata.description,
     url: `${siteUrl}${pagePath}`,
     isPartOf: { "@type": "WebSite", name: "Cappuccino Bag", url: siteUrl },
@@ -181,11 +182,11 @@ export default function PadelBagsLandingPage() {
             <nav className={styles.breadcrumb} aria-label="Breadcrumb">
               <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/custom-tennis-padel-racket-bags">Racket Sports</Link><span aria-hidden="true">/</span><span>Padel Bags</span>
             </nav>
-            <h1>Your Padel Bag Development Partner</h1>
-            <p>From material direction to an approved production sample, Cappuccino helps sports brands build considered padel bag collections for their market and growth plan.</p>
+            <h1>Custom Padel Bags: Racket Bags, Backpacks &amp; Duffels</h1>
+            <p>Compare padel racket duffels, backpacks, totes, shoe bags and organizers by storage layout, carry system, materials and private-label design potential.</p>
             <div className={styles.actions}>
-              <a className={styles.primaryButton} href="#padel-rfq">Request a Custom Quote</a>
-              <a className={styles.secondaryButton} href="#product-programs">Explore Padel Bag Programs</a>
+              <a className={styles.primaryButton} href="#product-programs">Explore Padel Bag Formats</a>
+              <a className={styles.secondaryButton} href="#padel-rfq">Build a Product Shortlist</a>
             </div>
           </div>
           <div className={styles.heroMedia}>
@@ -196,20 +197,20 @@ export default function PadelBagsLandingPage() {
         <section className={`${styles.section} ${styles.prioritySection}`}>
           <div className={styles.partnershipLayout}>
             <div className={styles.sectionIntro}>
-              <p className={styles.sectionLabel}>A considered manufacturing partnership</p>
-              <h2>Why Brands Work With Cappuccino</h2>
-              <p>Clear decisions at development stage create a stronger product and a more consistent path into production.</p>
+              <p className={styles.sectionLabel}>Answer first</p>
+              <h2>What Types of Custom Padel Bags Can Brands Develop?</h2>
+              <p>Brands can develop racket duffels, backpacks, totes, slings, shoe bags and organizers. Start with the player load and carry scenario, then compare format, compartments and design direction.</p>
             </div>
             <div className={styles.partnershipReasons}>
-              {partnershipReasons.map(([title, description]) => <article key={title}><h3>{title}</h3><p>{description}</p></article>)}
+              {selectionCriteria.map(([title, description]) => <article key={title}><h3>{title}</h3><p>{description}</p></article>)}
             </div>
           </div>
         </section>
 
         <section className={`${styles.section} ${styles.programSection}`} id="product-programs">
           <div className={styles.sectionIntro}>
-            <p className={styles.sectionLabel}>Product programs</p>
-            <h2>Three Ways to Build Your Range</h2>
+            <p className={styles.sectionLabel}>Product discovery</p>
+            <h2>Compare Three Core Padel Bag Formats</h2>
           </div>
           <div className={styles.programGrid}>
             {programs.map((program) => (
@@ -246,9 +247,9 @@ export default function PadelBagsLandingPage() {
         <section className={`${styles.section} ${styles.customSection}`}>
           <div className={styles.customHeading}>
             <div className={styles.sectionIntro}>
-              <p className={styles.sectionLabel}>OEM materials &amp; customization</p>
-              <h2>Build the Product Around Your Brand</h2>
-              <p>Align material, branding and function with the target market before the sample becomes the production reference.</p>
+              <p className={styles.sectionLabel}>Materials &amp; design options</p>
+              <h2>Shape the Collection Around Your Brand</h2>
+              <p>Compare material, branding, colour, storage and carry options after choosing the product format.</p>
             </div>
             <div className={styles.customImages}>
               <Image src={`${imageBase}/05-1680d-material-zipper-detail.png`} width={1402} height={1122} sizes="(max-width: 800px) 100vw, 32vw" alt="1680D Oxford fabric, zipper and trim detail for a custom padel bag" />
@@ -262,22 +263,22 @@ export default function PadelBagsLandingPage() {
 
         <section className={`${styles.section} ${styles.processSection}`}>
           <div className={styles.sectionIntro}>
-            <p className={styles.sectionLabel}>OEM development process</p>
-            <h2>From Concept to Production</h2>
+            <p className={styles.sectionLabel}>Product selection path</p>
+            <h2>From Use Case to a Focused Product Brief</h2>
           </div>
           <ol className={styles.processList}>
-            {processSteps.map(([title, description], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}
+            {shortlistSteps.map(([title, description], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}
           </ol>
         </section>
 
         <section className={`${styles.section} ${styles.manufacturingSection}`}>
           <div className={styles.sectionIntro}>
-            <p className={styles.sectionLabel}>Production confidence</p>
-            <h2>Manufacturing &amp; Quality Control</h2>
-            <p>Practical checks keep materials, construction, branding and packing aligned with the approved product.</p>
+            <p className={styles.sectionLabel}>Format comparison</p>
+            <h2>Details to Compare Before Sampling</h2>
+            <p>Use the product images and checklist to decide which structure deserves a detailed factory review.</p>
           </div>
           <ol className={styles.qualityChecks}>
-            {qualityChecks.map(([title, description], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}
+            {comparisonChecks.map(([title, description], index) => <li key={title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}
           </ol>
           <div className={styles.manufacturingGrid}>
             {manufacturingProof.map(([caption, src, width, height, alt]) => (
@@ -290,15 +291,15 @@ export default function PadelBagsLandingPage() {
         </section>
 
         <section className={`${styles.section} ${styles.relatedSection}`}>
-          <p className={styles.sectionLabel}>Related manufacturing options</p>
-          <nav className={styles.relatedLinks} aria-label="Related manufacturing options">
+          <p className={styles.sectionLabel}>Continue your research</p>
+          <nav className={styles.relatedLinks} aria-label="Related padel and racquet sports pages">
             {relatedLinks.map(([label, href]) => <Link href={href} key={href} prefetch={false}><span>{label}</span><span aria-hidden="true">↗</span></Link>)}
           </nav>
         </section>
 
         <section className={`${styles.section} ${styles.faqSection}`}>
           <div className={styles.sectionIntro}>
-            <h2>Padel Bag Manufacturing FAQ</h2>
+            <h2>Custom Padel Bag Collection FAQ</h2>
           </div>
           <div className={styles.faqList}>
             {faqs.map(({ question, answer }) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}
@@ -307,9 +308,9 @@ export default function PadelBagsLandingPage() {
 
         <section className={`${styles.section} ${styles.rfqSection}`} id="padel-rfq">
           <div className={styles.rfqIntro}>
-            <p className={styles.sectionLabel}>Project RFQ</p>
-            <h2>Start Your Padel Bag Project</h2>
-            <p>Tell us your target quantity, materials, branding method and reference design. We review the construction before confirming MOQ, sampling plan and quotation.</p>
+            <p className={styles.sectionLabel}>Product shortlist</p>
+            <h2>Turn Your Preferred Format Into a Project Brief</h2>
+            <p>Tell us which format, storage layout, carry system and design direction you prefer. For factory capability, MOQ factors, sampling and QC, review the <Link href="/custom-padel-bag-manufacturer">padel bag manufacturer page</Link>.</p>
             <div className={styles.contactLinks}>
               <a href="https://wa.me/8613928715568?text=Hello%20Cappuccino%20Bag.%20I%20need%20an%20OEM%20padel%20bag%20quote." target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a>
               <a href="mailto:info@cappuccinobag.net?subject=OEM%20Padel%20Bag%20RFQ">Email <span aria-hidden="true">↗</span></a>

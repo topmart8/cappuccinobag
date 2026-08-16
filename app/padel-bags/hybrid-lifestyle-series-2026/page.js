@@ -43,7 +43,7 @@ export default function HybridLifestyleCollectionPage() {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${hybridSiteUrl}/` },
-        { "@type": "ListItem", position: 2, name: "Padel Bags", item: `${hybridSiteUrl}/custom-padel-bag-manufacturer` },
+        { "@type": "ListItem", position: 2, name: "Padel Bags", item: `${hybridSiteUrl}/racket-sports/padel-bags` },
         { "@type": "ListItem", position: 3, name: hybridCollection.name, item: canonical },
       ],
     },
@@ -71,7 +71,7 @@ export default function HybridLifestyleCollectionPage() {
       {schemas.map((schema) => <script key={schema["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}
       <SiteHeader />
       <main className="hybrid-page hybrid-collection-page">
-        <nav className="padel-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/custom-padel-bag-manufacturer">Padel Bags</Link><span aria-hidden="true">/</span><span>Hybrid Lifestyle Series 2026</span></nav>
+        <nav className="padel-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/racket-sports/padel-bags">Padel Bags</Link><span aria-hidden="true">/</span><span>Hybrid Lifestyle Series 2026</span></nav>
         <header className="hybrid-collection-hero">
           <p className="eyebrow">Cappuccino Padel · 2026 Collection</p>
           <h1>{hybridCollection.h1}</h1>
@@ -120,7 +120,7 @@ export default function HybridLifestyleCollectionPage() {
 
         <section className="hybrid-section hybrid-proof-section">
           <div className="hybrid-section-heading"><p className="eyebrow">Evidence and development</p><h2>Continue from concept to a verified specification</h2></div>
-          <div className="hybrid-link-row"><Link href="/custom-padel-bag-manufacturer">Main Padel Bag category</Link><Link href="/factory-trust-materials">Factory Proof</Link><Link href="/oem-odm-bag-manufacturer">OEM/ODM</Link><Link href="/inquiry">RFQ</Link></div>
+          <div className="hybrid-link-row"><Link href="/racket-sports/padel-bags">Custom Padel Bag Collection</Link><Link href="/custom-padel-bag-manufacturer">Padel Bag Manufacturer</Link><Link href="/factory-trust-materials">Factory Proof</Link><Link href="/inquiry">RFQ</Link></div>
         </section>
 
         <section className="hybrid-section hybrid-faq-section"><div className="hybrid-section-heading"><p className="eyebrow">Buyer FAQ</p><h2>Concise answers for sourcing decisions</h2></div><div className="padel-faq-list">{collectionFaqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></section>
