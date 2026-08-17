@@ -42,6 +42,27 @@ test("sitemap contains only canonical no-trailing-slash URLs and prioritizes Pad
   assert.ok(entries.every((entry) => typeof entry.lastModified === "string"));
 });
 
+test("C2 sitemap guides contain distinct buyer guidance instead of the legacy template", async () => {
+  const guides = [
+    ["outdoor-multifunctional-bag-manufacturing-guide", "Define the use cases before the feature list"],
+    ["custom-tennis-bag-guide", "Specify racket fit and protection"],
+    ["pickleball-bag-customization-guide", "Start with paddle count and bag format"],
+    ["hiking-backpack-customization-guide", "Map hydration and trail access"],
+    ["quality-inspection-guide", "Define the inspection reference"],
+    ["moq-sampling-faq", "MOQ Factors"],
+  ];
+  const sources = await Promise.all(guides.map(([slug]) => readFile(
+    new URL(`../public/site/${slug}/index.html`, import.meta.url),
+    "utf8",
+  )));
+  for (const [index, [, distinctiveHeading]] of guides.entries()) {
+    assert.match(sources[index], /<main class="c2-guide">/);
+    assert.match(sources[index], new RegExp(distinctiveHeading.replace(/[?]/g, "\\?")));
+    assert.doesNotMatch(sources[index], /planning OEM\/ODM outdoor bags, wallets, RFID products, travel products or eco-tech smart bag projects/);
+    assert.doesNotMatch(sources[index], /<h2>What this guide covers<\/h2>/);
+  }
+});
+
 test("Padel PR B keeps three URLs but assigns distinct search-intent roles", async () => {
   const [manufacturer, collection, overview, staticSite, products] = await Promise.all([
     readFile(new URL("../public/site/custom-padel-bag-manufacturer/index.html", import.meta.url), "utf8"),
