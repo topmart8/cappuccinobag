@@ -63,6 +63,41 @@ test("C2 sitemap guides contain distinct buyer guidance instead of the legacy te
   }
 });
 
+test("legacy batch 2 guides have six distinct buyer roles and keep sitemap status unchanged", async () => {
+  const guides = [
+    ["gps-trackable-bag-guide", "Start with device responsibility", "GPS Trackable Bag Integration Guide"],
+    ["logo-customization-guide", "Match the logo method to the surface", "Bag Logo Customization Guide"],
+    ["mountaineering-backpack-manufacturing-guide", "Define the route, duration and load", "Mountaineering Backpack Manufacturing Guide"],
+    ["outdoor-sports-bag-manufacturing-guide", "Choose a format from the activity", "Outdoor Sports Bag Manufacturing Guide"],
+    ["private-label-packaging-guide", "Define the packaging journey", "Private Label Bag Packaging Guide"],
+    ["travel-bag-luggage-customization-guide", "Describe one complete travel scenario", "Travel Bag &amp; Luggage Customization Guide"],
+  ];
+  const sources = await Promise.all(guides.map(([slug]) => readFile(
+    new URL(`../public/site/${slug}/index.html`, import.meta.url),
+    "utf8",
+  )));
+  const titles = new Set();
+  const descriptions = new Set();
+  for (const [index, [slug, distinctiveHeading, h1]] of guides.entries()) {
+    const source = sources[index];
+    const title = source.match(/<title>([^<]+)<\/title>/)?.[1];
+    const description = source.match(/<meta name="description" content="([^"]+)">/)?.[1];
+    assert.match(source, /<main class="c2-guide">/);
+    assert.match(source, new RegExp(distinctiveHeading));
+    assert.match(source, new RegExp(`<h1>${h1}<\\/h1>`));
+    assert.equal((source.match(/<h1>/g) || []).length, 1);
+    assert.doesNotMatch(source, /planning OEM\/ODM outdoor bags, wallets, RFID products, travel products or eco-tech smart bag projects/);
+    assert.doesNotMatch(source, /<h2>What this guide covers<\/h2>/);
+    assert.ok(title);
+    assert.ok(description);
+    titles.add(title);
+    descriptions.add(description);
+    assert.ok(!sitemap().some((entry) => entry.url.endsWith(`/${slug}`)), `${slug} sitemap status changed`);
+  }
+  assert.equal(titles.size, guides.length);
+  assert.equal(descriptions.size, guides.length);
+});
+
 test("Padel PR B keeps three URLs but assigns distinct search-intent roles", async () => {
   const [manufacturer, collection, overview, staticSite, products] = await Promise.all([
     readFile(new URL("../public/site/custom-padel-bag-manufacturer/index.html", import.meta.url), "utf8"),
