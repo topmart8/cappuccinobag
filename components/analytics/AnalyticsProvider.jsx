@@ -108,7 +108,6 @@ export default function AnalyticsProvider({ enabled, gaId, clarityProjectId }) {
         const dedupeKey = reference || `${formType}:${window.location.pathname}`;
         if (submittedReferences.has(dedupeKey)) return;
         submittedReferences.add(dedupeKey);
-        trackEvent("generate_lead", { form_type: formType, ...params });
         trackEvent(submissionEventFor(formType), { form_type: formType, ...params });
       },
     };
