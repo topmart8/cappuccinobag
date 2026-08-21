@@ -30,6 +30,19 @@ test("analytics source does not allow personal form fields in event parameters",
   }
 });
 
+test("a successful lead emits one deduplicated conversion event", async () => {
+  const source = await readFile(
+    new URL("../components/analytics/AnalyticsProvider.jsx", import.meta.url),
+    "utf8",
+  );
+  const handler = source.match(/trackLeadSuccess\(formType, reference, params = \{\}\) \{[\s\S]*?\n      \}/)?.[0] || "";
+  assert.match(handler, /submittedReferences\.has\(dedupeKey\)/);
+  assert.match(handler, /submittedReferences\.add\(dedupeKey\)/);
+  assert.equal((handler.match(/trackEvent\(/g) || []).length, 1);
+  assert.doesNotMatch(handler, /generate_lead/);
+  assert.match(handler, /submissionEventFor\(formType\)/);
+});
+
 test("lead attribution migration is additive and keeps first-touch columns", async () => {
   const sql = await readFile(
     new URL("../supabase/migrations/20260731_lead_attribution.sql", import.meta.url),

@@ -104,6 +104,8 @@ function preselectInquiryContext(form) {
       product.value = specific?.value || "Pet Travel Bags";
     }
     if (message && format) message.value = `Pet travel product: ${format}\n`;
+    const secondaryFields = form.querySelector(".rfq-secondary");
+    if (secondaryFields) secondaryFields.open = true;
     return;
   }
 
@@ -232,7 +234,7 @@ function initializeInquiryForm(form) {
 
   form.addEventListener("input", (event) => {
     const field = event.target;
-    if (!field.matches("input, textarea")) return;
+    if (!field.matches("input, textarea, select")) return;
     const label = field.closest("label");
     if (!label) return;
     label.classList.remove("is-invalid");
@@ -241,6 +243,7 @@ function initializeInquiryForm(form) {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (form.dataset.submitting === "true") return;
 
     if (form.website && form.website.value) {
       setInquiryStatus(
@@ -252,6 +255,8 @@ function initializeInquiryForm(form) {
     }
 
     if (!validateInquiryForm(form)) return;
+    form.dataset.submitting = "true";
+    form.setAttribute("aria-busy", "true");
 
     const submitButton = form.querySelector('button[type="submit"]');
     const endpoint = "/api/inquiries";
@@ -304,6 +309,8 @@ function initializeInquiryForm(form) {
         "error",
       );
     } finally {
+      delete form.dataset.submitting;
+      form.removeAttribute("aria-busy");
       submitButton.classList.remove("is-loading");
       submitButton.disabled = false;
       submitButton.textContent = "Send My Project";
@@ -378,6 +385,7 @@ function hydrateLazyVideos() {
 }
 
 function addWhatsAppFloat() {
+  if (window.location.pathname.startsWith("/inquiry")) return;
   if (document.querySelector(".whatsapp-float")) return;
   const link = document.createElement("a");
   link.className = "whatsapp-float";
@@ -399,6 +407,7 @@ function brandWhatsAppLinks() {
 }
 
 function addQuoteFloat() {
+  if (window.location.pathname.startsWith("/inquiry")) return;
   if (document.querySelector(".quote-float")) return;
   const link = document.createElement("a");
   link.className = "quote-float";

@@ -219,6 +219,34 @@ test("Cappuccino inquiry retries reuse one submission_id until success", async (
   assert.equal((client.match(/completeSubmission\(form\)/g) || []).length, 3);
 });
 
+test("inquiry page loads its page stylesheet and preserves the complete RFQ contract", async () => {
+  const source = await readFile(new URL("../public/site/inquiry/index.html", import.meta.url), "utf8");
+  assert.match(source, /href="\/site\/assets\/inquiry\.css"/);
+  assert.equal((source.match(/<fieldset class="rfq-group">/g) || []).length, 4);
+  for (const field of [
+    "inquiry_intention", "product_needed", "quantity", "country", "material",
+    "function_requirement", "logo_method", "packaging", "name", "company",
+    "email", "phone", "message", "attachment", "target_dimensions",
+    "intended_pet_size", "color", "target_market", "target_delivery_date",
+  ]) {
+    assert.match(source, new RegExp(`name="${field}"`));
+  }
+  assert.match(source, /data-form="b2b_inquiry"/);
+  assert.match(source, /enctype="multipart\/form-data"/);
+});
+
+test("inquiry submission has one guarded API path and no inquiry-page floating controls", async () => {
+  const client = await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8");
+  const inquiryHandler = client.match(/function initializeInquiryForm\(form\) \{[\s\S]*?\n\}/)?.[0] || "";
+  assert.match(inquiryHandler, /form\.dataset\.submitting === "true"/);
+  assert.match(inquiryHandler, /form\.dataset\.submitting = "true"/);
+  assert.match(inquiryHandler, /submitButton\.disabled = true/);
+  assert.match(inquiryHandler, /const endpoint = "\/api\/inquiries"/);
+  assert.equal((inquiryHandler.match(/await fetch\(/g) || []).length, 1);
+  assert.match(client, /if \(window\.location\.pathname\.startsWith\("\/inquiry"\)\) return;/);
+  assert.match(client, /field\.matches\("input, textarea, select"\)/);
+});
+
 test("PDB001 and Padel S001-S004 product assets remain present", async () => {
   const files = [
     "../app/products/padel-work-tote-backpack-pdb001/page.js",
