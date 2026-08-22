@@ -85,3 +85,43 @@ test("existing Padel RFQ prefill contract remains unchanged", async () => {
   assert.match(client, /product\.value = "Padel Bags"/);
   assert.match(client, /Padel product format: \$\{format\}/);
 });
+
+test("Padel preview visual safeguards cover header offsets and mobile floating controls", async () => {
+  const [styles, resources, manufacturer, factory] = await Promise.all([
+    source("app/globals.css"),
+    source("public/site/resources/index.html"),
+    source("public/site/custom-padel-bag-manufacturer/index.html"),
+    source("public/factory-trust-materials/index.html"),
+  ]);
+  assert.match(resources, /class="buyer-resources-page header-offset-page"/);
+  assert.match(factory, /class="cp-page padel-factory-proof-page"/);
+  assert.match(styles, /\.header-offset-page\{padding-top:118px\}/);
+  assert.match(styles, /scroll-margin-top:120px/);
+  assert.match(styles, /env\(safe-area-inset-bottom\)/);
+  assert.match(styles, /body:has\(\.padel-factory-proof-page\) \.quote-float\{right:96px;bottom:28px\}/);
+  assert.match(styles, /\.quote-float\{display:none\}/);
+  assert.match(manufacturer, /body:has\(\.padel-manufacturer-page\) \.site-header\.site-header/);
+  assert.match(manufacturer, /background:rgba\(16,38,28,\.96\)/);
+  assert.match(manufacturer, /\.site-header \.nav-more>summary\{color:#fffdf7;background:rgba\(255,255,255,\.08\)/);
+  assert.match(manufacturer, /\.padel-manufacturer-page \.btn-primary\{color:#fff;background:#8b5e3c/);
+});
+
+test("Padel manufacturing proof videos have real posters, lazy sources and visible failure states", async () => {
+  const [manufacturer, factory, styles, client] = await Promise.all([
+    source("public/site/custom-padel-bag-manufacturer/index.html"),
+    source("public/factory-trust-materials/index.html"),
+    source("app/globals.css"),
+    source("public/site/assets/script.js"),
+  ]);
+  assert.equal((manufacturer.match(/<video /g) || []).length, 3);
+  assert.equal((factory.match(/<video /g) || []).length, 3);
+  for (const page of [manufacturer, factory]) {
+    assert.equal((page.match(/poster="/g) || []).length, 3);
+    assert.equal((page.match(/data-video-src="/g) || []).length, 3);
+    assert.equal((page.match(/proof-video-fallback/g) || []).length, 3);
+    assert.doesNotMatch(page, /<video[^>]+autoplay/);
+  }
+  assert.match(styles, /\.proof-video-frame\.is-unavailable \.proof-video-fallback\{display:block\}/);
+  assert.match(client, /function markProofVideoUnavailable/);
+  assert.match(client, /source\.addEventListener\("error"/);
+});

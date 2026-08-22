@@ -355,6 +355,7 @@ function hydrateLazyVideos() {
     const source = document.createElement("source");
     source.src = video.dataset.videoSrc;
     source.type = video.dataset.videoType || "video/mp4";
+    source.addEventListener("error", () => markProofVideoUnavailable(video));
     video.appendChild(source);
     video.dataset.loaded = "true";
     video.load();
@@ -382,6 +383,17 @@ function hydrateLazyVideos() {
   );
 
   lazyVideos.forEach((video) => observer.observe(video));
+}
+
+function markProofVideoUnavailable(video) {
+  video.closest(".proof-video-frame")?.classList.add("is-unavailable");
+}
+
+function initializeProofVideoFallbacks() {
+  document.querySelectorAll(".proof-video-frame video").forEach((video) => {
+    video.addEventListener("error", () => markProofVideoUnavailable(video));
+    if (video.error) markProofVideoUnavailable(video);
+  });
 }
 
 function addWhatsAppFloat() {
@@ -421,6 +433,7 @@ function addQuoteFloat() {
 brandWhatsAppLinks();
 addWhatsAppFloat();
 addQuoteFloat();
+initializeProofVideoFallbacks();
 hydrateLazyVideos();
 
 document.querySelectorAll("video[data-stop-before-end]").forEach((video) => {
