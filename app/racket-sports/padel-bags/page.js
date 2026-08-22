@@ -75,6 +75,9 @@ const programs = [
     buyer: "Players carrying multiple rackets, shoes and clothing",
     value: "A high-capacity direction with wide access for court, club and tournament travel.",
     features: ["Protected racket storage", "Separate footwear zone", "Structured materials and trims"],
+    products: [
+      ["S001 · Performance 60L Padel Racket Duffel", "/padel-bags/custom-60l-padel-racket-duffel"],
+    ],
   },
   {
     name: "Padel Backpacks",
@@ -85,6 +88,11 @@ const programs = [
     buyer: "Players prioritizing compact hands-free carry",
     value: "A focused format for racket protection, daily essentials and easier movement between locations.",
     features: ["Streamlined construction", "Core private-label details", "Scalable range planning"],
+    products: [
+      ["S002 · Urban 30L Padel Backpack", "/padel-bags/custom-30l-padel-backpack"],
+      ["PDB001 · Padel Work Tote Backpack", "/products/padel-work-tote-backpack-pdb001"],
+      ["PDB017 · Travel Court Utility Backpack", "/products/travel-padel-utility-backpack-pdb017"],
+    ],
   },
   {
     name: "Totes & Hybrid Lifestyle Bags",
@@ -95,6 +103,11 @@ const programs = [
     buyer: "Court-to-office and lifestyle collections",
     value: "A lighter direction that combines racket storage with work, travel or everyday organization.",
     features: ["Material and trim direction", "Custom storage architecture", "Sample-led specification lock"],
+    products: [
+      ["PDB014 · Women’s Court Chic Tote", "/products/womens-lightweight-padel-tote-pdb014"],
+      ["PDB015 · Work-Court Commuter Tote", "/products/work-court-padel-commuter-tote-pdb015"],
+      ["PDB016 · Weekend Match Carryall", "/products/weekend-padel-carryall-pdb016"],
+    ],
   },
 ];
 
@@ -185,8 +198,8 @@ export default function PadelBagsLandingPage() {
             <h1>Custom Padel Bags: Racket Bags, Backpacks &amp; Duffels</h1>
             <p>Compare padel racket duffels, backpacks, totes, shoe bags and organizers by storage layout, carry system, materials and private-label design potential.</p>
             <div className={styles.actions}>
-              <a className={styles.primaryButton} href="#product-programs">Explore Padel Bag Formats</a>
-              <a className={styles.secondaryButton} href="#padel-rfq">Build a Product Shortlist</a>
+              <a className={styles.primaryButton} href="#padel-rfq">Request a Quote</a>
+              <a className={styles.secondaryButton} href="#product-programs">Explore Padel Bag Formats</a>
             </div>
           </div>
           <div className={styles.heroMedia}>
@@ -223,6 +236,9 @@ export default function PadelBagsLandingPage() {
                   <p className={styles.suitableBuyer}><span>Suitable for</span>{program.buyer}</p>
                   <p>{program.value}</p>
                   <ul>{program.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+                  <div className={styles.programProducts} aria-label={`${program.name} product pages`}>
+                    {program.products.map(([label, href]) => <Link key={href} href={href}>{label}<span aria-hidden="true">→</span></Link>)}
+                  </div>
                 </div>
               </article>
             ))}

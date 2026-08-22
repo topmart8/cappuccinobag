@@ -17,6 +17,20 @@ export const padelProducts = {
       "The S001 concept combines protected racket storage, a separate shoe zone and flexible apparel organisation in one full-size silhouette. It is designed for padel brands, specialist retailers and clubs that want a recognisable private-label hero product rather than another generic sports bag.",
     referenceCapacity:
       "Approximately 55–65L; final capacity is confirmed during sampling.",
+    procurementSnapshot: [
+      ["Product type", "Full-size padel racket duffel"],
+      ["Approx. dimensions", "Confirm with factory during sampling"],
+      ["Racket capacity", "Multiple racket and equipment zones; exact racket count is confirmed during sampling"],
+      ["Shoe compartment", "Separate ventilated shoe compartment"],
+      ["Main material options", "Recycled polyester, high-density polyester, coated fabric or mixed-material panels"],
+      ["MOQ", "Confirm with factory after structure, material, logo and packaging review"],
+      ["Sample", "Available; typically 7–15 days after specifications and materials are confirmed"],
+      ["Bulk production lead time", "Confirm after quantity, materials, approved sample, packaging and inspection steps are agreed"],
+      ["OEM / ODM", "Available for structure, carry system, materials, colours, trims and packaging"],
+      ["Logo options", "Embroidery, heat transfer, rubber patch, woven label or debossed branding"],
+      ["Packaging", "Retail hangtags, dust bags, polybags, cartons and gift packaging"],
+      ["Compliance status", "No model-specific certification claimed; verify selected material and document scope for the order"],
+    ],
     features: [
       "Dual padded zones for padel rackets and match equipment",
       "Separate ventilated shoe compartment to isolate used footwear",
@@ -117,6 +131,20 @@ export const padelProducts = {
       "S002 is a streamlined vertical padel backpack for players who need one bag for the journey to work, the club and home. The clean front profile supports strong private-label branding, while the protected racket sleeve and organised interior keep the product credible as sports equipment.",
     referenceCapacity:
       "Approximately 28–30L; final capacity is confirmed during sampling.",
+    procurementSnapshot: [
+      ["Product type", "Vertical padel backpack"],
+      ["Approx. dimensions", "Confirm with factory during sampling"],
+      ["Racket capacity", "One- or two-racket sleeve configuration; confirm the selected layout during sampling"],
+      ["Shoe compartment", "Optional base or side shoe / wet-item separation"],
+      ["Main material options", "Recycled polyester, high-density polyester or coated textile combinations"],
+      ["MOQ", "Confirm with factory after structure, material, logo and packaging review"],
+      ["Sample", "Available; typically 7–15 days after specifications and materials are confirmed"],
+      ["Bulk production lead time", "Confirm after quantity, materials, approved sample, packaging and inspection steps are agreed"],
+      ["OEM / ODM", "Available for racket layout, device sleeve, shoe separation, carry details and packaging"],
+      ["Logo options", "Embroidery, rubber badge, print, woven label or debossed logo"],
+      ["Packaging", "Branded retail packaging can be developed to the approved brief"],
+      ["Compliance status", "No model-specific certification claimed; verify selected material and document scope for the order"],
+    ],
     features: [
       "Protected padel racket sleeve with handle-support structure",
       "Reference 28–30L capacity for apparel and daily essentials",
