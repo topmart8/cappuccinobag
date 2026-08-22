@@ -107,8 +107,8 @@ export function HybridPadelProductPage({ slug }) {
               <p><strong>Carry:</strong> {product.carryModes}</p>
             </div>
             <div className="hero-actions">
-              <Link className="btn btn-primary" href={inquiryHref(product)}>Request {product.model} RFQ</Link>
-              <a className="btn btn-secondary dark" href={`mailto:info@cappuccinobag.net?subject=${product.model}%20Product%20Brief`}>Email Product Brief</a>
+              <Link className="btn btn-primary" href={inquiryHref(product)}>Request a Quote</Link>
+              <a className="btn btn-secondary dark" href={`mailto:info@cappuccinobag.net?subject=${product.model}%20Product%20Brief`}>Discuss Your Padel Bag Project</a>
             </div>
           </div>
           <figure className="hybrid-hero-image">
@@ -117,6 +117,22 @@ export function HybridPadelProductPage({ slug }) {
         </section>
 
         <aside className="hybrid-disclaimer">{imageApprovalDisclaimer}</aside>
+
+        <section className="hybrid-section">
+          <div className="hybrid-section-heading"><p className="eyebrow">B2B Procurement Snapshot</p><h2>Model-specific facts for sourcing review</h2><p>Dimensions and any unlisted compartment are confirmed with the factory before sampling; no value is inferred from the digital images.</p></div>
+          <dl className="padel-reference-grid">
+            {product.procurementSnapshot.map(([term, description]) => <div key={term}><dt>{term}</dt><dd>{description}</dd></div>)}
+            <div><dt>Main material options</dt><dd>Water-resistant recycled nylon / polyester or conventional nylon / polyester; final selection follows the project brief</dd></div>
+            <div><dt>MOQ</dt><dd>Confirm with factory after structure, material, logo and packaging review</dd></div>
+            <div><dt>Sample</dt><dd>Available; typically 7–15 days after specifications and materials are confirmed</dd></div>
+            <div><dt>Bulk lead time</dt><dd>Confirm after quantity, materials, approved sample, packaging and inspection steps are agreed</dd></div>
+            <div><dt>OEM / ODM</dt><dd>Colours, materials, lining, pocket layout, trims, logo execution and packaging</dd></div>
+            <div><dt>Logo options</dt><dd>Embroidery, woven labels and other approved private-label executions</dd></div>
+            <div><dt>Packaging</dt><dd>Hangtags and project-specific packaging can be developed to the approved brief</dd></div>
+            <div><dt>Compliance status</dt><dd>No model-specific certification claimed; documentation must match the selected material and order scope</dd></div>
+          </dl>
+          <div className="hybrid-link-row"><Link href="/custom-padel-bag-manufacturer">Padel manufacturer process</Link><Link href="/factory-trust-materials">Factory proof</Link><Link href="/resources">Buyer resources</Link></div>
+        </section>
 
         <section className="hybrid-answer-grid" aria-label="Quick product answers">
           <article><h2>Can this padel bag fit a laptop?</h2><p>{product.laptopFit}. Device fit is approved against the target hardware.</p></article>
@@ -176,7 +192,7 @@ export function HybridPadelProductPage({ slug }) {
 
         <section className="hybrid-rfq">
           <div><p className="eyebrow">RFQ</p><h2>Develop {product.model} for your market</h2><p>Send the target market, quantity, logo file, material direction, laptop size, racket capacity and target price for a project-specific review. Email <a href="mailto:info@cappuccinobag.net">info@cappuccinobag.net</a> or WhatsApp <a href="https://wa.me/8613928715568">+86 139 2871 5568</a>.</p></div>
-          <Link className="btn btn-primary" href={inquiryHref(product)}>Start {product.model} RFQ</Link>
+          <Link className="btn btn-primary" href={inquiryHref(product)}>Request a Quote</Link>
         </section>
       </main>
       <SiteFooter />

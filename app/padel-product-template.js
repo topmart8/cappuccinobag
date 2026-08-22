@@ -171,13 +171,13 @@ export async function PadelProductPage({ params, categorySlug }) {
             </p>
             <div className="hero-actions">
               <Link className="btn btn-primary" href={getInquiryUrl(product)}>
-                Request Project Review &amp; Quote
+                Request a Quote
               </Link>
               <a
                 className="btn btn-secondary"
                 href="mailto:info@cappuccinobag.net"
               >
-                Email Product Brief
+                Discuss Your Padel Bag Project
               </a>
             </div>
           </div>
@@ -196,6 +196,22 @@ export async function PadelProductPage({ params, categorySlug }) {
         <aside className="padel-development-notice">
           <strong>Development status:</strong> {developmentNotice}
         </aside>
+
+        {product.procurementSnapshot && (
+          <section className="padel-product-section padel-reference-section">
+            <div className="padel-product-heading">
+              <p className="eyebrow">B2B Procurement Snapshot</p>
+              <h2>What buyers can verify before requesting a quote</h2>
+              <p>Values marked for confirmation are fixed against the approved specification and physical sample, not estimated on this page.</p>
+            </div>
+            <dl className="padel-reference-grid">
+              {product.procurementSnapshot.map(([term, description]) => (
+                <div key={term}><dt>{term}</dt><dd>{description}</dd></div>
+              ))}
+            </dl>
+            <p><Link href="/custom-padel-bag-manufacturer">Review the Padel development process</Link> · <Link href="/factory-trust-materials">See factory and material proof</Link> · <Link href="/resources">Open buyer resources</Link></p>
+          </section>
+        )}
 
         <section className="padel-product-section padel-product-overview">
           <div>
@@ -277,7 +293,7 @@ export async function PadelProductPage({ params, categorySlug }) {
             </div>
           </div>
           <Link className="btn btn-primary" href={getInquiryUrl(product)}>
-            Send {product.sku} Development Brief
+            Request a Quote
           </Link>
         </section>
 
@@ -334,7 +350,7 @@ export async function PadelProductPage({ params, categorySlug }) {
             </p>
           </div>
           <Link className="btn btn-primary" href={getInquiryUrl(product)}>
-            Request OEM/ODM Quote
+            Request a Quote
           </Link>
         </section>
       </main>

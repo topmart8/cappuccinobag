@@ -27,6 +27,15 @@ export const hybridProducts = {
     laptopFit: "Approximately 14-inch devices; confirm with the target device during sampling",
     racketFit: "Curved compartment for 1–2 padel rackets; final fit is sample-tested",
     carryModes: "Tote, shoulder and backpack carry",
+    procurementSnapshot: [
+      ["Product type / silhouette", "Soft women’s office-to-club tote"],
+      ["Approx. dimensions", "Confirm with factory"],
+      ["Racket capacity", "Curved compartment for 1–2 padel rackets; final fit is sample-tested"],
+      ["Shoe compartment", "Not specified in the current development reference; confirm if required"],
+      ["Storage layout", "Approx. 14-inch laptop sleeve, interior organizer, side bottle pocket and rear valuables pocket"],
+      ["Carry mode", "Tote, shoulder and backpack carry"],
+      ["Target buyer / use", "Women’s office-to-club lifestyle collections"],
+    ],
     features: [
       "Lightweight padded construction for comfortable daily carry",
       "Curved front compartment for 1–2 padel rackets",
@@ -58,6 +67,15 @@ export const hybridProducts = {
     laptopFit: "Padded sleeve for approximately 15-inch devices with a securing strap",
     racketFit: "Curved front compartment for 1–2 padel rackets; final fit is sample-tested",
     carryModes: "Tote, shoulder and backpack carry",
+    procurementSnapshot: [
+      ["Product type / silhouette", "Urban business-casual commuter tote"],
+      ["Approx. dimensions", "Confirm with factory"],
+      ["Racket capacity", "Curved compartment for 1–2 padel rackets; final fit is sample-tested"],
+      ["Shoe compartment", "Not specified in the current development reference; confirm if required"],
+      ["Storage layout", "Approx. 15-inch laptop sleeve, hidden rear zip pocket, side bottle pocket and trolley sleeve"],
+      ["Carry mode", "Tote, detachable shoulder and backpack carry"],
+      ["Target buyer / use", "Urban work-to-court and business-travel programs"],
+    ],
     features: [
       "Padded 15-inch laptop compartment with fixing strap",
       "Curved front padel racket compartment",
@@ -89,6 +107,15 @@ export const hybridProducts = {
     laptopFit: "Padded laptop sleeve; target device dimensions are confirmed before sampling",
     racketFit: "Curved compartment for 1–2 padel rackets; final fit is sample-tested",
     carryModes: "Hand carry and detachable shoulder carry",
+    procurementSnapshot: [
+      ["Product type / silhouette", "Roomy weekend match carryall"],
+      ["Approx. dimensions", "Confirm with factory"],
+      ["Racket capacity", "Curved compartment for 1–2 padel rackets; final fit is sample-tested"],
+      ["Shoe compartment", "Not specified in the current development reference; confirm if required"],
+      ["Storage layout", "Large clothing / towel compartment, laptop sleeve, rear valuables pocket, bottle pocket and trolley sleeve"],
+      ["Carry mode", "Hand carry and detachable shoulder carry"],
+      ["Target buyer / use", "Match weekends, short travel and tournament programs"],
+    ],
     features: [
       "Spacious main compartment for clothing, towel and accessories",
       "Separate padded laptop sleeve",
@@ -120,6 +147,15 @@ export const hybridProducts = {
     laptopFit: "Padded sleeve for devices up to approximately 15.6 inches",
     racketFit: "Dedicated curved storage for 1–2 padel rackets; final fit is sample-tested",
     carryModes: "Padded backpack straps, top handle and optional shoulder carry",
+    procurementSnapshot: [
+      ["Product type / silhouette", "Unisex travel utility backpack"],
+      ["Approx. dimensions", "Confirm with factory"],
+      ["Racket capacity", "Dedicated curved storage for 1–2 padel rackets; final fit is sample-tested"],
+      ["Shoe compartment", "Side shoe or large accessory compartment"],
+      ["Storage layout", "Up to approx. 15.6-inch laptop sleeve, hidden rear zip pocket, internal organizers and trolley sleeve"],
+      ["Carry mode", "Padded backpack straps, top handle and optional shoulder carry"],
+      ["Target buyer / use", "Padel travel, daily training and functional unisex club collections"],
+    ],
     features: [
       "Padded laptop sleeve for devices up to approximately 15.6 inches",
       "Curved racket compartment for 1–2 padel rackets",

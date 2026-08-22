@@ -67,6 +67,21 @@ const specifications = [
   ["OEM/ODM", "Available; final specification confirmed through sampling"],
 ];
 
+const procurementSnapshot = [
+  ["Product type", "Padel work tote / laptop backpack / shoulder sports bag"],
+  ["Approx. dimensions", "W31 × H38 × D15 cm"],
+  ["Racket capacity", "Curved front compartment for a padel racket; final fit is confirmed during sampling"],
+  ["Shoe compartment", "Not specified in the current PDB001 sample; confirm with factory if required"],
+  ["Main material options", "Water-resistant nylon or polyester; recycled options available"],
+  ["MOQ", "Confirm with factory after material, layout, logo and packaging review"],
+  ["Sample", "Available; typically 7–15 days after specifications and materials are confirmed"],
+  ["Bulk production lead time", "Confirm after quantity, materials, approved sample, packaging and inspection steps are agreed"],
+  ["OEM / ODM", "Available for layout, materials, colours, straps, hardware, branding and packaging"],
+  ["Logo options", "Screen print, heat transfer, embroidery, woven label, rubber patch or metal logo"],
+  ["Packaging", "Custom packaging available; final format is confirmed in the project brief"],
+  ["Compliance status", "No model-specific certification claimed; documentation must match the selected material and order scope"],
+];
+
 const pocketMap = [
   "Large main zip compartment",
   "Padded or reinforced laptop sleeve with securing strap",
@@ -200,12 +215,12 @@ export default function Pdb001ProductPage() {
               <div><dt>Carry</dt><dd>Hand · Shoulder · Backpack</dd></div>
             </dl>
             <div className="hero-actions">
-              <Link className="btn btn-primary" href={inquiryUrl}>Request PDB001 Quote</Link>
+              <Link className="btn btn-primary" href={inquiryUrl}>Request a Quote</Link>
               <a
                 className="btn btn-secondary dark"
                 href="mailto:info@cappuccinobag.net?subject=PDB001%20Padel%20Work%20Tote%20Brief"
               >
-                Email Product Brief
+                Discuss Your Padel Bag Project
               </a>
             </div>
           </div>
@@ -217,6 +232,12 @@ export default function Pdb001ProductPage() {
           <article><h2>Who is it for?</h2><p>It is designed for commuters, padel players, sports lifestyle brands and OEM buyers seeking one lightweight bag for office and court use.</p></article>
           <article><h2>What can be customized?</h2><p>Brands can customize material, recycled option, colour, lining, laptop section, pocket layout, racket compartment, straps, zipper, hardware, logo and packaging.</p></article>
           <article><h2>What must be verified?</h2><p>Laptop and racket fit should be confirmed through a physical sample because usable internal dimensions vary with padding and construction.</p></article>
+        </section>
+
+        <section className="pdb001-section">
+          <div className="pdb001-heading"><p className="eyebrow">B2B Procurement Snapshot</p><h2>Verified PDB001 sourcing reference</h2><p>Exact fit and commercial terms are confirmed against the approved project brief and physical sample.</p></div>
+          <dl className="pdb001-specs">{procurementSnapshot.map(([term, value]) => <div key={term}><dt>{term}</dt><dd>{value}</dd></div>)}</dl>
+          <div className="pdb001-trust-links"><Link href="/custom-padel-bag-manufacturer">Review the Padel development process</Link><Link href="/factory-trust-materials">See factory and material proof</Link><Link href="/resources">Open buyer resources</Link></div>
         </section>
 
         <section className="pdb001-section">
@@ -261,7 +282,7 @@ export default function Pdb001ProductPage() {
         <section className="pdb001-section pdb001-sample-section">
           <div className="pdb001-heading"><p className="eyebrow">Actual sample photographs</p><h2>Real sample construction reference</h2><p>These are photographs of the physical sample, shown separately from the digital colour references. They provide evidence of the soft body, pockets, zipper access and convertible strap system.</p></div>
           <div className="pdb001-image-grid pdb001-sample-grid">{sampleImages.map(([file, alt]) => <Image key={file} src={`/images/padel/PDB001/real-sample-reference/${file}`} width={1400} height={1400} sizes="(max-width: 620px) calc(100vw - 28px), (max-width: 900px) 48vw, 31vw" alt={alt} />)}</div>
-          <div className="pdb001-trust-links"><Link href="/factory-trust-materials">See our sample and production capability</Link><Link href={inquiryUrl}>Request a custom sample</Link></div>
+          <div className="pdb001-trust-links"><Link href="/factory-trust-materials">See our sample and production capability</Link><Link href={inquiryUrl}>Request a Sample</Link></div>
         </section>
 
         <section className="pdb001-section pdb001-faq-section">
@@ -287,11 +308,11 @@ export default function Pdb001ProductPage() {
 
         <section className="pdb001-rfq">
           <div><p className="eyebrow">Start your PDB001 project</p><h2>Send your quantity, market and product brief</h2><p>Include preferred colour, material, laptop size, racket type, pocket layout, logo artwork and target price. Email <a href="mailto:info@cappuccinobag.net">info@cappuccinobag.net</a>.</p></div>
-          <Link className="btn btn-primary" href={inquiryUrl}>Request OEM/ODM Quote</Link>
+          <Link className="btn btn-primary" href={inquiryUrl}>Request a Quote</Link>
         </section>
       </main>
       <div className="pdb001-mobile-cta" aria-label="Request a PDB001 quotation">
-        <Link className="btn btn-primary" href={inquiryUrl}>Request PDB001 Quote</Link>
+        <Link className="btn btn-primary" href={inquiryUrl}>Request a Quote</Link>
       </div>
       <PadelFooter />
     </>

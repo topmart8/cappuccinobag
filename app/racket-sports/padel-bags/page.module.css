@@ -272,6 +272,9 @@
 .suitableBuyer span { color: #6d7d73; font-size: 11px; font-weight: 820; letter-spacing: .1em; text-transform: uppercase; }
 .programCopy ul { margin: auto 0 0; padding: 22px 0 0 18px; }
 .programCopy li + li { margin-top: 7px; }
+.programProducts { display: grid; gap: 9px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--padel-line); }
+.programProducts a { display: flex; align-items: center; justify-content: space-between; gap: 14px; color: var(--padel-forest); font-size: 14px; font-weight: 800; line-height: 1.4; text-decoration: underline; text-underline-offset: 3px; }
+.programProducts span { color: #6d7d73; text-decoration: none; }
 
 .productProofSection { padding-top: 126px; padding-bottom: 126px; }
 .proofLayout { display: grid; grid-template-columns: minmax(0, 1.16fr) minmax(320px, .84fr); gap: 60px; align-items: stretch; }
