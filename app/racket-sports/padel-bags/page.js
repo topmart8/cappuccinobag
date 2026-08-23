@@ -111,6 +111,57 @@ const programs = [
   },
 ];
 
+const formatComparison = [
+  {
+    format: "Racket bag",
+    href: "/products/premium-padel-racket-bag",
+    use: "Streamlined court carry focused on racket protection",
+    rackets: "Dedicated racket storage; confirm fit with the intended rackets",
+    shoes: "Usually omitted where a compact silhouette is the priority",
+    suitability: "Focused club, retail and player programs",
+  },
+  {
+    format: "Padel duffel",
+    href: "/padel-bags/custom-60l-padel-racket-duffel",
+    use: "Court, club and tournament loads with clothing and accessories",
+    rackets: "Higher-capacity racket storage; confirm fit with the intended rackets",
+    shoes: "A dedicated footwear zone can be built into the layout",
+    suitability: "Club, tournament and short-travel programs",
+  },
+  {
+    format: "Padel backpack",
+    href: "/padel-bags/custom-30l-padel-backpack",
+    use: "Compact hands-free carry for training, commuting and daily club use",
+    rackets: "Compact racket load; confirm head, handle and zipper clearance",
+    shoes: "Optional side or base storage depends on the target bag size",
+    suitability: "Urban, entry-range and daily training programs",
+  },
+  {
+    format: "Tote or carryall",
+    href: "/products/weekend-padel-carryall-pdb016",
+    use: "Office-to-court, lifestyle and weekend carry",
+    rackets: "Use a dedicated sleeve or pocket and verify the intended load in sampling",
+    shoes: "Separate shoe storage is optional where the structure allows it",
+    suitability: "Lifestyle, resort and work-to-court collections",
+  },
+  {
+    format: "Shoe bag",
+    href: "/padel-accessories/custom-ventilated-padel-shoe-bag",
+    use: "Keep footwear separate from rackets, clothing and clean items",
+    rackets: "Not intended for racket storage",
+    shoes: "The primary function; lining and ventilation follow the use case",
+    suitability: "Club kits, tournament packs and coordinated accessory ranges",
+  },
+  {
+    format: "Organizer pouch",
+    href: "/padel-accessories/custom-padel-organizer-pouch",
+    use: "Group grips, balls, valuables and small court accessories",
+    rackets: "Not intended for racket storage",
+    shoes: "Not intended for footwear",
+    suitability: "Accessory programs and range extensions",
+  },
+];
+
 const productProof = ["Racket protection", "Shoe compartment", "Reinforced base", "Carry straps", "Zipper system", "Accessory storage"];
 
 const specifications = [
@@ -242,6 +293,39 @@ export default function PadelBagsLandingPage() {
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className={`${styles.section} ${styles.comparisonSection}`} aria-labelledby="padel-format-comparison">
+          <div className={styles.sectionIntro}>
+            <p className={styles.sectionLabel}>Format comparison</p>
+            <h2 id="padel-format-comparison">Which Padel Bag Format Fits the Buyer Program?</h2>
+            <p>Choose the format from the intended load and carry routine. Racket and shoe fit still need confirmation with the target equipment during sampling.</p>
+          </div>
+          <div className={styles.comparisonTableWrap} tabIndex="0" role="region" aria-label="Scrollable padel bag format comparison">
+            <table className={styles.comparisonTable}>
+              <caption>Padel bag formats compared by use, storage and buyer program</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Format</th>
+                  <th scope="col">Typical use</th>
+                  <th scope="col">Racket capacity guidance</th>
+                  <th scope="col">Shoe storage</th>
+                  <th scope="col">Best-fit buyer or use case</th>
+                </tr>
+              </thead>
+              <tbody>
+                {formatComparison.map((row) => (
+                  <tr key={row.format}>
+                    <th scope="row"><Link href={row.href}>{row.format}</Link></th>
+                    <td>{row.use}</td>
+                    <td>{row.rackets}</td>
+                    <td>{row.shoes}</td>
+                    <td>{row.suitability}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
 

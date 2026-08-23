@@ -20,6 +20,65 @@ test("Padel Collection links every priority product into a buyer-use group", asy
   assert.match(collection, /Court-to-office and lifestyle collections/);
 });
 
+test("minimal Padel GEO batch adds one semantic format comparison without fixed capacity claims", async () => {
+  const [collection, styles] = await Promise.all([
+    source("app/racket-sports/padel-bags/page.js"),
+    source("app/racket-sports/padel-bags/page.module.css"),
+  ]);
+  assert.match(collection, /<table className=\{styles\.comparisonTable\}>/);
+  assert.match(collection, /Racket capacity guidance/);
+  for (const format of ["Racket bag", "Padel duffel", "Padel backpack", "Tote or carryall", "Shoe bag", "Organizer pouch"]) {
+    assert.match(collection, new RegExp(format));
+  }
+  assert.match(collection, /\/products\/premium-padel-racket-bag/);
+  assert.match(collection, /\/padel-bags\/custom-60l-padel-racket-duffel/);
+  assert.match(collection, /confirm fit|confirm head, handle and zipper clearance/);
+  assert.match(styles, /\.comparisonTableWrap[\s\S]*overflow-x: auto/);
+  assert.doesNotMatch(collection, /fixed MOQ|fixed lead time/i);
+});
+
+test("minimal Padel GEO batch expands only the selected material owner", async () => {
+  const [articles, targetPage, competingPage, template] = await Promise.all([
+    source("app/hybrid-padel-articles.js"),
+    source("app/blog/recycled-water-resistant-materials-padel-bags/page.js"),
+    source("app/blog/recycled-water-resistant-fabrics-custom-padel-bags/page.js"),
+    source("app/hybrid-padel-article-template.js"),
+  ]);
+  for (const text of ["PU or vegan-leather trims", "EVA or structural reinforcement", "thermal or insulated racket protection"]) {
+    assert.match(articles, new RegExp(text));
+  }
+  assert.match(articles, /does not guarantee a fixed temperature/);
+  assert.match(articles, /project-specific test method and evidence/);
+  assert.match(articles, /\/custom-padel-bag-manufacturer/);
+  assert.match(template, /article\.relatedLinks\?\.length/);
+  assert.match(targetPage, /HybridPadelArticle/);
+  assert.doesNotMatch(competingPage, /PU or vegan-leather trims|EVA or structural reinforcement|thermal or insulated racket protection/);
+});
+
+test("minimal Padel GEO batch adds Padel QC checkpoints and one six-step resource path", async () => {
+  const [quality, resources] = await Promise.all([
+    source("public/site/quality-inspection-guide/index.html"),
+    source("public/site/resources/index.html"),
+  ]);
+  for (const heading of [
+    "Racket fit and compartment protection",
+    "Shoe-zone fit and ventilation",
+    "Loaded carry and stress areas",
+    "Zippers, seams, lining and pocket access",
+    "Branding position and appearance",
+    "Packaging and shape protection",
+  ]) assert.match(quality, new RegExp(heading));
+  assert.equal((resources.match(/<nav class="resource-grid" aria-label="Padel buyer decision path">/g) || []).length, 1);
+  for (const href of [
+    "/racket-sports/padel-bags",
+    "/custom-padel-bag-manufacturer",
+    "/blog/recycled-water-resistant-materials-padel-bags",
+    "/quality-inspection-guide",
+    "/factory-trust-materials",
+    "/inquiry?product=Padel%20Bags",
+  ]) assert.ok(resources.includes(href), `missing Padel decision-path link: ${href}`);
+});
+
 test("priority Padel products expose sourcing facts without fixed unverified commercial claims", async () => {
   const [classicData, classicTemplate, pdb001, hybridData, hybridTemplate] = await Promise.all([
     source("app/padel-products.js"),
