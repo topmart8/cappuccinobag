@@ -1863,7 +1863,7 @@ body:has(.padel-factory-proof-page) .quote-float{right:96px;bottom:28px}
   body:has(.padel-bags-page,.padel-product-page,.pdb001-page,.hybrid-product-page,.padel-manufacturer-page,.buyer-resources-page,.padel-factory-proof-page) .quote-float{display:none}
   body:has(.padel-product-page,.pdb001-page,.hybrid-product-page,.padel-manufacturer-page,.buyer-resources-page,.padel-factory-proof-page) .whatsapp-float{right:max(14px,env(safe-area-inset-right));bottom:calc(14px + env(safe-area-inset-bottom));display:none;width:52px;height:52px}
   body.padel-controls-active:not(.padel-controls-obstructed):not(:has(.analytics-consent)):has(.padel-product-page,.pdb001-page,.hybrid-product-page,.padel-manufacturer-page,.buyer-resources-page,.padel-factory-proof-page) .whatsapp-float{display:grid}
-  body:has(.padel-bags-page,.padel-product-page,.pdb001-page,.hybrid-product-page,.padel-manufacturer-page,.buyer-resources-page,.padel-factory-proof-page) .analytics-settings{position:absolute;top:86px;right:max(14px,env(safe-area-inset-right));bottom:auto}
+  body:has(.padel-bags-page,.padel-product-page,.pdb001-page,.hybrid-product-page,.padel-manufacturer-page,.buyer-resources-page,.padel-factory-proof-page) .analytics-settings{position:absolute;top:86px;right:max(14px,env(safe-area-inset-right));bottom:auto!important}
   body:has(.padel-product-page,.pdb001-page,.hybrid-product-page) .analytics-settings{top:134px}
   body:has(.padel-manufacturer-page) .analytics-settings{top:124px}
   body:has(.analytics-consent):has(.padel-bags-page,.padel-product-page,.pdb001-page,.hybrid-product-page,.padel-manufacturer-page,.buyer-resources-page,.padel-factory-proof-page) .whatsapp-float{display:none}
