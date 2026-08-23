@@ -87,11 +87,12 @@ test("existing Padel RFQ prefill contract remains unchanged", async () => {
 });
 
 test("Padel preview visual safeguards cover header offsets and mobile floating controls", async () => {
-  const [styles, resources, manufacturer, factory] = await Promise.all([
+  const [styles, resources, manufacturer, factory, whatsapp] = await Promise.all([
     source("app/globals.css"),
     source("public/site/resources/index.html"),
     source("public/site/custom-padel-bag-manufacturer/index.html"),
     source("public/factory-trust-materials/index.html"),
+    source("components/BrandWhatsAppButton.jsx"),
   ]);
   assert.match(resources, /class="buyer-resources-page header-offset-page"/);
   assert.match(factory, /class="cp-page padel-factory-proof-page"/);
@@ -100,10 +101,16 @@ test("Padel preview visual safeguards cover header offsets and mobile floating c
   assert.match(styles, /env\(safe-area-inset-bottom\)/);
   assert.match(styles, /body:has\(\.padel-factory-proof-page\) \.quote-float\{right:96px;bottom:28px\}/);
   assert.match(styles, /\.quote-float\{display:none\}/);
+  assert.match(styles, /body\.padel-controls-active:not\(\.padel-controls-obstructed\):not\(:has\(\.analytics-consent\)\)/);
+  assert.match(styles, /\.analytics-settings\{position:absolute;top:86px/);
+  assert.match(styles, /body:has\(\.padel-product-page,\.pdb001-page,\.hybrid-product-page\) \.analytics-settings\{top:134px\}/);
   assert.match(manufacturer, /body:has\(\.padel-manufacturer-page\) \.site-header\.site-header/);
   assert.match(manufacturer, /background:rgba\(16,38,28,\.96\)/);
   assert.match(manufacturer, /\.site-header \.nav-more>summary\{color:#fffdf7;background:rgba\(255,255,255,\.08\)/);
   assert.match(manufacturer, /\.padel-manufacturer-page \.btn-primary\{color:#fff;background:#8b5e3c/);
+  assert.match(whatsapp, /window\.scrollY > window\.innerHeight \* 0\.6/);
+  assert.match(whatsapp, /const blockerSelector = "\.hero-actions,\.quote-section,\.padel-product-rfq,\.hybrid-rfq,\.cp-cta,\.site-footer"/);
+  assert.match(whatsapp, /padel-controls-obstructed/);
 });
 
 test("Padel manufacturing proof videos have real posters, lazy sources and visible failure states", async () => {
