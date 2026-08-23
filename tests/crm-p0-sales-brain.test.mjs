@@ -6,7 +6,10 @@ import { recommendNextBestAction } from "../lib/crm/next-best-action.js";
 import { mapProductTaxonomy } from "../lib/crm/product-taxonomy.js";
 import {
   buildRequirementConfirmationActivity,
+  findExistingRequirementConfirmation,
+  latestRequirementConfirmation,
   mapCanonicalStage,
+  normalizeRequirementConfirmationContext,
   validateRequirementConfirmationGate,
 } from "../lib/crm/sales-policy.js";
 import {
@@ -111,6 +114,111 @@ test("requirement confirmation gate blocks premature quotation", () => {
   }).allowed, true);
 });
 
+test("P0.1 confirmation context is optional, sanitized and reuses an existing inquiry identifier", () => {
+  const inquiryId = "11111111-1111-4111-8111-111111111111";
+  const context = normalizeRequirementConfirmationContext({
+    requirement_version: "  REQ-2026-001\0\n ",
+    inquiry_id: ` ${inquiryId} `,
+    opportunity_id: "must-not-create-a-second-id",
+    product_category: "  Travel\0 Bags  ",
+  });
+  assert.deepEqual(context, {
+    requirement_version: "REQ-2026-001",
+    inquiry_id: inquiryId,
+    opportunity_id: inquiryId,
+    product_family: "Travel Bags",
+  });
+  const activity = buildRequirementConfirmationActivity({
+    customer_id: "customer-1",
+    site: "cappuccinobag",
+    requirement_version: context.requirement_version,
+    inquiry_id: context.inquiry_id,
+    product_family: context.product_family,
+    confirmed_by: "sales@example.com",
+  });
+  assert.equal(activity.inquiry_id, inquiryId);
+  assert.equal(activity.metadata.opportunity_id, inquiryId);
+  assert.equal(activity.metadata.product_family, "Travel Bags");
+  assert.equal(activity.metadata.confirmation_source, "human_crm");
+});
+
+test("P0.1 confirmation lookup is idempotent by customer query, version and optional opportunity", () => {
+  const existing = buildRequirementConfirmationActivity({
+    customer_id: "customer-1",
+    site: "cappuccinobag",
+    requirement_version: "REQ-2026-001",
+    opportunity_id: "OPP-001",
+    confirmed_by: "sales@example.com",
+  });
+  const activities = [{ id: "activity-1", created_at: "2026-08-23T00:00:00.000Z", ...existing }];
+
+  assert.equal(findExistingRequirementConfirmation([], existing.metadata), null, "A: first confirmation can create");
+  assert.equal(
+    findExistingRequirementConfirmation(activities, existing.metadata)?.id,
+    "activity-1",
+    "B: same version and opportunity reuses the original activity",
+  );
+  assert.equal(
+    findExistingRequirementConfirmation(activities, {
+      requirement_version: "REQ-2026-002",
+      opportunity_id: "OPP-001",
+    }),
+    null,
+    "C: a different requirement version can create a new confirmation",
+  );
+  assert.equal(
+    findExistingRequirementConfirmation(activities, {
+      requirement_version: "REQ-2026-001",
+      opportunity_id: "OPP-002",
+    }),
+    null,
+    "E: a different opportunity cannot reuse another opportunity confirmation",
+  );
+});
+
+test("P0.1 historical customer-level confirmations remain compatible", () => {
+  const historical = {
+    id: "historical-activity",
+    activity_type: "requirement_confirmed",
+    metadata: {
+      requirement_confirmed: true,
+      requirement_version: "REQ-HISTORICAL",
+      confirmed_by: "sales@example.com",
+      confirmed_at: "2026-08-01T00:00:00.000Z",
+      confirmation_source: "human_crm",
+    },
+  };
+  assert.equal(
+    findExistingRequirementConfirmation([historical], { requirement_version: "REQ-HISTORICAL" })?.id,
+    "historical-activity",
+    "D: historical confirmation remains valid at customer level",
+  );
+  assert.equal(
+    latestRequirementConfirmation([historical], { opportunity_id: "OPP-NEW" })?.id,
+    "historical-activity",
+    "an opportunity-aware gate may safely fall back to a context-free historical confirmation",
+  );
+});
+
+test("P0.1 opportunity-aware gate never accepts another opportunity confirmation", () => {
+  const otherOpportunity = buildRequirementConfirmationActivity({
+    customer_id: "customer-1",
+    site: "cappuccinobag",
+    requirement_version: "REQ-2026-001",
+    opportunity_id: "OPP-OTHER",
+    confirmed_by: "sales@example.com",
+  });
+  assert.equal(
+    latestRequirementConfirmation([otherOpportunity], { opportunity_id: "OPP-TARGET" }),
+    null,
+  );
+  assert.equal(validateRequirementConfirmationGate({
+    current_stage: "replied",
+    target_stage: "quoted",
+    confirmation: latestRequirementConfirmation([otherOpportunity], { opportunity_id: "OPP-TARGET" }),
+  }).allowed, false);
+});
+
 test("historical quoted records are not retroactively blocked", () => {
   const result = validateRequirementConfirmationGate({ current_stage: "quoted", target_stage: "quoted" });
   assert.equal(result.allowed, true);
@@ -172,6 +280,11 @@ test("lead update route enforces the gate without changing shared ingest or PR 1
   assert.match(route, /validateRequirementConfirmationGate/);
   assert.match(route, /activity_type=eq\.requirement_confirmed/);
   assert.match(route, /input\.action === "confirm_requirements"/);
+  assert.match(route, /findExistingRequirementConfirmation/);
+  assert.match(route, /reused: true/);
+  assert.match(route, /idempotent: true/);
+  assert.match(route, /confirmed_by: actor\.user/);
+  assert.doesNotMatch(route, /confirmed_by: input\./);
   assert.doesNotMatch(sharedIngest, /customer-intelligence|product-taxonomy|next-best-action|sales-playbooks/);
   if (identity) assert.doesNotMatch(identity, /customer_tier|canonical_type|playbook_id/);
 });

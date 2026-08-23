@@ -4,9 +4,23 @@ import { createAiDraft } from "../../../../../lib/crm/ai";
 import { scoreLead } from "../../../../../lib/crm/scoring";
 import {
   buildRequirementConfirmationActivity,
+  findExistingRequirementConfirmation,
+  latestRequirementConfirmation,
+  normalizeRequirementConfirmationContext,
   validateRequirementConfirmationGate,
 } from "../../../../../lib/crm/sales-policy";
 import { supabaseRequest } from "../../../../../lib/crm/supabase";
+
+const CONFIRMATION_SELECT = "id,inquiry_id,activity_type,metadata,created_at";
+
+async function requirementConfirmations(customerId, requirementVersion = null) {
+  const versionFilter = requirementVersion
+    ? `&metadata->>requirement_version=eq.${encodeURIComponent(requirementVersion)}`
+    : "";
+  return supabaseRequest(
+    `activities?customer_id=eq.${encodeURIComponent(customerId)}&activity_type=eq.requirement_confirmed${versionFilter}&select=${CONFIRMATION_SELECT}&order=created_at.desc&limit=100`,
+  );
+}
 
 const STAGES = new Set(["new", "qualified", "contacted", "replied", "quoted", "sample", "negotiation", "won", "lost"]);
 
@@ -28,10 +42,38 @@ export async function PATCH(request, { params }) {
         site: lead.site,
         owner: lead.owner || actor.user,
         requirement_version: input.requirement_version,
+        opportunity_id: input.opportunity_id,
+        inquiry_id: input.inquiry_id,
+        product_family: input.product_family,
+        product_category: input.product_category,
         confirmed_by: actor.user,
       });
-      await supabaseRequest("activities", { method: "POST", body: activity });
-      return NextResponse.json({ message: "客户需求版本已人工确认。", requirement_confirmation: activity.metadata });
+      const existing = findExistingRequirementConfirmation(
+        await requirementConfirmations(id, activity.metadata.requirement_version),
+        activity.metadata,
+      );
+      if (existing) {
+        return NextResponse.json({
+          message: "客户需求版本此前已确认。",
+          requirement_confirmation: existing.metadata,
+          requirement_confirmation_id: existing.id,
+          reused: true,
+          idempotent: true,
+        });
+      }
+      const createdRows = await supabaseRequest("activities", {
+        method: "POST",
+        body: activity,
+        prefer: "return=representation",
+      });
+      const created = createdRows?.[0] || activity;
+      return NextResponse.json({
+        message: "客户需求版本已人工确认。",
+        requirement_confirmation: created.metadata,
+        requirement_confirmation_id: created.id || null,
+        reused: false,
+        idempotent: false,
+      });
     }
 
     if (input.action === "update") {
@@ -39,13 +81,18 @@ export async function PATCH(request, { params }) {
         ? null : Math.max(0, Math.min(100, Number(input.score_override)));
       const requestedStage = STAGES.has(input.stage) ? input.stage : lead.stage;
       if (requestedStage === "quoted" && lead.stage !== "quoted") {
-        const confirmations = await supabaseRequest(
-          `activities?customer_id=eq.${encodeURIComponent(id)}&activity_type=eq.requirement_confirmed&select=id,activity_type,metadata,created_at&order=created_at.desc&limit=1`,
+        const context = normalizeRequirementConfirmationContext({
+          opportunity_id: input.opportunity_id,
+          inquiry_id: input.inquiry_id,
+        });
+        const confirmation = latestRequirementConfirmation(
+          await requirementConfirmations(id),
+          context,
         );
         const gate = validateRequirementConfirmationGate({
           current_stage: lead.stage,
           target_stage: requestedStage,
-          confirmation: confirmations?.[0],
+          confirmation,
         });
         if (!gate.allowed) {
           return NextResponse.json({ message: gate.reason, code: gate.code }, { status: 409 });
