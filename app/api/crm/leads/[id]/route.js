@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import { getCrmActor } from "../../../../../lib/crm/auth";
 import { createAiDraft } from "../../../../../lib/crm/ai";
 import { scoreLead } from "../../../../../lib/crm/scoring";
+import {
+  buildRequirementConfirmationActivity,
+  validateRequirementConfirmationGate,
+} from "../../../../../lib/crm/sales-policy";
 import { supabaseRequest } from "../../../../../lib/crm/supabase";
 
 const STAGES = new Set(["new", "qualified", "contacted", "replied", "quoted", "sample", "negotiation", "won", "lost"]);
@@ -18,11 +22,37 @@ export async function PATCH(request, { params }) {
       return NextResponse.json({ message: "只能修改分配给自己的线索。" }, { status: 403 });
     }
 
+    if (input.action === "confirm_requirements") {
+      const activity = buildRequirementConfirmationActivity({
+        customer_id: id,
+        site: lead.site,
+        owner: lead.owner || actor.user,
+        requirement_version: input.requirement_version,
+        confirmed_by: actor.user,
+      });
+      await supabaseRequest("activities", { method: "POST", body: activity });
+      return NextResponse.json({ message: "客户需求版本已人工确认。", requirement_confirmation: activity.metadata });
+    }
+
     if (input.action === "update") {
       const scoreOverride = input.score_override === "" || input.score_override == null
         ? null : Math.max(0, Math.min(100, Number(input.score_override)));
+      const requestedStage = STAGES.has(input.stage) ? input.stage : lead.stage;
+      if (requestedStage === "quoted" && lead.stage !== "quoted") {
+        const confirmations = await supabaseRequest(
+          `activities?customer_id=eq.${encodeURIComponent(id)}&activity_type=eq.requirement_confirmed&select=id,activity_type,metadata,created_at&order=created_at.desc&limit=1`,
+        );
+        const gate = validateRequirementConfirmationGate({
+          current_stage: lead.stage,
+          target_stage: requestedStage,
+          confirmation: confirmations?.[0],
+        });
+        if (!gate.allowed) {
+          return NextResponse.json({ message: gate.reason, code: gate.code }, { status: 409 });
+        }
+      }
       const update = {
-        stage: STAGES.has(input.stage) ? input.stage : lead.stage,
+        stage: requestedStage,
         next_follow_up: input.next_follow_up || null,
         score_override: Number.isFinite(scoreOverride) ? scoreOverride : null,
         owner: actor.role === "admin" ? String(input.owner || "").slice(0, 180) || null : actor.user,
