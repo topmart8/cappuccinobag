@@ -2,7 +2,25 @@ import { NextResponse } from "next/server";
 import { getCrmActor } from "../../../../../lib/crm/auth";
 import { createAiDraft } from "../../../../../lib/crm/ai";
 import { scoreLead } from "../../../../../lib/crm/scoring";
+import {
+  buildRequirementConfirmationActivity,
+  findExistingRequirementConfirmation,
+  latestRequirementConfirmation,
+  normalizeRequirementConfirmationContext,
+  validateRequirementConfirmationGate,
+} from "../../../../../lib/crm/sales-policy";
 import { supabaseRequest } from "../../../../../lib/crm/supabase";
+
+const CONFIRMATION_SELECT = "id,inquiry_id,activity_type,metadata,created_at";
+
+async function requirementConfirmations(customerId, requirementVersion = null) {
+  const versionFilter = requirementVersion
+    ? `&metadata->>requirement_version=eq.${encodeURIComponent(requirementVersion)}`
+    : "";
+  return supabaseRequest(
+    `activities?customer_id=eq.${encodeURIComponent(customerId)}&activity_type=eq.requirement_confirmed${versionFilter}&select=${CONFIRMATION_SELECT}&order=created_at.desc&limit=100`,
+  );
+}
 
 const STAGES = new Set(["new", "qualified", "contacted", "replied", "quoted", "sample", "negotiation", "won", "lost"]);
 
@@ -18,11 +36,70 @@ export async function PATCH(request, { params }) {
       return NextResponse.json({ message: "只能修改分配给自己的线索。" }, { status: 403 });
     }
 
+    if (input.action === "confirm_requirements") {
+      const activity = buildRequirementConfirmationActivity({
+        customer_id: id,
+        site: lead.site,
+        owner: lead.owner || actor.user,
+        requirement_version: input.requirement_version,
+        opportunity_id: input.opportunity_id,
+        inquiry_id: input.inquiry_id,
+        product_family: input.product_family,
+        product_category: input.product_category,
+        confirmed_by: actor.user,
+      });
+      const existing = findExistingRequirementConfirmation(
+        await requirementConfirmations(id, activity.metadata.requirement_version),
+        activity.metadata,
+      );
+      if (existing) {
+        return NextResponse.json({
+          message: "客户需求版本此前已确认。",
+          requirement_confirmation: existing.metadata,
+          requirement_confirmation_id: existing.id,
+          reused: true,
+          idempotent: true,
+        });
+      }
+      const createdRows = await supabaseRequest("activities", {
+        method: "POST",
+        body: activity,
+        prefer: "return=representation",
+      });
+      const created = createdRows?.[0] || activity;
+      return NextResponse.json({
+        message: "客户需求版本已人工确认。",
+        requirement_confirmation: created.metadata,
+        requirement_confirmation_id: created.id || null,
+        reused: false,
+        idempotent: false,
+      });
+    }
+
     if (input.action === "update") {
       const scoreOverride = input.score_override === "" || input.score_override == null
         ? null : Math.max(0, Math.min(100, Number(input.score_override)));
+      const requestedStage = STAGES.has(input.stage) ? input.stage : lead.stage;
+      if (requestedStage === "quoted" && lead.stage !== "quoted") {
+        const context = normalizeRequirementConfirmationContext({
+          opportunity_id: input.opportunity_id,
+          inquiry_id: input.inquiry_id,
+        });
+        const confirmation = latestRequirementConfirmation(
+          await requirementConfirmations(id),
+          context,
+        );
+        const gate = validateRequirementConfirmationGate({
+          current_stage: lead.stage,
+          target_stage: requestedStage,
+          confirmation,
+        });
+        if (!gate.allowed) {
+          return NextResponse.json({ message: gate.reason, code: gate.code }, { status: 409 });
+        }
+      }
       const update = {
-        stage: STAGES.has(input.stage) ? input.stage : lead.stage,
+        stage: requestedStage,
         next_follow_up: input.next_follow_up || null,
         score_override: Number.isFinite(scoreOverride) ? scoreOverride : null,
         owner: actor.role === "admin" ? String(input.owner || "").slice(0, 180) || null : actor.user,
