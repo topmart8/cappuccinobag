@@ -113,7 +113,15 @@ const programs = [
 
 const formatComparison = [
   {
-    format: "Racket duffel",
+    format: "Racket bag",
+    href: "/products/premium-padel-racket-bag",
+    use: "Streamlined court carry focused on racket protection",
+    rackets: "Dedicated racket storage; confirm fit with the intended rackets",
+    shoes: "Usually omitted where a compact silhouette is the priority",
+    suitability: "Focused club, retail and player programs",
+  },
+  {
+    format: "Padel duffel",
     href: "/padel-bags/custom-60l-padel-racket-duffel",
     use: "Court, club and tournament loads with clothing and accessories",
     rackets: "Higher-capacity racket storage; confirm fit with the intended rackets",
