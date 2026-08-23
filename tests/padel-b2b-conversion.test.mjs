@@ -108,6 +108,7 @@ test("Padel preview visual safeguards cover header offsets and mobile floating c
   assert.match(manufacturer, /background:rgba\(16,38,28,\.96\)/);
   assert.match(manufacturer, /\.site-header \.nav-more>summary\{color:#fffdf7;background:rgba\(255,255,255,\.08\)/);
   assert.match(manufacturer, /\.padel-manufacturer-page \.btn-primary\{color:#fff;background:#8b5e3c/);
+  assert.match(manufacturer, /\.site-header \.mobile-menu\{flex:0 0 48px;width:48px;min-width:48px;height:48px;background:rgba\(255,255,255,\.08\)/);
   assert.match(whatsapp, /window\.scrollY > window\.innerHeight \* 0\.6/);
   assert.match(whatsapp, /const blockerSelector = "\.hero-actions,\.quote-section,\.padel-product-rfq,\.hybrid-rfq,\.cp-cta,\.site-footer"/);
   assert.match(whatsapp, /padel-controls-obstructed/);
