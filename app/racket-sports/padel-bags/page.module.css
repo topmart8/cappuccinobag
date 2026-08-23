@@ -276,6 +276,50 @@
 .programProducts a { display: flex; align-items: center; justify-content: space-between; gap: 14px; color: var(--padel-forest); font-size: 14px; font-weight: 800; line-height: 1.4; text-decoration: underline; text-underline-offset: 3px; }
 .programProducts span { color: #6d7d73; text-decoration: none; }
 
+.comparisonSection { padding-top: 126px; padding-bottom: 126px; }
+.comparisonTableWrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--padel-line);
+  background: #fff;
+  overscroll-behavior-inline: contain;
+}
+.comparisonTableWrap:focus-visible { outline: 3px solid rgba(11, 42, 28, .28); outline-offset: 4px; }
+.comparisonTable {
+  width: 100%;
+  min-width: 940px;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.comparisonTable caption {
+  padding: 14px 18px;
+  color: var(--padel-muted);
+  font-size: 13px;
+  text-align: left;
+}
+.comparisonTable th,
+.comparisonTable td {
+  min-width: 170px;
+  padding: 20px 18px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid var(--padel-line);
+  border-right: 1px solid var(--padel-line);
+}
+.comparisonTable th:last-child,
+.comparisonTable td:last-child { border-right: 0; }
+.comparisonTable thead th {
+  color: #fff;
+  background: var(--padel-forest);
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.comparisonTable tbody th { color: var(--padel-forest); background: var(--padel-ivory); font-size: 16px; }
+.comparisonTable tbody th a { text-decoration: underline; text-underline-offset: 3px; }
+.comparisonTable tbody tr:nth-child(even) td { background: #f8f6ef; }
+
 .productProofSection { padding-top: 126px; padding-bottom: 126px; }
 .proofLayout { display: grid; grid-template-columns: minmax(0, 1.16fr) minmax(320px, .84fr); gap: 60px; align-items: stretch; }
 .proofImage { overflow: hidden; background: var(--padel-ivory); }
@@ -493,6 +537,10 @@
   .qualityChecks li { grid-template-columns: 42px 1fr; padding: 20px 16px; }
   .manufacturingGrid { gap: 26px; }
   .relatedLinks a { min-height: 74px; }
+  .comparisonSection { padding-top: 72px; padding-bottom: 72px; }
+  .comparisonTable { min-width: 860px; font-size: 14px; }
+  .comparisonTable th,
+  .comparisonTable td { min-width: 156px; padding: 16px 14px; }
   .faqList summary { padding-top: 23px; padding-bottom: 23px; font-size: 19px; }
   .faqList summary::after { top: 21px; }
   .rfqSection { gap: 38px; }
