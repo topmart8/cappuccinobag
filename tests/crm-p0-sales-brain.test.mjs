@@ -114,20 +114,30 @@ test("requirement confirmation gate blocks premature quotation", () => {
   }).allowed, true);
 });
 
-test("P0.1 confirmation context is optional, sanitized and reuses an existing inquiry identifier", () => {
+test("P0.1 explicit opportunity identifier wins over the inquiry fallback", () => {
   const inquiryId = "11111111-1111-4111-8111-111111111111";
   const context = normalizeRequirementConfirmationContext({
     requirement_version: "  REQ-2026-001\0\n ",
     inquiry_id: ` ${inquiryId} `,
-    opportunity_id: "must-not-create-a-second-id",
+    opportunity_id: "  OPP-EXPLICIT\0  ",
     product_category: "  Travel\0 Bags  ",
   });
   assert.deepEqual(context, {
     requirement_version: "REQ-2026-001",
     inquiry_id: inquiryId,
-    opportunity_id: inquiryId,
+    opportunity_id: "OPP-EXPLICIT",
     product_family: "Travel Bags",
   });
+});
+
+test("P0.1 inquiry identifier remains an allowed opportunity fallback", () => {
+  const inquiryId = "11111111-1111-4111-8111-111111111111";
+  const context = normalizeRequirementConfirmationContext({
+    requirement_version: "REQ-2026-001",
+    inquiry_id: inquiryId,
+    product_family: "Travel Bags",
+  });
+  assert.equal(context.opportunity_id, inquiryId);
   const activity = buildRequirementConfirmationActivity({
     customer_id: "customer-1",
     site: "cappuccinobag",
@@ -140,6 +150,20 @@ test("P0.1 confirmation context is optional, sanitized and reuses an existing in
   assert.equal(activity.metadata.opportunity_id, inquiryId);
   assert.equal(activity.metadata.product_family, "Travel Bags");
   assert.equal(activity.metadata.confirmation_source, "human_crm");
+});
+
+test("P0.1 missing opportunity and inquiry context remains customer-level compatible", () => {
+  const context = normalizeRequirementConfirmationContext({ requirement_version: "REQ-2026-001" });
+  assert.equal(context.opportunity_id, null);
+  assert.equal(context.inquiry_id, null);
+  const activity = buildRequirementConfirmationActivity({
+    customer_id: "customer-1",
+    site: "cappuccinobag",
+    requirement_version: context.requirement_version,
+    confirmed_by: "sales@example.com",
+  });
+  assert.equal("inquiry_id" in activity, false);
+  assert.equal(activity.metadata.opportunity_id, null);
 });
 
 test("P0.1 confirmation lookup is idempotent by customer query, version and optional opportunity", () => {
