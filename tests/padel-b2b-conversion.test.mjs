@@ -66,7 +66,8 @@ test("minimal Padel GEO batch adds Padel QC checkpoints and one six-step resourc
     "Branding position and appearance",
     "Packaging and shape protection",
   ]) assert.match(quality, new RegExp(heading));
-  assert.equal((resources.match(/<nav class="resource-grid" aria-label="Padel buyer decision path">/g) || []).length, 1);
+  assert.equal((resources.match(/<nav class="resource-grid padel-decision-path" aria-label="Padel buyer decision path">/g) || []).length, 1);
+  assert.match(await source("app/globals.css"), /\.padel-decision-path a\{[\s\S]*?floating-control-size/);
   for (const href of [
     "/racket-sports/padel-bags",
     "/custom-padel-bag-manufacturer",
