@@ -27,9 +27,11 @@ test("minimal Padel GEO batch adds one semantic format comparison without fixed 
   ]);
   assert.match(collection, /<table className=\{styles\.comparisonTable\}>/);
   assert.match(collection, /Racket capacity guidance/);
-  for (const format of ["Racket duffel", "Padel backpack", "Tote or carryall", "Shoe bag", "Organizer pouch"]) {
+  for (const format of ["Racket bag", "Padel duffel", "Padel backpack", "Tote or carryall", "Shoe bag", "Organizer pouch"]) {
     assert.match(collection, new RegExp(format));
   }
+  assert.match(collection, /\/products\/premium-padel-racket-bag/);
+  assert.match(collection, /\/padel-bags\/custom-60l-padel-racket-duffel/);
   assert.match(collection, /confirm fit|confirm head, handle and zipper clearance/);
   assert.match(styles, /\.comparisonTableWrap[\s\S]*overflow-x: auto/);
   assert.doesNotMatch(collection, /fixed MOQ|fixed lead time/i);

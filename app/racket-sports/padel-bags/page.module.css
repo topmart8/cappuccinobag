@@ -277,6 +277,7 @@
 .programProducts span { color: #6d7d73; text-decoration: none; }
 
 .comparisonSection { padding-top: 126px; padding-bottom: 126px; }
+.comparisonSection h2 { scroll-margin-top: 96px; }
 .comparisonTableWrap {
   max-width: 100%;
   overflow-x: auto;
