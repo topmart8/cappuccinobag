@@ -3,6 +3,10 @@ import { notFound } from "next/navigation";
 import CrmActions from "../../../../components/CrmActions";
 import { getCrmActor } from "../../../../lib/crm/auth";
 import { supabaseRequest } from "../../../../lib/crm/supabase";
+import {
+  isCanonicalCappuccinoWebsiteInquiry,
+  qualifyWebsiteInquiry,
+} from "../../../../lib/crm/website-qualification-adapter";
 
 export const dynamic = "force-dynamic";
 
@@ -25,9 +29,14 @@ const fields = [
 export default async function InquiryPage({ params }) {
   const actor = await getCrmActor();
   const { id } = await params;
-  const rows = await supabaseRequest(`inquiries?id=eq.${encodeURIComponent(id)}&select=*,customers(customer_number,owner)&limit=1`);
+  const customerFields = "id,customer_number,owner,assigned_owner,score,score_override,stage,website,product_keywords,source,whatsapp_phone,company,country";
+  const rows = await supabaseRequest(`inquiries?id=eq.${encodeURIComponent(id)}&select=*,customers(${customerFields})&limit=1`);
   const inquiry = rows?.[0];
   if (!inquiry || (actor.role !== "admin" && inquiry.customers?.owner && inquiry.customers.owner !== actor.user)) notFound();
+  const websiteQualification = isCanonicalCappuccinoWebsiteInquiry(inquiry)
+    ? qualifyWebsiteInquiry({ inquiry, customer: inquiry.customers || {} })
+    : null;
+  const qualification = websiteQualification?.qualification || null;
   const conversations = await supabaseRequest(`conversations?inquiry_id=eq.${id}&select=*&order=created_at.desc`);
   const ids = conversations.map((item) => item.id);
   const [messages, activities, tasks] = await Promise.all([
@@ -46,6 +55,18 @@ export default async function InquiryPage({ params }) {
       </div>
       <div className="crm-stack">
         <CrmActions inquiry={inquiry} />
+        {qualification ? <section className="crm-panel">
+          <div className="crm-panel-header"><div><h2>统一资格建议</h2><p>只读计算 · 不发送消息 · 不创建任务</p></div></div>
+          <div className="crm-kv">
+            <div><small>资格等级</small><p>{qualification.qualification.qualification_band}</p></div>
+            <div><small>资格建议分</small><p>{qualification.qualification.qualification_score}</p></div>
+            <div><small>现有 Lead Score</small><p>{qualification.operational_lead_score.final}</p></div>
+            <div><small>Shadow Score</small><p>{qualification.shadow_score.shadow_score} · shadow_only</p></div>
+          </div>
+          <p><strong>下一安全问题：</strong>{qualification.next_question?.next_question || "当前没有待建议的问题。"}</p>
+          <p><strong>缺失主题：</strong>{qualification.qualification.missing_critical_facts.join("、") || "无"}</p>
+          <p><strong>人工接管：</strong>{qualification.human_handoff.handoff_required ? qualification.human_handoff.handoff_reason.join(" ") : "当前没有额外接管触发条件。"}</p>
+        </section> : null}
         <section className="crm-panel"><div className="crm-panel-header"><h2>活动与任务</h2></div>{[...activities, ...tasks.map((task) => ({ ...task, title: `任务：${task.title}`, body: task.status }))].map((item) => <div className="crm-activity" key={item.id}><span className="crm-activity-dot" /><div><p>{item.title}</p><small>{item.body || ""} · {new Date(item.created_at).toLocaleString("zh-CN")}</small></div></div>)}</section>
       </div>
     </div>
