@@ -104,7 +104,9 @@ test("CRM customer fallbacks remain context-only and cannot confirm product, mar
 });
 
 test("placeholder and system-default values remain UNKNOWN", () => {
-  for (const placeholder of ["Other", "Unknown", "N/A", "None", "-", "", null, undefined]) {
+  for (const placeholder of [
+    "Other", "OTHER", "Unknown", "UNKNOWN", "N/A", "NA", "None", "Not specified", "TBD", "-", "--", "", null, undefined,
+  ]) {
     const inquiry = canonicalWebsiteInquiry({
       product: placeholder,
       product_category: placeholder,
