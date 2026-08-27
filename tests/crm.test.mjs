@@ -102,7 +102,7 @@ test("WhatsApp API retries transient failure without real delivery", async () =>
   process.env.WHATSAPP_PHONE_NUMBER_ID = "test-number";
   let calls = 0;
   global.fetch = async () => { calls += 1; return new Response("failed", { status: 500 }); };
-  await assert.rejects(sendCloudMessage("+8613900000000", "mock message"));
+  await assert.rejects(sendCloudMessage("+8613900000000", "mock message", { humanApproved: true }));
   assert.equal(calls, 3);
   global.fetch = originalFetch;
   delete process.env.WHATSAPP_ACCESS_TOKEN;

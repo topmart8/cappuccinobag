@@ -77,7 +77,7 @@ export async function PATCH(request, { params }) {
       if (inquiry.source_channel === "whatsapp") {
         const phone = normalizePhone(inquiry.whatsapp || inquiry.phone);
         if (!phone) throw new Error("Valid WhatsApp number is missing.");
-        await sendCloudMessage(phone, draft);
+        await sendCloudMessage(phone, draft, { humanApproved: true });
       } else {
         if (!inquiry.email) throw new Error("Customer email is missing.");
         await resend(inquiry.email, `${inquiry.brand} inquiry ${inquiry.inquiry_number}`, draft);
