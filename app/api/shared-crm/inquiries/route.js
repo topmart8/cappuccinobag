@@ -35,15 +35,13 @@ export async function POST(request) {
   try {
     const data = await request.json();
     if (data.website) return NextResponse.json({ ok: true });
-    if (data.site_source !== "novlane") {
-      return NextResponse.json({ message: "site_source must be novlane." }, { status: 422 });
-    }
     const saved = await ingestSharedInquiry({ siteSource: data.site_source, raw: data });
     return NextResponse.json({
       ok: true,
       inquiryNumber: saved.inquiry.inquiry_number,
       submissionId: saved.inquiry.submission_id,
       idempotent: saved.idempotent,
+      identityStatus: saved.identityStatus,
       humanReviewRequired: saved.draft?.human_review_required ?? saved.inquiry.human_takeover ?? false,
     });
   } catch (error) {

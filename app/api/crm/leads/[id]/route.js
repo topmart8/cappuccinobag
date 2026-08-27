@@ -23,6 +23,14 @@ async function requirementConfirmations(customerId, requirementVersion = null) {
 }
 
 const STAGES = new Set(["new", "qualified", "contacted", "replied", "quoted", "sample", "negotiation", "won", "lost"]);
+const RELATIONSHIP_STATUSES = new Set([
+  "new_lead", "existing_lead", "existing_customer", "old_customer", "blocked", "supplier_non_buyer",
+]);
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+function checked(value) {
+  return value === true || value === "true" || value === "1" || value === "on";
+}
 
 export async function PATCH(request, { params }) {
   try {
@@ -101,10 +109,29 @@ export async function PATCH(request, { params }) {
       const update = {
         stage: requestedStage,
         next_follow_up: input.next_follow_up || null,
+        last_contacted_at: input.last_contacted_at || lead.last_contacted_at || null,
         score_override: Number.isFinite(scoreOverride) ? scoreOverride : null,
         owner: actor.role === "admin" ? String(input.owner || "").slice(0, 180) || null : actor.user,
         assigned_owner: actor.role === "admin" ? String(input.owner || "").slice(0, 180) || null : actor.user,
       };
+      if (actor.role === "admin") {
+        const duplicateOf = String(input.duplicate_of || "").trim();
+        if (duplicateOf && (!UUID.test(duplicateOf) || duplicateOf === id)) {
+          return NextResponse.json({ message: "重复客户 ID 无效。" }, { status: 422 });
+        }
+        update.is_existing_customer = checked(input.is_existing_customer);
+        update.do_not_prospect = checked(input.do_not_prospect);
+        update.blocked_reason = String(input.blocked_reason || "").trim().slice(0, 1000) || null;
+        update.duplicate_review = checked(input.duplicate_review);
+        update.duplicate_of = duplicateOf || null;
+        const requestedRelationship = String(input.relationship_status || "");
+        update.relationship_status = update.do_not_prospect
+          ? "blocked"
+          : RELATIONSHIP_STATUSES.has(requestedRelationship)
+            ? requestedRelationship
+            : lead.relationship_status;
+        update.is_existing_customer = ["existing_customer", "old_customer"].includes(update.relationship_status);
+      }
       const score = scoreLead({ ...lead, ...update });
       update.score = score.automatic;
       await supabaseRequest(`customers?id=eq.${id}`, { method: "PATCH", body: update });
@@ -136,6 +163,12 @@ export async function PATCH(request, { params }) {
     }
 
     if (input.action === "draft_email" || input.action === "draft_whatsapp") {
+      if (
+        lead.do_not_prospect || lead.is_existing_customer || lead.duplicate_review
+        || lead.duplicate_of || ["blocked", "existing_customer", "old_customer", "supplier_non_buyer"].includes(lead.relationship_status)
+      ) {
+        return NextResponse.json({ message: "该客户已被老客户、屏蔽或重复规则排除，不能生成开发信草稿。" }, { status: 409 });
+      }
       const product = (lead.product_keywords || []).join(", ") || "custom bag project";
       const draft = await createAiDraft({
         site: lead.site, company: lead.company, name: lead.name, country: lead.country,

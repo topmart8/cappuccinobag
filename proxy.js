@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 
 export function proxy(request) {
+  // The canonical ingest route performs its own constant-time bearer-secret check.
+  if (new URL(request.url).pathname === "/api/crm/intake") {
+    return NextResponse.next();
+  }
+
   const accounts = [
     { user: process.env.CRM_ADMIN_USER, password: process.env.CRM_ADMIN_PASSWORD, role: "admin" },
     { user: process.env.CRM_SALES_USER, password: process.env.CRM_SALES_PASSWORD, role: "sales" },

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getCrmActor } from "../../../../lib/crm/auth";
 import { normalizeImportRow } from "../../../../lib/crm/importer";
-import { supabaseRequest } from "../../../../lib/crm/supabase";
+import { resolveOrCreateCustomer, supabaseRequest } from "../../../../lib/crm/supabase";
 
 export async function POST(request) {
   try {
@@ -13,24 +13,27 @@ export async function POST(request) {
       owner: actor.role === "admin" ? input.owner || actor.user : actor.user,
     });
     if (errors.length) return NextResponse.json({ message: errors.join("；") }, { status: 422 });
-    const created = await supabaseRequest("customers", {
-      method: "POST",
-      body: normalized,
-      prefer: "return=representation",
-    });
+    const resolved = await resolveOrCreateCustomer(normalized);
+    const customer = resolved.customer;
     await supabaseRequest("activities", {
       method: "POST",
       body: {
-        customer_id: created[0].id,
+        customer_id: customer.id,
         site: normalized.site,
         source: "crm",
         owner: normalized.owner,
-        activity_type: "lead_created",
-        title: "手工创建企业线索",
+        activity_type: resolved.created ? "lead_created" : "lead_identity_matched",
+        title: resolved.created ? "手工创建企业线索" : "手工线索归入已有客户",
         body: normalized.company || normalized.name,
+        metadata: { identity_match_method: resolved.matchMethod },
       },
     });
-    return NextResponse.json({ ok: true, id: created[0].id });
+    return NextResponse.json({
+      ok: true,
+      id: customer.id,
+      duplicate: !resolved.created,
+      duplicateReview: resolved.matchMethod === "company_review",
+    });
   } catch (error) {
     const duplicate = /duplicate|unique/i.test(error.message || "");
     return NextResponse.json(

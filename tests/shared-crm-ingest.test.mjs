@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { POST as sharedCrmPost } from "../app/api/shared-crm/inquiries/route.js";
+import { POST as sharedCrmPost } from "../app/api/crm/intake/route.js";
 import {
   deliverInquiryEmails,
   generateDedupeKey,
@@ -103,7 +103,7 @@ test("shared route rejects an invalid secret before reading the payload", async 
   const savedSecret = process.env.SHARED_CRM_INGEST_SECRET;
   process.env.SHARED_CRM_INGEST_SECRET = "correct-secret";
   try {
-    const response = await sharedCrmPost(new Request("https://example.test/api/shared-crm/inquiries", {
+    const response = await sharedCrmPost(new Request("https://example.test/api/crm/intake", {
       method: "POST",
       headers: {
         authorization: "Bearer wrong-secret",
@@ -118,6 +118,18 @@ test("shared route rejects an invalid secret before reading the payload", async 
     if (savedSecret === undefined) delete process.env.SHARED_CRM_INGEST_SECRET;
     else process.env.SHARED_CRM_INGEST_SECRET = savedSecret;
   }
+});
+
+test("canonical shared route is not blocked by CRM Basic authentication", async () => {
+  const source = await readFile(new URL("../proxy.js", import.meta.url), "utf8");
+  assert.match(source, /pathname === "\/api\/crm\/intake"/);
+  assert.match(source, /NextResponse\.next\(\)/);
+});
+
+test("Cappuccino inquiry route uses the shared canonical ingest module", async () => {
+  const source = await readFile(new URL("../app/api/inquiries/route.js", import.meta.url), "utf8");
+  assert.match(source, /import \{ ingestSharedInquiry \} from/);
+  assert.match(source, /siteSource: "cappuccino"/);
 });
 
 test("same submission_id returns success without duplicate writes or emails", async () => {
@@ -143,6 +155,7 @@ test("same submission_id returns success without duplicate writes or emails", as
     },
     persistWorkflow: async () => { workflowWrites += 1; },
     deliverEmails: async () => { emailRuns += 1; return "sent"; },
+    deliveryEnabled: true,
     setEmailStatus: async () => {},
   };
   const request = {
@@ -253,9 +266,11 @@ test("server-only Supabase URL takes precedence", async () => {
   const savedServerUrl = process.env.SUPABASE_URL;
   const savedPublicUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const savedKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const savedExpectedRef = process.env.CRM_EXPECTED_SUPABASE_PROJECT_REF;
   process.env.SUPABASE_URL = "https://server-project.supabase.test";
   process.env.NEXT_PUBLIC_SUPABASE_URL = "https://public-project.supabase.test";
   process.env.SUPABASE_SERVICE_ROLE_KEY = "test-role";
+  delete process.env.CRM_EXPECTED_SUPABASE_PROJECT_REF;
   global.fetch = async (url, options) => {
     assert.match(String(url), /^https:\/\/server-project\.supabase\.test\/rest\/v1\//);
     assert.equal(options.headers["Accept-Profile"], "public");
@@ -272,6 +287,33 @@ test("server-only Supabase URL takes precedence", async () => {
     else process.env.NEXT_PUBLIC_SUPABASE_URL = savedPublicUrl;
     if (savedKey === undefined) delete process.env.SUPABASE_SERVICE_ROLE_KEY;
     else process.env.SUPABASE_SERVICE_ROLE_KEY = savedKey;
+    if (savedExpectedRef === undefined) delete process.env.CRM_EXPECTED_SUPABASE_PROJECT_REF;
+    else process.env.CRM_EXPECTED_SUPABASE_PROJECT_REF = savedExpectedRef;
+  }
+});
+
+test("Supabase project ref guard rejects a mismatched write target", async () => {
+  const originalFetch = global.fetch;
+  const savedServerUrl = process.env.SUPABASE_URL;
+  const savedKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const savedExpectedRef = process.env.CRM_EXPECTED_SUPABASE_PROJECT_REF;
+  process.env.SUPABASE_URL = "https://wrong-project.supabase.co";
+  process.env.SUPABASE_SERVICE_ROLE_KEY = "test-role";
+  process.env.CRM_EXPECTED_SUPABASE_PROJECT_REF = "expected-project";
+  global.fetch = async () => { throw new Error("fetch must not run"); };
+  try {
+    await assert.rejects(
+      supabaseRequest("inquiries?select=id&limit=0"),
+      /does not match the configured project ref/,
+    );
+  } finally {
+    global.fetch = originalFetch;
+    if (savedServerUrl === undefined) delete process.env.SUPABASE_URL;
+    else process.env.SUPABASE_URL = savedServerUrl;
+    if (savedKey === undefined) delete process.env.SUPABASE_SERVICE_ROLE_KEY;
+    else process.env.SUPABASE_SERVICE_ROLE_KEY = savedKey;
+    if (savedExpectedRef === undefined) delete process.env.CRM_EXPECTED_SUPABASE_PROJECT_REF;
+    else process.env.CRM_EXPECTED_SUPABASE_PROJECT_REF = savedExpectedRef;
   }
 });
 
@@ -295,6 +337,15 @@ test("concurrent same-submission writes converge on one inquiry", async () => {
     if (target.includes("/inquiries?") && method === "GET") {
       return Response.json(storedInquiry ? [storedInquiry] : []);
     }
+    if (target.endsWith("/rpc/crm_resolve_customer") && method === "POST") {
+      return Response.json({
+        customer,
+        created: false,
+        match_method: "email",
+        duplicate_review: false,
+        suppression_id: null,
+      });
+    }
     if (target.includes("/customers?select") && method === "GET") {
       customerLookups += 1;
       if (customerLookups <= 2) {
@@ -303,6 +354,9 @@ test("concurrent same-submission writes converge on one inquiry", async () => {
         return Response.json([]);
       }
       return Response.json([customer]);
+    }
+    if (target.includes("/crm_suppressions?") && method === "GET") {
+      return Response.json([]);
     }
     if (target.endsWith("/customers") && method === "POST") {
       customerCreates += 1;
@@ -366,6 +420,18 @@ test("shared CRM migration adds the canonical columns and unique submission cons
   assert.match(sql, /email_status in \('pending', 'sent', 'skipped', 'failed'\)/);
 });
 
+test("Cappuccino alignment migration matches the canonical brand constraint", async () => {
+  const sql = await readFile(
+    new URL("../supabase/migrations/20260809093510_align_cappuccino_site_source_constraint.sql", import.meta.url),
+    "utf8",
+  );
+  assert.match(sql, /site_source = 'cappuccino'/);
+  assert.match(sql, /site = 'cappuccinobag'/);
+  assert.match(sql, /brand = 'Cappuccino Bag'/);
+  assert.doesNotMatch(sql, /brand = 'Cappuccino'/);
+  assert.match(sql, /validate constraint inquiries_site_source_alignment_check/);
+});
+
 test("shared CRM hardening migration restricts anonymous Data API access", async () => {
   const sql = await readFile(
     new URL("../supabase/migrations/20260809051623_harden_shared_crm_data_api.sql", import.meta.url),
@@ -392,6 +458,16 @@ test("shared website ingest never writes a legacy lead or submission table", asy
     const target = new URL(String(url));
     const table = target.pathname.split("/").pop();
     if (options.method && options.method !== "GET") writes.push(table);
+    if (table === "crm_resolve_customer") {
+      return Response.json({
+        customer: { id: "customer-2", email_normalized: "nora@example.com" },
+        created: false,
+        match_method: "email",
+        duplicate_review: false,
+        suppression_id: null,
+      });
+    }
+    if (table === "crm_suppressions") return Response.json([]);
     if (table === "inquiries" && options.method === "POST") {
       const body = JSON.parse(options.body);
       return Response.json([{ id: "inquiry-2", inquiry_number: "NOV-20260809-0001", ...body }]);

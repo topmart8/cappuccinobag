@@ -7,11 +7,17 @@ export const runtime = "nodejs";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ALLOWED = new Set([
-  "application/pdf", "image/jpeg", "image/png", "application/msword",
+  "application/pdf", "image/jpeg", "image/png", "image/webp", "application/msword",
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
   "application/vnd.ms-excel",
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "application/postscript", "application/illustrator", "application/octet-stream",
+  "application/dxf", "image/vnd.dxf", "image/vnd.adobe.photoshop", "application/x-photoshop",
   "application/zip", "application/x-zip-compressed",
+]);
+const ALLOWED_EXTENSIONS = new Set([
+  "pdf", "jpg", "jpeg", "png", "webp", "doc", "docx", "xls", "xlsx",
+  "ai", "eps", "dxf", "dwg", "psd", "zip",
 ]);
 const attempts = globalThis.__capInquiryRateLimit || (globalThis.__capInquiryRateLimit = new Map());
 
@@ -43,7 +49,8 @@ async function upload(files) {
   if (files.length > 5) throw new Error("Upload no more than 5 files.");
   const uploaded = [];
   for (const file of files) {
-    if (!ALLOWED.has(file.type) || file.size > 8 * 1024 * 1024) {
+    const extension = String(file.name || "").split(".").pop()?.toLowerCase() || "";
+    if (!ALLOWED_EXTENSIONS.has(extension) || !ALLOWED.has(file.type) || file.size > 8 * 1024 * 1024) {
       throw new Error("Unsupported or oversized attachment.");
     }
     const path = `cappuccinobag/${new Date().toISOString().slice(0, 10)}/${safeName(file.name)}`;
@@ -76,6 +83,7 @@ export async function POST(request) {
       inquiryNumber: reference,
       submissionId: saved.inquiry.submission_id,
       idempotent: saved.idempotent,
+      identityStatus: saved.identityStatus,
       humanReviewRequired: saved.draft?.human_review_required ?? saved.inquiry.human_takeover ?? false,
     });
   } catch (error) {
