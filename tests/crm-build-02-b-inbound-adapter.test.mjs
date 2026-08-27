@@ -74,6 +74,92 @@ test("website adapter preserves canonical identity, source and attribution", () 
   assert.equal(input.lead.score_override, 72);
 });
 
+test("CRM customer fallbacks remain context-only and cannot confirm product, market or company facts", () => {
+  const inquiry = canonicalWebsiteInquiry({
+    product: null,
+    product_category: "Other",
+    quantity: null,
+    company: null,
+    country: null,
+    message: null,
+  });
+  const customer = {
+    id: "customer-02-b",
+    company: "CRM Company Context",
+    country: "Germany",
+  };
+  const input = buildWebsiteQualificationInput({ inquiry, customer });
+  const result = qualifyWebsiteInquiry({ inquiry, customer }).qualification;
+
+  assert.equal(input.customer.company, "CRM Company Context");
+  assert.equal(input.customer.country, "Germany");
+  assert.equal(input.facts.product, undefined);
+  assert.equal(input.facts.product_category, undefined);
+  assert.equal(input.facts.target_market, undefined);
+  assert.equal(input.facts.company_name, undefined);
+  assert.equal(result.facts.product.status, "UNKNOWN");
+  assert.equal(result.facts.target_market.status, "UNKNOWN");
+  assert.equal(result.facts.company_name.status, "UNKNOWN");
+  assert.equal(result.next_question.missing_fact, "product");
+});
+
+test("placeholder and system-default values remain UNKNOWN", () => {
+  for (const placeholder of ["Other", "Unknown", "N/A", "None", "-", "", null, undefined]) {
+    const inquiry = canonicalWebsiteInquiry({
+      product: placeholder,
+      product_category: placeholder,
+      quantity: placeholder,
+      material: placeholder,
+      logo_method: placeholder,
+      target_price: placeholder,
+      target_delivery_date: placeholder,
+      company: placeholder,
+      country: placeholder,
+      message: null,
+    });
+    const result = qualifyWebsiteInquiry({ inquiry, customer: {} }).qualification;
+    for (const field of [
+      "product", "quantity", "material", "logo_customization", "budget_or_target_price", "timeline", "company_name",
+    ]) {
+      assert.equal(result.facts[field].status, "UNKNOWN", `${field} must ignore ${String(placeholder)}`);
+    }
+  }
+});
+
+test("direct inquiry product and target market outrank default category and CRM country", () => {
+  const inquiry = canonicalWebsiteInquiry({
+    product: "Custom Padel Bag",
+    product_category: "Other",
+    target_market: "UK",
+    message: "Target market: UK",
+  });
+  const input = buildWebsiteQualificationInput({
+    inquiry,
+    customer: { id: "customer-02-b", country: "Germany" },
+  });
+
+  assert.equal(input.facts.product.value, "Custom Padel Bag");
+  assert.equal(input.facts.product.state, "CUSTOMER_CONFIRMED");
+  assert.equal(input.facts.product_category, undefined);
+  assert.equal(input.facts.target_market.value, "UK");
+  assert.equal(input.facts.target_market.state, "CUSTOMER_CONFIRMED");
+  assert.equal(input.facts.country_market.value, "UK");
+});
+
+test("next-question engine asks for target market when only CRM country supplies market context", () => {
+  const inquiry = canonicalWebsiteInquiry({
+    target_market: null,
+    message: "Sample requirement: Yes",
+  });
+  const result = qualifyWebsiteInquiry({
+    inquiry,
+    customer: { id: "customer-02-b", country: "Germany" },
+  }).qualification;
+
+  assert.equal(result.facts.target_market.status, "UNKNOWN");
+  assert.equal(result.next_question.missing_fact, "target_market");
+});
+
 test("required website RFQ flows through shared ingest, Qualification and Sales Brain without new persistence", async () => {
   let canonicalWorkflowWrites = 0;
   let internalNotificationRuns = 0;
