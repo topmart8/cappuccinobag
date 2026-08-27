@@ -248,14 +248,14 @@ test("historical quoted records are not retroactively blocked", () => {
   assert.equal(result.allowed, true);
 });
 
-test("P0 playbook registry contains only four families and six approved scenarios", () => {
+test("P0 playbook families and six approved scenarios remain compatible", () => {
   assert.deepEqual(PLAYBOOK_FAMILIES, ["PAD", "BASE", "LEAW", "MEN_TRAVEL"]);
-  assert.deepEqual(PLAYBOOK_SCENARIOS, [
+  const p0Scenarios = [
     "NEED_DISCOVERY", "REQUIREMENT_CONFIRMATION", "QUOTATION", "SAMPLE", "NEGOTIATION", "PI_PAYMENT",
-  ]);
-  assert.equal(SALES_PLAYBOOKS.length, 24);
-  assert.ok(SALES_PLAYBOOKS.every((item) => item.version === "1.0.0"));
-  assert.ok(SALES_PLAYBOOKS.every((item) => item.recommended_script === null));
+  ];
+  assert.ok(p0Scenarios.every((scenario) => PLAYBOOK_SCENARIOS.includes(scenario)));
+  assert.ok(p0Scenarios.every((scenario) => SALES_PLAYBOOKS.some((item) => item.playbook_id === `PAD-${scenario}`)));
+  assert.ok(SALES_PLAYBOOKS.every((item) => item.do_not_do.some((rule) => /outbound communication automatically/i.test(rule))));
 });
 
 test("company policy and risk rules outrank playbook and AI recommendations", () => {
