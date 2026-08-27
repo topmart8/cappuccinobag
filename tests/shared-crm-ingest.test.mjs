@@ -179,7 +179,7 @@ test("an idempotent retry skips attachment upload", async () => {
   assert.equal(uploadRuns, 0);
 });
 
-test("existing Cappuccino notification and safe auto-reply behavior is preserved", async () => {
+test("internal inquiry notification remains while safe_auto customer email is hard-disabled", async () => {
   const savedEnabled = process.env.CAP_INQUIRY_AUTO_REPLY_ENABLED;
   const savedMode = process.env.CAP_INQUIRY_REPLY_MODE;
   process.env.CAP_INQUIRY_AUTO_REPLY_ENABLED = "true";
@@ -206,11 +206,10 @@ test("existing Cappuccino notification and safe auto-reply behavior is preserved
     reply_body: "Thank you\nWe will reply soon.",
   }, send, raw);
   assert.equal(status, "sent");
-  assert.equal(calls.length, 2);
+  assert.equal(calls.length, 1);
   assert.equal(calls[0].subject, "[Cappuccino RFQ] CAP-20260809-0001 | Padel Bags");
   assert.equal(calls[0].replyTo, "alice@example.com");
-  assert.equal(calls[1].to, "alice@example.com");
-  assert.match(calls[1].subject, /We received your Cappuccino Bag inquiry/);
+  assert.notEqual(calls[0].to, "alice@example.com");
   for (const expected of [
     "Target dimensions", "50 x 30 x 25 cm", "Intended pet size", "Up to 8 kg",
     "Color", "Pantone black", "Packaging", "Recycled polybag",
