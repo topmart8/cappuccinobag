@@ -7,7 +7,10 @@ import {
 } from "../lib/crm/hunter-qualification-profiles.js";
 import {
   QUALIFICATION_FACT_STATUSES,
+  QUALIFICATION_FACT_STATES,
   QUALIFICATION_INPUT_SOURCES,
+  QUALIFICATION_TOPICS,
+  buildQualificationTopics,
   normalizeImageQualificationResult,
   qualifySalesOpportunity,
   recommendNextQualificationQuestion,
@@ -45,6 +48,12 @@ function decisionFacts(overrides = {}) {
     target_market: fact("Germany"),
     development_stage: fact("development"),
     timeline: fact("Q4 launch decision"),
+    material_interest: fact("polyester"),
+    dimensions_specification: fact("two-racket capacity with shoe compartment"),
+    customization_need: fact("front logo"),
+    budget_or_target_price: fact("customer target supplied for human review"),
+    compliance_requirement: fact("no stated requirement"),
+    sample_interest: fact(true),
     buying_intent: fact("sample development"),
     ...overrides,
   };
@@ -52,6 +61,9 @@ function decisionFacts(overrides = {}) {
 
 test("qualification contract supports only FACT, INFERRED and UNKNOWN across approved sources", () => {
   assert.deepEqual(QUALIFICATION_FACT_STATUSES, ["FACT", "INFERRED", "UNKNOWN"]);
+  assert.deepEqual(QUALIFICATION_FACT_STATES, [
+    "UNKNOWN", "INFERRED", "CUSTOMER_CONFIRMED", "HUMAN_CONFIRMED", "CONFLICTED",
+  ]);
   assert.deepEqual(QUALIFICATION_INPUT_SOURCES, [
     "website_inquiry", "alibaba_inquiry", "manual_crm_entry",
     "email_derived_structured_facts", "future_whatsapp_adapter",
@@ -110,7 +122,7 @@ test("D: image result maps product as inferred without making a capability commi
     visible_features: ["separate shoe compartment", "backpack straps"],
     confidence: 0.82,
   } });
-  assert.equal(result.next_question.missing_fact, "estimated_quantity");
+  assert.equal(result.next_question.missing_fact, "quantity");
   assert.doesNotMatch(result.next_question.next_question, /can make|yes/i);
   assert.equal(result.script_plan.draft, null, "image inference alone cannot ground a customer script");
 });
@@ -374,4 +386,114 @@ test("next-question helper never asks a known image-derived structure again", ()
   assert.notEqual(direct.missing_fact, "shoe_compartment");
   assert.notEqual(direct.missing_fact, "backpack_straps");
   assert.equal(direct.missing_fact, "ball_tube_or_bottle");
+});
+
+test("all ten canonical qualification topics are recognized through existing and canonical fields", () => {
+  const result = qualifySalesOpportunity({ facts: decisionFacts() });
+  assert.deepEqual(Object.keys(QUALIFICATION_TOPICS), [
+    "product", "quantity", "target_market", "material", "dimensions_specification",
+    "logo_customization", "budget_or_target_price", "timeline", "compliance", "sample_requirement",
+  ]);
+  for (const topic of Object.keys(QUALIFICATION_TOPICS)) {
+    assert.notEqual(result.qualification_topics[topic].state, "UNKNOWN", topic);
+  }
+  assert.deepEqual(result.qualification.missing_critical_facts, []);
+});
+
+test("canonical topics retain UNKNOWN, INFERRED, customer and human confirmation without a second fact engine", () => {
+  const result = qualifySalesOpportunity({ facts: {
+    product: { value: "Padel Bag", state: "CUSTOMER_CONFIRMED", source: "website_inquiry", confidence: 0.92, evidence: ["customer message"] },
+    quantity: { value: 500, state: "HUMAN_CONFIRMED", source: "human_crm", confidence: 1, evidence: ["sales verified"] },
+    target_market: { value: "UK", status: "INFERRED", source: "conversation_summary", confidence: 0.6, evidence: ["brand context"] },
+  } });
+  assert.equal(result.qualification_topics.product.state, "CUSTOMER_CONFIRMED");
+  assert.equal(result.qualification_topics.product.status, "FACT");
+  assert.equal(result.qualification_topics.quantity.state, "HUMAN_CONFIRMED");
+  assert.equal(result.qualification_topics.quantity.value, 500);
+  assert.equal(result.qualification_topics.target_market.state, "INFERRED");
+  assert.equal(result.qualification_topics.material.state, "UNKNOWN");
+  assert.deepEqual(result.qualification_topics.product.evidence, [{ value: "customer message", source: null }]);
+  assert.equal(result.qualification_topics.product.confidence, 0.92);
+});
+
+test("human-confirmed topic values outrank inferred or customer-confirmed aliases", () => {
+  const result = qualifySalesOpportunity({ facts: {
+    material: { value: "PU", state: "CUSTOMER_CONFIRMED", source: "website_inquiry", evidence: ["customer inquiry"] },
+    material_interest: { value: "Recycled polyester", state: "HUMAN_CONFIRMED", source: "human_crm", evidence: ["human clarification"] },
+  } });
+  assert.equal(result.qualification_topics.material.state, "HUMAN_CONFIRMED");
+  assert.equal(result.qualification_topics.material.value, "Recycled polyester");
+});
+
+test("conflicted topic evidence is surfaced before any missing-topic question and triggers handoff", () => {
+  const result = qualifySalesOpportunity({ facts: {
+    product: { value: "CONFLICTED", state: "CONFLICTED", source: "canonical_ingest", evidence: ["Padel Bag", "Travel Bag"] },
+  } });
+  assert.equal(result.qualification_topics.product.state, "CONFLICTED");
+  assert.equal(result.next_question.missing_fact, "product");
+  assert.equal(result.next_question.approval_level, "HUMAN_ONLY");
+  assert.equal(result.human_handoff.handoff_required, true);
+});
+
+test("example lead produces one ranked safe question and never re-asks confirmed topics", () => {
+  const result = qualifySalesOpportunity({ facts: {
+    product: { value: "Padel Bag", state: "CUSTOMER_CONFIRMED", source: "website_inquiry", evidence: ["custom padel bag"] },
+    quantity: { value: 500, state: "CUSTOMER_CONFIRMED", source: "website_inquiry", evidence: ["around 500 pcs"] },
+    target_market: { value: "UK", state: "CUSTOMER_CONFIRMED", source: "website_inquiry", evidence: ["UK brand"] },
+    logo_customization: { value: "logo required", state: "CUSTOMER_CONFIRMED", source: "website_inquiry", evidence: ["need our logo"] },
+    sample_requirement: { value: true, state: "CUSTOMER_CONFIRMED", source: "website_inquiry", evidence: ["sample first"] },
+  } });
+  assert.equal(result.next_question.missing_fact, "material");
+  assert.equal(typeof result.next_question.next_question, "string");
+  assert.doesNotMatch(result.next_question.next_question, /product|quantity|target market|logo|sample/i);
+  assert.equal(result.next_question.mode, "recommendation_only");
+});
+
+test("Hunter hypotheses remain inferred and cannot ground confirmed scripts or commercial truth", () => {
+  const result = qualifySalesOpportunity({
+    hunter_profile_id: "PADEL_02",
+    facts: {
+      product: { value: "Padel Bag", state: "INFERRED", source: "hunter_profile", confidence: 0.7, evidence: ["ICP hypothesis"] },
+      target_market: { value: "UK", state: "INFERRED", source: "hunter_profile", confidence: 0.6, evidence: ["ICP hypothesis"] },
+      customer_type: { value: "brand", state: "INFERRED", source: "hunter_profile", confidence: 0.6, evidence: ["ICP hypothesis"] },
+    },
+  });
+  assert.equal(result.qualification_topics.product.state, "INFERRED");
+  assert.equal(result.qualification_topics.target_market.state, "INFERRED");
+  assert.equal(result.script_plan.draft, null);
+});
+
+test("commercial decisions and risk remain human-only handoff boundaries", () => {
+  const scenarios = [
+    { target_stage: "quoted" },
+    { policy_context: { price_request: true } },
+    { policy_context: { moq_exception: true } },
+    { policy_context: { special_payment_terms: true } },
+    { policy_context: { incoterm: "DDP" } },
+    { policy_context: { compliance_commitment: true } },
+    { policy_context: { production_exception: true } },
+    { policy_context: { refund: true } },
+    { policy_context: { compensation: true } },
+    { facts: { ...decisionFacts(), risk_signal: fact(true) } },
+  ];
+  for (const scenario of scenarios) {
+    const result = qualifySalesOpportunity({ facts: decisionFacts(), ...scenario });
+    assert.equal(result.human_handoff.handoff_required, true);
+  }
+  const targetPrice = qualifySalesOpportunity({ facts: decisionFacts({
+    budget_or_target_price: { value: "GBP 12 target", state: "CUSTOMER_CONFIRMED", source: "website_inquiry", evidence: ["customer target"] },
+  }) });
+  assert.equal(targetPrice.human_handoff.handoff_required, true);
+  assert.doesNotMatch(targetPrice.script_plan.draft || "", /GBP 12|approved price|confirmed MOQ/i);
+});
+
+test("topic builder never promotes explicit conflict into a confirmed fact", () => {
+  const topics = buildQualificationTopics({
+    compliance: {
+      field: "compliance", value: "CONFLICTED", status: "UNKNOWN", state: "CONFLICTED",
+      source: "qualification_topic_resolution", confidence: 0, evidence: Object.freeze([]),
+    },
+  });
+  assert.equal(topics.compliance.state, "CONFLICTED");
+  assert.equal(topics.compliance.status, "UNKNOWN");
 });

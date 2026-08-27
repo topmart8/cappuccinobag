@@ -17,15 +17,15 @@
 
 | File | Classification | Purpose |
 |---|---|---|
-| `lib/crm/qualification.js` | `KEEP_UNCHANGED` | Reapply the validated application-layer orchestrator on new main |
+| `lib/crm/qualification.js` | `COVERAGE_COMPLETION` | Complete the ten-topic runtime view, conflict-first question and required handoff coverage |
 | `lib/crm/hunter-qualification-profiles.js` | `KEEP_UNCHANGED` | Reapply four ICP profiles sharing one Hunter/qualification engine |
-| `tests/crm-build-02-a1-qualification.test.mjs` | `KEEP_UNCHANGED` | Reapply A–S contract and safety coverage plus policy/grounding/override tests |
+| `tests/crm-build-02-a1-qualification.test.mjs` | `COVERAGE_COMPLETION` | Add explicit ten-topic, state, evidence, question, Hunter and commercial-handoff coverage |
 | `BUILD_02_A1_AI_SALES_QUALIFICATION.md` | `DOC_UPDATE_ONLY` | Update base, canonical reuse, SAFE-AUTO and deployment truth |
 | `BUILD_02_A1_DIFF_REVIEW.md` | `DOC_UPDATE_ONLY` | Update reconciliation classifications and repository truth |
 | `BUILD_02_A1_TEST_REPORT.md` | `DOC_UPDATE_ONLY` | Update new-main verification evidence |
 | `HUNTER_QUALIFICATION_PROFILES.md` | `KEEP_UNCHANGED` | Preserve Hunter profile boundaries and shared-engine contract |
 
-No file is classified `UPDATE_FOR_SAFE_AUTO`, `DROP` or `TEST_UPDATE_ONLY`. The runtime and focused test apply unchanged because the SAFE-AUTO file intersection is zero.
+No file is classified `UPDATE_FOR_SAFE_AUTO` or `DROP`. The SAFE-AUTO file intersection remains zero.
 
 ## Reuse / duplication control
 
@@ -65,6 +65,8 @@ No file is classified `UPDATE_FOR_SAFE_AUTO`, `DROP` or `TEST_UPDATE_ONLY`. The 
 ## Runtime safety scan
 
 New runtime files contain no `fetch()`, Email/WhatsApp sender, Resend, Supabase helper, `process.env`, route object, SQL mutation or `follow_up_tasks` reference.
+
+The qualification contract now covers product, quantity, target market, material, dimensions/specification, logo/customization, customer-supplied budget/target price, timeline, compliance and sample requirement. Existing facts are adapted into one canonical runtime view; no new persistence or parallel CRM contract is introduced.
 
 The module is not imported by any API route. It cannot persist a qualification, create a task, send a draft or alter historical data.
 

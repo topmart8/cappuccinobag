@@ -8,7 +8,7 @@ Baseline includes merged PR #32 and PR #33. PR #33 is the authoritative SAFE-AUT
 
 ## Targeted qualification tests
 
-Result: 24/24 PASS.
+Result: 32/32 PASS.
 
 | Required case | Result |
 |---|---|
@@ -34,13 +34,15 @@ Result: 24/24 PASS.
 
 Additional tests cover Company Policy precedence, grounded script behavior, commercial-commitment exclusion, human override and image-feature question deduplication.
 
+Coverage-completion tests explicitly verify all ten canonical topics, UNKNOWN/INFERRED/CUSTOMER_CONFIRMED/HUMAN_CONFIRMED/CONFLICTED handling, evidence and confidence retention, human-confirmed priority, conflict-first and one-question behavior, inferred Hunter hypotheses, and human-only commercial/risk handoff boundaries.
+
 ## Compatibility and regression
 
 | Check | Result |
 |---|---|
 | SAFE-AUTO focused compatibility | 39/39 PASS |
 | P0 + P1A focused compatibility | 34/34 PASS |
-| Full regression | 140/140 PASS |
+| Full regression | 148/148 PASS |
 | Lint | PASS, zero warnings |
 | Typecheck / Next route generation | PASS |
 | Next production build | PASS |

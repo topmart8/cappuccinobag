@@ -37,12 +37,13 @@ Every qualification field is normalized to:
 }
 ```
 
-Allowed statuses are `FACT`, `INFERRED` and `UNKNOWN`.
+The existing compatibility statuses remain `FACT`, `INFERRED` and `UNKNOWN`. The same fact envelope now exposes one canonical qualification state: `UNKNOWN`, `INFERRED`, `CUSTOMER_CONFIRMED`, `HUMAN_CONFIRMED` or `CONFLICTED`. Customer/human confirmation projects to legacy `FACT`; this is a compatibility view, not a second state engine.
 
 - Untyped raw values are not silently promoted to facts.
 - Inferred values retain their status and reduced scoring weight.
 - Only confirmed facts are passed into evidence-sensitive customer tier recommendations and grounded scripts.
 - Unknown values remain `UNKNOWN`.
+- Human-confirmed values outrank customer-confirmed and inferred aliases. Explicit conflicts remain `CONFLICTED`, trigger human handoff and are never promoted to fact.
 
 Supported source labels are website inquiry, Alibaba inquiry, manual CRM entry, email-derived structured facts, future WhatsApp adapter, image-analysis result and conversation summary.
 
@@ -57,6 +58,8 @@ The preserved contract represents customer-confirmed and human-confirmed informa
 | `DERIVED` | qualification components/band, missing facts, next question, handoff and Hunter profile recommendation |
 | `RUNTIME_ONLY` | evidence/confidence envelope, image input contract and safety/integration targets |
 | `FUTURE_SCHEMA_REQUIRED` | None for BUILD 02-A.1 |
+
+The canonical runtime topics are product, quantity, target market, material, dimensions/specification, logo/customization, customer-supplied budget/target price, timeline, compliance and sample requirement. Each retains value, state, source/evidence and confidence without persistence.
 
 ## Qualification output
 
@@ -90,21 +93,16 @@ Image-derived product, feature, material, compartment, hardware and customizatio
 
 The engine selects one question with `DRAFT_HUMAN_APPROVAL`:
 
-1. product identity;
-2. estimated quantity;
-3. company and buyer role;
-4. brand context;
-5. OEM/ODM intent;
-6. target market;
-7. development stage;
-8. timeline;
-9. the minimum product-specific missing fact.
+1. resolve an explicit conflict first;
+2. select one missing canonical topic by commercial usefulness;
+3. continue with company, buyer, OEM/ODM and stage context;
+4. select the minimum product-specific missing fact.
 
 Known FACT or visibly inferred image structure is not asked again. Product-specific rules cover Racket Sports, Team Sports, Leather and Travel.
 
 ## Human handoff
 
-Human handoff is recommended for S/A_PLUS, strategic or million-dollar potential, verified strong brand/group, high-value opportunity, low-confidence high-value evidence, conflicting evidence, Company Policy exceptions and complaints.
+Human handoff is recommended for S/A_PLUS, strategic or million-dollar potential, verified strong brand/group, high-value opportunity, low-confidence high-value evidence, conflicting evidence, risk, quotation stage, customer target-price review, commercial decisions, Company Policy exceptions and complaints.
 
 The output contains `handoff_required`, reasons, owner, priority, due date and a grounded human summary. It does not create a task or send a message.
 
