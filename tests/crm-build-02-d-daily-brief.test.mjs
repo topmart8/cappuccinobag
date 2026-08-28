@@ -71,7 +71,8 @@ test("TEST 01 active customer beats a stale high-score lead", () => {
     ],
   });
   assert.equal(brief.priority_customers[0].customer_id, "active");
-  assert.equal(brief.priority_customers[1].lead_score, 96);
+  assert.equal(brief.priority_customers.some((item) => item.customer_id === "stale"), false);
+  assert.equal(brief.reactivation_opportunities[0].customer_id, "stale");
 });
 
 test("TEST 02 high Lead Score is not automatically number one", () => {
@@ -86,7 +87,8 @@ test("TEST 02 high Lead Score is not automatically number one", () => {
     ],
   });
   assert.equal(brief.priority_customers[0].customer_id, "today");
-  assert.equal(brief.priority_customers.find((item) => item.customer_id === "high").lead_score, 100);
+  assert.equal(brief.priority_customers.some((item) => item.customer_id === "high"), false);
+  assert.equal(brief.reactivation_opportunities[0].customer_id, "high");
 });
 
 test("TEST 03 overdue canonical task increases today's priority", () => {
@@ -208,4 +210,55 @@ test("TEST 15 existing Script Planner remains DRAFT_ONLY", () => {
   assert.equal(brief.priority_customers[0].script_mode, "DRAFT_ONLY");
   assert.equal(typeof brief.priority_customers[0].recommended_draft, "string");
   assert.equal(brief.priority_customers[0].next_best_action.human_required, true);
+});
+
+test("BUSINESS F weak stale cold lead is excluded instead of filling Top 10", () => {
+  const brief = build({
+    customers: [customer("weak", {
+      country: null,
+      email: null,
+      product_keywords: [],
+      updated_at: "2026-05-01T00:00:00.000Z",
+    })],
+    inquiries: [inquiry("weak-i", "weak", {
+      product: null,
+      product_category: "Other",
+      quantity: null,
+      created_at: "2026-05-01T00:00:00.000Z",
+      updated_at: "2026-05-01T00:00:00.000Z",
+    })],
+  });
+  assert.equal(brief.priority_customers.length, 0);
+  assert.equal(brief.reactivation_opportunities.length, 0);
+});
+
+test("BUSINESS G four actionable opportunities return four, not ten", () => {
+  const customers = Array.from({ length: 4 }, (_, index) => customer(`valid-${index}`));
+  const inquiries = customers.map((item, index) => inquiry(`valid-i-${index}`, item.id));
+  const brief = build({ customers, inquiries });
+  assert.equal(brief.priority_customers.length, 4);
+  assert.equal(brief.today_top_actions.length, 4);
+});
+
+test("TODAY TOP ACTIONS are prioritized independently from customer rank", () => {
+  const brief = build({
+    customers: [
+      customer("rank-first", { score_override: 100 }),
+      customer("human-first", {
+        score_override: 5,
+        customer_tier: "S",
+        updated_at: "2026-08-05T09:00:00.000Z",
+      }),
+    ],
+    inquiries: [
+      inquiry("rank-first-i", "rank-first"),
+      inquiry("human-first-i", "human-first", {
+        created_at: "2026-08-05T09:00:00.000Z",
+        updated_at: "2026-08-05T09:00:00.000Z",
+      }),
+    ],
+  });
+  assert.equal(brief.priority_customers[0].customer_id, "rank-first");
+  assert.equal(brief.today_top_actions[0].customer_id, "human-first");
+  assert.equal(brief.today_top_actions[0].customer_rank, 2);
 });
