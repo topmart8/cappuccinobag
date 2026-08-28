@@ -90,7 +90,7 @@ test("TEST 03 an explicit customer selling-market statement confirms target mark
 test("TEST 04 customer target price is evidence, never a quotation", () => {
   const result = qualifyWhatsAppInquiry({
     inquiry: inquiry(),
-    messages: [inbound("Target price is around USD 18.")],
+    messages: [inbound("Our target is USD 18.")],
   }).qualification;
   assert.equal(result.facts.budget_or_target_price.value, "USD 18");
   assert.equal(result.facts.budget_or_target_price.state, "CUSTOMER_CONFIRMED");
