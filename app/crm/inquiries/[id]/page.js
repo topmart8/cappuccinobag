@@ -7,6 +7,10 @@ import {
   isCanonicalCappuccinoWebsiteInquiry,
   qualifyWebsiteInquiry,
 } from "../../../../lib/crm/website-qualification-adapter";
+import {
+  isCanonicalCappuccinoWhatsAppInquiry,
+  qualifyWhatsAppInquiry,
+} from "../../../../lib/crm/whatsapp-qualification-adapter";
 
 export const dynamic = "force-dynamic";
 
@@ -33,10 +37,6 @@ export default async function InquiryPage({ params }) {
   const rows = await supabaseRequest(`inquiries?id=eq.${encodeURIComponent(id)}&select=*,customers(${customerFields})&limit=1`);
   const inquiry = rows?.[0];
   if (!inquiry || (actor.role !== "admin" && inquiry.customers?.owner && inquiry.customers.owner !== actor.user)) notFound();
-  const websiteQualification = isCanonicalCappuccinoWebsiteInquiry(inquiry)
-    ? qualifyWebsiteInquiry({ inquiry, customer: inquiry.customers || {} })
-    : null;
-  const qualification = websiteQualification?.qualification || null;
   const conversations = await supabaseRequest(`conversations?inquiry_id=eq.${id}&select=*&order=created_at.desc`);
   const ids = conversations.map((item) => item.id);
   const [messages, activities, tasks] = await Promise.all([
@@ -44,6 +44,12 @@ export default async function InquiryPage({ params }) {
     supabaseRequest(`activities?inquiry_id=eq.${id}&select=*&order=created_at.desc`).catch(() => []),
     supabaseRequest(`tasks?inquiry_id=eq.${id}&select=*&order=created_at.desc`).catch(() => []),
   ]);
+  const qualificationResult = isCanonicalCappuccinoWebsiteInquiry(inquiry)
+    ? qualifyWebsiteInquiry({ inquiry, customer: inquiry.customers || {} })
+    : isCanonicalCappuccinoWhatsAppInquiry(inquiry)
+      ? qualifyWhatsAppInquiry({ inquiry, customer: inquiry.customers || {}, messages })
+      : null;
+  const qualification = qualificationResult?.qualification || null;
   return <main className="crm-content">
     <div className="crm-heading"><div><Link href="/crm/inquiries">← 返回询盘</Link><h1 style={{ marginTop: 12 }}>{inquiry.inquiry_number}</h1><p>{inquiry.brand} · {inquiry.customers?.customer_number || "客户编号待生成"} · {inquiry.human_takeover ? "需要人工审核" : inquiry.reply_status}</p></div></div>
     <div className="crm-detail-grid">
