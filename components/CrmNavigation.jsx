@@ -11,6 +11,7 @@ export default function CrmNavigation({ labels, isAdmin, mobile = false }) {
   const pathname = usePathname();
   const primary = [
     ["/crm", labels.dashboard],
+    ["/crm/daily-brief", labels.dailyBrief],
     ["/crm/analytics", labels.analytics],
     ["/crm/leads", labels.leads],
     ["/crm/inquiries", labels.inquiries],
