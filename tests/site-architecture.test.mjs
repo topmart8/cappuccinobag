@@ -49,7 +49,7 @@ test("C2 sitemap guides contain distinct buyer guidance instead of the legacy te
     ["pickleball-bag-customization-guide", "Start with paddle count and bag format"],
     ["hiking-backpack-customization-guide", "Map hydration and trail access"],
     ["quality-inspection-guide", "Define the inspection reference"],
-    ["moq-sampling-faq", "MOQ Factors"],
+    ["moq-sampling-faq", "Which Quantity Range Fits Your Project Stage?"],
   ];
   const sources = await Promise.all(guides.map(([slug]) => readFile(
     new URL(`../public/site/${slug}/index.html`, import.meta.url),
@@ -60,6 +60,48 @@ test("C2 sitemap guides contain distinct buyer guidance instead of the legacy te
     assert.match(sources[index], new RegExp(distinctiveHeading.replace(/[?]/g, "\\?")));
     assert.doesNotMatch(sources[index], /planning OEM\/ODM outdoor bags, wallets, RFID products, travel products or eco-tech smart bag projects/);
     assert.doesNotMatch(sources[index], /<h2>What this guide covers<\/h2>/);
+  }
+});
+
+test("MOQ and pricing guide is answer-first, qualified and schema-aligned", async () => {
+  const source = await readFile(
+    new URL("../public/site/moq-sampling-faq/index.html", import.meta.url),
+    "utf8",
+  );
+  const mainText = source
+    .slice(source.indexOf("<main"))
+    .replace(/<script[\s\S]*?<\/script>/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const firstTwoHundredWords = mainText.split(" ").slice(0, 200).join(" ");
+
+  assert.match(source, /<title>Custom Bag MOQ &amp; Pricing Guide \| Cappuccino Bag<\/title>/);
+  assert.match(source, /<h1>Custom Bag MOQ &amp; Pricing Guide<\/h1>/);
+  assert.match(firstTwoHundredWords, /Custom bag MOQ is project-specific, not one guaranteed number\./);
+  assert.match(firstTwoHundredWords, /product type, material, color, logo method, hardware, packaging, structure complexity and supplier article availability/);
+  for (const quantity of ["50–100 pcs", "200–300 pcs", "500+ pcs", "1000+ pcs"]) {
+    assert.ok(source.includes(quantity), `${quantity} guidance is missing`);
+  }
+  for (const factor of ["Material", "Size", "Structure", "Logo method", "Hardware", "Lining", "Packaging", "Quantity", "Sample revisions"]) {
+    assert.match(source, new RegExp(`<th scope="row">${factor}<\\/th>`));
+  }
+  for (const href of ["/inquiry", "/custom-padel-bag-manufacturer", "/racket-sports/padel-bags", "/products", "/factory-trust-materials", "/resources"]) {
+    assert.ok(source.includes(`href="${href}"`), `${href} internal link is missing`);
+  }
+  assert.doesNotMatch(source, /[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/u);
+  assert.doesNotMatch(source, /<form\b/i);
+
+  const schemaSource = source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
+  assert.ok(schemaSource, "FAQPage JSON-LD is missing");
+  const schema = JSON.parse(schemaSource);
+  assert.equal(schema["@type"], "FAQPage");
+  assert.equal(schema.mainEntity.length, 6);
+  for (const item of schema.mainEntity) {
+    assert.equal(item["@type"], "Question");
+    assert.equal(item.acceptedAnswer["@type"], "Answer");
+    assert.ok(source.includes(`<summary>${item.name}</summary>`), `${item.name} is not visible`);
+    assert.ok(source.includes(`<p>${item.acceptedAnswer.text}</p>`), `${item.name} answer differs from visible copy`);
   }
 });
 
