@@ -75,6 +75,7 @@ test("MOQ and pricing guide is answer-first, qualified and schema-aligned", asyn
     .replace(/\s+/g, " ")
     .trim();
   const firstTwoHundredWords = mainText.split(" ").slice(0, 200).join(" ");
+  const approvedSmallRunGuidance = "50–100 pcs may be reviewed for sample-market testing or very simple projects, but approval depends on available materials, standard components and the final specification.";
 
   assert.match(source, /<title>Custom Bag MOQ &amp; Pricing Guide \| Cappuccino Bag<\/title>/);
   assert.match(source, /<h1>Custom Bag MOQ &amp; Pricing Guide<\/h1>/);
@@ -83,6 +84,8 @@ test("MOQ and pricing guide is answer-first, qualified and schema-aligned", asyn
   for (const quantity of ["50–100 pcs", "200–300 pcs", "500+ pcs", "1000+ pcs"]) {
     assert.ok(source.includes(quantity), `${quantity} guidance is missing`);
   }
+  assert.equal(source.split(approvedSmallRunGuidance).length - 1, 4);
+  assert.doesNotMatch(source, /A 50 to 100 piece order may suit|50–100 pieces may suit|selected simple projects/);
   for (const factor of ["Material", "Size", "Structure", "Logo method", "Hardware", "Lining", "Packaging", "Quantity", "Sample revisions"]) {
     assert.match(source, new RegExp(`<th scope="row">${factor}<\\/th>`));
   }
