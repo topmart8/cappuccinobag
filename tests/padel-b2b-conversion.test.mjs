@@ -100,6 +100,11 @@ test("priority Padel products expose sourcing facts without fixed unverified com
   assert.match(hybridData, /Padel travel, daily training and functional unisex club collections/);
   assert.match(hybridTemplate, /No model-specific certification claimed/);
   assert.match(`${classicTemplate}${pdb001}${hybridTemplate}`, /Confirm with factory/);
+  for (const content of [classicData, pdb001, hybridTemplate, await source("app/products/[slug]/page.js")]) {
+    assert.doesNotMatch(content, /7\s*[–-]\s*15\s*(?:working\s*)?days/i);
+    assert.match(content, /Sample timing is confirmed for the agreed specification/);
+    assert.match(content, /A requested date is not a confirmed completion date/);
+  }
 });
 
 test("Padel decision pages use the existing RFQ route and consistent primary CTA", async () => {
@@ -127,11 +132,12 @@ test("Manufacturer, Factory Proof and Resources form a scoped Padel evidence pat
   assert.match(manufacturer, /href="\/custom-padel-bag-manufacturer#padel-bag-manufacturer-faq"/);
   assert.doesNotMatch(manufacturer, /href="#padel-bag-manufacturer-faq"/);
   for (const asset of [
-    "/assets/videos/uk-client-multifunctional-bag-sewing.mp4",
+    "/assets/cappuccino-original-padel-technical-bag-v1.png",
     "/assets/videos/cappuccino-bag-sample-development.mp4",
     "/videos/cappuccino-factory-bulk-production-website-16x9-720p-web-optimized.mp4",
     "/assets/padel-real-samples/hero-racket-bag-sample.jpg",
   ]) assert.match(`${manufacturer}${factory}`, new RegExp(asset.replaceAll("/", "\\/")));
+  assert.doesNotMatch(manufacturer, /uk-client|gary|etsy|padel circulo|\bNDA\b/i);
   for (const page of [manufacturer, factory, resources]) {
     assert.match(page, /\/racket-sports\/padel-bags/);
     assert.match(page, /\/factory-trust-materials|\/custom-padel-bag-manufacturer/);
@@ -181,12 +187,12 @@ test("Padel manufacturing proof videos have real posters, lazy sources and visib
     source("app/globals.css"),
     source("public/site/assets/script.js"),
   ]);
-  assert.equal((manufacturer.match(/<video /g) || []).length, 3);
+  assert.equal((manufacturer.match(/<video /g) || []).length, 2);
   assert.equal((factory.match(/<video /g) || []).length, 3);
-  for (const page of [manufacturer, factory]) {
-    assert.equal((page.match(/poster="/g) || []).length, 3);
-    assert.equal((page.match(/data-video-src="/g) || []).length, 3);
-    assert.equal((page.match(/proof-video-fallback/g) || []).length, 3);
+  for (const [page, expectedCount] of [[manufacturer, 2], [factory, 3]]) {
+    assert.equal((page.match(/poster="/g) || []).length, expectedCount);
+    assert.equal((page.match(/data-video-src="/g) || []).length, expectedCount);
+    assert.equal((page.match(/proof-video-fallback/g) || []).length, expectedCount);
     assert.doesNotMatch(page, /<video[^>]+autoplay/);
   }
   assert.match(styles, /\.proof-video-frame\.is-unavailable \.proof-video-fallback\{display:block\}/);

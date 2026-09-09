@@ -74,7 +74,7 @@ const procurementSnapshot = [
   ["Shoe compartment", "Not specified in the current PDB001 sample; confirm with factory if required"],
   ["Main material options", "Water-resistant nylon or polyester; recycled options available"],
   ["MOQ", "Confirm with factory after material, layout, logo and packaging review"],
-  ["Sample", "Available; typically 7–15 days after specifications and materials are confirmed"],
+  ["Sample", "Sample timing is confirmed for the agreed specification after reviewing material availability, construction, custom components and the revision plan. A requested date is not a confirmed completion date."],
   ["Bulk production lead time", "Confirm after quantity, materials, approved sample, packaging and inspection steps are agreed"],
   ["OEM / ODM", "Available for layout, materials, colours, straps, hardware, branding and packaging"],
   ["Logo options", "Screen print, heat transfer, embroidery, woven label, rubber patch or metal logo"],
