@@ -279,11 +279,11 @@ export default function PadelBagsLandingPage() {
           <div className={styles.programGrid}>
             {programs.map((program) => (
               <article className={styles.program} key={program.name}>
-                <div className={styles.programImage}>
+                <Link className={styles.programImage} href={program.products[0][1]} aria-label={`Explore ${program.name}`}>
                   <Image src={program.image} width={program.width} height={program.height} sizes="(max-width: 760px) 100vw, 33vw" alt={program.alt} />
-                </div>
+                </Link>
                 <div className={styles.programCopy}>
-                  <h3>{program.name}</h3>
+                  <h3><Link href={program.products[0][1]}>{program.name}</Link></h3>
                   <p className={styles.suitableBuyer}><span>Suitable for</span>{program.buyer}</p>
                   <p>{program.value}</p>
                   <ul>{program.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
