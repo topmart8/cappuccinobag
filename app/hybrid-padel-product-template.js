@@ -124,7 +124,7 @@ export function HybridPadelProductPage({ slug }) {
             {product.procurementSnapshot.map(([term, description]) => <div key={term}><dt>{term}</dt><dd>{description}</dd></div>)}
             <div><dt>Main material options</dt><dd>Water-resistant recycled nylon / polyester or conventional nylon / polyester; final selection follows the project brief</dd></div>
             <div><dt>MOQ</dt><dd>Confirm with factory after structure, material, logo and packaging review</dd></div>
-            <div><dt>Sample</dt><dd>Available; typically 7–15 days after specifications and materials are confirmed</dd></div>
+            <div><dt>Sample</dt><dd>Sample timing is confirmed for the agreed specification after reviewing material availability, construction, custom components and the revision plan. A requested date is not a confirmed completion date.</dd></div>
             <div><dt>Bulk lead time</dt><dd>Confirm after quantity, materials, approved sample, packaging and inspection steps are agreed</dd></div>
             <div><dt>OEM / ODM</dt><dd>Colours, materials, lining, pocket layout, trims, logo execution and packaging</dd></div>
             <div><dt>Logo options</dt><dd>Embroidery, woven labels and other approved private-label executions</dd></div>

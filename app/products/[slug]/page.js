@@ -115,7 +115,7 @@ const customizationItems = [
   ["Logo", "silk screen, heat transfer, embroidery, rubber patch, woven label"],
   ["Materials", "nylon, polyester, PU, vegan leather, recycled fabric options"],
   ["MOQ", "based on material and logo method"],
-  ["Sample Time", "usually 7–15 days after design confirmation"],
+  ["Sample Time", "Sample timing is confirmed for the agreed specification after reviewing material availability, construction, custom components and the revision plan. A requested date is not a confirmed completion date."],
   ["Bulk Lead Time", "based on order quantity and packaging"],
   ["Packaging", "polybag, hangtag, barcode label, carton, retail packaging"],
 ];
@@ -139,7 +139,7 @@ const faqs = [
   {
     question: "How long does sample development take?",
     answer:
-      "Sample development usually takes 7–15 days after design confirmation, subject to material availability and construction complexity.",
+      "Sample timing is confirmed for the agreed specification after reviewing material availability, construction, custom components and the revision plan. A requested date is not a confirmed completion date.",
   },
 ];
 
