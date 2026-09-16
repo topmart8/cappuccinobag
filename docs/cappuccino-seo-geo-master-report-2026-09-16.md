@@ -4,7 +4,7 @@ Date: 2026-09-16. Branch: `codex/cappuccino-seo-geo-master`. Base: remote `main`
 
 ## SECTION A — EXECUTIVE SUMMARY
 
-This round protects the existing ranking URLs and makes targeted improvements instead of creating more pages. The Padel collection and racket-sports umbrella now carry clearer commercial titles and descriptions. The homepage description is shorter and category-focused. A single authoritative Organization entity now supplies a valid logo. The broken visual on the Padel manufacturer page now uses an existing first-party development image.
+This round protects the existing ranking URLs and makes targeted improvements instead of creating more pages. The Padel collection and racket-sports umbrella now carry clearer commercial titles and descriptions. The homepage description is shorter and category-focused. A global Organization node now supplies a stable `@id` and valid logo alongside compatible page-level Organization references. The broken visual on the Padel manufacturer page now uses an existing first-party development image.
 
 Expected impact: better B2B query alignment and search-result clarity for pages already receiving impressions, cleaner entity extraction for search and answer engines, and a fully valid priority-page crawl with no broken assets.
 
@@ -58,11 +58,11 @@ Expected impact: better B2B query alignment and search-result clarity for pages 
 | Manufacturer | Existing direct answers retained; no filler added | Broken concept image replaced with an existing Cappuccino development collection image and qualified caption | Manufacturer, service, FAQ and breadcrumb blocks remain aligned |
 | Padel collection | Commercial metadata clarified; visible product comparison remains unchanged | Physical sample and construction references retained | CollectionPage, BreadcrumbList and FAQPage remain valid |
 | Racket sports | Commercial metadata clarified; visible comparison table retained | Links to focused sport and factory pages retained | Cross-sport comparison and FAQ blocks remain self-contained |
-| Site-wide | Organization identity centralized with stable `@id`, legal name, URL, email and logo | Uses an existing first-party logo asset | Every rendered page exposes the same extractable organization entity |
+| Site-wide | A global Organization node supplies a stable `@id`, legal name, URL, email and logo | Uses an existing first-party logo asset | Page-level Organization references remain compatible with the global identity |
 
 ## SECTION F — TECHNICAL FIXES
 
-- Schema: added one central Organization entity with a valid `ImageObject` logo; JSON-LD parses successfully.
+- Schema: added a global Organization node with a stable `@id` and valid `ImageObject` logo. Existing compatible page-level Organization nodes remain; JSON-LD parses successfully.
 - Canonicals: all 175 sitemap pages have valid canonical URLs; no duplicates or trailing-slash conflicts detected.
 - Robots: public pages allowed; `/crm/`, `/api/` and `/site/` remain disallowed.
 - Sitemap: 175 canonical, indexable URLs; zero redirects, duplicates, non-200 URLs or noindex URLs.
@@ -114,9 +114,7 @@ Do not publish localized pages yet. All other languages: WAIT.
 - `public/site/custom-tennis-padel-racket-bags/index.html`
 - `tests/padel-b2b-conversion.test.mjs`
 - `tests/site-architecture.test.mjs`
-- `reports/site-audit.json`
 - `reports/site-audit.md`
-- `docs/site-architecture-audit-2026-08.md`
 - `docs/cappuccino-seo-geo-master-report-2026-09-16.md`
 
 ## SECTION K — RISKS / FOLLOW-UP
