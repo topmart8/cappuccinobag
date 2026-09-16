@@ -1,13 +1,13 @@
 # Cappuccino Bag Site Audit
 
-Generated: 2026-08-15T17:33:52.736Z
+Generated: 2026-09-16T13:21:25.650Z
 
 ## Summary
 
 - Pages crawled: 175
 - Sitemap URLs: 175
-- Internal targets checked: 323
-- Images checked: 217
+- Internal targets checked: 319
+- Images checked: 205
 
 ## Issue counts
 
@@ -64,9 +64,9 @@ Generated: 2026-08-15T17:33:52.736Z
 
 | Path | Status | Title | H1 | Canonical | Robots |
 |---|---:|---|---|---|---|
-| / | 200 | Custom Padel & Functional Bag Manufacturer | Cappuccino Bag | Custom Padel, Racket Sports & Functional Bag Manufacturer | https://www.cappuccinobag.com | index, follow |
-| /custom-padel-bag-manufacturer | 200 | Reliable Padel Bag Manufacturer in China | OEM/ODM | Reliable Custom Padel Bag Manufacturer in China | https://www.cappuccinobag.com/custom-padel-bag-manufacturer | index, follow |
-| /racket-sports/padel-bags | 200 | Custom Padel Bag Manufacturer | OEM Padel Racket Bags | Your Padel Bag Development Partner | https://www.cappuccinobag.com/racket-sports/padel-bags | index, follow |
+| / | 200 | Custom Padel & Functional Bag Manufacturer | Cappuccino Bag | Custom Racket Sports, Outdoor, Travel Bags & Accessories | https://www.cappuccinobag.com | index, follow |
+| /custom-padel-bag-manufacturer | 200 | Custom Padel Bag Manufacturer in China | OEM/ODM Factory | OEM/ODM Padel Bag Manufacturer in China | https://www.cappuccinobag.com/custom-padel-bag-manufacturer | index, follow |
+| /racket-sports/padel-bags | 200 | Custom Padel Bags for Brands | OEM Racket Bags & Backpacks | Custom Padel Bags: Racket Bags, Backpacks & Duffels | https://www.cappuccinobag.com/racket-sports/padel-bags | index, follow |
 | /products | 200 | Custom Bag Product Collections | Cappuccino Bag | Custom Bag Collections for OEM/ODM Projects | https://www.cappuccinobag.com/products | index, follow |
 | /corporate-tech-gift-solutions | 200 | Corporate & Tech Gift Solutions | Custom Backpack Gift Sets | Corporate & Tech Gift Solutions | https://www.cappuccinobag.com/corporate-tech-gift-solutions | index, follow |
 | /products/3-in-1-tech-gift-set-backpack-headphones-speaker | 200 | 3-in-1 Tech Gift Set | Water-Resistant Laptop Backpack with Headphones & Speaker | Cappuccino Bag | 3-in-1 Tech Gift Set | https://www.cappuccinobag.com/products/3-in-1-tech-gift-set-backpack-headphones-speaker | index, follow |
@@ -74,7 +74,7 @@ Generated: 2026-08-15T17:33:52.736Z
 | /fletcher-hotels-custom-bag | 200 | Fletcher Hotels Custom Bag Case Study | Cappuccino Bag | Fletcher Hotels Custom Branded Activity Bag Development | https://www.cappuccinobag.com/fletcher-hotels-custom-bag | index, follow |
 | /noeve-vegan-beauty-accessory | 200 | NOÉVE Vegan Beauty Accessory Case Study | Cappuccino | NOÉVE Luxury Vegan Leather Beauty Accessory Development | https://www.cappuccinobag.com/noeve-vegan-beauty-accessory | index, follow |
 | /kitty-couture-rhinestone-handbag | 200 | Kitty Couture Rhinestone Handbag Case Study | Kitty Couture Rhinestone Fashion Handbag Manufacturing | https://www.cappuccinobag.com/kitty-couture-rhinestone-handbag | index, follow |
-| /inquiry | 200 | Start Your Custom Outdoor Bag, Wallet or Eco-Tech Smart Product Project | Cappuccino Bag | Start Your Custom Outdoor Bag, Wallet or Eco-Tech Smart Product Project | https://www.cappuccinobag.com/inquiry | index, follow |
+| /inquiry | 200 | Start Your Custom Bag Project | Cappuccino Bag | Start Your Custom Bag Project | https://www.cappuccinobag.com/inquiry | index, follow |
 | /resources | 200 | Resources & Buyer Guides for Outdoor, Racquet Sports & Travel Bags | Cappuccino Bag | Knowledge Center for Global Bag Buyers | https://www.cappuccinobag.com/resources | index, follow |
 | /custom-pickleball-paddle-bags | 200 | Custom Pickleball Paddle Bags | Cappuccino Bag | Custom Pickleball Paddle Bags | https://www.cappuccinobag.com/custom-pickleball-paddle-bags | index, follow |
 | /custom-tennis-bag-manufacturer | 200 | Custom Tennis Bag Manufacturer | Cappuccino Bag | Custom Tennis Bag Manufacturer | https://www.cappuccinobag.com/custom-tennis-bag-manufacturer | index, follow |
@@ -85,14 +85,14 @@ Generated: 2026-08-15T17:33:52.736Z
 | /pickleball-bag-customization-guide | 200 | Pickleball Bag Customization Guide | Cappuccino Bag | Pickleball Bag Customization Guide | https://www.cappuccinobag.com/pickleball-bag-customization-guide | index, follow |
 | /hiking-backpack-customization-guide | 200 | Hiking Backpack Customization Guide | Cappuccino Bag | Hiking Backpack Customization Guide | https://www.cappuccinobag.com/hiking-backpack-customization-guide | index, follow |
 | /quality-inspection-guide | 200 | Quality Inspection Guide | Cappuccino Bag | Quality Inspection Guide | https://www.cappuccinobag.com/quality-inspection-guide | index, follow |
-| /moq-sampling-faq | 200 | MOQ & Sampling FAQ | Cappuccino Bag | MOQ & Sampling FAQ | https://www.cappuccinobag.com/moq-sampling-faq | index, follow |
+| /moq-sampling-faq | 200 | Custom Bag MOQ & Pricing Guide | Cappuccino Bag | Custom Bag MOQ & Pricing Guide | https://www.cappuccinobag.com/moq-sampling-faq | index, follow |
 | /contact | 200 | Contact Cappuccino Bag | Guangzhou Cappuccino Leather Handbag Factory | Contact Cappuccino Bag | https://www.cappuccinobag.com/contact | index, follow |
 | /privacy | 200 | Privacy and Analytics | Cappuccino Bag | Privacy and analytics | https://www.cappuccinobag.com/privacy | index, follow |
 | /about-us | 200 | About Cappuccino Bag | OEM/ODM Bag Manufacturer | About Cappuccino Bag | https://www.cappuccinobag.com/about-us | index, follow |
 | /faq | 200 | FAQ | Cappuccino Bag OEM/ODM Bag Manufacturer | FAQ | https://www.cappuccinobag.com/faq | index, follow |
 | /blog/company-bio | 200 | Cappuccino Bag Company Bio | Cappuccino Bag Company Bio | https://www.cappuccinobag.com/blog/company-bio | index, follow |
 | /oem-odm-functional-bag-manufacturer-faq | 200 | OEM/ODM Functional Bag Manufacturer FAQ | OEM/ODM Functional Bag Manufacturer FAQ | https://www.cappuccinobag.com/oem-odm-functional-bag-manufacturer-faq | index, follow |
-| /custom-tennis-padel-racket-bags | 200 | Custom Tennis & Padel Racket Bags | OEM Racquet Sports Bag Manufacturer | Custom Tennis & Padel Racket Bags | https://www.cappuccinobag.com/custom-tennis-padel-racket-bags | index, follow |
+| /custom-tennis-padel-racket-bags | 200 | Custom Racket Sports Bags | Tennis, Padel & Pickleball OEM | Racquet Sports Bags: Tennis, Padel & Pickleball | https://www.cappuccinobag.com/custom-tennis-padel-racket-bags | index, follow |
 | /products/custom-padel-backpack-racket-compartment | 200 | Custom Padel Backpack with Laptop Sleeve & Racket Compartment | Cappuccino | Custom Padel Backpack with Racket Compartment | https://www.cappuccinobag.com/products/custom-padel-backpack-racket-compartment | index, follow |
 | /products/premium-padel-racket-bag | 200 | Premium Padel Racket Bag with Ergonomic Carry | Cappuccino | Premium Padel Racket Bag for Players & Clubs | https://www.cappuccinobag.com/products/premium-padel-racket-bag | index, follow |
 | /products/custom-padel-duffel-bag-shoe-compartment | 200 | Custom Padel Duffel Bag with Separate Shoe Storage | Cappuccino | Custom Padel Duffel Bag with Shoe Compartment | https://www.cappuccinobag.com/products/custom-padel-duffel-bag-shoe-compartment | index, follow |
