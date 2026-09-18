@@ -2,7 +2,9 @@ import Link from "next/link";
 import styles from "./page.module.css";
 
 const productLinks = [
+  ["Racket Sports Bags & Cases", "/custom-racket-sports-bags-and-cases/"],
   ["Padel Bags", "/racket-sports/padel-bags"],
+  ["Padel Racket Sleeves", "/custom-padel-racket-sleeves/"],
   ["Pickleball Bags", "/custom-pickleball-paddle-bags"],
   ["Tennis Bags", "/custom-tennis-bag-manufacturer"],
   ["Outdoor & Hiking", "/custom-outdoor-sports-bag-manufacturer"],

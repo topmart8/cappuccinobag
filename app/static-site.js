@@ -21,7 +21,6 @@ const publicRootPages = new Set([
   "custom-hiking-daypacks-outdoor-backpacks",
   "custom-pickleball-paddle-bags",
   "factory-trust-materials",
-  "padel-brand-collection-development",
 ]);
 const allowedPages = new Set([
   "",

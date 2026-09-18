@@ -194,6 +194,9 @@ const manufacturingProof = [
 ];
 
 const relatedLinks = [
+  ["Padel Racket Sleeves & Covers", "/custom-padel-racket-sleeves/"],
+  ["Racket Sports Bags & Cases", "/custom-racket-sports-bags-and-cases/"],
+  ["Padel Brand Product Line Development", "/padel-brand-collection-development/"],
   ["Racquet Sports Bag Overview", "/custom-tennis-padel-racket-bags"],
   ["Padel Bag Manufacturer", "/custom-padel-bag-manufacturer"],
   ["Tennis Bags", "/custom-tennis-bag-manufacturer"],
