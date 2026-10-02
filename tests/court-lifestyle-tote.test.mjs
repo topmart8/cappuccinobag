@@ -58,3 +58,14 @@ test("Court sitemap canonical remains present exactly once",async()=>{
   const {default:sitemap}=await import("../app/sitemap.js");
   assert.equal(sitemap().filter(entry=>entry.url===`https://www.cappuccinobag.com${route}`).length,1);
 });
+
+test("black lining is a labeled customization illustration, separate from sample facts", () => {
+  const page = read(pagePath);
+  assert.ok(fs.existsSync("public/images/court-lifestyle-tote/court-black-lining-concept.webp"));
+  assert.match(page, /Customization concept — black lining\. Final layout confirmed during sampling\./);
+  assert.match(page, /alt="Customization illustration of a proposed black tote lining and interior layout"/);
+  const facts = page.match(/const facts = \[([\s\S]*?)\];/)[1];
+  assert.doesNotMatch(facts, /lining|divider|capacity|compartment/i);
+  const css = read("app/products/court-lifestyle-tote-development-sample/page.module.css");
+  assert.match(css, /liningVisual img\{display:block;width:100%;height:auto;aspect-ratio:3\/2;object-fit:contain/);
+});
