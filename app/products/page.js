@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import SiteFooter from "../../components/SiteFooter";
 import SiteHeader from "../../components/SiteHeader";
+import styles from "./products.module.css";
 
 const siteUrl = "https://www.cappuccinobag.com";
 const collections = [
@@ -68,6 +70,27 @@ export default function ProductsPage() {
           <p className="eyebrow">Product Directory</p>
           <h1>Custom Bag Collections for OEM/ODM Projects</h1>
           <p>Choose a product family to review formats, development considerations and a focused RFQ path. Padel is the first core growth category.</p>
+        </section>
+        <section className={styles.featured} aria-labelledby="featured-development-sample">
+          <div className={styles.featuredVisual}>
+            <Image
+              src="/images/court-lifestyle-tote/ivory-brown-tote-front-source.jpeg"
+              alt="Original photograph of the ivory and brown Court Lifestyle Tote development sample"
+              fill
+              sizes="(max-width: 800px) 100vw, 52vw"
+              loading="eager"
+              fetchPriority="high"
+            />
+          </div>
+          <div className={styles.featuredCopy}>
+            <p className="eyebrow">Featured Development Sample</p>
+            <h2 id="featured-development-sample">Court Lifestyle Tote</h2>
+            <p className={styles.sampleLabel}>OEM / ODM Development Sample</p>
+            <p>An in-house tote direction for project-specific private-label development. Review the confirmed sample colours, customization scope and 300-piece production MOQ for your private-label collection.</p>
+            <p className={styles.projectNote}>Final materials, dimensions and equipment fit are confirmed per project.</p>
+            <p className={styles.photoNote}>Original physical sample photograph. Protective wrapping remains on the handles.</p>
+            <Link className="btn btn-primary" href="/products/court-lifestyle-tote-development-sample">View the development sample</Link>
+          </div>
         </section>
         <section className="products-directory-grid" aria-label="Custom bag collections">
           {collections.map((item, index) => (

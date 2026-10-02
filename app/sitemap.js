@@ -14,6 +14,7 @@ const routes = [
   { path: "/custom-padel-bag-manufacturer", priority: 0.95, updated: "2026-08-16" },
   { path: "/racket-sports/padel-bags", priority: 0.98, updated: "2026-08-16" },
   { path: "/products", priority: 0.9 },
+  { path: "/products/court-lifestyle-tote-development-sample", priority: 0.92, updated: "2026-10-02" },
   { path: "/corporate-tech-gift-solutions", priority: 0.92, updated: "2026-08-13" },
   { path: techGiftProductPath, priority: 0.95, updated: "2026-08-13" },
   { path: "/case-studies", priority: 0.86, updated: "2026-08-09" },
