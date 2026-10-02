@@ -7,189 +7,71 @@ import styles from "./page.module.css";
 const siteUrl = "https://www.cappuccinobag.com";
 const path = "/products/court-lifestyle-tote-development-sample";
 const canonical = `${siteUrl}${path}`;
-const sampleImage = "/images/court-lifestyle-tote/ivory-brown-tote-front-source.jpeg";
+const ivory = "/images/court-lifestyle-tote/court-ivory-retouched.webp";
+const black = "/images/court-lifestyle-tote/court-black-retouched.webp";
 const inquiryHref = "/inquiry?product=Court%20Lifestyle%20Tote%20Development%20Sample";
+const imageCaption = "Retouched presentation images based on our physical samples. Refer to the approved sample and specification for final details.";
 
 export const metadata = {
-  title: "Custom Women's Court Tote | OEM/ODM | Cappuccino Bag",
-  description:
-    "Review a Cappuccino Bag in-house women’s court lifestyle tote sample, project-specific customization, 300-piece production MOQ and sample development.",
+  title: "Women’s Court Lifestyle Tote | OEM/ODM | Cappuccino Bag",
+  description: "Develop a private-label women’s court tote with Cappuccino Bag. View ivory-brown and black samples, discuss your specifications and request a development review.",
   alternates: { canonical },
   openGraph: {
-    title: "Custom Women's Court Tote | OEM/ODM | Cappuccino Bag",
-    description:
-      "An in-house Court Lifestyle Tote development sample for project-specific private-label collections.",
+    title: "Your Next Court Lifestyle Tote Starts Here",
+    description: "See Cappuccino Bag’s in-house tote samples in ivory with brown trim and black. Discuss a private-label development brief for your collection.",
     url: canonical,
     type: "website",
-    images: [{
-      url: `${siteUrl}${sampleImage}`,
-      width: 720,
-      height: 1280,
-      alt: "Original photograph of the ivory and brown Court Lifestyle Tote development sample",
-    }],
+    images: [{ url: `${siteUrl}${ivory}`, width: 1122, height: 1402, alt: "Retouched ivory Court Lifestyle Tote sample with brown trim and curved front pouch" }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Custom Women's Court Tote | Cappuccino Bag",
-    description: "Review an in-house Court Lifestyle Tote development sample and project-specific customization process.",
-    images: [sampleImage],
-  },
+  twitter: { card: "summary_large_image", title: "Your Next Court Lifestyle Tote Starts Here", description: "In-house tote samples in ivory with brown trim and black for private-label development review.", images: [`${siteUrl}${ivory}`] },
   robots: { index: true, follow: true },
 };
 
-const customization = [
-  ["Materials and lining", "Reviewed against the intended use, appearance, structure and project requirements."],
-  ["Colour allocation", "The main body, trim, lining and hardware palette is reviewed for each project."],
-  ["Branding", "Logo placement and method are selected after the material and artwork are reviewed."],
-  ["Storage layout", "Pocket arrangement and closures are developed around the approved brief and target equipment."],
-  ["Carry details", "Handle and shoulder-carry requirements are confirmed in the project specification."],
-  ["Packaging", "Labels, hangtags and retail packaging can be reviewed after the product direction is agreed."],
+const options = [
+  ["Material and color", "Surface finish, lining, body and trim colors"],
+  ["Fit and organization", "Dimensions, openings, pocket layout and target equipment"],
+  ["Branding and hardware", "Logo placement, application method and hardware details"],
+  ["Presentation", "Labels, hangtags and packaging"],
 ];
-
+const facts = [
+  ["Product", "Women’s Court Lifestyle Tote"],
+  ["Supplier", "Cappuccino Bag"],
+  ["Stage", "In-house physical development sample"],
+  ["Sample colors", "Ivory with brown trim; black"],
+  ["Visible design", "Rectangular tote body, twin handles, curved front pouch, textured exterior and zipper details"],
+];
 const faqs = [
-  {
-    question: "What is the minimum order quantity?",
-    answer: "Custom production starts at 300 pieces per style. Custom production orders of 100–200 pieces are not available. Colour allocation is reviewed for each project.",
-  },
-  {
-    question: "Can I develop a sample first?",
-    answer: "Yes. Sample development is quoted separately and can be reviewed before a custom production order. Share the intended use, target equipment, material direction, colour and branding requirements for review.",
-  },
-  {
-    question: "Which details can be customized?",
-    answer: "Materials, lining, colour allocation, branding, hardware direction, storage layout, carry details and packaging can be reviewed. Final choices are confirmed for the individual project.",
-  },
-  {
-    question: "How is racket or paddle fit confirmed?",
-    answer: "Fit is not assumed from the visual direction. The actual target racket or paddle dimensions and equipment should be checked against the developed sample before the final production specification is approved.",
-  },
+  { question: "Can I use this sample for my private-label project?", answer: "Use the sample as a starting point and send the changes your collection needs. Cappuccino Bag can review the development scope with you." },
+  { question: "Will my paddles or rackets fit?", answer: "Fit has not been validated for the equipment you use. Include the equipment type, dimensions, quantity and any covers so the developed sample can be checked for opening clearance, closure and carry requirements." },
+  { question: "Is the sample leather, and are accessories included?", answer: "The photographs establish the textured appearance. Material composition, removable features and included accessories need confirmation for the selected version." },
+  { question: "How do I get a quote?", answer: "Send the quantity per style and color, material preference, branding, packaging and requested delivery window. These details provide the basis for a model-specific quotation and sample discussion." },
 ];
 
 export default function CourtLifestyleTotePage() {
   const schemas = [
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      name: "Women’s Court Lifestyle Tote",
-      description: metadata.description,
-      url: canonical,
-      primaryImageOfPage: {
-        "@type": "ImageObject",
-        url: `${siteUrl}${sampleImage}`,
-        width: 720,
-        height: 1280,
-        caption: "Original physical development sample photograph. Final specifications are confirmed per project.",
-      },
-      isPartOf: { "@type": "WebSite", name: "Cappuccino Bag", url: siteUrl },
-      about: { "@type": "Thing", name: "Court Lifestyle Tote development sample" },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
-        { "@type": "ListItem", position: 2, name: "Products", item: `${siteUrl}/products` },
-        { "@type": "ListItem", position: 3, name: "Court Lifestyle Tote", item: canonical },
-      ],
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: { "@type": "Answer", text: faq.answer },
-      })),
-    },
+    { "@context": "https://schema.org", "@type": "WebPage", "@id": `${canonical}#webpage`, name: "Women’s Court Lifestyle Tote", description: metadata.description, url: canonical, inLanguage: "en", primaryImageOfPage: { "@type": "ImageObject", url: `${siteUrl}${ivory}`, width: 1122, height: 1402, caption: imageCaption }, isPartOf: { "@type": "WebSite", name: "Cappuccino Bag", url: siteUrl }, about: { "@type": "Thing", name: "Court Lifestyle Tote development sample" } },
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` }, { "@type": "ListItem", position: 2, name: "Products", item: `${siteUrl}/products` }, { "@type": "ListItem", position: 3, name: "Court Lifestyle Tote", item: canonical }] },
+    { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
   ];
-
-  return (
-    <>
-      {schemas.map((schema) => (
-        <script key={schema["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      ))}
-      <SiteHeader />
-      <main className={styles.page}>
-        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-          <Link href="/">Home</Link><span aria-hidden="true">/</span>
-          <Link href="/products">Products</Link><span aria-hidden="true">/</span>
-          <span>Court Lifestyle Tote</span>
-        </nav>
-
-        <section className={styles.hero}>
-          <div className={styles.heroCopy}>
-            <p className="eyebrow">In-house Development Sample</p>
-            <h1>Women’s Court Lifestyle Tote</h1>
-            <p className={styles.lede}>Cappuccino Bag develops custom women’s court totes for private-label collections. This in-house sample provides a starting point for project-specific materials, trim and storage layouts. Custom production starts at 300 pieces per style, with sample development quoted separately.</p>
-            <p className={styles.notice}>Development sample shown. Final materials, dimensions, equipment fit and production specifications are confirmed for each project.</p>
-            <div className={styles.actions}>
-              <Link className="btn btn-primary" href={inquiryHref}>Request a Custom Sample</Link>
-              <Link className={`btn btn-secondary ${styles.secondaryAction}`} href="/inquiry">Discuss Your Bag Project</Link>
-            </div>
-          </div>
-          <figure className={styles.heroVisual}>
-            <Image
-              src={sampleImage}
-              alt="Original photograph of the ivory and brown Court Lifestyle Tote development sample"
-              width={720}
-              height={1280}
-              sizes="(max-width: 900px) calc(100vw - 28px), 54vw"
-              loading="eager"
-              fetchPriority="high"
-            />
-            <figcaption><strong>Physical development sample.</strong> Original factory photograph; protective wrapping remains on the handles. Final specifications are confirmed per project.</figcaption>
-          </figure>
-        </section>
-
-        <section className={styles.answerGrid} aria-label="Court Lifestyle Tote project facts">
-          <article><p className="eyebrow">What it is</p><h2>An in-house development sample</h2><p>A single tote direction for project-specific private-label development. It is presented only as an in-house development sample.</p></article>
-          <article><p className="eyebrow">Who it is for</p><h2>Lifestyle-led court collections</h2><p>For brands, retailers and clubs reviewing a women’s tote direction connected to racket-sport culture and everyday carry.</p></article>
-          <article><p className="eyebrow">What is confirmed</p><h2>Two physical sample versions</h2><p>Ivory with brown trim and black physical samples are confirmed. Materials, dimensions and equipment fit remain project-specific.</p></article>
-          <article><p className="eyebrow">MOQ and sample</p><h2>300 pieces per style</h2><p>Custom production starts at 300 pieces per style. Orders of 100–200 pieces are not available. Sample development is quoted separately.</p></article>
-        </section>
-
-        <section className={styles.section}>
-          <div className={styles.sectionHeading}><div><p className="eyebrow">Sample Versions</p><h2>One product, two visual directions</h2></div><p>Two sample colour directions for project review. Custom production is developed to an agreed specification.</p></div>
-          <div className={styles.versionGrid}>
-            <article><Image className={styles.samplePhoto} src={sampleImage} alt="Ivory and brown physical tote sample, front view" width={720} height={1280} sizes="(max-width: 640px) 100vw, 50vw" /><h3>Ivory × Brown</h3><p>Ivory with brown trim, shown in the original physical sample photograph. Final specifications are confirmed per project.</p></article>
-            <article><Image className={styles.samplePhoto} src="/images/court-lifestyle-tote/black-tote-front-source.jpeg" alt="Black physical tote sample, front view with protective handle wrapping" width={720} height={1280} sizes="(max-width: 640px) 100vw, 50vw" /><h3>Black</h3><p>A second confirmed physical sample colour direction, not a separate product or ready-stock option.</p></article>
-          </div>
-        </section>
-
-        <section className={`${styles.section} ${styles.dark}`}>
-          <div className={styles.sectionHeading}><div><p className="eyebrow">Visible Structure &amp; Development</p><h2>Review the brief before confirming specifications</h2></div><p>The photographs show a front pouch design. Construction details and equipment fit are confirmed during sample review.</p></div>
-          <figure className={styles.detailPhoto}><Image src="/images/court-lifestyle-tote/black-tote-angle-source.jpeg" alt="Original angled photograph of the black tote sample and front pouch design" width={1280} height={960} sizes="(max-width: 640px) 100vw, 680px" /><figcaption>Black physical development sample, angled view. Protective wrapping remains on the handles.</figcaption></figure>
-          <ol className={styles.process}>
-            <li><span>01</span><h3>Define the brief</h3><p>Share intended use, target equipment, market, quantity, appearance and branding requirements.</p></li>
-            <li><span>02</span><h3>Confirm the specification</h3><p>Review materials, dimensions, front pouch construction, storage layout and carry details.</p></li>
-            <li><span>03</span><h3>Develop the sample</h3><p>Sample development is quoted separately from custom production.</p></li>
-            <li><span>04</span><h3>Test actual equipment</h3><p>Use the target racket or paddle to confirm fit before approving the production specification.</p></li>
-          </ol>
-        </section>
-
-        <section className={styles.section}>
-          <div className={styles.sectionHeading}><div><p className="eyebrow">Customization Review</p><h2>Options assessed for each project</h2></div><p>Materials, dimensions, equipment fit and performance requirements are agreed and checked for each project.</p></div>
-          <dl className={styles.customGrid}>
-            {customization.map(([term, description]) => <div key={term}><dt>{term}</dt><dd>{description}</dd></div>)}
-          </dl>
-        </section>
-
-        <section className={`${styles.section} ${styles.moq}`}>
-          <div><p className="eyebrow">MOQ &amp; Sample Development</p><h2>A clear route from sample to custom production</h2></div>
-          <div><p><strong>Custom production:</strong> starts at 300 pieces per style.</p><p><strong>100–200 pieces:</strong> not available for custom production.</p><p><strong>Colour allocation:</strong> reviewed for each project.</p><p><strong>Sample development:</strong> quoted separately and not blocked by the custom-production MOQ.</p></div>
-        </section>
-
-        <section className={styles.section}>
-          <div className={styles.sectionHeading}><div><p className="eyebrow">Buyer Questions</p><h2>Court Lifestyle Tote FAQ</h2></div></div>
-          <div className={styles.faqList}>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
-        </section>
-
-        <section className={styles.finalCta}>
-          <div><p className="eyebrow">Start a Project</p><h2>Discuss your Court Lifestyle Tote brief</h2><p>Share the intended use, target equipment, quantity, material direction, colour allocation, branding and market for a project-specific review.</p></div>
-          <div className={styles.actions}><Link className="btn btn-primary" href={inquiryHref}>Request a Custom Sample</Link><Link className={`btn btn-secondary ${styles.secondaryAction}`} href="/inquiry">Discuss Your Bag Project</Link></div>
-        </section>
-      </main>
-      <SiteFooter />
-    </>
-  );
+  return <>
+    {schemas.map((schema) => <script key={schema["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}
+    <SiteHeader />
+    <main className={styles.page}>
+      <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/products">Products</Link><span aria-hidden="true">/</span><span>Court Lifestyle Tote</span></nav>
+      <section className={styles.hero}>
+        <div className={styles.heroHeading}><p className={styles.eyebrow}>In-House Sample · Private-Label OEM/ODM</p><h1>Women’s Court Lifestyle Tote</h1><p className={styles.tagline}>Start with a real sample.<br />Shape it around your brand.</p><p className={styles.audience}>For brands developing tennis, pickleball and padel lifestyle collections.</p></div>
+        <figure className={styles.heroVisual}><Image src={ivory} alt="Retouched ivory Court Lifestyle Tote sample with brown trim and curved front pouch" width={1122} height={1402} sizes="(max-width: 760px) 320px, 480px" priority /><figcaption>Ivory with brown trim · In-house development sample</figcaption></figure>
+        <div className={styles.heroIntro}><p>A curved front pouch, textured finish and twin handles define this in-house tote by Cappuccino Bag. Compare two physical sample colors, then discuss the materials, layout and branding your collection needs.</p><Link className={styles.cta} href={inquiryHref}>Start Your Tote Inquiry <span aria-hidden="true">↗</span></Link><p className={styles.helper}>Share your quantity, target market and required changes.</p></div>
+      </section>
+      <section className={styles.section} aria-labelledby="colors"><p className={styles.eyebrow}>Sample colors</p><h2 id="colors">Two colors. Two ways to set the tone.</h2><div className={styles.colors}>
+        <article><Image className={styles.colorImage} src={ivory} alt="Retouched ivory and brown tote sample, front presentation" width={1122} height={1402} sizes="(max-width: 760px) 280px, 380px" /><div className={styles.colorCopy}><h3>Ivory with Brown Trim</h3><p>Brown edging traces the curved front pouch against the ivory body. A two-tone starting point for your collection.</p></div></article>
+        <article><Image className={styles.colorImage} src={black} alt="Retouched black Court Lifestyle Tote sample with curved front pouch" width={1122} height={1402} sizes="(max-width: 760px) 280px, 380px" /><div className={styles.colorCopy}><h3>Black</h3><p>A tonal finish brings the pouch shape and textured surface into focus. Review the front and angled sample views to compare the proportions.</p><Link className={styles.textLink} href="/images/court-lifestyle-tote/black-tote-angle-source.jpeg">View original angled sample photo ↗</Link></div></article>
+      </div><p className={styles.imageNote}>{imageCaption}</p></section>
+      <section className={`${styles.section} ${styles.options}`} aria-labelledby="options"><p className={styles.eyebrow}>Your development brief</p><h2 id="options">What would make it yours?</h2><p>Bring your priorities to the development brief:</p><dl className={styles.optionGrid}>{options.map(([term, description]) => <div key={term}><dt>{term}</dt><dd>{description}</dd></div>)}</dl><p className={styles.helper}>Each option is reviewed for feasibility and included in the specification only after approval.</p></section>
+      <section className={styles.section} aria-labelledby="facts"><p className={styles.eyebrow}>A clear starting point</p><h2 id="facts">Sample facts</h2><table className={styles.factTable}><caption className={styles.srOnly}>Current information for the Court Lifestyle Tote sample</caption><tbody>{facts.map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}</tbody></table><p className={styles.specNote}><strong>Project-specification note:</strong> The samples show a design direction. Final materials, measurements, equipment capacity, interior layout, accessory functions, production colors and order terms require project-specific confirmation. MOQ, sample charges, pricing and timing are agreed in the quotation.</p></section>
+      <section className={styles.section} aria-labelledby="process"><p className={styles.eyebrow}>The next steps</p><h2 id="process">From your brief to an approved sample</h2><ol className={styles.steps}><li><span>01</span><h3>Define the project.</h3><p>Share the intended use, quantity, market and changes you need.</p></li><li><span>02</span><h3>Agree the sample scope.</h3><p>Review construction, materials, branding, sample charges and timing before proceeding.</p></li><li><span>03</span><h3>Check and approve.</h3><p>Review the sample, test any required equipment fit and record revisions before approving the production specification.</p></li></ol></section>
+      <section className={styles.section} aria-labelledby="questions"><p className={styles.eyebrow}>Before you inquire</p><h2 id="questions">Buyer questions</h2><div className={styles.faqs}>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></section>
+      <section className={styles.finalCta}><div><p className={styles.eyebrow}>Bring your tote brief</p><h2>Tell us what your collection needs.</h2><p>Start with the details you already have:</p><ul><li>Intended use, destination market and quantity by color</li><li>Material, dimensions and storage requirements</li><li>Logo, accessory and packaging requirements</li><li>Target cost, currency and requested delivery window</li></ul><p>For equipment storage, include the paddle or racket measurements and number of pieces. If the design is still taking shape, identify the decisions you would like to discuss.</p><Link className={styles.cta} href={inquiryHref}>Start Your Tote Inquiry <span aria-hidden="true">↗</span></Link><p className={styles.helper}>Opens our inquiry form. Add your requirements in the Message field.</p></div></section>
+    </main><SiteFooter />
+  </>;
 }

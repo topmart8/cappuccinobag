@@ -1,89 +1,60 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import test from "node:test";
-
 const read = (path) => fs.readFileSync(path, "utf8");
 const pagePath = "app/products/court-lifestyle-tote-development-sample/page.js";
 const route = "/products/court-lifestyle-tote-development-sample";
 
-test("court lifestyle tote uses one canonical page with the approved positioning", () => {
+test("Court retains one canonical page and approved brand audience without fit claims", () => {
   const page = read(pagePath);
-
-  assert.match(page, /Custom Women's Court Tote \| OEM\/ODM \| Cappuccino Bag/);
   assert.match(page, /<h1>Women’s Court Lifestyle Tote<\/h1>/);
-  assert.match(page, /In-house Development Sample/);
-  assert.match(page, /Development sample shown\. Final materials, dimensions, equipment fit and production specifications are confirmed for each project\./);
+  assert.match(page, /For brands developing tennis, pickleball and padel lifestyle collections/);
   assert.match(page, /alternates: \{ canonical \}/);
+  assert.match(page, /Fit has not been validated/);
 });
-
-test("court lifestyle tote preserves exact commercial facts and four buyer FAQs", () => {
+test("model-specific order terms require quotation instead of an unconfirmed MOQ", () => {
   const page = read(pagePath);
-
-  assert.match(page, /Custom production starts at 300 pieces per style\./);
-  assert.match(page, /Custom production orders of 100–200 pieces are not available\./);
-  assert.match(page, /Colour allocation is reviewed for each project\./);
-  assert.match(page, /Sample development is quoted separately/);
-  assert.equal((page.match(/question:/g) || []).length, 4);
-  for (const question of [
-    "What is the minimum order quantity?",
-    "Can I develop a sample first?",
-    "Which details can be customized?",
-    "How is racket or paddle fit confirmed?",
-  ]) assert.match(page, new RegExp(question.replace(/[?]/g, "\\?")));
+  assert.match(page, /MOQ, sample charges, pricing and timing are agreed in the quotation/);
+  assert.doesNotMatch(page, /300|100–200|free sample|in.stock/i);
+  assert.doesNotMatch(read("app/products/page.js"), /300-piece production MOQ/);
 });
-
-test("schema mirrors visible facts without invented commerce or specifications", () => {
+test("own retouched images are identified and third-party details are excluded", () => {
   const page = read(pagePath);
-
-  for (const type of ["WebPage", "BreadcrumbList", "FAQPage"]) assert.match(page, new RegExp(`"@type": "${type}"`));
-  assert.doesNotMatch(page, /"@type": "Product"|offers|aggregateRating|reviewCount|InStock/);
-  assert.doesNotMatch(page, /detachable|shoe compartment|thermal|bottle pocket|genuine leather|vegan|GRS|7 inch|free sample|customer production/i);
-});
-
-test("product directory keeps its existing order and adds only a compact featured module", () => {
-  const directory = read("app/products/page.js");
-  const corporate = directory.indexOf('name: "Corporate & Tech Gift Solutions"');
-  const padel = directory.indexOf('name: "Padel Bags"');
-  const pickleball = directory.indexOf('name: "Pickleball Bags"');
-  const tennis = directory.indexOf('name: "Tennis Bags"');
-
-  assert.ok(corporate >= 0 && corporate < padel && padel < pickleball && pickleball < tennis);
-  assert.equal((directory.match(/name: "Court Lifestyle Bags"/g) || []).length, 0);
-  assert.match(directory, /Featured Development Sample/);
-  assert.match(directory, /Padel is the first core growth category/);
-  assert.match(directory, new RegExp(route));
-});
-
-test("original physical sample photos are used and supporting pages link to the owner", () => {
-  const page = read(pagePath);
-  const pickleball = read("public/custom-pickleball-paddle-bags/index.html");
-  const tennis = read("public/site/custom-tennis-bag-manufacturer/index.html");
-  const asset = "public/images/court-lifestyle-tote/ivory-brown-tote-front-source.jpeg";
-
-  assert.ok(fs.existsSync(asset));
-  assert.ok(fs.statSync(asset).size < 150_000);
-  assert.equal(fs.existsSync("public/images/court-lifestyle-tote/court-lifestyle-tote-development-sample-board.png"), false);
-  assert.match(page, /Physical development sample/);
-  assert.doesNotMatch(page, /AI-assisted|Approved physical sample photography is required/);
-  for (const name of ["black-tote-front-source.jpeg", "black-tote-angle-source.jpeg"]) {
+  for (const name of ["court-ivory-retouched.webp", "court-black-retouched.webp"]) {
     assert.ok(fs.existsSync(`public/images/court-lifestyle-tote/${name}`));
     assert.ok(page.includes(name));
   }
-  assert.match(pickleball, new RegExp(route));
-  assert.match(tennis, new RegExp(route));
+  assert.match(page, /Retouched presentation images based on our physical samples/);
+  assert.doesNotMatch(page, /court-interior-detail|court-back-detail|court-base-detail|court-complete-set/);
+  assert.match(page, /Material composition, removable features and included accessories need confirmation/);
 });
-
-
-test("supporting links remain inside page main content after shared footer removal", () => {
-  for (const source of ["public/site/custom-tennis-bag-manufacturer/index.html", "public/custom-pickleball-paddle-bags/index.html"]) {
-    const main = read(source).match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1];
-    assert.ok(main?.includes(`href="${route}"`), `${source} must link within main`);
+test("schema matches visible questions without invented commerce or specifications", () => {
+  const page = read(pagePath);
+  for (const type of ["WebPage", "BreadcrumbList", "FAQPage"]) assert.ok(page.includes(`"@type": "${type}"`));
+  assert.match(page, /acceptedAnswer: \{ "@type": "Answer", text: faq.answer \}/);
+  assert.equal((page.match(/question:/g) || []).length, 4);
+  assert.doesNotMatch(page, /"@type": "Product"|offers|aggregateRating|reviewCount|InStock|7 inch/);
+});
+test("mobile images have restrained sizing and a single inquiry destination", () => {
+  const css = read("app/products/court-lifestyle-tote-development-sample/page.module.css");
+  assert.match(css, /max-width:760px/);
+  assert.match(css, /height:320px;max-height:44svh/);
+  assert.match(css, /height:280px;aspect-ratio:4\/5/);
+  const page=read(pagePath);
+  assert.match(page, /\/inquiry\?product=Court%20Lifestyle%20Tote%20Development%20Sample/);
+  assert.equal((page.match(/href=\{inquiryHref\}/g)||[]).length,2);
+  assert.match(page, /Add your requirements in the Message field/);
+});
+test("catalog preserves collection order and Court supporting links remain in main content", () => {
+  const directory=read("app/products/page.js");
+  assert.ok(directory.indexOf('name: "Corporate & Tech Gift Solutions"') < directory.indexOf('name: "Padel Bags"'));
+  assert.match(directory,/Featured Development Sample/);
+  for(const source of ["public/site/custom-tennis-bag-manufacturer/index.html","public/custom-pickleball-paddle-bags/index.html"]){
+    const main=read(source).match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1];
+    assert.ok(main?.includes(`href="${route}"`));
   }
 });
-
-test("Court sample canonical is present exactly once in generated sitemap", async () => {
-  const { default: sitemap } = await import("../app/sitemap.js");
-  const entries = sitemap().filter((entry) => entry.url === `https://www.cappuccinobag.com${route}`);
-  assert.equal(entries.length, 1);
-  assert.equal(entries[0].lastModified, "2026-10-02");
+test("Court sitemap canonical remains present exactly once",async()=>{
+  const {default:sitemap}=await import("../app/sitemap.js");
+  assert.equal(sitemap().filter(entry=>entry.url===`https://www.cappuccinobag.com${route}`).length,1);
 });

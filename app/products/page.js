@@ -74,8 +74,8 @@ export default function ProductsPage() {
         <section className={styles.featured} aria-labelledby="featured-development-sample">
           <div className={styles.featuredVisual}>
             <Image
-              src="/images/court-lifestyle-tote/ivory-brown-tote-front-source.jpeg"
-              alt="Original photograph of the ivory and brown Court Lifestyle Tote development sample"
+              src="/images/court-lifestyle-tote/court-ivory-retouched.webp"
+              alt="Retouched ivory and brown Court Lifestyle Tote sample presentation"
               fill
               sizes="(max-width: 800px) 100vw, 52vw"
               loading="eager"
@@ -86,9 +86,9 @@ export default function ProductsPage() {
             <p className="eyebrow">Featured Development Sample</p>
             <h2 id="featured-development-sample">Court Lifestyle Tote</h2>
             <p className={styles.sampleLabel}>OEM / ODM Development Sample</p>
-            <p>An in-house tote direction for project-specific private-label development. Review the confirmed sample colours, customization scope and 300-piece production MOQ for your private-label collection.</p>
+            <p>An in-house tote direction for project-specific private-label development. Review the two sample colors and discuss a model-specific development brief for your private-label collection.</p>
             <p className={styles.projectNote}>Final materials, dimensions and equipment fit are confirmed per project.</p>
-            <p className={styles.photoNote}>Original physical sample photograph. Protective wrapping remains on the handles.</p>
+            <p className={styles.photoNote}>Retouched presentation based on our physical sample. Final details are confirmed in the approved specification.</p>
             <Link className="btn btn-primary" href="/products/court-lifestyle-tote-development-sample">View the development sample</Link>
           </div>
         </section>
