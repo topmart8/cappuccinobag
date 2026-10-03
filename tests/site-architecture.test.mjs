@@ -157,12 +157,12 @@ test("Padel PR B keeps three URLs but assigns distinct search-intent roles", asy
   assert.match(manufacturer, /How Buyers Develop Custom Padel Bags With a Manufacturer/);
   assert.match(manufacturer, /href="\/racket-sports\/padel-bags"/);
 
-  assert.match(collection, /title: "Custom Padel Bags Collection \| Racket Bags, Backpacks & Duffels"/);
+  assert.match(collection, /title: "Custom Padel Bags for Brands \| OEM Racket Bags & Backpacks"/);
   assert.match(collection, /<h1>Custom Padel Bags: Racket Bags, Backpacks &amp; Duffels<\/h1>/);
   assert.match(collection, /What Types of Custom Padel Bags Can Brands Develop\?/);
   assert.match(collection, /href="\/custom-padel-bag-manufacturer"/);
 
-  assert.match(overview, /<title>Racquet Sports Bag Guide \| Tennis, Padel &amp; Pickleball<\/title>/);
+  assert.match(overview, /<title>Custom Racket Sports Bags \| Tennis, Padel &amp; Pickleball OEM<\/title>/);
   assert.match(overview, /<h1>Racquet Sports Bags: Tennis, Padel &amp; Pickleball<\/h1>/);
   assert.match(overview, /What is different about padel, tennis and pickleball bag design\?/);
   assert.match(overview, /href="\/racket-sports\/padel-bags"/);
