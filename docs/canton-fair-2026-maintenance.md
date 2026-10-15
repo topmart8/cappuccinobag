@@ -7,6 +7,6 @@ The 140th Canton Fair calendar and non-exhibitor status are seasonal. After Nove
 ## Complete seasonal replacement points
 
 - app/blog/canton-fair-custom-bag-factory-visit-guangzhou/page.js: first `article.sections` entry, visitor notice, first FAQ and introductory Canton Fair framing
-- public/site/index.html: complete section marked data-seasonal="canton-fair-2026"
+- app/page.js: complete aside marked data-seasonal="canton-fair-2026"
 
 No booth, official partnership, transport service, confirmed appointment, fixed MOQ or delivery promise is implied. Form behavior remains unchanged.
