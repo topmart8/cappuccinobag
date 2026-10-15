@@ -67,6 +67,24 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": "https://www.cappuccinobag.com/#organization",
+              name: "Cappuccino Bag",
+              legalName: "Guangzhou Cappuccino Leather Handbag Co., Ltd.",
+              url: "https://www.cappuccinobag.com/",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://www.cappuccinobag.com/site/assets/cappuccino-logo.png",
+              },
+              email: "info@cappuccinobag.net",
+            }),
+          }}
+        />
         <AttributionTracker />
         <AnalyticsProvider
           enabled={analyticsEnabled}

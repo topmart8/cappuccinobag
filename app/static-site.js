@@ -360,6 +360,7 @@ function normalizeRenderedLinks(html) {
 }
 
 const staticDescriptionOverrides = new Map([
+  ["", "Cappuccino Bag develops custom padel, racket sports, outdoor and travel bags for global brands through OEM/ODM sampling, production and quality control."],
   ["about-us", "Learn how Cappuccino Bag supports global brands with OEM/ODM development, material sourcing, sampling, quality control and export-ready bag production."],
   ["faq", "Get practical answers about custom bag MOQ, sampling, materials, logo methods, lead times, quality control, packaging and OEM/ODM project requirements."],
   ["blog/company-bio", "Read the Cappuccino Bag company profile, manufacturing focus and experience developing custom padel, outdoor, travel and functional bags for global brands."],
