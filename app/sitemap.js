@@ -10,6 +10,7 @@ import { cardHolderProducts } from "./card-holder-data.js";
 const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
+  { path: "/blog/canton-fair-custom-bag-factory-visit-guangzhou", priority: 0.84, updated: "2026-10-15" },
   { path: "/", priority: 1.0 },
   { path: "/custom-padel-bag-manufacturer", priority: 0.95, updated: "2026-08-16" },
   { path: "/racket-sports/padel-bags", priority: 0.98, updated: "2026-08-16" },
