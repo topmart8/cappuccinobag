@@ -87,6 +87,18 @@ function getWhatsAppUrl() {
   return `${whatsappBase}?text=${encodeURIComponent(message)}`;
 }
 
+function updatePetProjectField(form) {
+  const petField = form.querySelector("[data-pet-project-field]");
+  if (!petField) return;
+  const context = `${form.elements.inquiry_intention?.value || ""} ${form.elements.product_needed?.value || ""}`;
+  const isPetProject = /pet|dog|carrier/i.test(context);
+  petField.hidden = !isPetProject;
+  if (!isPetProject) {
+    const input = petField.querySelector("input");
+    if (input) input.value = "";
+  }
+}
+
 function preselectInquiryContext(form) {
   const params = new URLSearchParams(window.location.search);
   const project = params.get("product") || "";
@@ -106,6 +118,7 @@ function preselectInquiryContext(form) {
     if (message && format) message.value = `Pet travel product: ${format}\n`;
     const secondaryFields = form.querySelector(".rfq-secondary");
     if (secondaryFields) secondaryFields.open = true;
+    updatePetProjectField(form);
     return;
   }
 
@@ -228,6 +241,7 @@ function validateInquiryForm(form) {
 
 function initializeInquiryForm(form) {
   preselectInquiryContext(form);
+  updatePetProjectField(form);
 
   if (form.dataset.inquiryInitialized === "true") return;
   form.dataset.inquiryInitialized = "true";
@@ -239,6 +253,9 @@ function initializeInquiryForm(form) {
     if (!label) return;
     label.classList.remove("is-invalid");
     setInquiryStatus(form, "", "");
+    if (field.name === "inquiry_intention" || field.name === "product_needed") {
+      updatePetProjectField(form);
+    }
   });
 
   form.addEventListener("submit", async (event) => {
@@ -302,6 +319,7 @@ function initializeInquiryForm(form) {
         "success",
       );
       form.reset();
+      updatePetProjectField(form);
     } catch (error) {
       setInquiryStatus(
         form,

@@ -406,6 +406,10 @@
 
 .rfqForm { padding: 34px; color: var(--padel-ink); background: #f8f7f2; }
 .rfqFormGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
+.optionalDetails { margin-top: 20px; border-top: 1px solid var(--padel-line); }
+.optionalDetails summary { display: flex; min-height: 52px; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; font-size: 14px; font-weight: 820; }
+.optionalDetails summary span { color: var(--padel-muted); font-size: 12px; font-weight: 700; }
+.optionalDetails[open] .rfqFormGrid { padding-top: 4px; }
 .rfqForm label { display: grid; gap: 7px; font-size: 13px; font-weight: 720; }
 .rfqForm input,
 .rfqForm select,
