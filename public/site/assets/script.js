@@ -109,6 +109,13 @@ function preselectInquiryContext(form) {
     return;
   }
 
+  if (project === "Travel Bags") {
+    if (intention) intention.value = "Travel Bag / Luggage Project";
+    if (product) product.value = "Travel Bags";
+    if (message && format) message.value = `Travel product format: ${format}\n`;
+    return;
+  }
+
   if (/padel/i.test(project)) {
     if (intention) {
       const option = Array.from(intention.options).find((item) => /padel/i.test(item.value));

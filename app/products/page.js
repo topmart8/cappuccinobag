@@ -92,6 +92,18 @@ export default function ProductsPage() {
             <Link className="btn btn-primary" href="/products/court-lifestyle-tote-development-sample">View the development sample</Link>
           </div>
         </section>
+        <section className={styles.featured} aria-labelledby="rolling-backpack-concept">
+          <div className={styles.featuredVisual}>
+            <Image src="/images/croc-rolling-backpack/black-ivory-studio.webp" alt="Black and ivory croc-embossed rolling backpack design concepts" fill sizes="(max-width: 800px) 100vw, 52vw" />
+          </div>
+          <div className={styles.featuredCopy}>
+            <p className="eyebrow">Travel Collection · New Design Direction</p>
+            <h2 id="rolling-backpack-concept">Croc-Embossed Rolling Backpack</h2>
+            <p>The look of a handbag. The freedom to roll. Explore black and ivory concepts, gold-tone details and private-label customization for work and travel collections.</p>
+            <p className={styles.photoNote}>AI-assisted design visualizations. Materials, dimensions and performance are confirmed through physical sampling.</p>
+            <Link className="btn btn-primary" href="/products/croc-embossed-rolling-backpack">Explore the rolling backpack</Link>
+          </div>
+        </section>
         <section className="products-directory-grid" aria-label="Custom bag collections">
           {collections.map((item, index) => (
             <article key={item.href}>
