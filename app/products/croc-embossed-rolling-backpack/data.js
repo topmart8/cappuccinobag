@@ -2,7 +2,7 @@ export const productPath = "/products/croc-embossed-rolling-backpack";
 export const siteUrl = "https://www.cappuccinobag.com";
 export const productName = "Custom Croc-Embossed Rolling Backpack";
 export const inquiryHref = "/inquiry?product=Travel%20Bags&format=Croc-Embossed%20Rolling%20Backpack";
-export const whatsappHref = `https://wa.me/8613928715568?text=${encodeURIComponent(`Hello Cappuccino Bag, I am interested in a custom croc-embossed rolling backpack. Please discuss materials, dimensions, quantity, logo and sampling. ${siteUrl}${productPath}`)}`;
+export const whatsappHref = `https://wa.me/8613928715568?text=${encodeURIComponent(`Hello Cappuccino Bag, I am interested in a custom croc-embossed rolling backpack. Please discuss materials, dimensions, quantity, logo and sampling. Source: CAP-TRV. ${siteUrl}${productPath}`)}`;
 
 export const images = [
   { src: "/images/croc-rolling-backpack/black-ivory-studio.webp", alt: "Black and ivory croc-embossed rolling backpack concepts with gold-tone hardware", caption: "Black & ivory · Studio design visualization" },
