@@ -10,7 +10,7 @@ export default function BrandWhatsAppButton() {
     if (pathname?.startsWith("/crm") || pathname?.startsWith("/inquiry")) return;
     let active = true;
     const title = document.querySelector("h1")?.textContent?.trim() || "Cappuccino Bag products";
-    const code = /padel|pickleball|tennis/i.test(title) ? "CAP-PDL" : /travel/i.test(title) ? "CAP-TRV" : "CAP-OUT";
+    const code = /padel|pickleball|tennis/i.test(title) ? "CAP-PDL" : (/travel/i.test(title) || pathname === "/products/croc-embossed-rolling-backpack") ? "CAP-TRV" : "CAP-OUT";
     const nextHref = `https://wa.me/8613928715568?text=${encodeURIComponent(`Hello Cappuccino Bag, I am interested in ${title}. I visited: ${window.location.href.slice(0, 700)}. Source: ${code}`)}`;
     queueMicrotask(() => {
       if (active) setHref(nextHref);

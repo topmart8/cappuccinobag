@@ -10,6 +10,7 @@ import { cardHolderProducts } from "./card-holder-data.js";
 const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
+  { path: "/products/croc-embossed-rolling-backpack", priority: 0.85, updated: "2026-10-25" },
   { path: "/blog/canton-fair-custom-bag-factory-visit-guangzhou", priority: 0.84, updated: "2026-10-15" },
   { path: "/", priority: 1.0 },
   { path: "/custom-padel-bag-manufacturer", priority: 0.95, updated: "2026-08-16" },
