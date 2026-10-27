@@ -171,7 +171,7 @@ export default function sitemap() {
     const isProduct = path.startsWith("/products/") || path.startsWith("/padel-bags/") || path.startsWith("/padel-accessories/");
     unique.set(path, {
       url: `${baseUrl}${path}`,
-      lastModified: route.updated || "2026-08-02",
+      ...(route.updated ? { lastModified: route.updated } : {}),
       changeFrequency: "weekly",
       priority: priorityOverrides.get(path) || (isProduct ? Math.min(route.priority, 0.85) : route.priority),
     });
