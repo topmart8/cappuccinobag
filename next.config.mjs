@@ -51,6 +51,35 @@ const contentSecurityPolicy = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: false,
+  // Preserve historical asset URLs while shipping one copy of identical bytes.
+  async rewrites() {
+    return [
+      {
+        source: "/site/assets/cappuccino-brand-video.mp4",
+        destination: "/site/assets/video/factory-profile-full.mp4",
+      },
+      {
+        source: "/assets/cappuccino-outdoor-bag-factory-workshop.png",
+        destination: "/site/assets/factory-workshop-wide-hero.png",
+      },
+      {
+        source: "/site/assets/process-flow-overview-topcrop.png",
+        destination: "/site/assets/process-flow-overview-cropped.png",
+      },
+      {
+        source: "/assets/videos/cappuccino-bag-showroom.mp4",
+        destination: "/videos/cappuccino-racquet-showroom-overview-website-16x9-web-optimized.mp4",
+      },
+      {
+        source: "/videos/cappuccino-racquet-showroom-overview-website-16x9.mp4",
+        destination: "/videos/cappuccino-racquet-showroom-overview-website-16x9-web-optimized.mp4",
+      },
+      {
+        source: "/videos/cappuccino-travel-bag-production-overview-website-16x9.mp4",
+        destination: "/videos/cappuccino-travel-bag-production-overview-website-16x9-web-optimized.mp4",
+      },
+    ];
+  },
   async redirects() {
     const canonicalRedirects = redirectPairs.flatMap(([source, destination]) => {
       const trailingSource = source.endsWith("/") ? source : `${source}/`;
