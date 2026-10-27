@@ -48,9 +48,17 @@ const contentSecurityPolicy = [
   "upgrade-insecure-requests",
 ].join("; ");
 
+// app/static-site.js reads HTML documents only. Media remains in public/ for
+// static serving, but is not needed in these two document-rendering bundles.
+const staticDocumentMedia = ["./public/**/*.{avif,jpeg,jpg,mp4,png,webp}"];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   trailingSlash: false,
+  outputFileTracingExcludes: {
+    "/": staticDocumentMedia,
+    "/\\[\\.\\.\\.slug\\]": staticDocumentMedia,
+  },
   // Preserve historical asset URLs while shipping one copy of identical bytes.
   async rewrites() {
     return [
