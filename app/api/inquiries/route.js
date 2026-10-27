@@ -1,6 +1,6 @@
 import { randomBytes } from "node:crypto";
-import { NextResponse } from "next/server";
-import { ingestSharedInquiry } from "../../../lib/crm/shared-ingest.js";
+import { NextResponse } from "next/server.js";
+import { ingestSharedInquiry, SharedIngestError } from "../../../lib/crm/shared-ingest.js";
 import { storageUpload } from "../../../lib/crm/supabase.js";
 
 export const runtime = "nodejs";
@@ -40,12 +40,16 @@ async function parseRequest(request) {
 }
 
 async function upload(files) {
-  if (files.length > 5) throw new Error("Upload no more than 5 files.");
+  if (files.length > 5) throw new SharedIngestError("Upload no more than 5 files.");
+  if (files.reduce((total, file) => total + file.size, 0) > 4_000_000) {
+    throw new SharedIngestError("Attachments must total 4 MB or less.", 413);
+  }
+  // Validate the whole batch before writing any object.
+  if (files.some((file) => !ALLOWED.has(file.type))) {
+    throw new SharedIngestError("Unsupported attachment type.");
+  }
   const uploaded = [];
   for (const file of files) {
-    if (!ALLOWED.has(file.type) || file.size > 8 * 1024 * 1024) {
-      throw new Error("Unsupported or oversized attachment.");
-    }
     const path = `cappuccinobag/${new Date().toISOString().slice(0, 10)}/${safeName(file.name)}`;
     await storageUpload(process.env.SUPABASE_STORAGE_BUCKET || "crm-attachments", path, file);
     uploaded.push({ name: file.name.slice(0, 180), type: file.type, size: file.size, path, scan_status: "pending" });

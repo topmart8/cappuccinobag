@@ -1,6 +1,8 @@
 # B2B growth review — 27 October 2026
 
-Review only. No merge or production promotion authorized.
+Historical audit of `5baa2914ecb39eb4654a4eccbead4b416aa7ceec`. See [28 October release review](release-review-20261028.md) for the subsequent fixes, current checks and unresolved release gates. Historical screenshots and counts below do not validate the revised head.
+
+At the time of this original audit, no merge or production promotion was authorized.
 
 ## Incremental audit
 

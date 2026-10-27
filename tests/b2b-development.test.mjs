@@ -19,7 +19,7 @@ test('development stages and approval boundaries are explicit, with matching vis
 test('brief adapter preserves base message and does not leak fields to query strings or storage', () => {
   let listener; const button = { disabled: true };
   const form = { dataset: { inquiryInitialized: 'true' }, addEventListener: (name, fn) => { if (name === 'formdata') listener = fn; }, querySelector: (selector) => selector.startsWith('button') ? button : null };
-  vm.runInNewContext(script, { document: { querySelector: () => form } });
+  vm.runInNewContext(script, { document: { querySelectorAll: () => [form] }, MutationObserver: class { observe() {} } });
   const data = new FormData();
   data.set('brief_path', 'Concept development'); data.set('brief_positioning', 'Premium court carry');
   data.set('brief_design', 'No design files yet'); data.set('brief_launch', '2027-03-01');

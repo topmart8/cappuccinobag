@@ -208,6 +208,13 @@ function setInquiryStatus(form, message, type) {
 function validateInquiryForm(form) {
   let isValid = true;
   const fields = form.querySelectorAll("input, textarea, select");
+  const files = Array.from(form.querySelectorAll('input[type="file"]'))
+    .flatMap((field) => Array.from(field.files || []));
+  // Leave room for multipart headers and brief fields under Vercel's 4.5 MB request cap.
+  if (files.reduce((total, file) => total + file.size, 0) > 4_000_000) {
+    setInquiryStatus(form, "Attachments must total 4 MB or less. Please compress the file or email info@cappuccinobag.net.", "error");
+    return false;
+  }
 
   fields.forEach((field) => {
     if (field.name === "website") return;

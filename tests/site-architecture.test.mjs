@@ -108,14 +108,14 @@ test("MOQ and pricing guide is answer-first, qualified and schema-aligned", asyn
   }
 });
 
-test("legacy batch 2 guides have six distinct buyer roles and keep sitemap status unchanged", async () => {
+test("legacy batch 2 guides retain distinct buyer roles and list only the verified Outdoor and Travel guides", async () => {
   const guides = [
     ["gps-trackable-bag-guide", "Start with device responsibility", "GPS Trackable Bag Integration Guide"],
     ["logo-customization-guide", "Match the logo method to the surface", "Bag Logo Customization Guide"],
     ["mountaineering-backpack-manufacturing-guide", "Define the route, duration and load", "Mountaineering Backpack Manufacturing Guide"],
-    ["outdoor-sports-bag-manufacturing-guide", "Choose a format from the activity", "Outdoor Sports Bag Manufacturing Guide"],
+    ["outdoor-sports-bag-manufacturing-guide", "Choose a format from the activity", "Outdoor Sports Bag Manufacturing Guide", true],
     ["private-label-packaging-guide", "Define the packaging journey", "Private Label Bag Packaging Guide"],
-    ["travel-bag-luggage-customization-guide", "Describe one complete travel scenario", "Travel Bag &amp; Luggage Customization Guide"],
+    ["travel-bag-luggage-customization-guide", "Describe one complete travel scenario", "Travel Bag &amp; Luggage Customization Guide", true],
   ];
   const sources = await Promise.all(guides.map(([slug]) => readFile(
     new URL(`../public/site/${slug}/index.html`, import.meta.url),
@@ -123,7 +123,7 @@ test("legacy batch 2 guides have six distinct buyer roles and keep sitemap statu
   )));
   const titles = new Set();
   const descriptions = new Set();
-  for (const [index, [slug, distinctiveHeading, h1]] of guides.entries()) {
+  for (const [index, [slug, distinctiveHeading, h1, inSitemap = false]] of guides.entries()) {
     const source = sources[index];
     const title = source.match(/<title>([^<]+)<\/title>/)?.[1];
     const description = source.match(/<meta name="description" content="([^"]+)">/)?.[1];
@@ -137,7 +137,7 @@ test("legacy batch 2 guides have six distinct buyer roles and keep sitemap statu
     assert.ok(description);
     titles.add(title);
     descriptions.add(description);
-    assert.ok(!sitemap().some((entry) => entry.url.endsWith(`/${slug}`)), `${slug} sitemap status changed`);
+    assert.equal(sitemap().filter((entry) => entry.url === `https://www.cappuccinobag.com/${slug}`).length, inSitemap ? 1 : 0, `${slug} sitemap entry count`);
   }
   assert.equal(titles.size, guides.length);
   assert.equal(descriptions.size, guides.length);
