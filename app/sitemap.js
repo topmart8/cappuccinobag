@@ -30,6 +30,8 @@ const routes = [
   { path: "/custom-outdoor-sports-bag-manufacturer", priority: 0.88 },
   { path: "/custom-travel-backpacks-weekender-bags", priority: 0.88 },
   { path: "/outdoor-multifunctional-bag-manufacturing-guide", priority: 0.7 },
+  { path: "/outdoor-sports-bag-manufacturing-guide", priority: 0.7 },
+  { path: "/travel-bag-luggage-customization-guide", priority: 0.7 },
   { path: "/custom-tennis-bag-guide", priority: 0.7 },
   { path: "/pickleball-bag-customization-guide", priority: 0.7 },
   { path: "/hiking-backpack-customization-guide", priority: 0.68 },
