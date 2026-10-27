@@ -18,7 +18,7 @@ test('development stages and approval boundaries are explicit, with matching vis
 });
 test('brief adapter preserves base message and does not leak fields to query strings or storage', () => {
   let listener; const button = { disabled: true };
-  const form = { dataset: { inquiryInitialized: 'true' }, addEventListener: (name, fn) => { assert.equal(name, 'formdata'); listener = fn; }, querySelector: () => button };
+  const form = { dataset: { inquiryInitialized: 'true' }, addEventListener: (name, fn) => { if (name === 'formdata') listener = fn; }, querySelector: (selector) => selector.startsWith('button') ? button : null };
   vm.runInNewContext(script, { document: { querySelector: () => form } });
   const data = new FormData();
   data.set('brief_path', 'Concept development'); data.set('brief_positioning', 'Premium court carry');
@@ -43,4 +43,17 @@ test('homepage exposes a Padel category entry before existing hero without produ
   const home = fs.readFileSync('app/page.js', 'utf8');
   assert.match(home, /aria-label="Featured category"/);
   assert.ok(home.indexOf('href="/racket-sports/padel-bags"') < home.indexOf('<StaticSitePage params='));
+});
+
+test('Company OS notification adapter retains no-design brief and target cost without live delivery', async () => {
+  const { deliverInquiryEmails } = await import('../lib/crm/shared-ingest.js');
+  const sent = [];
+  const message = 'RFQ path: Concept development\nDesign status: No design files yet\nTarget cost: USD 25\nTarget launch date: 2027-04-01';
+  const result = await deliverInquiryEmails({ site_source: 'cappuccino', brand: 'Cappuccino Bag', email: 'qa@example.invalid', product_category: 'Padel Bags', quantity: '300', material: 'To discuss', message }, { inquiry_number: 'MOCK-ONLY' }, {}, async (payload) => { sent.push(payload); return true; }, { message });
+  assert.equal(result, 'sent'); assert.equal(sent.length, 1);
+  assert.equal(sent[0].to, process.env.INQUIRY_TO_EMAIL || 'info@cappuccinobag.net');
+  assert.match(sent[0].html, /No design files yet/); assert.match(sent[0].html, /USD 25/);
+  assert.match(sent[0].html, /2027-04-01/); assert.equal(sent[0].replyTo, 'qa@example.invalid');
+  const skipped = await deliverInquiryEmails({}, { inquiry_number: 'MOCK-ONLY' }, {}, async () => false);
+  assert.equal(skipped, 'skipped');
 });
