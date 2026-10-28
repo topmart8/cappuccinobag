@@ -1,5 +1,5 @@
 import { randomBytes } from "node:crypto";
-import { NextResponse } from "next/server";
+import { NextResponse } from "next/server.js";
 import { ingestSharedInquiry } from "../../../lib/crm/shared-ingest.js";
 import { storageUpload } from "../../../lib/crm/supabase.js";
 
