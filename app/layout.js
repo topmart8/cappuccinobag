@@ -1,7 +1,9 @@
 import "./globals.css";
+import "./motion.css";
 import { Inter, Montserrat } from "next/font/google";
 import BrandWhatsAppButton from "../components/BrandWhatsAppButton";
 import AttributionTracker from "../components/AttributionTracker";
+import SiteMotion from "../components/SiteMotion";
 import AnalyticsProvider from "../components/analytics/AnalyticsProvider";
 
 const inter = Inter({
@@ -74,6 +76,7 @@ export default function RootLayout({ children }) {
           clarityProjectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || ""}
         />
         {children}
+        <SiteMotion />
         <BrandWhatsAppButton />
       </body>
     </html>
