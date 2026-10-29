@@ -98,7 +98,7 @@ test("MOQ and pricing guide is answer-first, qualified and schema-aligned", asyn
   assert.ok(schemaSource, "FAQPage JSON-LD is missing");
   const schema = JSON.parse(schemaSource);
   assert.equal(schema["@type"], "FAQPage");
-  assert.equal(schema.mainEntity.length, 6);
+  assert.equal(schema.mainEntity.length, 7);
   for (const item of schema.mainEntity) {
     assert.equal(item["@type"], "Question");
     assert.equal(item.acceptedAnswer["@type"], "Answer");

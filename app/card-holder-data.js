@@ -3,7 +3,11 @@ export const cardHolderCollectionUrl = "/card-holders";
 export const cardHolderWhatsappUrl = "https://wa.me/8613928715568?text=Hello%2C%20I%20would%20like%20a%20quotation%20for%20a%20custom%20card%20holder.";
 export const cardHolderSourceCollection = "https://topbagfactory.en.alibaba.com/productgrouplist-917760368/5_Card_Holders.html";
 
-const customBulkMoq = "300 pieces per style for new custom bulk orders. Colour splits and material/component minimums require separate review; sample development is assessed separately.";
+const customBulkMoq = "At least 300 pieces per style for new custom bulk orders, not per colour. Different styles cannot be combined. Colour splits and material, hardware and packaging minimums require separate review and may increase the quantity. Sample development and any fee are assessed separately after design approval. Existing agreed orders keep their agreed terms; exceptions require explicit approval.";
+export const cardHolderOrderFaqs = [
+  ["What is the MOQ for a new custom card holder order?", customBulkMoq],
+  ["Does the custom MOQ apply to stock or wholesale enquiries?", "This custom-production policy is not a stock or wholesale offer. Historical catalogue quantities do not confirm current stock availability or current custom-order terms. For any stock or wholesale enquiry, availability and order terms require separate confirmation. Existing agreed orders keep their agreed terms."],
+];
 
 const sourceNote = "Specifications are limited to the accessible collection title and product images. Final dimensions, capacity, materials, branding method and packaging must be confirmed against an approved sample and quotation.";
 
@@ -260,9 +264,11 @@ export const cardHolderFaqs = [
   ["What is the sample process?", "Send the model code, target material, dimensions, slot layout, RFID requirement, artwork, color and quantity. The sample steps, cost and timing are then confirmed in the quotation; no fixed process or lead time is claimed here."],
   ["Can you develop private-label packaging?", "Private-label packaging capability is not confirmed in the accessible source. Share the box, sleeve, dust bag, label or barcode requirement so the factory can confirm feasibility and quotation details."],
   ["What information is required for a quotation?", "Provide the model code, target material, dimensions, card-slot layout, RFID requirement, color, logo artwork and method preference, packaging format, estimated quantity, market and target timing."],
+  ...cardHolderOrderFaqs,
 ];
 
 export const rfidHubFaqs = [
+  ...cardHolderOrderFaqs,
   cardHolderFaqs[0],
   cardHolderFaqs[2],
   ["How do we verify RFID blocking?", "The source titles identify the marked models as RFID blocking, but no test standard or report was accessible. State the target frequency and test requirement in the RFQ so the construction and verification method can be confirmed."],
@@ -271,6 +277,7 @@ export const rfidHubFaqs = [
 ];
 
 export const leatherHubFaqs = [
+  ...cardHolderOrderFaqs,
   cardHolderFaqs[0],
   cardHolderFaqs[1],
   ["Which model uses full-grain vegetable-tanned leather?", "CAP-CH-001 is identified in the public source title as a full-grain vegetable-tanned leather card holder. Leather grade, color and finish should still be confirmed against the approved sample."],
