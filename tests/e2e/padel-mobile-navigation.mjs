@@ -90,6 +90,10 @@ try {
     await page.waitForFunction(() => location.hash === '#padel-rfq');
     await page.getByLabel('Name *', { exact: true }).fill('Local QA');
     await page.getByLabel('Work email *', { exact: true }).fill('qa@example.invalid');
+    // Choose required fields explicitly: PR #42 removes their implicit defaults.
+    await page.locator('#padel-rfq select[name="product_type"]').selectOption('Premium padel duffel');
+    await page.locator('#padel-rfq select[name="quantity"]').selectOption('300');
+    await page.locator('#padel-rfq select[name="target_market"]').selectOption('UK');
     await page.getByRole('button', { name: 'Send Padel Bag RFQ', exact: true }).click();
     await page.getByText('Simulated unavailable service', { exact: false }).waitFor();
     assert.equal(await page.getByLabel('Name *', { exact: true }).inputValue(), 'Local QA');
