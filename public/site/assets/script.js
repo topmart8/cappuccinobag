@@ -319,6 +319,7 @@ function initializeInquiryForm(form) {
         );
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error("Inquiry endpoint failed.");
+        if (!result.ok || !result.inquiryNumber) throw new Error("Inquiry receipt could not be confirmed.");
         completeSubmission(form);
         try {
         window.cappuccinoAnalytics?.trackLeadSuccess(

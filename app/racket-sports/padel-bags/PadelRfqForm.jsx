@@ -39,6 +39,7 @@ export default function PadelRfqForm() {
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.message || "Your RFQ could not be sent.");
+      if (!result.ok || !result.inquiryNumber) throw new Error("We could not confirm receipt. Please retry this submission.");
       succeeded = true;
       try {
       window.cappuccinoAnalytics?.trackLeadSuccess(
