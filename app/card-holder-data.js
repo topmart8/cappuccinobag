@@ -3,6 +3,12 @@ export const cardHolderCollectionUrl = "/card-holders";
 export const cardHolderWhatsappUrl = "https://wa.me/8613928715568?text=Hello%2C%20I%20would%20like%20a%20quotation%20for%20a%20custom%20card%20holder.";
 export const cardHolderSourceCollection = "https://topbagfactory.en.alibaba.com/productgrouplist-917760368/5_Card_Holders.html";
 
+const customBulkMoq = "At least 300 pieces per style for new custom bulk orders, not per colour. Different styles cannot be combined. Colour splits and material, hardware and packaging minimums require separate review and may increase the quantity. Sample development and any fee are assessed separately after design approval. Existing agreed orders keep their agreed terms; exceptions require explicit approval.";
+export const cardHolderOrderFaqs = [
+  ["What is the MOQ for a new custom card holder order?", customBulkMoq],
+  ["Does the custom MOQ apply to stock or wholesale enquiries?", "This custom-production policy is not a stock or wholesale offer. Historical catalogue quantities do not confirm current stock availability or current custom-order terms. For any stock or wholesale enquiry, availability and order terms require separate confirmation. Existing agreed orders keep their agreed terms."],
+];
+
 const sourceNote = "Specifications are limited to the accessible collection title and product images. Final dimensions, capacity, materials, branding method and packaging must be confirmed against an approved sample and quotation.";
 
 const products = [
@@ -19,7 +25,7 @@ const products = [
     rfidConfirmed: false,
     rfid: "Not confirmed in the accessible source.",
     logo: "OEM/ODM presentation is shown in the source image; the logo method is not confirmed.",
-    moq: "100 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Brown leather tones are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -45,9 +51,9 @@ const products = [
     material: "Genuine leather",
     structure: "Flat stitched card sleeve with multiple exterior card pockets and a central compartment; exact capacity is not confirmed.",
     rfidConfirmed: true,
-    rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
+    rfid: "RFID is stated in the source title. Blocking performance is not verified here; the construction, target frequency, test method and supporting report require project-specific confirmation.",
     logo: "Custom logo is confirmed in the source title and images; the application method is not confirmed.",
-    moq: "300 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Blue, black and green examples are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -73,9 +79,9 @@ const products = [
     material: "Genuine leather",
     structure: "Two-sided card holder with multiple visible card pockets and a snap-tab closure; exact capacity is not confirmed.",
     rfidConfirmed: true,
-    rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
+    rfid: "RFID is stated in the source title. Blocking performance is not verified here; the construction, target frequency, test method and supporting report require project-specific confirmation.",
     logo: "Custom logo is confirmed in the source title; the placement and application method are not confirmed.",
-    moq: "30 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Black, brown, orange, light blue and burgundy examples are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -102,9 +108,9 @@ const products = [
     material: "Leather; the contrasting textile-like panel material is not confirmed.",
     structure: "Slim open sleeve with visible front and rear pockets plus a pull tab; exact capacity is not confirmed.",
     rfidConfirmed: true,
-    rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
+    rfid: "RFID is stated in the source title. Blocking performance is not verified here; the construction, target frequency, test method and supporting report require project-specific confirmation.",
     logo: "Logo customization and application method are not confirmed in the accessible source.",
-    moq: "100 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Black and tan examples with contrasting panel details are shown; custom colors are not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -131,9 +137,9 @@ const products = [
     material: "Cross-grain top-layer cowhide",
     structure: "Two-sided card sleeve with a transparent ID window, visible card pockets and a central cash opening; exact capacity is not confirmed.",
     rfidConfirmed: true,
-    rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
+    rfid: "RFID is stated in the source title. Blocking performance is not verified here; the construction, target frequency, test method and supporting report require project-specific confirmation.",
     logo: "Business customization is referenced in the source title, but the logo method is not confirmed.",
-    moq: "6 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Blue, purple, pink and black examples are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -161,9 +167,9 @@ const products = [
     material: "Leather",
     structure: "Slim card holder with a magnetic money clip, transparent ID window and three card slots stated in a source image.",
     rfidConfirmed: true,
-    rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
+    rfid: "RFID is stated in the source title. Blocking performance is not verified here; the construction, target frequency, test method and supporting report require project-specific confirmation.",
     logo: "Custom logo is confirmed in the source title; the application method requires confirmation.",
-    moq: "50 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Approximately 11 × 7 × 0.8 cm shown in a source image; verify against an approved sample.",
     colors: "Black, blue and brown examples are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -192,7 +198,7 @@ const products = [
     rfidConfirmed: false,
     rfid: "Not confirmed in the accessible source.",
     logo: "A logo position is shown in the source images; the application method is not confirmed.",
-    moq: "300 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Grey, blue-grey and cream examples are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -219,9 +225,9 @@ const products = [
     material: "Leather is stated in the source title; the printed surface construction is not confirmed.",
     structure: "Flat stitched sleeve with visible exterior card pockets and a full-surface printed design; exact capacity is not confirmed.",
     rfidConfirmed: true,
-    rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
+    rfid: "RFID is stated in the source title. Blocking performance is not verified here; the construction, target frequency, test method and supporting report require project-specific confirmation.",
     logo: "Custom logo and OEM business-gift positioning are confirmed in the source title; the application method is not confirmed.",
-    moq: "6 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Dark and light abstract print examples are shown; print customization scope requires confirmation.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -253,14 +259,16 @@ export const leatherCardHolderProducts = cardHolderProducts;
 export const cardHolderFaqs = [
   ["Can you manufacture card holders with a custom logo?", "Custom-logo or logo-position evidence is confirmed for selected models. The exact method, size and placement are not confirmed in the accessible source, so send vector artwork and the model code for a feasibility review."],
   ["What materials are available?", "The selected source products confirm full-grain vegetable-tanned leather, genuine leather, top-layer cowhide and other leather constructions. Some patterned face materials are not identified, and vegan or recycled material is not confirmed in this source collection."],
-  ["Is RFID blocking optional?", "RFID blocking is confirmed only for the models marked RFID Confirmed. Whether it can be added to another structure, and which test method applies, must be confirmed during quotation and sampling."],
+  ["Is RFID blocking optional?", "RFID wording appears in the source titles of selected models; this is not proof of tested blocking performance. Construction, target frequency, test method, report scope and suitability for another structure require review during quotation and sampling."],
   ["Can we customize card slots and dimensions?", "The accessible source confirms OEM/ODM or customization on selected models, but it does not confirm custom slot counts or dimensions. Send the required layout and measurements so feasibility can be checked before sampling."],
   ["What is the sample process?", "Send the model code, target material, dimensions, slot layout, RFID requirement, artwork, color and quantity. The sample steps, cost and timing are then confirmed in the quotation; no fixed process or lead time is claimed here."],
   ["Can you develop private-label packaging?", "Private-label packaging capability is not confirmed in the accessible source. Share the box, sleeve, dust bag, label or barcode requirement so the factory can confirm feasibility and quotation details."],
   ["What information is required for a quotation?", "Provide the model code, target material, dimensions, card-slot layout, RFID requirement, color, logo artwork and method preference, packaging format, estimated quantity, market and target timing."],
+  ...cardHolderOrderFaqs,
 ];
 
 export const rfidHubFaqs = [
+  ...cardHolderOrderFaqs,
   cardHolderFaqs[0],
   cardHolderFaqs[2],
   ["How do we verify RFID blocking?", "The source titles identify the marked models as RFID blocking, but no test standard or report was accessible. State the target frequency and test requirement in the RFQ so the construction and verification method can be confirmed."],
@@ -269,6 +277,7 @@ export const rfidHubFaqs = [
 ];
 
 export const leatherHubFaqs = [
+  ...cardHolderOrderFaqs,
   cardHolderFaqs[0],
   cardHolderFaqs[1],
   ["Which model uses full-grain vegetable-tanned leather?", "CAP-CH-001 is identified in the public source title as a full-grain vegetable-tanned leather card holder. Leather grade, color and finish should still be confirmed against the approved sample."],

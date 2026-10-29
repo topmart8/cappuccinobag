@@ -109,6 +109,13 @@ function preselectInquiryContext(form) {
     return;
   }
 
+  if (project === "Card Holder" || project === "Card Holders") {
+    if (intention) intention.value = "Wallet / Card Holder Project";
+    if (product) product.value = "Card Holders";
+    if (message && format) message.value = `Card holder model: ${format}\n`;
+    return;
+  }
+
   if (project === "Travel Bags") {
     if (intention) intention.value = "Travel Bag / Luggage Project";
     if (product) product.value = "Travel Bags";

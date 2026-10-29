@@ -7,6 +7,7 @@ export default function SiteFooter() {
       <div className="footer-brand">
         <strong>Cappuccino Bag</strong>
         <p>Custom padel, racket sports, outdoor and functional bag manufacturing for global brands.</p>
+        <p>Custom bulk MOQ: 300 pieces per style. <Link href="/moq-sampling-faq" prefetch={false}>MOQ and sampling details</Link></p>
         <p className="footer-legal">Guangzhou Cappuccino Leather Handbag Co., Ltd.</p>
         <a href="mailto:info@cappuccinobag.net">info@cappuccinobag.net</a>
       </div>

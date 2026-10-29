@@ -174,7 +174,7 @@ function renderSharedHeader() {
 
 function renderSharedFooter() {
   const groups = footerNavigation.map((group) => `<section><h2>${group.title}</h2><nav aria-label="${group.title} footer navigation">${renderLinks(group.links)}</nav></section>`).join("");
-  return `<footer class="site-footer site-footer-unified"><div class="footer-brand"><strong>Cappuccino Bag</strong><p>Custom padel, racket sports, outdoor and functional bag manufacturing for global brands.</p><p class="footer-legal">Guangzhou Cappuccino Leather Handbag Co., Ltd.</p><a href="mailto:info@cappuccinobag.net">info@cappuccinobag.net</a></div><div class="footer-groups">${groups}</div></footer>`;
+  return `<footer class="site-footer site-footer-unified"><div class="footer-brand"><strong>Cappuccino Bag</strong><p>Custom padel, racket sports, outdoor and functional bag manufacturing for global brands.</p><p>Custom bulk MOQ: 300 pieces per style. <a href="/moq-sampling-faq">MOQ and sampling details</a></p><p class="footer-legal">Guangzhou Cappuccino Leather Handbag Co., Ltd.</p><a href="mailto:info@cappuccinobag.net">info@cappuccinobag.net</a></div><div class="footer-groups">${groups}</div></footer>`;
 }
 
 function applySharedNavigation(html) {
