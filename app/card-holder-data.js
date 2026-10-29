@@ -3,6 +3,8 @@ export const cardHolderCollectionUrl = "/card-holders";
 export const cardHolderWhatsappUrl = "https://wa.me/8613928715568?text=Hello%2C%20I%20would%20like%20a%20quotation%20for%20a%20custom%20card%20holder.";
 export const cardHolderSourceCollection = "https://topbagfactory.en.alibaba.com/productgrouplist-917760368/5_Card_Holders.html";
 
+const customBulkMoq = "300 pieces per style for new custom bulk orders. Colour splits and material/component minimums require separate review; sample development is assessed separately.";
+
 const sourceNote = "Specifications are limited to the accessible collection title and product images. Final dimensions, capacity, materials, branding method and packaging must be confirmed against an approved sample and quotation.";
 
 const products = [
@@ -19,7 +21,7 @@ const products = [
     rfidConfirmed: false,
     rfid: "Not confirmed in the accessible source.",
     logo: "OEM/ODM presentation is shown in the source image; the logo method is not confirmed.",
-    moq: "100 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Brown leather tones are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -47,7 +49,7 @@ const products = [
     rfidConfirmed: true,
     rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
     logo: "Custom logo is confirmed in the source title and images; the application method is not confirmed.",
-    moq: "300 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Blue, black and green examples are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -75,7 +77,7 @@ const products = [
     rfidConfirmed: true,
     rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
     logo: "Custom logo is confirmed in the source title; the placement and application method are not confirmed.",
-    moq: "30 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Black, brown, orange, light blue and burgundy examples are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -104,7 +106,7 @@ const products = [
     rfidConfirmed: true,
     rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
     logo: "Logo customization and application method are not confirmed in the accessible source.",
-    moq: "100 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Black and tan examples with contrasting panel details are shown; custom colors are not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -133,7 +135,7 @@ const products = [
     rfidConfirmed: true,
     rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
     logo: "Business customization is referenced in the source title, but the logo method is not confirmed.",
-    moq: "6 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Blue, purple, pink and black examples are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -163,7 +165,7 @@ const products = [
     rfidConfirmed: true,
     rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
     logo: "Custom logo is confirmed in the source title; the application method requires confirmation.",
-    moq: "50 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Approximately 11 × 7 × 0.8 cm shown in a source image; verify against an approved sample.",
     colors: "Black, blue and brown examples are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -192,7 +194,7 @@ const products = [
     rfidConfirmed: false,
     rfid: "Not confirmed in the accessible source.",
     logo: "A logo position is shown in the source images; the application method is not confirmed.",
-    moq: "300 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Grey, blue-grey and cream examples are shown; custom color availability is not confirmed.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
@@ -221,7 +223,7 @@ const products = [
     rfidConfirmed: true,
     rfid: "Confirmed in the public source title; the blocking construction and test standard require project confirmation.",
     logo: "Custom logo and OEM business-gift positioning are confirmed in the source title; the application method is not confirmed.",
-    moq: "6 pieces listed in the public collection; reconfirm for the current specification.",
+    moq: customBulkMoq,
     dimensions: "Not confirmed in the accessible source.",
     colors: "Dark and light abstract print examples are shown; print customization scope requires confirmation.",
     packaging: "Not confirmed in the accessible source; provide the required retail or gift-pack format for review.",
