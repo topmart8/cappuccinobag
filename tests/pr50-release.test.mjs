@@ -97,14 +97,14 @@ test('oversized and unsupported multipart uploads fail before any storage write'
     return Response.json([]);
   };
   try {
-    for (const [size, type, status] of [[4_000_001, 'application/pdf', 413], [12, 'text/html', 422]]) {
+    for (const [size, type, status, count = 1] of [[4_000_001, 'application/pdf', 413], [12, 'text/html', 422], [12, 'application/pdf', 422, 6], [2_000_001, 'application/pdf', 413, 2]]) {
       const data = new FormData();
       data.set('name', 'PR50 SYNTHETIC QA'); data.set('email', 'qa@example.invalid');
-      data.set('attachment', new Blob([new Uint8Array(size)], { type }), 'qa.pdf');
+      for (let i = 0; i < count; i += 1) data.append('attachment', new Blob([new Uint8Array(size)], { type }), `qa-${i}.pdf`);
       const response = await POST(new Request('https://example.test/api/inquiries', { method: 'POST', body: data }));
       assert.equal(response.status, status);
     }
-    assert.equal(reads, 2);
+    assert.equal(reads, 4);
   } finally {
     global.fetch = oldFetch;
     for (const [key, value] of [['SUPABASE_URL', oldUrl], ['SUPABASE_SERVICE_ROLE_KEY', oldKey]]) {

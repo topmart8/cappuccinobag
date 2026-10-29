@@ -45,7 +45,7 @@
           <p class="rfq-response">Typical response: within one business day.</p>
         </aside>
 
-        <form class="inquiry-form rfq-form" data-form="b2b_inquiry" data-endpoint="https://formsubmit.co/ajax/info@cappuccinobag.net" enctype="multipart/form-data" novalidate>
+        <form class="inquiry-form rfq-form" data-form="b2b_inquiry" data-endpoint="/api/inquiries" enctype="multipart/form-data" novalidate>
           <div class="form-head">
             <p class="eyebrow">Project brief</p>
             <h2>Tell us what you need</h2>
@@ -149,7 +149,7 @@
               <summary>Additional specifications <span>Optional</span></summary>
               <div class="form-grid">
                 <label><span>Target Dimensions</span><input name="target_dimensions" placeholder="L × W × H or reference dimensions"></label>
-                <label><span>Intended Pet Size</span><input name="intended_pet_size" placeholder="Body length, seated height and load"></label>
+                <label data-pet-project-field hidden><span>Intended Pet Size</span><input name="intended_pet_size" placeholder="Body length, seated height and load"></label>
                 <label><span>Color</span><input name="color" placeholder="Pantone direction or color reference"></label>
                 <label><span>Target Market</span><input name="target_market" placeholder="Country, channel or intended use"></label>
                 <label><span>Target Delivery Date</span><input name="target_delivery_date" type="date"></label>
