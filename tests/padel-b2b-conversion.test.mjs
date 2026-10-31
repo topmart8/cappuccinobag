@@ -132,7 +132,7 @@ test("Manufacturer, Factory Proof and Resources form a scoped Padel evidence pat
   assert.match(manufacturer, /href="\/custom-padel-bag-manufacturer#padel-bag-manufacturer-faq"/);
   assert.doesNotMatch(manufacturer, /href="#padel-bag-manufacturer-faq"/);
   for (const asset of [
-    "/assets/cappuccino-original-padel-technical-bag-v1.png",
+    "/images/padel/cappuccino-padel-collection-2026-studio.png",
     "/assets/videos/cappuccino-bag-sample-development.mp4",
     "/videos/cappuccino-factory-bulk-production-website-16x9-720p-web-optimized.mp4",
     "/assets/padel-real-samples/hero-racket-bag-sample.jpg",
