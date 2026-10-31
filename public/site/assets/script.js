@@ -122,6 +122,13 @@ function preselectInquiryContext(form) {
     return;
   }
 
+  if (project === "Card Holder" || project === "Card Holders") {
+    if (intention) intention.value = "Wallet / Card Holder Project";
+    if (product) product.value = "Card Holders";
+    if (message && format) message.value = `Card holder model: ${format}\n`;
+    return;
+  }
+
   if (project === "Travel Bags") {
     if (intention) intention.value = "Travel Bag / Luggage Project";
     if (product) product.value = "Travel Bags";
@@ -188,23 +195,23 @@ forms.forEach((form) => {
           body: JSON.stringify(payload),
         });
         const result = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error("Lead endpoint failed.");
+        if (!response.ok || !result.ok || !result.inquiryNumber || result.submissionId !== payload.submission_id) throw new Error("Lead receipt could not be confirmed.");
+        const receipt = result;
         completeSubmission(form);
-        window.cappuccinoAnalytics?.trackLeadSuccess(
+        try { window.cappuccinoAnalytics?.trackLeadSuccess(
           formName === "sample" ? "sample_request" : "product_inquiry",
           result.inquiryNumber,
           { product_category: payload.product_category || payload.product || "" },
         );
+        } catch { /* Analytics must not invalidate a saved receipt. */ }
         showToast(
-          "Submitted successfully. Our sales team will contact you soon.",
+          `Your inquiry has been saved. Reference: ${receipt.inquiryNumber}.${receipt.followUpRequired || receipt.notification?.status !== "accepted" ? " Notification needs review; please keep this reference and do not submit it again." : " We will review your brief before replying."}`,
         );
       } catch (error) {
         showToast("Submission failed. Please contact us on WhatsApp or email.");
       }
     } else {
-      showToast(
-        "Submitted successfully. Our sales team will contact you soon.",
-      );
+      showToast("Submission is unavailable. Please contact us on WhatsApp or email.");
     }
 
   });
@@ -306,6 +313,8 @@ function initializeInquiryForm(form) {
     setInquiryStatus(form, "Sending your inquiry...", "");
 
     try {
+      let receipt;
+      if (!endpoint) throw new Error("Inquiry endpoint is unavailable.");
       if (endpoint) {
         const response = await fetch(
           endpoint,
@@ -319,7 +328,8 @@ function initializeInquiryForm(form) {
         );
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error("Inquiry endpoint failed.");
-        if (!result.ok || !result.inquiryNumber) throw new Error("Inquiry receipt could not be confirmed.");
+        if (!result.ok || !result.inquiryNumber || result.submissionId !== payload.submission_id) throw new Error("Inquiry receipt could not be confirmed.");
+        receipt = result;
         completeSubmission(form);
         try {
         window.cappuccinoAnalytics?.trackLeadSuccess(
@@ -334,7 +344,7 @@ function initializeInquiryForm(form) {
 
       setInquiryStatus(
         form,
-        "Submitted successfully. Our sales team will contact you soon.",
+        `Your inquiry has been saved. Reference: ${receipt.inquiryNumber}.${receipt.followUpRequired || receipt.notification?.status !== "accepted" ? " Notification needs review; please keep this reference and do not submit it again." : " We will review your brief before replying."}`,
         "success",
       );
       form.reset();

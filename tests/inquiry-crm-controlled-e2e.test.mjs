@@ -97,7 +97,7 @@ function createCanonicalCrmMock() {
     }
 
     if (["ai_reply_logs", "activities", "email_drafts"].includes(table) && method === "POST") {
-      if (postSaveFailure === "workflow") return json({ message: "controlled workflow failure" }, 503);
+      if (postSaveFailure === "workflow" || postSaveFailure === table) return json({ message: "controlled workflow failure" }, 503);
       return json([{ id: `${table}-1` }]);
     }
 
@@ -148,6 +148,8 @@ test("Website RFQ completes the nine controlled canonical CRM scenarios", async 
     const normalResult = await normal.json();
     assert.equal(normal.status, 200, JSON.stringify(normalResult));
     assert.equal(normalResult.ok, true);
+    assert.equal(normalResult.saved, true);
+    assert.deepEqual(normalResult.notification, {status: "accepted", statusRecorded: true, receiptVerified: false});
     assert.equal(normalResult.submissionId, NORMAL_ID);
     assert.equal(crm.customers.get("new@example.com").id, "customer-new-1");
     assert.equal(crm.inquiries.get(NORMAL_ID).customer_id, "customer-new-1");
@@ -211,13 +213,15 @@ test("Website RFQ completes the nine controlled canonical CRM scenarios", async 
     assert.equal(crm.emails.length, emailsBeforeFailure);
 
     // Combined route + shared-ingest acceptance after post-save failures.
-    for (const [index, mode] of ["workflow", "status"].entries()) {
+    for (const [index, mode] of ["workflow", "status", "activities", "email_drafts"].entries()) {
       crm.setPostSaveFailure(mode);
       const payload = { ...normalPayload, submission_id: `10000000-0000-4000-8000-00000000000${index + 5}` };
       const beforeCount = crm.inquiries.size;
       const accepted = await POST(inquiryRequest(payload, `203.0.113.${index + 10}`));
       assert.equal(accepted.status, 200);
-      assert.equal((await accepted.json()).ok, true);
+      const receipt = await accepted.json();
+      assert.equal(receipt.ok, true);
+      assert.equal(receipt.followUpRequired, true);
       const emailsAfterSave = crm.emails.length;
       // The first successful response can be lost; retry must recover it.
       const recovered = await POST(inquiryRequest(payload, `203.0.113.${index + 20}`));
@@ -234,7 +238,7 @@ test("Website RFQ completes the nine controlled canonical CRM scenarios", async 
     assert.match(inquiryPage, /data-endpoint="\/api\/inquiries"/);
     assert.doesNotMatch(inquiryPage, /formsubmit\.co/i);
     const responseGate = client.indexOf('if (!response.ok) throw new Error("Inquiry endpoint failed.");');
-    const successState = client.indexOf('"Submitted successfully. Our sales team will contact you soon.",', responseGate);
+    const successState = client.indexOf('Your inquiry has been saved. Reference:', responseGate);
     assert.ok(responseGate >= 0);
     assert.ok(successState > responseGate);
     assert.doesNotMatch(client, /SUPABASE_SERVICE_ROLE_KEY|service-role-test|server-only-test-role/);

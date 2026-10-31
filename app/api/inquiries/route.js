@@ -1,18 +1,10 @@
-import { randomBytes } from "node:crypto";
+import { uploadInquiryAttachments, validateInquiryAttachments } from "../../../lib/inquiry/attachments.js";
 import { NextResponse } from "next/server.js";
 import { ingestSharedInquiry, SharedIngestError } from "../../../lib/crm/shared-ingest.js";
-import { storageUpload } from "../../../lib/crm/supabase.js";
 
 export const runtime = "nodejs";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const ALLOWED = new Set([
-  "application/pdf", "image/jpeg", "image/png", "application/msword",
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  "application/vnd.ms-excel",
-  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-  "application/zip", "application/x-zip-compressed",
-]);
 const attempts = globalThis.__capInquiryRateLimit || (globalThis.__capInquiryRateLimit = new Map());
 
 function rateLimited(ip) {
@@ -21,11 +13,6 @@ function rateLimited(ip) {
   recent.push(now);
   attempts.set(ip, recent);
   return recent.length > 8;
-}
-
-function safeName(name = "file") {
-  const extension = name.split(".").pop()?.replace(/[^a-z0-9]/gi, "").slice(0, 8) || "file";
-  return `${randomBytes(12).toString("hex")}.${extension}`;
 }
 
 async function parseRequest(request) {
@@ -39,24 +26,6 @@ async function parseRequest(request) {
   return { data: await request.json(), files: [] };
 }
 
-async function upload(files) {
-  if (files.length > 5) throw new SharedIngestError("Upload no more than 5 files.");
-  if (files.reduce((total, file) => total + file.size, 0) > 4_000_000) {
-    throw new SharedIngestError("Attachments must total 4 MB or less.", 413);
-  }
-  // Validate the whole batch before writing any object.
-  if (files.some((file) => !ALLOWED.has(file.type))) {
-    throw new SharedIngestError("Unsupported attachment type.");
-  }
-  const uploaded = [];
-  for (const file of files) {
-    const path = `cappuccinobag/${new Date().toISOString().slice(0, 10)}/${safeName(file.name)}`;
-    await storageUpload(process.env.SUPABASE_STORAGE_BUCKET || "crm-attachments", path, file);
-    uploaded.push({ name: file.name.slice(0, 180), type: file.type, size: file.size, path, scan_status: "pending" });
-  }
-  return uploaded;
-}
-
 export async function POST(request) {
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
   if (rateLimited(ip)) return NextResponse.json({ message: "Too many attempts. Please try again later." }, { status: 429 });
@@ -68,15 +37,19 @@ export async function POST(request) {
     if (!data.name || !EMAIL.test(String(data.email || ""))) {
       return NextResponse.json({ message: "Name and a valid email are required." }, { status: 422 });
     }
+    validateInquiryAttachments(files);
     const saved = await ingestSharedInquiry({
       siteSource: "cappuccino",
       raw: data,
       pendingFiles: files,
-      uploadFiles: upload,
+      uploadFiles: uploadInquiryAttachments,
     });
     const reference = saved.inquiry.inquiry_number;
     return NextResponse.json({
       ok: true,
+      saved: true,
+      notification: { status: saved.emailStatus === "sent" ? "accepted" : saved.emailStatus || "pending", statusRecorded: saved.emailStatusPersisted ?? true, receiptVerified: false },
+      followUpRequired: saved.emailStatus !== "sent" || saved.emailStatusPersisted === false || Boolean(saved.postSaveFailures?.length) || Boolean(saved.idempotent),
       inquiryNumber: reference,
       submissionId: saved.inquiry.submission_id,
       idempotent: saved.idempotent,

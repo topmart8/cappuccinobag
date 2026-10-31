@@ -172,7 +172,7 @@ test('oversized and unsupported multipart uploads fail before any storage write'
       const response = await POST(new Request('https://example.test/api/inquiries', { method: 'POST', body: data }));
       assert.equal(response.status, status);
     }
-    assert.equal(reads, 4);
+    assert.equal(reads, 0);
   } finally {
     global.fetch = oldFetch;
     for (const [key, value] of [['SUPABASE_URL', oldUrl], ['SUPABASE_SERVICE_ROLE_KEY', oldKey]]) {

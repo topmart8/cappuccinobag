@@ -39,7 +39,7 @@ export default function PadelRfqForm() {
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.message || "Your RFQ could not be sent.");
-      if (!result.ok || !result.inquiryNumber) throw new Error("We could not confirm receipt. Please retry this submission.");
+      if (!result.ok || !result.inquiryNumber || result.submissionId !== submissionId) throw new Error("We could not confirm receipt. Please retry this submission.");
       succeeded = true;
       try {
       window.cappuccinoAnalytics?.trackLeadSuccess(
@@ -53,7 +53,7 @@ export default function PadelRfqForm() {
       form.reset();
       setStatus({
         type: "success",
-        message: `Thank you. Your RFQ reference is ${result.inquiryNumber}. We will review the brief before replying.`,
+        message: `Thank you. Your RFQ reference is ${result.inquiryNumber}.${result.followUpRequired || result.notification?.status !== "accepted" ? " Your brief is saved; notification needs review. Keep this reference and do not submit it again." : " We will review the brief before replying."}`,
       });
     } catch (error) {
       setStatus({
