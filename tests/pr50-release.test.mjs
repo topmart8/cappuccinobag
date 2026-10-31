@@ -9,7 +9,13 @@ const script = fs.readFileSync('public/site/assets/b2b-development.js', 'utf8');
 
 function briefForm(path = 'Concept development') {
   const listeners = {};
-  const pathField = { value: path, addEventListener() {} };
+  const pathListeners = {};
+  const pathField = {
+    value: path,
+    options: ['Concept development', 'Tech Pack', 'Clubs / events procurement', 'Existing-customer reorder'].map((value) => ({ value })),
+    addEventListener(name, fn) { pathListeners[name] = fn; },
+    dispatchEvent(event) { pathListeners[event.type]?.(event); },
+  };
   const help = { textContent: '' };
   const groups = ['Clubs / events procurement', 'Existing-customer reorder'].map((value) => {
     const field = { disabled: false };
@@ -17,7 +23,7 @@ function briefForm(path = 'Concept development') {
   });
   const button = { disabled: true };
   return {
-    dataset: { inquiryInitialized: 'true' }, button, help, groups, listeners,
+    dataset: { inquiryInitialized: 'true' }, button, help, groups, listeners, pathField,
     addEventListener(name, fn) { (listeners[name] ||= []).push(fn); },
     querySelector(selector) {
       if (selector.startsWith('button')) return button;
@@ -31,16 +37,78 @@ function briefForm(path = 'Concept development') {
 
 function runBrief(forms) {
   const body = {};
+  const events = {};
+  let currentForms = forms;
   let added;
   vm.runInNewContext(script, {
-    document: { body, querySelectorAll: () => forms },
+    document: {
+      body,
+      querySelectorAll: () => currentForms,
+      querySelector: () => currentForms[0],
+      addEventListener(name, fn) { events[name] = fn; },
+    },
+    Event,
     MutationObserver: class {
       constructor(callback) { this.callback = callback; }
       observe(target) { if (target === body) added = this.callback; }
     },
   });
-  return (form) => added([{ addedNodes: [{ nodeType: 1, matches: () => false, querySelectorAll: () => [form] }] }]);
+  const add = (form) => {
+    currentForms = [form];
+    added([{ addedNodes: [{ nodeType: 1, matches: () => false, querySelectorAll: () => [form] }] }]);
+  };
+  add.click = (path = 'Clubs / events procurement', eventOverrides = {}, entryOverrides = {}) => events.click({
+    button: 0,
+    target: { closest: () => ({ dataset: { briefPath: path }, hasAttribute: () => false, ...entryOverrides }) },
+    ...eventOverrides,
+  });
+  return add;
 }
+
+test('club CTA selects the club RFQ while preserving entered contact and project details', () => {
+  const html = fs.readFileSync('public/site/oem-odm-bag-manufacturer/index.html', 'utf8');
+  assert.match(html, /<a href="\/oem-odm-bag-manufacturer#project-brief" data-brief-path="Clubs \/ events procurement">Prepare a club or event brief<\/a>/);
+  const form = briefForm('Existing-customer reorder');
+  form.entered = { name: 'QA Buyer', email: 'qa@example.invalid', message: 'TEST ONLY: keep this brief' };
+  const saved = structuredClone(form.entered);
+  const run = runBrief([form]);
+  run.click();
+  assert.equal(form.pathField.value, 'Clubs / events procurement');
+  assert.equal(form.groups[0].hidden, false);
+  assert.equal(form.groups[0].field.disabled, false);
+  assert.equal(form.groups[1].hidden, true);
+  assert.equal(form.groups[1].field.disabled, true);
+  assert.match(form.help.textContent, /recipient groups/);
+  assert.deepEqual(form.entered, saved);
+});
+
+test('club CTA targets the replacement form after client navigation', () => {
+  const first = briefForm();
+  const run = runBrief([first]);
+  const replacement = briefForm('Tech Pack');
+  run(replacement);
+  run.click();
+  assert.equal(first.pathField.value, 'Concept development');
+  assert.equal(replacement.pathField.value, 'Clubs / events procurement');
+  assert.equal(replacement.groups[0].field.disabled, false);
+  assert.equal(replacement.button.disabled, false);
+});
+
+test('club CTA leaves modified/new-tab/download actions and unknown paths unchanged', () => {
+  const form = briefForm();
+  const run = runBrief([form]);
+  for (const overrides of [{ button: 1 }, { ctrlKey: true }, { metaKey: true }, { shiftKey: true }, { altKey: true }]) run.click(undefined, overrides);
+  run.click(undefined, {}, { target: '_blank' });
+  run.click(undefined, {}, { hasAttribute: () => true });
+  run.click('Not an RFQ path');
+  assert.equal(form.pathField.value, 'Concept development');
+  assert.equal(form.groups[0].field.disabled, true);
+});
+
+test('club CTA tolerates navigation while no development form is mounted', () => {
+  const run = runBrief([]);
+  assert.doesNotThrow(() => run.click());
+});
 
 test('client navigation initializes a replacement brief once and enables submission', () => {
   const first = briefForm();

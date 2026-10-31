@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+import { briefEntryUrl, pdb001Colours } from "../lib/brief-entry.mjs";
 
 const colours = [
   {
@@ -79,6 +81,9 @@ export default function Pdb001Gallery() {
         Colour images are digital references. Final colour, texture and trim are
         subject to material swatch and sample approval.
       </p>
+      <Link className="btn btn-primary" prefetch={false} href={briefEntryUrl({ model: "pdb001", colour: pdb001Colours[selectedIndex][0] })}>
+        Discuss this colour direction
+      </Link>
     </div>
   );
 }

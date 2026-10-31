@@ -7,6 +7,7 @@
       ['brief_path', 'RFQ path'], ['brief_design', 'Design status'],
       ['brief_positioning', 'Brand positioning'], ['brief_launch', 'Target launch date'],
       ['brief_reference', 'Prior order / sample reference'],
+      ['brief_product', 'Product reference'], ['brief_colour', 'Colour direction'],
       ['brief_event_mix', 'Club / event format and packaging mix'],
     ];
     const pathField = form.querySelector('[name="brief_path"]');
@@ -51,6 +52,19 @@
     }
   }
   document.querySelectorAll('[data-development-brief]').forEach(initializeBrief);
+  // Use the current form after client navigation and preserve the buyer's entered brief.
+  document.addEventListener('click', (event) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const entry = event.target.closest?.('a[data-brief-path]');
+    if (!entry || entry.target === '_blank' || entry.hasAttribute('download')) return;
+    const form = document.querySelector('[data-development-brief]');
+    const pathField = form?.querySelector('[name="brief_path"]');
+    const path = entry.dataset.briefPath;
+    if (!pathField || !Array.from(pathField.options).some((option) => option.value === path)) return;
+    pathField.value = path;
+    pathField.dispatchEvent(new Event('change', { bubbles: true }));
+    // Keep the anchor's normal scroll/navigation and keyboard activation behavior.
+  });
   // Next.js keeps external scripts loaded across client navigation. Initialize each new form.
   new MutationObserver((mutations) => {
     mutations.forEach(({ addedNodes }) => addedNodes.forEach((node) => {

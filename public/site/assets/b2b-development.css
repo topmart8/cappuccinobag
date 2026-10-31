@@ -2,3 +2,77 @@
 .growth .growth-form label{color:#2e3029}.growth .growth-form button{background:#57432b;color:#fff;border:1px solid #57432b;border-radius:6px;padding:14px 24px;min-height:44px}.growth-form input::placeholder,.growth-form textarea::placeholder{color:#66685f}
 
 .growth-form [hidden]{display:none!important}.growth-form [data-path-help]{grid-column:1/-1;margin:0;padding:14px;border-left:3px solid #57432b}
+
+/* Development pilot: an immediate brief entry and comfortable field widths. */
+.development-page .development-intro .section-head {
+  max-width: 800px;
+}
+
+.development-page .development-intro h1 {
+  max-width: 18ch;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.06;
+  letter-spacing: -.035em;
+}
+
+.development-page .development-start {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 16px;
+}
+
+.development-page #project-brief {
+  scroll-margin-top: 120px;
+}
+
+.development-page .growth-form {
+  margin-top: 32px;
+  padding: clamp(20px, 4vw, 44px);
+}
+
+.development-page .growth-form .growth-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 28px;
+}
+
+.development-page .growth-form legend {
+  font-size: 22px;
+}
+
+.development-page .growth-form label {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.development-page .growth-form label:has(textarea),
+.development-page .growth-form label:has([name="brief_path"]) {
+  grid-column: 1 / -1;
+}
+
+.development-page .growth-form fieldset > label {
+  margin-top: 24px;
+}
+
+.development-page .growth-form input,
+.development-page .growth-form select {
+  min-height: 48px;
+}
+
+.development-page .growth-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+@media (max-width: 760px) {
+  .development-page .growth-form .growth-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .development-page .development-start,
+  .development-page .growth-form button[type="submit"] {
+    width: 100%;
+  }
+}

@@ -19,16 +19,21 @@ test('development stages and approval boundaries are explicit, with matching vis
 test('brief adapter preserves base message and does not leak fields to query strings or storage', () => {
   let listener; const button = { disabled: true };
   const form = { dataset: { inquiryInitialized: 'true' }, addEventListener: (name, fn) => { if (name === 'formdata') listener = fn; }, querySelector: (selector) => selector.startsWith('button') ? button : null };
-  vm.runInNewContext(script, { document: { querySelectorAll: () => [form] }, MutationObserver: class { observe() {} } });
+  vm.runInNewContext(script, { document: { querySelectorAll: () => [form], addEventListener() {} }, MutationObserver: class { observe() {} } });
   const data = new FormData();
   data.set('brief_path', 'Concept development'); data.set('brief_positioning', 'Premium court carry');
   data.set('brief_design', 'No design files yet'); data.set('brief_launch', '2027-03-01');
   data.set('message', 'Keep original details'); data.set('submission_id', 'stable-id');
   data.set('target_price', 'USD 25'); data.set('quantity', '300');
+  data.set('brief_product', 'PDB001 Padel Work Tote Backpack');
+  data.set('brief_colour', 'Sage Green + Cream — digital reference; swatch and sample approval required');
   listener({ formData: data });
   assert.match(data.get('message'), /Concept development/); assert.match(data.get('message'), /No design files yet/);
   assert.match(data.get('message'), /Keep original details/); assert.equal(data.get('submission_id'), 'stable-id');
   assert.equal(data.get('target_price'), 'USD 25'); assert.equal(data.get('quantity'), '300');
+  assert.match(data.get('message'), /Product reference: PDB001/);
+  assert.match(data.get('message'), /Colour direction: Sage Green \+ Cream — digital reference/);
+  assert.equal(data.has('brief_product'), false); assert.equal(data.has('brief_colour'), false);
   assert.equal(data.has('brief_positioning'), false); assert.equal(button.disabled, false);
   assert.doesNotMatch(script, /fetch\(|localStorage|sessionStorage|location/);
 });
