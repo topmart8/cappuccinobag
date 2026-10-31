@@ -87,6 +87,18 @@ function getWhatsAppUrl() {
   return `${whatsappBase}?text=${encodeURIComponent(message)}`;
 }
 
+function updatePetProjectField(form) {
+  const petField = form.querySelector("[data-pet-project-field]");
+  if (!petField) return;
+  const context = `${form.elements.inquiry_intention?.value || ""} ${form.elements.product_needed?.value || ""}`;
+  const isPetProject = /pet|dog|carrier/i.test(context);
+  petField.hidden = !isPetProject;
+  if (!isPetProject) {
+    const input = petField.querySelector("input");
+    if (input) input.value = "";
+  }
+}
+
 function preselectInquiryContext(form) {
   const params = new URLSearchParams(window.location.search);
   const project = params.get("product") || "";
@@ -106,6 +118,14 @@ function preselectInquiryContext(form) {
     if (message && format) message.value = `Pet travel product: ${format}\n`;
     const secondaryFields = form.querySelector(".rfq-secondary");
     if (secondaryFields) secondaryFields.open = true;
+    updatePetProjectField(form);
+    return;
+  }
+
+  if (project === "Card Holder" || project === "Card Holders") {
+    if (intention) intention.value = "Wallet / Card Holder Project";
+    if (product) product.value = "Card Holders";
+    if (message && format) message.value = `Card holder model: ${format}\n`;
     return;
   }
 
@@ -135,16 +155,6 @@ function preselectInquiryContext(form) {
   }
 }
 
-function showToast(message) {
-  const oldToast = document.querySelector(".toast");
-  if (oldToast) oldToast.remove();
-  const toast = document.createElement("div");
-  toast.className = "toast";
-  toast.textContent = message;
-  document.body.appendChild(toast);
-  window.setTimeout(() => toast.remove(), 4200);
-}
-
 function submissionIdFor(form) {
   if (!form.dataset.submissionId) {
     form.dataset.submissionId = window.crypto.randomUUID();
@@ -157,43 +167,56 @@ function completeSubmission(form) {
 }
 
 forms.forEach((form) => {
+  let inFlight = false;
+  let accepted = false;
+  const button = form.querySelector('button[type="submit"]');
+  const status = document.createElement("p");
+  status.className = "form-status";
+  status.setAttribute("role", "status");
+  status.setAttribute("aria-live", "polite");
+  form.appendChild(status);
+  // A deliberate edit starts another request only after the saved receipt.
+  form.addEventListener("input", () => {
+    if (inFlight || !accepted) return;
+    accepted = false;
+    completeSubmission(form);
+    if (button) button.disabled = false;
+  });
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (inFlight || accepted) return;
+    inFlight = true;
+    form.setAttribute("aria-busy", "true");
+    if (button) button.disabled = true;
     const formName = form.dataset.form || "inquiry";
-    const endpoint = "/api/inquiries";
-    const payload = {
-      ...Object.fromEntries(new FormData(form).entries()),
-      ...getAttribution(),
-      submission_id: submissionIdFor(form),
-    };
-
-    if (endpoint) {
+    try {
+      const payload = {
+        ...Object.fromEntries(new FormData(form).entries()),
+        ...getAttribution(),
+        submission_id: submissionIdFor(form),
+      };
+      const response = await fetch("/api/inquiries", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const receipt = await response.json().catch(() => ({}));
+      if (!response.ok || !receipt.ok || !receipt.inquiryNumber || receipt.submissionId !== payload.submission_id) throw new Error("Lead receipt could not be confirmed.");
+      accepted = true;
       try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error("Lead endpoint failed.");
-        completeSubmission(form);
         window.cappuccinoAnalytics?.trackLeadSuccess(
           formName === "sample" ? "sample_request" : "product_inquiry",
-          result.inquiryNumber,
+          receipt.inquiryNumber,
           { product_category: payload.product_category || payload.product || "" },
         );
-        showToast(
-          "Submitted successfully. Our sales team will contact you soon.",
-        );
-      } catch (error) {
-        showToast("Submission failed. Please contact us on WhatsApp or email.");
-      }
-    } else {
-      showToast(
-        "Submitted successfully. Our sales team will contact you soon.",
-      );
+      } catch { /* Analytics must not invalidate a saved receipt. */ }
+      status.textContent = `Your inquiry has been saved. Reference: ${receipt.inquiryNumber}.${receipt.followUpRequired || receipt.notification?.status !== "accepted" ? " Notification needs review; please keep this reference and do not submit it again." : " We will review your brief before replying."}`;
+    } catch {
+      status.textContent = "Receipt could not be confirmed. Your input is retained; retry this submission or contact us on WhatsApp or email.";
+    } finally {
+      inFlight = false;
+      form.setAttribute("aria-busy", "false");
+      if (button) button.disabled = accepted;
     }
-
   });
 });
 
@@ -208,6 +231,13 @@ function setInquiryStatus(form, message, type) {
 function validateInquiryForm(form) {
   let isValid = true;
   const fields = form.querySelectorAll("input, textarea, select");
+  const files = Array.from(form.querySelectorAll('input[type="file"]'))
+    .flatMap((field) => Array.from(field.files || []));
+  // Leave room for multipart headers and brief fields under Vercel's 4.5 MB request cap.
+  if (files.reduce((total, file) => total + file.size, 0) > 4_000_000) {
+    setInquiryStatus(form, "Attachments must total 4 MB or less. Please compress the file or email info@cappuccinobag.net.", "error");
+    return false;
+  }
 
   fields.forEach((field) => {
     if (field.name === "website") return;
@@ -235,6 +265,7 @@ function validateInquiryForm(form) {
 
 function initializeInquiryForm(form) {
   preselectInquiryContext(form);
+  updatePetProjectField(form);
 
   if (form.dataset.inquiryInitialized === "true") return;
   form.dataset.inquiryInitialized = "true";
@@ -246,6 +277,9 @@ function initializeInquiryForm(form) {
     if (!label) return;
     label.classList.remove("is-invalid");
     setInquiryStatus(form, "", "");
+    if (field.name === "inquiry_intention" || field.name === "product_needed") {
+      updatePetProjectField(form);
+    }
   });
 
   form.addEventListener("submit", async (event) => {
@@ -282,6 +316,8 @@ function initializeInquiryForm(form) {
     setInquiryStatus(form, "Sending your inquiry...", "");
 
     try {
+      let receipt;
+      if (!endpoint) throw new Error("Inquiry endpoint is unavailable.");
       if (endpoint) {
         const response = await fetch(
           endpoint,
@@ -295,20 +331,27 @@ function initializeInquiryForm(form) {
         );
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error("Inquiry endpoint failed.");
+        if (!result.ok || !result.inquiryNumber || result.submissionId !== payload.submission_id) throw new Error("Inquiry receipt could not be confirmed.");
+        receipt = result;
         completeSubmission(form);
+        try {
         window.cappuccinoAnalytics?.trackLeadSuccess(
           "rfq",
           result.inquiryNumber,
           { product_category: payload.product_needed || payload.product || "" },
         );
+        } catch {
+          // Analytics must not turn a saved inquiry into a retry prompt.
+        }
       }
 
       setInquiryStatus(
         form,
-        "Submitted successfully. Our sales team will contact you soon.",
+        `Your inquiry has been saved. Reference: ${receipt.inquiryNumber}.${receipt.followUpRequired || receipt.notification?.status !== "accepted" ? " Notification needs review; please keep this reference and do not submit it again." : " We will review your brief before replying."}`,
         "success",
       );
       form.reset();
+      updatePetProjectField(form);
     } catch (error) {
       setInquiryStatus(
         form,
