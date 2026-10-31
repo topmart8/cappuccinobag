@@ -7,6 +7,7 @@
       ['brief_path', 'RFQ path'], ['brief_design', 'Design status'],
       ['brief_positioning', 'Brand positioning'], ['brief_launch', 'Target launch date'],
       ['brief_reference', 'Prior order / sample reference'],
+      ['brief_product', 'Product reference'], ['brief_colour', 'Colour direction'],
       ['brief_event_mix', 'Club / event format and packaging mix'],
     ];
     const pathField = form.querySelector('[name="brief_path"]');

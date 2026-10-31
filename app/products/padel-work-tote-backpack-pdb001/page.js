@@ -2,11 +2,11 @@ import Image from "next/image";
 import NextLink from "next/link";
 import Pdb001Gallery from "../../pdb001-gallery";
 import { PadelFooter, PadelHeader } from "../../padel-components";
+import { briefEntryUrl } from "../../../lib/brief-entry.mjs";
 
 const siteUrl = "https://www.cappuccinobag.com";
 const canonical = `${siteUrl}/products/padel-work-tote-backpack-pdb001`;
-const inquiryUrl =
-  "/inquiry?product=Padel%20Bags&format=PDB001%20Padel%20Work%20Tote%20Backpack";
+const inquiryUrl = briefEntryUrl({ model: "pdb001" });
 
 function Link(props) {
   return <NextLink {...props} prefetch={false} />;
@@ -73,7 +73,7 @@ const procurementSnapshot = [
   ["Racket capacity", "Curved front compartment for a padel racket; final fit is confirmed during sampling"],
   ["Shoe compartment", "Not specified in the current PDB001 sample; confirm with factory if required"],
   ["Main material options", "Water-resistant nylon or polyester; recycled options available"],
-  ["MOQ", "Confirm with factory after material, layout, logo and packaging review"],
+  ["MOQ", "New custom orders: 300 pieces per style. Different styles cannot be combined to meet this minimum. Sampling is agreed separately."],
   ["Sample", "Sample timing is confirmed for the agreed specification after reviewing material availability, construction, custom components and the revision plan. A requested date is not a confirmed completion date."],
   ["Bulk production lead time", "Confirm after quantity, materials, approved sample, packaging and inspection steps are agreed"],
   ["OEM / ODM", "Available for layout, materials, colours, straps, hardware, branding and packaging"],
