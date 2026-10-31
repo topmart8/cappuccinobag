@@ -155,16 +155,6 @@ function preselectInquiryContext(form) {
   }
 }
 
-function showToast(message) {
-  const oldToast = document.querySelector(".toast");
-  if (oldToast) oldToast.remove();
-  const toast = document.createElement("div");
-  toast.className = "toast";
-  toast.textContent = message;
-  document.body.appendChild(toast);
-  window.setTimeout(() => toast.remove(), 4200);
-}
-
 function submissionIdFor(form) {
   if (!form.dataset.submissionId) {
     form.dataset.submissionId = window.crypto.randomUUID();
@@ -177,43 +167,56 @@ function completeSubmission(form) {
 }
 
 forms.forEach((form) => {
+  let inFlight = false;
+  let accepted = false;
+  const button = form.querySelector('button[type="submit"]');
+  const status = document.createElement("p");
+  status.className = "form-status";
+  status.setAttribute("role", "status");
+  status.setAttribute("aria-live", "polite");
+  form.appendChild(status);
+  // A deliberate edit starts another request only after the saved receipt.
+  form.addEventListener("input", () => {
+    if (inFlight || !accepted) return;
+    accepted = false;
+    completeSubmission(form);
+    if (button) button.disabled = false;
+  });
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (inFlight || accepted) return;
+    inFlight = true;
+    form.setAttribute("aria-busy", "true");
+    if (button) button.disabled = true;
     const formName = form.dataset.form || "inquiry";
-    const endpoint = "/api/inquiries";
-    const payload = {
-      ...Object.fromEntries(new FormData(form).entries()),
-      ...getAttribution(),
-      submission_id: submissionIdFor(form),
-    };
-
-    if (endpoint) {
+    try {
+      const payload = {
+        ...Object.fromEntries(new FormData(form).entries()),
+        ...getAttribution(),
+        submission_id: submissionIdFor(form),
+      };
+      const response = await fetch("/api/inquiries", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const receipt = await response.json().catch(() => ({}));
+      if (!response.ok || !receipt.ok || !receipt.inquiryNumber || receipt.submissionId !== payload.submission_id) throw new Error("Lead receipt could not be confirmed.");
+      accepted = true;
       try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok || !result.ok || !result.inquiryNumber || result.submissionId !== payload.submission_id) throw new Error("Lead receipt could not be confirmed.");
-        const receipt = result;
-        completeSubmission(form);
-        try { window.cappuccinoAnalytics?.trackLeadSuccess(
+        window.cappuccinoAnalytics?.trackLeadSuccess(
           formName === "sample" ? "sample_request" : "product_inquiry",
-          result.inquiryNumber,
+          receipt.inquiryNumber,
           { product_category: payload.product_category || payload.product || "" },
         );
-        } catch { /* Analytics must not invalidate a saved receipt. */ }
-        showToast(
-          `Your inquiry has been saved. Reference: ${receipt.inquiryNumber}.${receipt.followUpRequired || receipt.notification?.status !== "accepted" ? " Notification needs review; please keep this reference and do not submit it again." : " We will review your brief before replying."}`,
-        );
-      } catch (error) {
-        showToast("Submission failed. Please contact us on WhatsApp or email.");
-      }
-    } else {
-      showToast("Submission is unavailable. Please contact us on WhatsApp or email.");
+      } catch { /* Analytics must not invalidate a saved receipt. */ }
+      status.textContent = `Your inquiry has been saved. Reference: ${receipt.inquiryNumber}.${receipt.followUpRequired || receipt.notification?.status !== "accepted" ? " Notification needs review; please keep this reference and do not submit it again." : " We will review your brief before replying."}`;
+    } catch {
+      status.textContent = "Receipt could not be confirmed. Your input is retained; retry this submission or contact us on WhatsApp or email.";
+    } finally {
+      inFlight = false;
+      form.setAttribute("aria-busy", "false");
+      if (button) button.disabled = accepted;
     }
-
   });
 });
 
