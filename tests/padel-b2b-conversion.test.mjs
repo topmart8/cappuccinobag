@@ -117,8 +117,8 @@ test("Padel decision pages use the existing RFQ route and consistent primary CTA
   ]);
   for (const page of pages) assert.match(page, /Request a Quote/);
   assert.match(pages[0], /product=Padel%20Bags&format=/);
-  // PDB001 now uses the existing development brief so its colour reference can travel with it.
-  assert.match(pages[1], /briefEntryUrl\(\{ model: "pdb001" \}\)/);
+  // Preserve the established primary inquiry route; the gallery offers the development brief separately.
+  assert.match(pages[1], /product=Padel%20Bags&format=PDB001/);
   assert.match(pages[2], /product=Padel%20Bags&format=/);
   assert.match(pages[3], /href="\/inquiry\?product=Padel%20Bags"/);
   assert.match(pages[4], /href="\/inquiry\?product=Padel%20Bags"/);

@@ -2,11 +2,11 @@ import Image from "next/image";
 import NextLink from "next/link";
 import Pdb001Gallery from "../../pdb001-gallery";
 import { PadelFooter, PadelHeader } from "../../padel-components";
-import { briefEntryUrl } from "../../../lib/brief-entry.mjs";
 
 const siteUrl = "https://www.cappuccinobag.com";
 const canonical = `${siteUrl}/products/padel-work-tote-backpack-pdb001`;
-const inquiryUrl = briefEntryUrl({ model: "pdb001" });
+const inquiryUrl =
+  "/inquiry?product=Padel%20Bags&format=PDB001%20Padel%20Work%20Tote%20Backpack";
 
 function Link(props) {
   return <NextLink {...props} prefetch={false} />;
@@ -207,9 +207,9 @@ export default function Pdb001ProductPage() {
         <section className="pdb001-hero">
           <div className="pdb001-hero-copy">
             <p className="eyebrow">PDB001 · OEM/ODM padel work bag</p>
-            <h1>Padel Work Tote Backpack</h1>
+            <h1>Custom Lightweight Padel Work Tote Backpack with Laptop &amp; Racket Compartment</h1>
             <h2>One Lightweight Bag. From Desk to Court.</h2>
-            <p>A custom, lightweight padel bag with dedicated laptop and racket compartments. Carry work essentials and court gear by hand, over the shoulder or as a backpack.</p>
+            <p>A soft, lightweight office-to-court padel bag designed to organize a laptop, racket, documents, bottle, clothing and daily essentials without the bulky look of a traditional racket bag.</p>
             <dl className="pdb001-hero-facts">
               <div><dt>Dimensions</dt><dd>W31 × H38 × D15 cm</dd></div>
               <div><dt>Carry</dt><dd>Hand · Shoulder · Backpack</dd></div>

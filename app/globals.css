@@ -2014,11 +2014,6 @@ body:has(.quote-float) .analytics-settings{
   min-height: 44px;
 }
 
-.pdb001-page .pdb001-hero-copy h1 {
-  max-width: 12ch;
-  font-size: clamp(42px, 4.5vw, 64px);
-  line-height: 1.04;
-}
 
 .pdb001-page .pdb001-hero-copy h2 {
   max-width: 26ch;
@@ -2064,7 +2059,4 @@ body:has(.quote-float) .analytics-settings{
     text-align: center;
   }
 
-  .pdb001-page .pdb001-hero-copy h1 {
-    font-size: clamp(38px, 10vw, 50px);
-  }
 }

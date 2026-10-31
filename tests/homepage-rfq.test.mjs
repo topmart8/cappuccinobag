@@ -26,6 +26,8 @@ test("homepage source defines the approved seven-stage decision hierarchy", asyn
   );
   assert.equal((homepage.match(/<h1>/g) || []).length, 1);
   assert.match(homepage, /Start Your Custom Bag Project/);
+  const hero = homepage.slice(homepage.indexOf('const hero ='), homepage.indexOf('const buyerPaths ='));
+  assert.match(hero, /href="\/inquiry">Start Your Custom Bag Project<\/a>/);
   assert.match(homepage, /href=\"\/products\">Explore Product Collections/);
   assert.doesNotMatch(homepage, /id=\"secondary-collections\"|id=\"product-expansion\"|id=\"alcantara-entry\"/);
   assert.match(source, /excludeFaqPage: slug\.length === 0/);
@@ -37,6 +39,16 @@ test("homepage preserves the three distinct Padel destinations from PR B", async
   assert.match(source, /href=\"\/racket-sports\/padel-bags\">Explore Padel Bags<\/a>/);
   assert.match(source, /href=\"\/custom-padel-bag-manufacturer\">Padel Bag Manufacturer<\/a>/);
   assert.match(source, /href=\"\/custom-tennis-padel-racket-bags\">Compare Racquet Sports Bags<\/a>/);
+  for (const destination of [
+    '/custom-tennis-bag-manufacturer',
+    '/custom-pickleball-paddle-bags',
+    '/custom-travel-backpacks-weekender-bags',
+    '/custom-cardholder-manufacturer',
+    '/custom-phone-pouch-manufacturer',
+  ]) {
+    const homepage = source.slice(source.indexOf('function addHomePrioritySections'), source.indexOf('function addPadelCollectionEntry'));
+    assert.ok(homepage.includes(`href="${destination}"`), `Preserve homepage entry: ${destination}`);
+  }
 });
 
 test("Cappuccino RFQ requires email while treating WhatsApp as optional", async () => {
