@@ -20,6 +20,16 @@ Task: COCO_SIX_SITE_DESIGN_UPGRADE_20261031. Continues PR50; no new CRM or paral
 
 ## Visual scope and rollback
 
-This first increment uses existing typography, components and CSS. It does not claim the full visual redesign or three-dimensional product showcase is finished. No new imagery or speculative product capabilities are added.
+This pilot keeps the existing brand palette, components and assets. It does not claim the full visual redesign or three-dimensional product showcase is finished. No new imagery or speculative product capabilities are added.
 
 Review on a preview deployment before production. Revert the phase-one feature commit to remove these additions while keeping the merged mobile-menu/motion baseline.
+
+## Visual hierarchy increment — 1 November 2026
+
+- Home shortens the hero headline, brings the 300-per-style custom MOQ into the lead, keeps that lead visible on mobile, and gives the three buyer paths simpler separators and larger link targets.
+- PDB001 uses a shorter product heading with laptop/racket details in the lead. At tablet/mobile widths, copy precedes the colour gallery in the same order as the document; colour-reference controls retain the existing selected-state and brief URL behavior.
+- Development adds an immediate anchor to the existing project brief. Its form uses two columns on desktop and one on mobile, with full-width narrative fields and 48px minimum input/select targets. Field names, transport, conditional paths and attachment handling are unchanged.
+- Scope: five presentation files; no new dependency, backend change, generated imagery, live inquiry or production release.
+- Validation: 219/219 tests, ESLint and the normal Next build pass (225 pages). Generated HTML checks confirm one H1 per pilot page, the expected CTA routes, the development stylesheet and existing reference/contact fields.
+- Browser acceptance is pending. The managed launcher passes unsupported `--host` / `--strictPort` options to Next; the protected Vercel preview opens a sign-in page in the available browser. These checks do not establish desktop/mobile appearance, console health or rendered interaction success.
+- Release stays HOLD / Draft until the current commit has desktop/mobile review and the existing live-receipt acceptance requirements are met. The visual increment can be reverted independently of the buyer-path implementation.

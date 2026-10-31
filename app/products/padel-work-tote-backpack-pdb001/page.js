@@ -207,9 +207,9 @@ export default function Pdb001ProductPage() {
         <section className="pdb001-hero">
           <div className="pdb001-hero-copy">
             <p className="eyebrow">PDB001 · OEM/ODM padel work bag</p>
-            <h1>Custom Lightweight Padel Work Tote Backpack with Laptop &amp; Racket Compartment</h1>
+            <h1>Padel Work Tote Backpack</h1>
             <h2>One Lightweight Bag. From Desk to Court.</h2>
-            <p>A soft, lightweight office-to-court padel bag designed to organize a laptop, racket, documents, bottle, clothing and daily essentials without the bulky look of a traditional racket bag.</p>
+            <p>A custom, lightweight padel bag with dedicated laptop and racket compartments. Carry work essentials and court gear by hand, over the shoulder or as a backpack.</p>
             <dl className="pdb001-hero-facts">
               <div><dt>Dimensions</dt><dd>W31 × H38 × D15 cm</dd></div>
               <div><dt>Carry</dt><dd>Hand · Shoulder · Backpack</dd></div>
