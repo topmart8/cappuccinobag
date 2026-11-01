@@ -129,6 +129,13 @@ function preselectInquiryContext(form) {
     return;
   }
 
+  if (project === "Golf Bags") {
+    if (intention) intention.value = "Private Label Production";
+    if (product) product.value = "Golf Bags";
+    if (message && format) message.value = `Golf product format: ${format}\n`;
+    return;
+  }
+
   if (project === "Travel Bags") {
     if (intention) intention.value = "Travel Bag / Luggage Project";
     if (product) product.value = "Travel Bags";
