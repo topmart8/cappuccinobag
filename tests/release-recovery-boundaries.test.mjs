@@ -44,7 +44,7 @@ test('storage recognizes exact duplicate errors only, without enabling overwrite
 });
 test('original home product routing remains the same complete block before supplemental businesses', () => {
   const base = execFileSync('git', ['show','6f2ccccb27eb53a94d1ca025429b3e3676a9b3c8:app/static-site.js'], {encoding:'utf8'});
-  const current = readFileSync('app/static-site.js','utf8');
+  const current = readFileSync('app/static-site.js','utf8').replace(/\r\n/g, '\n');
   assert.equal(current.match(/const buyerPaths = .*?;\n/)[0], base.match(/const buyerPaths = .*?;\n/)[0]);
   assert.ok(current.includes('${hero}${buyerPaths}${businessPaths}${featuredProducts}'));
   const oem = readFileSync('public/site/oem-odm-bag-manufacturer/index.html','utf8');

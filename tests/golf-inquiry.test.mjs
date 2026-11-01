@@ -6,10 +6,10 @@ import { golfInquiryHref, golfProducts } from "../app/golf-bags/data.js";
 import { mapSharedInquiryPayload } from "../lib/crm/shared-ingest.js";
 
 test("golf collection and product links preserve their selected format in the shared RFQ", async () => {
-  const script = await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8");
+  const script = (await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8")).replace(/\r\n/g, "\n");
   const html = await readFile(new URL("../public/site/inquiry/index.html", import.meta.url), "utf8");
   const start = script.indexOf("function preselectInquiryContext(form)");
-  const end = script.indexOf("\nfunction showToast", start);
+  const end = script.indexOf("\nfunction ", start + 1);
   assert.ok(start >= 0 && end > start);
   for (const format of [undefined, ...golfProducts.map((product) => product.name)]) {
     const url = new URL(golfInquiryHref(format), "https://www.cappuccinobag.com");

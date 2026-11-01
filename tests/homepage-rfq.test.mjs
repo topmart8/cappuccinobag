@@ -74,7 +74,7 @@ test("synthetic Cappuccino payload succeeds without phone or WhatsApp", () => {
 });
 
 test("client keeps optional-number validation and tracks success only after an OK response", async () => {
-  const client = await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8");
+  const client = (await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8")).replace(/\r\n/g, "\n");
   assert.match(client, /const emptyRequired = field\.required && !value/);
   assert.match(client, /const invalidPattern = value && !field\.checkValidity\(\)/);
   const responseCheck = client.indexOf('if \(!response\.ok\) throw new Error\("Inquiry endpoint failed\."\);');
