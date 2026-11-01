@@ -37,3 +37,21 @@ test('canonical persistence failure still rejects before workflow or notificatio
   await assert.rejects(ingestSharedInquiry({ siteSource: 'cappuccino', raw }, deps), /persistence failure/);
   assert.deepEqual(calls, { create: 0, workflow: 0, email: 0, status: 0 });
 });
+
+test('slow AI cannot precede or undo canonical persistence and notification', async () => {
+  const { deps, calls } = fixture();
+  deps.createDraft = async () => { assert.equal(calls.create, 1); return new Promise(() => {}); };
+  deps.draftTimeoutMs = 10;
+  const saved = await ingestSharedInquiry({ siteSource: 'cappuccino', raw }, deps);
+  assert.equal(calls.create, 1);
+  assert.equal(calls.email, 1);
+  assert.deepEqual(saved.postSaveFailures, ['ai_draft']);
+  assert.equal(saved.draft.model, 'rules-fallback');
+});
+test('failed persistence never invokes optional AI', async () => {
+  const {deps} = fixture();let aiCalls=0;
+  deps.createStored=async()=>{throw Error('save unavailable')};
+  deps.createDraft=async()=>{aiCalls++;};
+  await assert.rejects(ingestSharedInquiry({siteSource:'cappuccino',raw},deps),/save unavailable/);
+  assert.equal(aiCalls,0);
+});
