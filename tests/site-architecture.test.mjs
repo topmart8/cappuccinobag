@@ -16,7 +16,7 @@ test("desktop and mobile navigation share the required Padel-first configuration
   ]);
   assert.deepEqual(moreCollectionsNavigation.map((item) => item.label), [
     "Running & Sports Bags", "Pet Travel Bags", "RFID Wallets", "Sustainable Materials",
-    "Padel Accessories", "Buyer Resources",
+    "Golf Bags & Accessories", "Padel Accessories", "Buyer Resources",
   ]);
   assert.deepEqual(utilityNavigation.map((item) => item.label), ["Factory Proof", "RFQ"]);
   assert.equal(footerNavigation[0].links[0].label, "Padel Bags");
