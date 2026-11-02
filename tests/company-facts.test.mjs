@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 import { cardHolderProducts, cardHolderFaqs, rfidHubFaqs, leatherHubFaqs } from "../app/card-holder-data.js";
 
-const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
+const read = async (path) => (await readFile(new URL(`../${path}`, import.meta.url), "utf8")).replace(/\r\n/g, "\n");
 
 test("all eight card holders qualify custom MOQ and preserve agreed order terms", () => {
   assert.equal(cardHolderProducts.length, 8);
@@ -49,7 +49,11 @@ test("both page renderers expose the same custom-only MOQ guide entry", async ()
 
 test("card-holder RFQ preserves each model and selects existing form options", async () => {
   const script = await read("public/site/assets/script.js");
-  const source = script.slice(script.indexOf("function preselectInquiryContext(form)"), script.indexOf("\nfunction showToast"));
+  const start = script.indexOf("function preselectInquiryContext(form)");
+  const end = script.indexOf("\nfunction ", start + 1);
+  assert.ok(start >= 0 && end > start);
+  const source = script.slice(start, end);
+  assert.equal(source.match(/if \(project === "Card Holder" \|\| project === "Card Holders"\)/g)?.length, 1, "keep one Card Holder branch when integrating RFQ changes");
   const html = await read("public/site/inquiry/index.html");
   assert.match(html, /<option>Wallet \/ Card Holder Project<\/option>/);
   assert.match(html, /<option>Card Holders<\/option>/);
@@ -67,7 +71,10 @@ test("card-holder RFQ preserves each model and selects existing form options", a
 
 test("card-holder prefill does not take over unrelated product enquiries", async () => {
   const script = await read("public/site/assets/script.js");
-  const source = script.slice(script.indexOf("function preselectInquiryContext(form)"), script.indexOf("\nfunction showToast"));
+  const start = script.indexOf("function preselectInquiryContext(form)");
+  const end = script.indexOf("\nfunction ", start + 1);
+  assert.ok(start >= 0 && end > start);
+  const source = script.slice(start, end);
   const form = { elements: { inquiry_intention: { value: "Private Label Production" }, product_needed: { value: "Wallets" }, message: { value: "Existing brief" } } };
   vm.runInNewContext(`${source}\npreselectInquiryContext(form);`, { URLSearchParams, form, window: { location: { search: "?product=Wallets&format=Wallet%20with%20card%20holder" } } });
   assert.equal(form.elements.product_needed.value, "Wallets");
