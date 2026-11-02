@@ -11,9 +11,9 @@ test("golf collection and product links preserve their selected format in the sh
   const start = script.indexOf("function preselectInquiryContext(form)");
   const end = script.indexOf("\nfunction showToast", start);
   assert.ok(start >= 0 && end > start);
-  for (const format of [undefined, ...golfProducts.map((product) => product.name)]) {
+  for (const format of [undefined, ...golfProducts.map((product) => product.name), "Competition Golf Shoe Bag"]) {
     const url = new URL(golfInquiryHref(format), "https://www.cappuccinobag.com");
-    const form = { elements: { inquiry_intention: {}, product_needed: {}, message: {} } };
+    const form = { elements: { inquiry_intention: {}, product_needed: { options: [] }, message: {} }, querySelector: () => null };
     vm.runInNewContext(`${script.slice(start, end)}\npreselectInquiryContext(form);`, { URLSearchParams, window: { location: { search: url.search } }, form });
     assert.equal(url.pathname, "/inquiry");
     assert.equal(form.elements.product_needed.value, "Golf Bags");
