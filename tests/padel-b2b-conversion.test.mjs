@@ -199,3 +199,42 @@ test("Padel manufacturing proof videos have real posters, lazy sources and visib
   assert.match(client, /function markProofVideoUnavailable/);
   assert.match(client, /source\.addEventListener\("error"/);
 });
+
+test("European project exposes anonymous order facts and pending approval gates in semantic HTML", async () => {
+  const page = await source("public/site/custom-padel-bag-manufacturer/index.html");
+  const block = page.match(/<section[^>]+id="european-padel-project"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(block);
+  assert.match(block, /<h2[^>]*>European Padel Project: From Sample Review to 800-Piece Bulk Order<\/h2>/);
+  for (const fact of ["300 Custom Padel Bags", "500 Racket Sleeves", "European Market", "Sample-to-Bulk Development"]) assert.ok(block.includes(`<li>${fact}</li>`));
+  assert.match(block, /confirmed 800-piece custom order/);
+  for (const fact of ["print gloss", "print thickness", "edge cleanliness", "material specification", "custom branding", "sewn-in labels", "custom racket sleeves"]) assert.ok(block.includes(fact));
+  assert.match(block, /final technical approvals remain pending/);
+  assert.match(block, /300 pcs per style/);
+  assert.doesNotMatch(block, /<img|<script|<form|<video|delivered|shipped|payment received|paid in full|found us through/i);
+  assert.ok(page.indexOf('class="section customization-section"') < page.indexOf('id="european-padel-project"'));
+  assert.ok(page.indexOf('id="european-padel-project"') < page.indexOf('class="quote-section"'));
+  assert.match(block, /href="\/inquiry\?product=Padel%20Bags">Develop Your Custom Padel Bag<\/a>/);
+});
+
+test("project publication excludes contact and financial evidence", async () => {
+  const page = await source("public/site/custom-padel-bag-manufacturer/index.html");
+  const block = page.match(/<section[^>]+id="european-padel-project"[\s\S]*?<\/section>/)[0];
+  assert.doesNotMatch(block, /[\w.+-]+@[\w.-]+\.[a-z]{2,}|(?:\+\d[\d ()-]{7,}\d)|\b(?:IBAN|SWIFT|invoice|bank|testimonial|endorsement)\b|[$€£]|\b(?:USD|EUR|PLN)\b/i);
+});
+
+test("project MOQ agrees with FAQ schema and auxiliary discovery points to visible evidence", async () => {
+  const page = await source("public/site/custom-padel-bag-manufacturer/index.html");
+  const schema = JSON.parse(page.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  const faq = schema["@graph"].find(node => node["@type"] === "FAQPage");
+  const answer = faq.mainEntity.find(node => node.name === "What is the MOQ for custom padel bags?").acceptedAnswer.text;
+  assert.match(answer, /300 pcs per style/);
+  assert.ok(page.includes(`<p>${answer}</p>`));
+  assert.doesNotMatch(JSON.stringify(schema), /"(?:Review|Rating|AggregateRating)"/);
+  assert.equal((page.match(/<h1>/g) || []).length, 1);
+  assert.match(page, /rel="canonical" href="https:\/\/www\.cappuccinobag\.com\/custom-padel-bag-manufacturer"/);
+  assert.doesNotMatch(page, /noindex/i);
+  const llms = await source("public/llms.txt");
+  assert.match(llms, /custom-padel-bag-manufacturer#european-padel-project/);
+  assert.match(llms, /300 custom padel bags and 500 racket sleeves/);
+  assert.match(llms, /Final technical approvals are required/);
+});
