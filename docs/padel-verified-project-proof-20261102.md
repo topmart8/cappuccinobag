@@ -35,4 +35,36 @@ Module screenshots isolate the section, hiding fixed header/developer/floating w
 
 The first baseline setup using a node_modules symlink was rejected by Turbopack's project-root constraint; a normal copied dependency directory was then used to reproduce the same Google Fonts failure as the candidate.
 
-Full production-build and production-runtime acceptance remain required. No merge or production deployment performed. **READY FOR REVIEW: NO — Draft / build gate pending.**
+The local build remains blocked, but the same source has subsequently passed the actual Vercel production build (see below). Production-runtime browser acceptance remains required. No merge or production deployment performed. **READY FOR REVIEW: NO — Draft / hosted browser gate pending.**
+
+## Exact Vercel build and hosted-access follow-up
+
+Tested application commit: `412b64b1d0fbf8770c259e5a69941f3ea52b11b1`.
+
+- Preview deployment: `dpl_Avo3WyELUrPBNhXgHVStWr5TBMr4`, state `READY`, target `null` (Preview).
+- Deployment Git metadata matches the complete application SHA above.
+- [Exact Preview page](https://cappuccinobag-qrpubcmv8-cappuccinobag.vercel.app/custom-padel-bag-manufacturer#european-padel-project).
+- [Vercel build log](https://vercel.com/cappuccinobag/cappuccinobag/Avo3WyELUrPBNhXgHVStWr5TBMr4).
+- [Draft PR #59](https://github.com/topmart8/cappuccinobag/pull/59).
+
+Read-only deployment events confirm:
+
+```text
+Cloning github.com/topmart8/cappuccinobag (Branch: feat/padel-verified-conversion-proof, Commit: 412b64b)
+Running "npm run build"
+> next build
+✓ Compiled successfully in 1633ms
+✓ Generating static pages using 1 worker (226/226) in 4.1s
+Build Completed in /vercel/output [14s]
+Deployment completed
+```
+
+This establishes a successful full remote production build, including 226 static pages, rather than only a generic CI status. The build log includes package-manager warnings but no build failure.
+
+Hosted browser attempt on 2026-11-02: Chromium navigation to the exact Preview failed with `net::ERR_TUNNEL_CONNECTION_FAILED`; a direct HTTP request returned proxy `CONNECT tunnel failed, response 403` (`server: envoy`). A separately approved escalated read-only request returned the same proxy error. These responses occurred before the application or a Vercel protection/login page could be inspected; they do not establish that the deployment itself returns 403.
+
+The Vercel protected-deployment skill was discovered and read. It recommends existing CLI authentication or an origin-scoped short-lived development OIDC header. This environment has no Vercel CLI, local CLI authentication file, linked `.vercel/project.json`, or `VERCEL_OIDC_TOKEN`. No credentials were printed or copied. Connector fetch/share tools can create bearer share links; they were not used because this follow-up authorizes existing legitimate access, not broadening access or changing protection.
+
+Required to finish: a browser execution environment with permitted HTTPS access to the exact Preview hostname and, if Vercel protection then requires it, an existing authorized same-project Vercel session or short-lived development OIDC credential. No production access or long-lived bypass secret is required. No access-control change was attempted; no approval-review denial occurred. Hosted font loading, raw 1440/360/390/430px screenshots, control occlusion and hosted Padel/Golf prefill remain unverified. Existing local screenshots must not be relabeled as hosted evidence.
+
+This follow-up changes only this report. Application source, public content, configuration and tests are byte-identical to the tested and remotely built commit `412b64b1d0fbf8770c259e5a69941f3ea52b11b1`; the final report commit is recorded by Git/PR history. The 203 passing tests and remote build evidence apply to that unchanged application tree.
