@@ -107,6 +107,13 @@ function preselectInquiryContext(form) {
   const product = form.elements.product_needed;
   const message = form.elements.message;
 
+  if (project === "Golf Bags") {
+    if (intention) intention.value = "Private Label Production";
+    if (product) product.value = "Golf Bags";
+    if (message && format) message.value = `Golf product format: ${format}\n`;
+    return;
+  }
+
   if (/pet/i.test(`${project} ${format}`)) {
     if (intention) intention.value = "Pet Travel Bag Project";
     if (product) {
@@ -126,13 +133,6 @@ function preselectInquiryContext(form) {
     if (intention) intention.value = "Wallet / Card Holder Project";
     if (product) product.value = "Card Holders";
     if (message && format) message.value = `Card holder model: ${format}\n`;
-    return;
-  }
-
-  if (project === "Golf Bags") {
-    if (intention) intention.value = "Private Label Production";
-    if (product) product.value = "Golf Bags";
-    if (message && format) message.value = `Golf product format: ${format}\n`;
     return;
   }
 
