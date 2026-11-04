@@ -10,7 +10,7 @@ import { cardHolderProducts } from "./card-holder-data.js";
 const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
-  { path: "/products/custom-hybrid-padel-duffel-backpack", priority: 0.94, updated: "2026-11-04" },
+  { path: "/products/custom-hybrid-padel-duffel-backpack", priority: 0.94, updated: "2026-11-05" },
   { path: "/blog/recycled-nylon-polyester-packable-bags-guide/", priority: 0.7, updated: "2026-11-04" },
   { path: "/products/croc-embossed-rolling-backpack", priority: 0.85, updated: "2026-10-25" },
   { path: "/blog/canton-fair-custom-bag-factory-visit-guangzhou", priority: 0.84, updated: "2026-10-15" },
