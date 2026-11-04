@@ -1,0 +1,11 @@
+.recycled-content .recycled-hero { display: block; max-width: 1050px; }
+.recycled-content .recycled-table { overflow-x: auto; margin: 24px 0; }
+.recycled-content table { width: 100%; min-width: 620px; border-collapse: collapse; font-size: .95rem; line-height: 1.65; }
+.recycled-content th, .recycled-content td { padding: 16px; border: 1px solid #d7dfd5; text-align: left; vertical-align: top; }
+.recycled-content thead { background: #ecf1e8; }
+.recycled-content caption { text-align: left; margin-bottom: 12px; font-weight: 600; }
+.recycled-content .cp-faq { max-width: 960px; margin: 40px auto; }
+.recycled-content .cp-faq details { padding: 16px; border-bottom: 1px solid #d7dfd5; }
+.recycled-content .cp-faq summary { cursor: pointer; font-weight: 600; }
+.recycled-content .cp-faq p { line-height: 1.8; }
+@media (max-width: 640px) { .recycled-content th, .recycled-content td { padding: 12px; } }

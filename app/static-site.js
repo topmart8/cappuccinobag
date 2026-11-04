@@ -65,6 +65,7 @@ const allowedPages = new Set([
   "blog/laptop-travel-backpack-oem-buying-guide",
   "blog/verify-custom-bag-manufacturer-china",
   "blog/custom-bag-development-quality-control-process",
+  "blog/recycled-nylon-polyester-packable-bags-guide",
   "blog/bag-manufacturer-compliance-documents-explained",
   "outdoor-multifunctional-bag-manufacturing-guide",
   "outdoor-sports-bag-manufacturing-guide",
@@ -570,3 +571,4 @@ export async function StaticSitePage({ params }) {
     </>
   );
 }
+
