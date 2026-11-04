@@ -95,6 +95,13 @@ function preselectInquiryContext(form) {
   const product = form.elements.product_needed;
   const message = form.elements.message;
 
+  if (project === "Recycled Material Bags") {
+    if (intention) intention.value = "Eco-Tech Sustainable Product Project";
+    if (product) product.value = "Recycled Material Bags";
+    if (message && format && !message.value) message.value = `Recycled bag format: ${format}\n`;
+    return;
+  }
+
   if (project === "Golf Bags") {
     if (intention) intention.value = "Private Label Production";
     if (product) product.value = "Golf Bags";
