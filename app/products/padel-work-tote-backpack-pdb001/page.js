@@ -73,7 +73,7 @@ const procurementSnapshot = [
   ["Racket capacity", "Curved front compartment for a padel racket; final fit is confirmed during sampling"],
   ["Shoe compartment", "Not specified in the current PDB001 sample; confirm with factory if required"],
   ["Main material options", "Water-resistant nylon or polyester; recycled options available"],
-  ["MOQ", "Confirm with factory after material, layout, logo and packaging review"],
+  ["MOQ", "New custom orders: 300 pieces per style. Different styles cannot be combined to meet this minimum. Sampling is agreed separately."],
   ["Sample", "Sample timing is confirmed for the agreed specification after reviewing material availability, construction, custom components and the revision plan. A requested date is not a confirmed completion date."],
   ["Bulk production lead time", "Confirm after quantity, materials, approved sample, packaging and inspection steps are agreed"],
   ["OEM / ODM", "Available for layout, materials, colours, straps, hardware, branding and packaging"],
