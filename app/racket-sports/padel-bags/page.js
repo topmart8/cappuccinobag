@@ -258,6 +258,20 @@ export default function PadelBagsLandingPage() {
           </div>
         </section>
 
+        <section className={styles.section} aria-labelledby="featured-hybrid-title">
+          <div className={styles.proofLayout}>
+            <div className={styles.proofImage}>
+              <Image src="/images/products/hybrid-padel-duffel-backpack/black-padel-hero.webp" width={1254} height={1254} sizes="(max-width: 760px) 100vw, 50vw" alt="Black Cappuccino hybrid duffel with a perforated padel racket beside its shaped racket pocket" />
+            </div>
+            <div className={styles.sectionIntro}>
+              <p className={styles.sectionLabel}>Featured development format</p>
+              <h2 id="featured-hybrid-title">Hybrid Padel Duffel Backpack</h2>
+              <p>Explore backpack, shoulder and hand carry in one padel bag, with separate racket and shoe storage. Develop your own materials, colours and branding from 300 pieces per style.</p>
+              <Link className={styles.primaryButton} href="/products/custom-hybrid-padel-duffel-backpack">Explore the Hybrid Padel Bag</Link>
+            </div>
+          </div>
+        </section>
+
         <section className={`${styles.section} ${styles.prioritySection}`}>
           <div className={styles.partnershipLayout}>
             <div className={styles.sectionIntro}>

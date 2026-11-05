@@ -10,11 +10,13 @@ import { cardHolderProducts } from "./card-holder-data.js";
 const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
+  { path: "/products/custom-hybrid-padel-duffel-backpack", priority: 0.94, updated: "2026-11-05" },
+  { path: "/blog/recycled-nylon-polyester-packable-bags-guide/", priority: 0.7, updated: "2026-11-04" },
   { path: "/products/croc-embossed-rolling-backpack", priority: 0.85, updated: "2026-10-25" },
   { path: "/blog/canton-fair-custom-bag-factory-visit-guangzhou", priority: 0.84, updated: "2026-10-15" },
   { path: "/", priority: 1.0 },
   { path: "/custom-padel-bag-manufacturer", priority: 0.95, updated: "2026-08-16" },
-  { path: "/racket-sports/padel-bags", priority: 0.98, updated: "2026-08-16" },
+  { path: "/racket-sports/padel-bags", priority: 0.98, updated: "2026-11-04" },
   { path: "/products", priority: 0.9 },
   { path: "/golf-bags", priority: 0.75, updated: "2026-11-01" },
   { path: "/products/court-lifestyle-tote-development-sample", priority: 0.92, updated: "2026-10-02" },
@@ -25,7 +27,7 @@ const routes = [
   { path: "/noeve-vegan-beauty-accessory", priority: 0.84, updated: "2026-08-09" },
   { path: "/kitty-couture-rhinestone-handbag", priority: 0.84, updated: "2026-08-09" },
   { path: "/inquiry", priority: 0.9 },
-  { path: "/resources", priority: 0.82, updated: "2026-08-16" },
+  { path: "/resources", priority: 0.82, updated: "2026-11-04" },
   { path: "/custom-pickleball-paddle-bags", priority: 0.9 },
   { path: "/custom-tennis-bag-manufacturer", priority: 0.9 },
   { path: "/custom-outdoor-sports-bag-manufacturer", priority: 0.88 },
@@ -104,7 +106,7 @@ const routes = [
   { path: "/resources/quality-inspection-guide/", priority: 0.78 },
   { path: "/resources/moq-sampling-faq/", priority: 0.78 },
   { path: "/factory-trust-materials/", priority: 0.82 },
-  { path: "/recycled-material-bags/", priority: 0.84 },
+  { path: "/recycled-material-bags/", priority: 0.84, updated: "2026-11-04" },
   { path: "/oem-odm-bag-manufacturer/", priority: 0.9 },
   { path: "/alcantara-collection/", priority: 0.94 },
   { path: "/custom-alcantara-duffle-bag/", priority: 0.92 },
@@ -179,3 +181,4 @@ export default function sitemap() {
   }
   return [...unique.values()];
 }
+
