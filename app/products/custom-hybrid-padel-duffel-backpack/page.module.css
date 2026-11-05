@@ -10,3 +10,15 @@
 @media(max-width:1000px){.hero{gap:30px}.specSection{gap:30px;padding:28px}.specs div{grid-template-columns:115px 1fr;gap:16px}.cta{flex-direction:column;align-items:flex-start}}
 @media(max-width:800px){.page{padding:106px 20px 48px}.hero,.gallery,.specSection{grid-template-columns:1fr}.hero{gap:30px}.heroImage{border-radius:16px}.section{margin-top:56px}.featureGrid{grid-template-columns:1fr;gap:22px}.gallery figcaption{padding:20px}.specSection{padding:24px}.specs div{grid-template-columns:105px 1fr}.cta{padding:28px;margin-top:56px;gap:24px}.cta .primary{width:100%}.breadcrumb{font-size:11px;gap:7px}}
 @media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto}}
+
+.viewLinks { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.detailGroup { margin-top: 36px; scroll-margin-top: 110px; }
+.detailGroup > h3 { margin: 0 0 8px; font-size: 23px; line-height: 1.35; }
+.detailGroup > p { max-width: 760px; margin: 0 0 18px; color: #58645c; }
+.detailGallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px; }
+.detailGallery figure { margin: 0; min-width: 0; }
+.detailGallery img { display: block; width: 100%; height: auto; border-radius: 12px; }
+.detailGallery figcaption { margin-top: 8px; font-size: 15px; font-weight: 600; }
+@media (min-width: 981px) {
+  .detailGallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
