@@ -63,7 +63,7 @@ const creamHardware = [
 
 const creamConcepts = [
   { file: "cream-open", label: "Open main compartment", alt: "Cream colour visualisation of the duffel with its mesh lid pocket and strapped interior sleeve" },
-  { file: "cream-sleeve", label: "Laptop sleeve and binding", alt: "Cream colour visualisation of the laptop sleeve, woven binding and fastening" },
+  { file: "cream-sleeve-ivory-fastening", label: "Laptop sleeve with matching ivory fastening", alt: "Cream colour visualisation of the laptop sleeve with an ivory hook-and-loop patch matching the fabric binding" },
   { file: "cream-straps", label: "Padded backpack straps", alt: "Cream colour visualisation of the two padded backpack straps with gold-tone adjusters" },
 ];
 
