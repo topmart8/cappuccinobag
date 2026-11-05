@@ -261,7 +261,7 @@ export default function PadelBagsLandingPage() {
         <section className={styles.section} aria-labelledby="featured-hybrid-title">
           <div className={styles.proofLayout}>
             <div className={styles.proofImage}>
-              <Image src="/images/products/hybrid-padel-duffel-backpack/duffel.webp" width={1254} height={1254} sizes="(max-width: 760px) 100vw, 50vw" alt="Unbranded black hybrid padel duffel with shoulder strap and separate racket compartment" />
+              <Image src="/images/products/hybrid-padel-duffel-backpack/black-padel-hero.webp" width={1254} height={1254} sizes="(max-width: 760px) 100vw, 50vw" alt="Black Cappuccino hybrid duffel with a perforated padel racket beside its shaped racket pocket" />
             </div>
             <div className={styles.sectionIntro}>
               <p className={styles.sectionLabel}>Featured development format</p>
