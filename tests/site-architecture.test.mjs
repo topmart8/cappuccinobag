@@ -75,17 +75,16 @@ test("MOQ and pricing guide is answer-first, qualified and schema-aligned", asyn
     .replace(/\s+/g, " ")
     .trim();
   const firstTwoHundredWords = mainText.split(" ").slice(0, 200).join(" ");
-  const approvedSmallRunGuidance = "50–100 pcs may be reviewed for sample-market testing or very simple projects, but approval depends on available materials, standard components and the final specification.";
-
   assert.match(source, /<title>Custom Bag MOQ &amp; Pricing Guide \| Cappuccino Bag<\/title>/);
-  assert.match(source, /<h1>Custom Bag MOQ &amp; Pricing Guide<\/h1>/);
-  assert.match(firstTwoHundredWords, /Custom bag MOQ is project-specific, not one guaranteed number\./);
-  assert.match(firstTwoHundredWords, /product type, material, color, logo method, hardware, packaging, structure complexity and supplier article availability/);
-  for (const quantity of ["50–100 pcs", "200–300 pcs", "500+ pcs", "1000+ pcs"]) {
+  assert.match(firstTwoHundredWords, /Custom bulk MOQ: 300 pieces per style\./);
+  assert.match(firstTwoHundredWords, /Different styles cannot be combined/);
+  assert.match(firstTwoHundredWords, /Sample development and any fee are assessed separately after design approval/);
+  assert.match(firstTwoHundredWords, /Colour splits.*may require a higher quantity/);
+  assert.match(firstTwoHundredWords, /Existing agreed orders keep their agreed terms/);
+  assert.doesNotMatch(source, /50[–-]100|200[–-]300|no guaranteed MOQ/);
+  for (const quantity of ["300 pieces per style", "500+ pcs", "1000+ pcs"]) {
     assert.ok(source.includes(quantity), `${quantity} guidance is missing`);
   }
-  assert.equal(source.split(approvedSmallRunGuidance).length - 1, 4);
-  assert.doesNotMatch(source, /A 50 to 100 piece order may suit|50–100 pieces may suit|selected simple projects/);
   for (const factor of ["Material", "Size", "Structure", "Logo method", "Hardware", "Lining", "Packaging", "Quantity", "Sample revisions"]) {
     assert.match(source, new RegExp(`<th scope="row">${factor}<\\/th>`));
   }
@@ -99,7 +98,7 @@ test("MOQ and pricing guide is answer-first, qualified and schema-aligned", asyn
   assert.ok(schemaSource, "FAQPage JSON-LD is missing");
   const schema = JSON.parse(schemaSource);
   assert.equal(schema["@type"], "FAQPage");
-  assert.equal(schema.mainEntity.length, 6);
+  assert.equal(schema.mainEntity.length, 7);
   for (const item of schema.mainEntity) {
     assert.equal(item["@type"], "Question");
     assert.equal(item.acceptedAnswer["@type"], "Answer");
