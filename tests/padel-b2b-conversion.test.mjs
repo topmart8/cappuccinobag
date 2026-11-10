@@ -207,6 +207,8 @@ test("European project exposes anonymous order facts and pending approval gates 
   assert.match(block, /<h2[^>]*>European Padel Project: From Sample Review to 800-Piece Bulk Order<\/h2>/);
   for (const fact of ["300 Custom Padel Bags", "500 Racket Sleeves", "European Market", "Sample-to-Bulk Development"]) assert.ok(block.includes(`<li>${fact}</li>`));
   assert.match(block, /confirmed 800-piece custom order/);
+  assert.match(block, /production deposit has been received/);
+  assert.match(block, /exact commercial terms remain private/);
   for (const fact of ["print gloss", "print thickness", "edge cleanliness", "material specification", "custom branding", "sewn-in labels", "custom racket sleeves"]) assert.ok(block.includes(fact));
   assert.match(block, /final technical approvals remain pending/);
   assert.match(block, /300 pcs per style/);
