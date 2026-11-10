@@ -83,7 +83,8 @@ export default function AnalyticsProvider({ enabled, gaId, clarityProjectId }) {
       else if (href.startsWith("tel:")) trackEvent("phone_click", params);
       else if (/catalog|download/i.test(href)) trackEvent("catalog_download", params);
       else if (
-        /quote|contact|start your project|send my project|request/i.test(text)
+        link.dataset.socialPlatform === "facebook"
+        || /quote|contact|start your project|send my project|request/i.test(text)
         || /\/(inquiry|rfq|contact)/.test(href)
       ) trackEvent("cta_click", params);
     };
