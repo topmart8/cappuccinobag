@@ -9,7 +9,15 @@ Base: main `4e91d0dcd4ac10aeee2382115d2cb35235b27ca0`. Independent branch: `feat
 - `tests/padel-b2b-conversion.test.mjs`: three regression tests for semantic evidence, privacy/commercial boundaries, CTA, MOQ and schema consistency.
 - This report.
 
-No new page, backend, form, dependency, navigation, image, animation or JavaScript. No customer acquisition attribution, received-funds assertion, completed production, shipping or endorsement claim.
+## 10 November 2026 evidence update
+
+- Seller-side email records now explicitly confirm receipt of the production deposit for the same 800-piece order already represented in this draft.
+- The existing case was updated in place; no duplicate case or new URL was created.
+- Public wording distinguishes deposit receipt from approval to manufacture. Material, print-finish and sewn-in-label approvals remain pending production gates.
+- Exact pricing, deposit amount, payment documents, customer names and contact details remain private.
+- The new branch commits require fresh CI/preview verification; earlier 203-test and hosted-build results apply only to the earlier application SHA documented below.
+
+No new page, backend, form, dependency, navigation, image, animation or JavaScript. On 10 November 2026, the existing anonymous case was updated after seller-side confirmation that the production deposit had been received. The public copy does not disclose the amount, payer, payment document, customer identity or bank details. It does not claim paid-in-full status, completed production, shipping or endorsement.
 
 ## Validation
 
