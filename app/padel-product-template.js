@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PadelImageGallery from "../components/PadelImageGallery";
 import NextLink from "next/link";
 import { notFound } from "next/navigation";
 import { PadelFooter, PadelHeader } from "./padel-components";
@@ -139,6 +140,36 @@ export async function PadelProductPage({ params, categorySlug }) {
     },
   ];
 
+  const enhancedGallery = product.sku === "S005";
+  const galleryImages = [...product.images];
+  if (enhancedGallery) {
+    const rank = (image) => image.src.includes("-interior.") ? 0 : image.src.includes("-detail.") ? 1 : 2;
+    galleryImages.sort((a, b) => rank(a) - rank(b));
+  }
+  const gallerySection = (
+        <section className="padel-product-section" id="product-details-gallery" style={{ scrollMarginTop: 110 }}>
+          <div className="padel-product-heading">
+            <p className="eyebrow">{product.images.length}-view gallery</p>
+            <h2>{product.galleryHeading || "Main, carry, open-structure and detail views"}</h2>
+          </div>
+          <div className="padel-product-gallery" style={product.sku === "S005" ? { gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))" } : undefined}>
+            {galleryImages.map((image) => (
+              <figure key={image.src} style={{ margin: 0 }}>
+                <Image
+                src={image.src}
+                width={image.width || 1200}
+                height={image.height || 1200}
+                sizes="(max-width: 620px) calc(100vw - 28px), (max-width: 900px) 48vw, 25vw"
+                alt={image.alt}
+                loading="lazy"
+                />
+                {image.caption && <figcaption style={{ padding: "12px 2px", lineHeight: 1.6 }}>{image.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </section>
+  );
+
   return (
     <>
       {schemas.map((schema) => (
@@ -181,6 +212,9 @@ export async function PadelProductPage({ params, categorySlug }) {
               </a>
             </div>
           </div>
+          {enhancedGallery ? (
+            <PadelImageGallery images={product.images} model={product.sku} layout="padel" />
+          ) : (
           <figure className="padel-product-main-image">
             <Image
               src={product.images[0].src}
@@ -191,11 +225,14 @@ export async function PadelProductPage({ params, categorySlug }) {
               priority
             />
           </figure>
+          )}
         </section>
 
         <aside className="padel-development-notice">
           <strong>Development status:</strong> {product.developmentNotice || developmentNotice}
         </aside>
+
+        {enhancedGallery && gallerySection}
 
         {product.procurementSnapshot && (
           <section className="padel-product-section padel-reference-section">
@@ -230,27 +267,7 @@ export async function PadelProductPage({ params, categorySlug }) {
           </ul>
         </section>
 
-        <section className="padel-product-section">
-          <div className="padel-product-heading">
-            <p className="eyebrow">{product.images.length}-view gallery</p>
-            <h2>{product.galleryHeading || "Main, carry, open-structure and detail views"}</h2>
-          </div>
-          <div className="padel-product-gallery" style={product.sku === "S005" ? { gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))" } : undefined}>
-            {product.images.map((image) => (
-              <figure key={image.src} style={{ margin: 0 }}>
-                <Image
-                src={image.src}
-                width={image.width || 1200}
-                height={image.height || 1200}
-                sizes="(max-width: 620px) calc(100vw - 28px), (max-width: 900px) 48vw, 25vw"
-                alt={image.alt}
-                loading="lazy"
-                />
-                {image.caption && <figcaption style={{ padding: "12px 2px", lineHeight: 1.6 }}>{image.caption}</figcaption>}
-              </figure>
-            ))}
-          </div>
-        </section>
+        {!enhancedGallery && gallerySection}
 
         <section className="padel-product-section padel-reference-section">
           <div className="padel-product-heading">
