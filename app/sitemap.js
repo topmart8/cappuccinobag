@@ -55,6 +55,7 @@ const routes = [
   { path: "/padel-bags/custom-60l-padel-racket-duffel/", priority: 0.96 },
   { path: "/padel-bags/custom-30l-padel-backpack/", priority: 0.96 },
   { path: "/padel-accessories/", priority: 0.92 },
+  { path: "/padel-accessories/custom-padel-racket-sleeve/", priority: 0.94 },
   { path: "/padel-accessories/custom-ventilated-padel-shoe-bag/", priority: 0.94 },
   { path: "/padel-accessories/custom-padel-organizer-pouch/", priority: 0.94 },
   { path: "/products/padel-work-tote-backpack-pdb001", priority: 0.97 },

@@ -1,21 +1,24 @@
-# Padel concept gallery update — 12 November 2026
+# Padel collection and thermal sleeve release — 12 November 2026
 
-Updated existing concept models PDB014, PDB016 and PDB017. Existing canonical URLs and PDB015 product definition are retained. Real sample pages and client-owned source imagery are not included in this release.
+Update existing concept models PDB014, PDB016 and PDB017; add accessory S005. Preserve existing canonical URLs, PDB015 and the separate real sample pages. User authorized publishing the combined four-product update and replacing sleeve branding on their supplied sample photographs.
 
-| Model | New direction | Proposed exterior size | Gallery |
+| Model | Direction | Size status | Assets |
 | --- | --- | --- | --- |
-| PDB014 | Oat/clay Canvas Court Tote | Top W50 × H38 × D18 cm, handles excluded | 6 independent views |
-| PDB016 | Sage/charcoal Match Dock Padel Duffel | L54 × H30 × D28 cm, handles excluded | 6 independent views |
-| PDB017 | Slate/charcoal Court Transit Padel Backpack | H50 × W33 × D22 cm, straps excluded | 6 independent views |
+| PDB014 | Oat/clay Canvas Court Tote | Proposed top W50 × H38 × D18 cm, handles excluded | 6 AI concept views |
+| PDB016 | Sage/charcoal Match Dock Padel Duffel | Proposed L54 × H30 × D28 cm, handles excluded | 6 AI concept views |
+| PDB017 | Slate/charcoal Court Transit Padel Backpack | Proposed H50 × W33 × D22 cm, straps excluded | 6 AI concept views |
+| S005 | Thermal-Lined Padel Racket Sleeve | Physical sample measurement and fit pending | 7 retouched sample-photo views |
 
-All 18 assets are AI-generated development concepts. None is a physical prototype, measured capacity, production drawing or performance-test record. Single-racket illustrations use perforated Padel rackets and felt balls. Dimensions, equipment, shoe capacity, colours, material composition and construction remain subject to sample review. Optional laptop sleeves are distinguished from illustrated features. Standard new custom MOQ is 300 pieces per style; sampling is assessed separately.
+PDB014/016/017 images are AI-generated development concepts, not prototypes or test records. Views: exterior, rear, side, proposed interior, material detail and illustrative Padel-court scene. Equipment illustrations use perforated Padel rackets and felt balls. Optional laptop sleeves are not presented as illustrated or validated features. All proposed dimensions and packing arrangements require physical samples.
 
-Exterior, rear, side, proposed interior, material detail and illustrative lifestyle views are supplied at 1250 × 1250 in WebP. Source PNGs are retained in the separate requested delivery package. Files are stored in public/images/padel/original-court-series-2026 by model. Previous concept images remain available for rollback.
+S005 supersedes the earlier fully generated VYREX-source sleeve direction. The final seven images use the newly supplied real sleeve photographs, with Cappuccino PADEL branding and background/light retouching. Silver reflective thermal lining, front accessory zip, detachable webbing strap and clip attachments are visible in the supplied photos. The user additionally specified 900D waterproof fabric, a slightly lustrous slate-grey/blue exterior matching the real sample and tonal glossy-black logo finish. The revised images and copy use those specifications. Fabric waterproofing does not establish the water resistance of seams or zipper assemblies. The user confirmed the white sheets are removable pearl-cotton / EPE packaging inserts for shape retention. They are not a sewn-in layer or evidence of a permanent cushioning specification. No laminate composition, thickness, universal fit, temperature reduction, thermal duration or finished-bag waterproof rating is asserted. Client names and original logos are not used on the product page.
 
-Functional research reviewed official Babolat Court Backpack Lite, Wilson Tour Red Padel Bag, HEAD Retro Tote 25th, Wilson 1914 Heritage Tote and CUERA backpack/bag/tote pages. These are functional references, not confirmed bestsellers. Google Trends was checked for the English search terms padel bag / padel backpack / padel tote in GB, DE, NL and US. Relative interest supports the broad phrase padel bag as the collection term; it does not establish product sales or growth. Amazon rankings and reviews were inaccessible and are not claimed.
+All 25 website assets are 1250 × 1250 WebP, approximately 5 MB combined. PNG deliverables are retained separately in the requested package. Earlier image assets remain for rollback. New sleeve route: /padel-accessories/custom-padel-racket-sleeve. It is a concrete SKU, distinct from the manufacturer/category page proposed in open PR #41. The existing accessory route generator is reused, and one sitemap entry is added. The existing hybrid collection links to the sleeve as a coordinating accessory.
 
-The designs use a tapered utility backpack, straight-sided duffel and rounded trapezoid canvas tote with short handle anchors. Client logos, graphics and uploaded product photographs are not republished. This is a design differentiation record, not legal clearance.
+Standard custom MOQ is 300 pieces per style. Styles cannot be combined toward that minimum; sampling is separately assessed. RFQ links reuse the existing inquiry workflow and pass model identity. No inquiry handler, CRM, payment, email automation, navigation or unrelated PR is changed. Shared accessory gallery supports real image counts, optional dimensions and captions, preserving older products.
 
-Validation: lint and existing 204 Node tests passed after product/template edits; production build passed. Related guide imagery/copy was then synchronized with the new model definitions and checked again before release. Browser and production results are recorded in the delivery report. No live inquiry was submitted and no email/CRM receipt is claimed.
+Research: official Babolat, Wilson, HEAD and CUERA pages provided functional references, not confirmed popularity rankings. English-term Google Trends comparisons were observed for GB/DE/NL/US. Values are normalized indices, not volumes or cross-country demand estimates. Amazon ranks and reviews were unavailable. Do not claim bestseller status or market growth from this evidence.
 
-Rollback: restore the prior versions of the four updated source modules from 9738be575333d952dad344c982d7fe4fea4bfa56. Previous assets are preserved. This release does not modify shared inquiry handlers, CRM, site navigation, sitemap or unrelated in-progress PRs.
+Validation: ESLint, 204 existing tests and production build; final deployment and browser observations recorded in the delivery report. No live inquiry was submitted; email/CRM receipt is not claimed.
+
+Rollback: revert this release commit to restore source definitions, templates, accessory listing, collection link and sitemap entry. Existing image files have not been deleted. Base main was 9738be575333d952dad344c982d7fe4fea4bfa56; publication is consolidated in PR #71.

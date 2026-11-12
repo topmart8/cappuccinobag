@@ -94,6 +94,11 @@ export default function HybridLifestyleCollectionPage() {
           <article><h2>Can logo, pockets and colors change?</h2><p>Yes. OEM/ODM development can adapt the color, material, pocket map, laptop fit, racket capacity, trim and branding.</p></article>
         </section>
 
+        <section className="hybrid-section hybrid-two-column" id="padel-sleeve">
+          <Image src="/images/padel/original-court-series-2026/S005/S005-hero.webp" width={1250} height={1250} sizes="(max-width: 700px) calc(100vw - 28px), 50vw" alt="Cappuccino thermal-lined padel racket sleeve with detachable strap, digitally branded sample photograph" style={{ width: "100%", height: "auto", borderRadius: 16 }} />
+          <div><p className="eyebrow">S005 · Coordinating accessory</p><h2>Add a thermal-lined Padel racket sleeve</h2><p>A slim full-cover sleeve in 900D waterproof fabric with silver reflective lining, front accessory zip and detachable shoulder strap. Explore seven sample-photo-based views with digital Cappuccino branding.</p><p>White pearl-cotton / EPE inserts shown in the packaging image maintain shape during shipping; they are not permanent lining. Racket fit and thermal performance require sample review and testing.</p><Link className="btn btn-primary" href="/padel-accessories/custom-padel-racket-sleeve">View sleeve bag and lining details</Link></div>
+        </section>
+
         <section className="hybrid-section hybrid-story-section">
           <div><p className="eyebrow">Collection story</p><h2>From desk to court</h2></div>
           <div><p>A padel bag can support more than the journey to a match. These concepts explore practical access to rackets, clothes, bottles and small essentials in familiar everyday formats.</p><p>The collection combines a canvas court tote, an urban commuter model, a rectangular sports duffel and a utility backpack. Each concept can be developed around a brand’s target player and reviewed through a physical sample.</p><Link href="/blog/from-desk-to-court-cappuccino-padel-collection">Read the full collection story</Link></div>

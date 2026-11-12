@@ -407,6 +407,174 @@ export const padelProducts = {
     cta:
       "Send your intended contents, logo, quantity and packaging request for a project review.",
   },
+  "custom-padel-racket-sleeve": {
+  "sku": "S005",
+  "name": "Thermal-Lined Padel Racket Sleeve",
+  "title": "Custom Thermal-Lined Padel Racket Sleeve Bag",
+  "shortTitle": "Thermal Padel Sleeve",
+  "metaTitle": "Custom Thermal Padel Racket Sleeve Bag | Cappuccino OEM",
+  "metaDescription": "Develop a private-label padel racket sleeve with 900D waterproof fabric, silver thermal lining, front zip pocket and detachable strap. MOQ 300 pieces per style.",
+  "category": "Padel Accessories",
+  "categorySlug": "padel-accessories",
+  "heroHeading": "A slim, dedicated carry option for your padel racket",
+  "intro": "S005 develops the photographed full-cover sleeve format for private-label padel collections. A 900D waterproof fabric exterior, silver reflective thermal lining, front accessory zip and detachable shoulder strap support a compact court-day carry. The gallery uses supplier-provided sample photographs with digitally applied Cappuccino branding and background retouching.",
+  "referenceCapacity": "Single-racket development brief. Final internal clearance, racket fit, weight and dimensions require measurement and physical sample approval.",
+  "developmentNotice": "Sample-photo-based development reference with digitally edited branding and backgrounds. Silver thermal lining is shown; thermal performance, laminate composition and thickness are not yet tested or specified. The 900D waterproof-fabric specification is supplier-confirmed; finished seams and zipper water resistance need separate assessment. Custom MOQ is 300 pieces per style. Sampling is assessed separately.",
+  "galleryHeading": "Sample-photo-based product and packaging details",
+  "features": [
+    "Full-cover, tapered padel racket sleeve format",
+    "900D waterproof fabric with a subtle sheen, as specified by the supplier",
+    "Silver reflective thermal lining shown in the sample photos",
+    "Front zip pocket for small court essentials",
+    "Detachable adjustable webbing shoulder strap with clip attachments",
+    "Black perimeter piping and zip access",
+    "Private-label logo, colour and material development",
+    "Removable pearl-cotton / EPE packing inserts maintain shape during shipping; they are not permanent lining"
+  ],
+  "specifications": [
+    [
+      "Product type",
+      "Custom padel racket sleeve / cover bag"
+    ],
+    [
+      "Exterior shown",
+      "900D waterproof woven fabric with a slate-grey/blue cast and subtle sheen, as specified by the supplier; fibre and coating composition to be confirmed"
+    ],
+    [
+      "Interior shown",
+      "Silver reflective thermal lining; laminate composition and thermal performance require sample review and testing"
+    ],
+    [
+      "Carry system",
+      "Removable adjustable webbing strap with clip attachments"
+    ],
+    [
+      "Storage",
+      "Racket compartment and front accessory zip pocket"
+    ],
+    [
+      "Dimensions / weight",
+      "To be measured from the physical sample; no universal racket-fit claim"
+    ],
+    [
+      "Packaging",
+      "Removable pearl-cotton / EPE inserts for shape retention during shipping, as confirmed by the supplier"
+    ],
+    [
+      "MOQ",
+      "300 pieces per style; different styles cannot be combined"
+    ],
+    [
+      "Branding shown",
+      "Digitally applied Cappuccino PADEL wordmark with tonal glossy-black finish matching the sample reference; final artwork and process approved with the sample"
+    ]
+  ],
+  "procurementSnapshot": [
+    [
+      "Status",
+      "Photo-based custom development reference"
+    ],
+    [
+      "Evidence",
+      "Exterior, strap, silver lining and packaging shown in user-provided photographs"
+    ],
+    [
+      "To confirm",
+      "Racket fit, usable dimensions, laminate construction, padding, testing and quotation"
+    ],
+    [
+      "Minimum order",
+      "300 pieces per style; sample development assessed separately"
+    ]
+  ],
+  "buyers": [
+    "Padel brands and specialist retailers",
+    "Clubs and academies developing branded racket covers",
+    "Distributors coordinating a bag and accessories collection"
+  ],
+  "oemOptions": [
+    "Logo artwork, placement and print process",
+    "Exterior textile, colour and piping",
+    "Thermal-lining laminate and cushioning specification after sample review",
+    "Zipper, puller and detachable strap specification",
+    "Branded hangtag and shape-retaining shipping packaging"
+  ],
+  "images": [
+    {
+      "src": "/images/padel/original-court-series-2026/S005/S005-hero.webp",
+      "alt": "Cappuccino S005 padel racket sleeve hero — Front sleeve and shoulder strap — sample-photo retouch with digital branding.",
+      "caption": "Front sleeve and shoulder strap — sample-photo retouch with digital branding.",
+      "width": 1250,
+      "height": 1250
+    },
+    {
+      "src": "/images/padel/original-court-series-2026/S005/S005-rear.webp",
+      "alt": "Cappuccino S005 padel racket sleeve rear — Rear panel and adjustable strap — sample-photo retouch with digital branding.",
+      "caption": "Rear panel and adjustable strap — sample-photo retouch with digital branding.",
+      "width": 1250,
+      "height": 1250
+    },
+    {
+      "src": "/images/padel/original-court-series-2026/S005/S005-interior.webp",
+      "alt": "Cappuccino S005 padel racket sleeve interior — Silver reflective thermal lining — material specification and thermal performance to be tested.",
+      "caption": "Silver reflective thermal lining — material specification and thermal performance to be tested.",
+      "width": 1250,
+      "height": 1250
+    },
+    {
+      "src": "/images/padel/original-court-series-2026/S005/S005-detail.webp",
+      "alt": "Cappuccino S005 padel racket sleeve detail — Zip opening, reflective lining and detachable strap clips — sample-photo retouch.",
+      "caption": "Zip opening, reflective lining and detachable strap clips — sample-photo retouch.",
+      "width": 1250,
+      "height": 1250
+    },
+    {
+      "src": "/images/padel/original-court-series-2026/S005/S005-strap.webp",
+      "alt": "Cappuccino S005 padel racket sleeve strap — Detachable strap supplied with the photographed sleeve — final hardware specification to be approved.",
+      "caption": "Detachable strap supplied with the photographed sleeve — final hardware specification to be approved.",
+      "width": 1250,
+      "height": 1250
+    },
+    {
+      "src": "/images/padel/original-court-series-2026/S005/S005-packing.webp",
+      "alt": "Cappuccino S005 padel racket sleeve packing — Removable pearl-cotton / EPE shipping inserts maintain the bag shape. These are packaging, not permanent lining.",
+      "caption": "Removable pearl-cotton / EPE shipping inserts maintain the bag shape. These are packaging, not permanent lining.",
+      "width": 1250,
+      "height": 1250
+    },
+    {
+      "src": "/images/padel/original-court-series-2026/S005/S005-front.webp",
+      "alt": "Cappuccino S005 padel racket sleeve front — Alternate front view — digital Cappuccino branding on the photographed sleeve format.",
+      "caption": "Alternate front view — digital Cappuccino branding on the photographed sleeve format.",
+      "width": 1250,
+      "height": 1250
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does this sleeve have a thermal lining?",
+      "answer": "The supplied sample photographs show a silver reflective thermal lining. The material composition, thickness and performance must be confirmed through the approved sample and testing. No guaranteed cooling duration or temperature reduction is claimed."
+    },
+    {
+      "question": "Is the white foam part of the sleeve lining?",
+      "answer": "No. The white sheets shown are removable pearl-cotton / EPE packing inserts used to maintain the bag shape during shipping. They are not a sewn-in lining or a validated cushioning specification."
+    },
+    {
+      "question": "Will it fit my padel racket?",
+      "answer": "Please provide your target racket dimensions and a sample where possible. Usable internal clearance and insertion through the zipper opening need physical fit testing before approval."
+    },
+    {
+      "question": "Can the logo and colours be customized?",
+      "answer": "Yes. The pictured Cappuccino branding is a digital mockup on sample-photo-based visuals. Final artwork, colour, size and application method are approved during sampling."
+    },
+    {
+      "question": "What is the minimum order?",
+      "answer": "The standard custom MOQ is 300 pieces per style. Different styles cannot be combined to meet that minimum. Sampling, pricing and production lead time are reviewed separately."
+    }
+  ],
+  "cta": "Send your target racket dimensions, logo artwork, lining requirements and quantity. Standard custom MOQ: 300 pieces per style.",
+  "relatedCollectionHref": "/padel-bags/hybrid-lifestyle-series-2026"
+},
 };
 
 export const padelProductEntries = Object.entries(padelProducts).map(
