@@ -1,5 +1,7 @@
 import Image from "next/image";
 import PadelImageGallery from "../components/PadelImageGallery";
+import PadelBuyerDetails from "../components/PadelBuyerDetails";
+import { withPadelProductContent, padelEntityFields, padelWebPageEntity } from "./padel-product-content";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteFooter from "../components/SiteFooter";
@@ -27,7 +29,7 @@ function inquiryHref(product) {
 }
 
 export function getHybridProductMetadata(slug) {
-  const product = hybridProducts[slug];
+  const product = withPadelProductContent(hybridProducts[slug]);
   if (!product) return {};
   const canonical = `${hybridSiteUrl}${getHybridProductHref(slug)}`;
   return {
@@ -47,10 +49,10 @@ export function getHybridProductMetadata(slug) {
 }
 
 export function HybridPadelProductPage({ slug }) {
-  const product = hybridProducts[slug];
+  const product = withPadelProductContent(hybridProducts[slug]);
   if (!product) notFound();
   const canonical = `${hybridSiteUrl}${getHybridProductHref(slug)}`;
-  const faqs = [
+  const faqs = product.editorial?.faqs || [
     { question: `What is ${product.model} designed for?`, answer: `${product.model} is designed for ${product.positioning.toLowerCase()}. ${product.shortDescription}` },
     ...sharedFaqs,
   ];
@@ -67,6 +69,7 @@ export function HybridPadelProductPage({ slug }) {
     {
       "@context": "https://schema.org",
       "@type": "Product",
+      ...padelEntityFields(product, canonical),
       sku: product.model,
       name: `${product.model} ${product.name}`,
       description: product.metaDescription,
@@ -83,6 +86,7 @@ export function HybridPadelProductPage({ slug }) {
       mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })),
     },
   ];
+  if (product.editorial) schemas.push(padelWebPageEntity(product, canonical));
 
   const relatedProducts = hybridProductEntries.filter((item) => item.model !== product.model).slice(0, 3);
 
@@ -161,10 +165,10 @@ export function HybridPadelProductPage({ slug }) {
           <div className="hybrid-link-row"><Link href="/custom-padel-bag-manufacturer">Padel manufacturer process</Link><Link href="/factory-trust-materials">Factory proof</Link><Link href="/resources">Buyer resources</Link></div>
         </section>
 
-        <section className="hybrid-answer-grid" aria-label="Quick product answers">
+        {product.editorial ? <PadelBuyerDetails product={product} /> : <section className="hybrid-answer-grid" aria-label="Quick product answers">
           <article><h2>Can this padel bag fit a laptop?</h2><p>{product.laptopFit}. Device fit is approved against the target hardware.</p></article>
           <article><h2>What separates work and court gear?</h2><p>{product.organization}</p></article>
-        </section>
+        </section>}
 
         <section className="hybrid-section hybrid-feature-layout">
           <div>
