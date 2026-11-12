@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PadelImageGallery from "../components/PadelImageGallery";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteFooter from "../components/SiteFooter";
@@ -85,6 +86,26 @@ export function HybridPadelProductPage({ slug }) {
 
   const relatedProducts = hybridProductEntries.filter((item) => item.model !== product.model).slice(0, 3);
 
+  const enhancedGallery = ["PDB014", "PDB016", "PDB017"].includes(product.model);
+  const galleryImages = product.images.slice(1);
+  if (enhancedGallery) {
+    const rank = (image) => image.src.includes("-interior.") ? 0 : image.src.includes("-detail.") ? 1 : 2;
+    galleryImages.sort((a, b) => rank(a) - rank(b));
+  }
+  const gallerySection = (
+        <section className="hybrid-section" id="product-details-gallery" style={{ scrollMarginTop: 110 }}>
+          <div className="hybrid-section-heading"><p className="eyebrow">Complete image gallery</p><h2>{product.model} exterior, interior and detail views</h2><p>AI-generated concept views show the proposed design from multiple angles. Construction and fit are confirmed on the physical sample.</p></div>
+          <div className="hybrid-gallery">
+            {galleryImages.map((image) => (
+              <figure key={image.src}>
+                <Image src={image.src} width={1250} height={1250} sizes="(max-width: 720px) calc(100vw - 28px), 50vw" alt={image.alt} loading="lazy" />
+                {image.caption && <figcaption style={{ padding: "14px 18px", fontSize: "14px", lineHeight: 1.5 }}>{image.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </section>
+  );
+
   return (
     <>
       {schemas.map((schema) => <script key={schema["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />)}
@@ -111,12 +132,18 @@ export function HybridPadelProductPage({ slug }) {
               <a className="btn btn-secondary dark" href={`mailto:info@cappuccinobag.net?subject=${product.model}%20Product%20Brief`}>Discuss Your Padel Bag Project</a>
             </div>
           </div>
+          {enhancedGallery ? (
+            <PadelImageGallery images={product.images} model={product.model} />
+          ) : (
           <figure className="hybrid-hero-image">
             <Image src={product.images[0].src} width={1250} height={1250} sizes="(max-width: 900px) calc(100vw - 28px), 48vw" alt={product.images[0].alt} priority />
           </figure>
+          )}
         </section>
 
         <aside className="hybrid-disclaimer">{imageApprovalDisclaimer}</aside>
+
+        {enhancedGallery && gallerySection}
 
         <section className="hybrid-section">
           <div className="hybrid-section-heading"><p className="eyebrow">B2B Procurement Snapshot</p><h2>Model-specific facts for sourcing review</h2><p>Proposed dimensions are development targets. Confirm usable internal space, opening size and the fully packed sample before production.</p></div>
@@ -153,17 +180,7 @@ export function HybridPadelProductPage({ slug }) {
           </div>
         </section>
 
-        <section className="hybrid-section">
-          <div className="hybrid-section-heading"><p className="eyebrow">Complete image gallery</p><h2>{product.model} exterior, interior and detail views</h2><p>AI-generated concept views show the proposed design from multiple angles. Construction and fit are confirmed on the physical sample.</p></div>
-          <div className="hybrid-gallery">
-            {product.images.slice(1).map((image) => (
-              <figure key={image.src}>
-                <Image src={image.src} width={1250} height={1250} sizes="(max-width: 720px) calc(100vw - 28px), 50vw" alt={image.alt} loading="lazy" />
-                {image.caption && <figcaption style={{ padding: "14px 18px", fontSize: "14px", lineHeight: 1.5 }}>{image.caption}</figcaption>}
-              </figure>
-            ))}
-          </div>
-        </section>
+        {!enhancedGallery && gallerySection}
 
         <section className="hybrid-dark-section">
           <div className="hybrid-section-heading"><p className="eyebrow">Usage scenarios</p><h2>One platform, several buyer programs</h2></div>
