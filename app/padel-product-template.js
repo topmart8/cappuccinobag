@@ -1,5 +1,7 @@
 import Image from "next/image";
 import PadelImageGallery from "../components/PadelImageGallery";
+import PadelBuyerDetails from "../components/PadelBuyerDetails";
+import { withPadelProductContent, padelEntityFields, padelWebPageEntity } from "./padel-product-content";
 import NextLink from "next/link";
 import { notFound } from "next/navigation";
 import { PadelFooter, PadelHeader } from "./padel-components";
@@ -14,7 +16,7 @@ const developmentNotice =
 
 function getProduct(categorySlug, slug) {
   const product = padelProducts[slug];
-  return product?.categorySlug === categorySlug ? product : null;
+  return product?.categorySlug === categorySlug ? withPadelProductContent(product) : null;
 }
 
 function getProductUrl(product, slug) {
@@ -111,6 +113,7 @@ export async function PadelProductPage({ params, categorySlug }) {
     {
       "@context": "https://schema.org",
       "@type": "Product",
+      ...padelEntityFields(product, canonical),
       sku: product.sku,
       name: product.name,
       description: product.metaDescription,
@@ -139,6 +142,7 @@ export async function PadelProductPage({ params, categorySlug }) {
       })),
     },
   ];
+  if (product.editorial) schemas.push(padelWebPageEntity(product, canonical));
 
   const enhancedGallery = product.sku === "S005";
   const galleryImages = [...product.images];
@@ -233,6 +237,8 @@ export async function PadelProductPage({ params, categorySlug }) {
         </aside>
 
         {enhancedGallery && gallerySection}
+
+        {product.editorial && <PadelBuyerDetails product={product} />}
 
         {product.procurementSnapshot && (
           <section className="padel-product-section padel-reference-section">
