@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { companyFacebook, companySocialLinkStyle } from "../lib/company-social";
 import { footerNavigation } from "../lib/site-navigation";
 
 export default function SiteFooter() {
@@ -9,6 +10,11 @@ export default function SiteFooter() {
         <p>Custom padel, racket sports, outdoor and functional bag manufacturing for global brands.</p>
         <p className="footer-legal">Guangzhou Cappuccino Leather Handbag Co., Ltd.</p>
         <a href="mailto:info@cappuccinobag.net">info@cappuccinobag.net</a>
+        <p>
+          <a href={companyFacebook.href} target="_blank" rel={companyFacebook.rel} aria-label={companyFacebook.accessibleLabel} data-social-platform={companyFacebook.platform} style={companySocialLinkStyle}>
+            {companyFacebook.label}
+          </a>
+        </p>
       </div>
       <div className="footer-groups">
         {footerNavigation.map((group) => (

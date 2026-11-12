@@ -1,6 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import Script from "next/script";
+import {
+  addCompanySocialToContact,
+  renderCompanyFacebookLink,
+  withCompanyFacebookSameAs,
+} from "../lib/company-social";
 import { notFound } from "next/navigation";
 import {
   footerNavigation,
@@ -142,6 +147,7 @@ function readStaticPage(slug = []) {
   rendered = addBuyerGuideLinks(rendered, pageSlug);
   rendered = addPadelCollectionEntry(rendered, pageSlug);
   rendered = pageSlug === "" ? addHomePrioritySections(rendered) : rendered;
+  rendered = addCompanySocialToContact(rendered, pageSlug);
   return applySharedNavigation(normalizeRenderedLinks(rendered));
 }
 
@@ -187,7 +193,11 @@ function applySharedNavigation(html) {
   const withoutFooter = withHeader
     .replace(/<footer class="site-footer[^>]*>[\s\S]*?<\/footer>/i, "")
     .replace(/<footer>[\s\S]*?<\/footer>/i, "");
-  return withoutFooter.replace(/<\/main>/i, `</main>${renderSharedFooter()}`);
+  const footer = renderSharedFooter().replace(
+    '</div><div class="footer-groups">',
+    `<p>${renderCompanyFacebookLink()}</p></div><div class="footer-groups">`,
+  );
+  return withoutFooter.replace(/<\/main>/i, `</main>${footer}`);
 }
 
 function addHomePrioritySections(html) {
@@ -422,7 +432,7 @@ function extractJsonLdScripts(html, { excludeFaqPage = false } = {}) {
               .map(([key, child]) => [key, removeUnsupportedClaims(child)])
           );
         };
-        return JSON.stringify(removeUnsupportedClaims(visibleSchema));
+        return JSON.stringify(withCompanyFacebookSameAs(removeUnsupportedClaims(visibleSchema)));
       } catch {
         return jsonLd;
       }
