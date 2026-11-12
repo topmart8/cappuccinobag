@@ -39,7 +39,7 @@ export function ProductCard({ product }) {
       <p className={styles.productCode}>{product.code}</p>
       <h3><Link href={product.href}>{product.shortName}</Link></h3>
       <p>{product.material}</p>
-      <dl className={styles.cardFacts}><div><dt>RFID</dt><dd>{product.rfidConfirmed ? "Confirmed in source title" : "Not confirmed"}</dd></div><div><dt>Structure</dt><dd>{product.structure}</dd></div></dl>
+      <dl className={styles.cardFacts}><div><dt>RFID</dt><dd>{product.rfidConfirmed ? "Stated in source title; performance unverified" : "Not confirmed"}</dd></div><div><dt>Structure</dt><dd>{product.structure}</dd></div></dl>
       <Link className={styles.textLink} href={product.href}>View product details</Link>
     </div>
   </article>;

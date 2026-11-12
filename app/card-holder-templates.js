@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BackToCollection, Breadcrumb, CardHolderShell, FaqSection, InquiryActions, InternalLinks, JsonLd, ProductGallery, ProductGrid, QuotationChecklist } from "./card-holder-components";
-import { cardHolderCollectionUrl, cardHolderFaqs, cardHolderHubLinks, cardHolderProductMap, cardHolderProducts, cardHolderSiteUrl } from "./card-holder-data";
+import { cardHolderCollectionUrl, cardHolderFaqs, cardHolderHubLinks, cardHolderOrderFaqs, cardHolderProductMap, cardHolderProducts, cardHolderSiteUrl } from "./card-holder-data";
 import styles from "./card-holders/card-holders.module.css";
 
 function faqSchema(faqs) {
@@ -63,6 +63,7 @@ export function CardHolderProductPage({ slug }) {
   if (!product) notFound();
   const canonical = `${cardHolderSiteUrl}${product.href}`;
   const productFaqs = [
+    ...cardHolderOrderFaqs,
     ["Is RFID blocking confirmed for this model?", product.rfid],
     ["What material is confirmed for this card holder?", product.material],
     ["Can the logo be customized?", product.logo],
@@ -74,7 +75,7 @@ export function CardHolderProductPage({ slug }) {
     { "@context": "https://schema.org", "@type": "Product", sku: product.code, name: product.name, description: product.metaDescription, url: canonical, image: product.images.map(([filename]) => `${cardHolderSiteUrl}${product.imageBase}/${filename}`), material: product.material, category: "Card Holder", brand: { "@type": "Brand", name: "Cappuccino Bag" }, manufacturer: { "@type": "Organization", name: "Guangzhou Cappuccino Leather Handbag Co., Ltd.", url: cardHolderSiteUrl }, audience: { "@type": "BusinessAudience", audienceType: product.audience } },
     faqSchema(productFaqs),
   ];
-  const specs = [["Internal model", product.code], ["Material", product.material], ["Card slots and structure", product.structure], ["RFID status", product.rfid], ["Dimensions", product.dimensions], ["MOQ", product.moq], ["Colors shown", product.colors], ["Logo customization", product.logo], ["Packaging", product.packaging]];
+  const specs = [["Internal model", product.code], ["Material", product.material], ["Card slots and structure", product.structure], ["RFID status", product.rfid], ["Dimensions", product.dimensions], ["Custom bulk MOQ", product.moq], ["Colors shown", product.colors], ["Logo customization", product.logo], ["Packaging", product.packaging]];
   return <>{schemas.map((schema) => <JsonLd value={schema} key={schema["@type"]} />)}<CardHolderShell><main className={styles.page}>
     <Breadcrumb items={[{ name: "Card Holders", href: cardHolderCollectionUrl }, { name: product.name }]} />
     <section className={styles.productHero}><div><p className={styles.productCode}>{product.code}</p><h1>{product.name}</h1><p className={styles.lead}>{product.structure}</p><div className={styles.statusNote}><strong>Source verification</strong><span>{product.sourceNote}</span></div><InquiryActions product={`${product.code} ${product.name}`} /></div><ProductGallery product={{ ...product, images: product.images.slice(0, 1) }} /></section>

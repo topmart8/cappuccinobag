@@ -23,7 +23,7 @@ export const metadata = {
   title:
     "OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags",
   description:
-    "Cappuccino Bag is an OEM/ODM bag manufacturer specializing in outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.",
+    "Cappuccino Bag supports global brands with Padel and racket-sports bag OEM/ODM development, followed by outdoor and travel bags, wallets, cardholders and project-specific material options.",
   alternates: {
     canonical: "/",
   },
@@ -31,7 +31,7 @@ export const metadata = {
     title:
       "OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags",
     description:
-      "Cappuccino Bag is an OEM/ODM bag manufacturer specializing in outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.",
+      "Cappuccino Bag supports global brands with Padel and racket-sports bag OEM/ODM development, followed by outdoor and travel bags, wallets, cardholders and project-specific material options.",
     url: "https://www.cappuccinobag.com/",
     siteName: "Cappuccino Bag",
     images: [
@@ -50,7 +50,7 @@ export const metadata = {
     title:
       "OEM/ODM Bag Manufacturer for Outdoor Sports, Travel, Racket Bags, Wallets and Smart Eco-Friendly Bags",
     description:
-      "Cappuccino Bag is an OEM/ODM bag manufacturer specializing in outdoor sports bags, travel backpacks, racket bags, wallets, cardholders, and smart eco-friendly bags for global brands.",
+      "Cappuccino Bag supports global brands with Padel and racket-sports bag OEM/ODM development, followed by outdoor and travel bags, wallets, cardholders and project-specific material options.",
     images: ["/assets/cappuccino-racquet-bag-lifestyle.jpg"],
   },
   robots: {
