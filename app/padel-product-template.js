@@ -49,8 +49,8 @@ export async function getProductMetadata({ params, categorySlug }) {
       images: [
         {
           url: `${siteUrl}${product.images[0].src}`,
-          width: 1200,
-          height: 1200,
+          width: product.images[0].width || 1200,
+          height: product.images[0].height || 1200,
           alt: product.images[0].alt,
         },
       ],
@@ -184,8 +184,8 @@ export async function PadelProductPage({ params, categorySlug }) {
           <figure className="padel-product-main-image">
             <Image
               src={product.images[0].src}
-              width={1200}
-              height={1200}
+              width={product.images[0].width || 1200}
+              height={product.images[0].height || 1200}
               sizes="(max-width: 900px) calc(100vw - 36px), 54vw"
               alt={product.images[0].alt}
               priority
@@ -194,7 +194,7 @@ export async function PadelProductPage({ params, categorySlug }) {
         </section>
 
         <aside className="padel-development-notice">
-          <strong>Development status:</strong> {developmentNotice}
+          <strong>Development status:</strong> {product.developmentNotice || developmentNotice}
         </aside>
 
         {product.procurementSnapshot && (
@@ -232,19 +232,22 @@ export async function PadelProductPage({ params, categorySlug }) {
 
         <section className="padel-product-section">
           <div className="padel-product-heading">
-            <p className="eyebrow">Four-view gallery</p>
-            <h2>Main, carry, open-structure and detail views</h2>
+            <p className="eyebrow">{product.images.length}-view gallery</p>
+            <h2>{product.galleryHeading || "Main, carry, open-structure and detail views"}</h2>
           </div>
-          <div className="padel-product-gallery">
+          <div className="padel-product-gallery" style={product.sku === "S005" ? { gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))" } : undefined}>
             {product.images.map((image) => (
-              <Image
-                key={image.src}
+              <figure key={image.src} style={{ margin: 0 }}>
+                <Image
                 src={image.src}
-                width={1200}
-                height={1200}
+                width={image.width || 1200}
+                height={image.height || 1200}
                 sizes="(max-width: 620px) calc(100vw - 28px), (max-width: 900px) 48vw, 25vw"
                 alt={image.alt}
-              />
+                loading="lazy"
+                />
+                {image.caption && <figcaption style={{ padding: "12px 2px", lineHeight: 1.6 }}>{image.caption}</figcaption>}
+              </figure>
             ))}
           </div>
         </section>
@@ -312,6 +315,14 @@ export async function PadelProductPage({ params, categorySlug }) {
           </div>
         </section>
 
+        {product.relatedCollectionHref && (
+          <section className="padel-product-section">
+            <h2>Coordinate your Padel range</h2>
+            <p>Explore canvas tote, sports duffel and utility backpack development concepts alongside this sleeve.</p>
+            <Link href={product.relatedCollectionHref}>View Padel bags for court and everyday carry</Link>
+          </section>
+        )}
+
         <section className="padel-product-section padel-related-section">
           <div className="padel-product-heading">
             <p className="eyebrow">Related Collection</p>
@@ -346,7 +357,7 @@ export async function PadelProductPage({ params, categorySlug }) {
               <a href="mailto:info@cappuccinobag.net">
                 info@cappuccinobag.net
               </a>
-              .
+              {" "}or WhatsApp <a href="https://wa.me/8613928715568">+86 139 2871 5568</a>.
             </p>
           </div>
           <Link className="btn btn-primary" href={getInquiryUrl(product)}>
