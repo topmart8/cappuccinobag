@@ -70,3 +70,22 @@ test("client keeps optional-number validation and tracks success only after an O
   assert.ok(responseCheck >= 0);
   assert.ok(successEvent > responseCheck);
 });
+
+test("Cappuccino CRO keeps optional Padel details honest and pet fields contextual", async () => {
+  const padelForm = await readFile(new URL("../app/racket-sports/padel-bags/PadelRfqForm.jsx", import.meta.url), "utf8");
+  const padelPage = await readFile(new URL("../app/racket-sports/padel-bags/page.js", import.meta.url), "utf8");
+  const inquiry = await readFile(new URL("../public/site/inquiry/index.html", import.meta.url), "utf8");
+  const client = await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8");
+
+  assert.match(padelForm, /<details className=\{styles\.optionalDetails\}>/);
+  assert.match(padelForm, /<option value="" disabled>Select a padel bag format<\/option>/);
+  assert.match(padelForm, /<option value="" disabled>Select a quantity range<\/option>/);
+  assert.match(padelForm, /<option value="" disabled>Select a target market<\/option>/);
+  assert.match(padelPage, /className=\{styles\.programImage\} href=\{program\.products\[0\]\[1\]\}/);
+  assert.match(padelPage, /<h3><Link href=\{program\.products\[0\]\[1\]\}>\{program\.name\}<\/Link><\/h3>/);
+  assert.match(inquiry, /data-endpoint="\/api\/inquiries"/);
+  assert.match(inquiry, /data-pet-project-field hidden/);
+  assert.match(client, /function updatePetProjectField\(form\)/);
+  assert.match(client, /petField\.hidden = !isPetProject/);
+  assert.match(client, /form\.reset\(\);\s+updatePetProjectField\(form\);/);
+});
