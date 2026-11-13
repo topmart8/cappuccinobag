@@ -214,7 +214,7 @@ forms.forEach((form) => {
         body: JSON.stringify(payload),
       });
       const receipt = await response.json().catch(() => ({}));
-      if (!response.ok || !receipt.ok || !receipt.inquiryNumber || receipt.submissionId !== payload.submission_id) throw new Error("Lead receipt could not be confirmed.");
+      if (!response.ok || receipt.ok !== true || receipt.saved !== true || !receipt.inquiryNumber || receipt.submissionId !== payload.submission_id) throw new Error("Lead receipt could not be confirmed.");
       accepted = true;
       try {
         window.cappuccinoAnalytics?.trackLeadSuccess(
@@ -345,7 +345,7 @@ function initializeInquiryForm(form) {
         );
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error("Inquiry endpoint failed.");
-        if (!result.ok || !result.inquiryNumber || result.submissionId !== payload.submission_id) throw new Error("Inquiry receipt could not be confirmed.");
+        if (result.ok !== true || result.saved !== true || !result.inquiryNumber || result.submissionId !== payload.submission_id) throw new Error("Inquiry receipt could not be confirmed.");
         receipt = result;
         completeSubmission(form);
         try {
