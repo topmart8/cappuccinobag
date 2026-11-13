@@ -221,8 +221,8 @@ test("internal inquiry notification remains while safe_auto customer email is ha
   else process.env.CAP_INQUIRY_REPLY_MODE = savedMode;
 });
 
-test("email_status persistence failures are explicit", async () => {
-  await assert.rejects(() => ingestSharedInquiry({
+test("email_status persistence failures are explicit without rejecting a saved inquiry", async () => {
+  const result = await ingestSharedInquiry({
     siteSource: "cappuccino",
     raw: { submission_id: CAP_ID, name: "Alice", email: "alice@example.com" },
   }, {
@@ -244,7 +244,9 @@ test("email_status persistence failures are explicit", async () => {
     persistWorkflow: async () => {},
     deliverEmails: async () => "sent",
     setEmailStatus: async () => { throw new Error("status write failed"); },
-  }), /status write failed/);
+  });
+  assert.equal(result.emailStatusPersisted, false);
+  assert.deepEqual(result.postSaveFailures, ["email_status"]);
 });
 
 test("server-only Supabase URL takes precedence", async () => {

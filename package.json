@@ -7,7 +7,8 @@
     "typecheck": "next typegen",
     "build": "next build",
     "start": "next start",
-    "audit:site": "node scripts/audit-site.mjs"
+    "audit:site": "node scripts/audit-site.mjs",
+    "prebuild": "node scripts/pr50-preview-crm-check.mjs"
   },
   "dependencies": {
     "@next/third-parties": "16.3.0",

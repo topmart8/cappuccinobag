@@ -7,7 +7,7 @@ import { inquiryHref } from "../app/products/croc-embossed-rolling-backpack/data
 test("rolling backpack RFQ selects the travel category and preserves the product brief", async () => {
   const script = await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8");
   const start = script.indexOf("function preselectInquiryContext(form)");
-  const end = script.indexOf("\nfunction showToast", start);
+  const end = script.indexOf("\nfunction submissionIdFor", start);
   assert.ok(start >= 0 && end > start);
   const form = { elements: { inquiry_intention: {}, product_needed: {}, message: {} } };
   const context = { URLSearchParams, window: { location: { search: inquiryHref.split("?")[1] } }, form };
@@ -19,7 +19,7 @@ test("rolling backpack RFQ selects the travel category and preserves the product
 
 test("travel prefill does not capture unrelated private-label projects", async () => {
   const script = await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8");
-  const source = script.slice(script.indexOf("function preselectInquiryContext(form)"), script.indexOf("\nfunction showToast"));
+  const source = script.slice(script.indexOf("function preselectInquiryContext(form)"), script.indexOf("\nfunction submissionIdFor"));
   const form = { elements: { inquiry_intention: { value: "Private Label Production" }, product_needed: { value: "Wallets" }, message: { value: "Existing brief" } } };
   vm.runInNewContext(`${source}\npreselectInquiryContext(form);`, { URLSearchParams, window: { location: { search: "?product=Wallets" } }, form });
   assert.equal(form.elements.product_needed.value, "Wallets");

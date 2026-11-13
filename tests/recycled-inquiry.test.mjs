@@ -5,10 +5,13 @@ import vm from "node:vm";
 
 const script = await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8");
 const html = await readFile(new URL("../public/site/inquiry/index.html", import.meta.url), "utf8");
-const start = script.indexOf("function preselectInquiryContext(form)");
-const end = script.indexOf("\nfunction ", start + 1);
-assert.ok(start >= 0 && end > start);
-const source = script.slice(start, end);
+function extract(name) {
+  const start = script.indexOf(`function ${name}(`);
+  const end = script.indexOf("\nfunction ", start + 1);
+  assert.ok(start >= 0 && end > start);
+  return script.slice(start, end);
+}
+const source = `${extract("updatePetProjectField")}\n${extract("preselectInquiryContext")}`;
 
 function run(project, format = "", messageValue = "") {
   const secondary = { open: false };
@@ -18,7 +21,7 @@ function run(project, format = "", messageValue = "") {
       product_needed: { value: "Outdoor Multifunctional Bags", options: [{ value: "Pet Travel Bags" }, { value: "Pet Carrier Backpack" }] },
       message: { value: messageValue },
     },
-    querySelector: () => secondary,
+    querySelector: (selector) => selector === "[data-pet-project-field]" ? null : secondary,
   };
   const search = "?" + new URLSearchParams({ product: project, format });
   vm.runInNewContext(source + "\npreselectInquiryContext(form);", { form, URLSearchParams, window: { location: { search } } });
