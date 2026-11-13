@@ -1,0 +1,64 @@
+
+> build
+> next build
+
+▲ Next.js 16.3.0 (Turbopack)
+✓ Running next.config.mjs took 12ms
+
+  Creating an optimized production build ...
+Turbopack build encountered 2 warnings:
+[next]/internal/font/google/inter_4a4f7444.module.css
+Warning: Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_4a4f7444.module.css
+    [next]/internal/font/google/inter_4a4f7444.js
+    ./app/layout.js
+
+
+[next]/internal/font/google/montserrat_55735a1d.module.css
+Warning: Error while requesting resource
+There was an issue establishing a connection while requesting https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/montserrat_55735a1d.module.css
+    [next]/internal/font/google/montserrat_55735a1d.js
+    ./app/layout.js
+
+
+
+> Build error occurred
+Error: Turbopack build failed with 2 errors:
+[next]/internal/font/google/inter_4a4f7444.module.css
+Error: next/font: error:
+Failed to fetch Inter from Google Fonts.
+If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_4a4f7444.module.css
+    [next]/internal/font/google/inter_4a4f7444.js
+    ./app/layout.js
+
+
+[next]/internal/font/google/montserrat_55735a1d.module.css
+Error: next/font: error:
+Failed to fetch Montserrat from Google Fonts.
+If you are offline or behind a proxy, self-host the font with next/font/local, or set HTTP_PROXY/HTTPS_PROXY so Next.js can reach fonts.googleapis.com.
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/montserrat_55735a1d.module.css
+    [next]/internal/font/google/montserrat_55735a1d.js
+    ./app/layout.js
+
+
+    at ignore-listed frames
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
