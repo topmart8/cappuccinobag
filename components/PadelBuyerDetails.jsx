@@ -17,6 +17,11 @@ export default function PadelBuyerDetails({ product }) {
       <div className={styles.evidence}>
         <h3>What the images establish</h3><p>{content.evidence}</p>
         <p><Link href="/factory-trust-materials">Review factory and material evidence</Link>. Factory references explain capability; they do not validate every proposed feature of this model.</p>
+        {["PDB014", "PDB016", "PDB017"].includes(model) && <>
+          <h3>Material, logo and construction references</h3>
+          <p><Link href="/blog/recycled-water-resistant-materials-padel-bags">Compare Padel bag material options</Link> and <Link href="/logo-customization-guide">review logo application methods</Link>. Select the fabric and logo process together, then approve a swatch and logo sample. These guides do not establish this model’s recycled content, certification or water resistance.</p>
+          <p><Link href="/custom-padel-bag-manufacturer#padel-prototype-case">Compare two structures from an anonymous Padel sample project</Link>. Use the published example to discuss construction choices; it is not a sample or performance test of {model}.</p>
+        </>}
       </div>
       <div className={styles.grid}>
         <article><h3>Resolve these details on the sample</h3><ol>{content.checks.map(item => <li key={item}>{item}</li>)}</ol><p><Link href="/padel-bag-design-guide">Prepare your Padel bag specification</Link> · <Link href="/quality-inspection-guide">Plan quality checks</Link></p></article>

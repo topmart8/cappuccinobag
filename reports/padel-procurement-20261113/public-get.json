@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/products/womens-lightweight-padel-tote-pdb014",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "path": "/products/weekend-padel-carryall-pdb016",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "path": "/products/travel-padel-utility-backpack-pdb017",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "path": "/blog/recycled-water-resistant-materials-padel-bags",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "path": "/logo-customization-guide",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "path": "/custom-padel-bag-manufacturer",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]
