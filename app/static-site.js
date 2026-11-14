@@ -143,6 +143,9 @@ function readStaticPage(slug = []) {
   rendered = addBuyerGuideLinks(rendered, pageSlug);
   rendered = addPadelCollectionEntry(rendered, pageSlug);
   rendered = pageSlug === "" ? addHomePrioritySections(rendered) : rendered;
+  if (pageSlug === "factory-trust-materials") {
+    rendered = rendered.replace("<!-- CAPPUCCINO_WORKSHOP_GALLERY -->", renderWorkshopGallery({ priority: true }));
+  }
   return applySharedNavigation(normalizeRenderedLinks(rendered));
 }
 
