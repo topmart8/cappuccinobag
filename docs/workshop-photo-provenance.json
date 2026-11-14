@@ -14,7 +14,11 @@
         1920,
         864
       ],
-      "changes": "EXIF orientation, proportional downscale and WebP encoding only. No generated or retouched content."
+      "changes": "EXIF orientation, proportional downscale and WebP encoding only. No generated or retouched content.",
+      "responsiveVariants": [
+        "public/images/workshop/sewing-production-640.webp",
+        "public/images/workshop/sewing-production-960.webp"
+      ]
     },
     {
       "image": "public/images/workshop/panel-preparation.webp",
@@ -28,7 +32,11 @@
         1920,
         864
       ],
-      "changes": "EXIF orientation, proportional downscale and WebP encoding only. No generated or retouched content."
+      "changes": "EXIF orientation, proportional downscale and WebP encoding only. No generated or retouched content.",
+      "responsiveVariants": [
+        "public/images/workshop/panel-preparation-640.webp",
+        "public/images/workshop/panel-preparation-960.webp"
+      ]
     },
     {
       "image": "public/images/workshop/production-aisle.webp",
@@ -42,7 +50,10 @@
         900,
         1200
       ],
-      "changes": "EXIF orientation, proportional downscale and WebP encoding only. No generated or retouched content."
+      "changes": "EXIF orientation, proportional downscale and WebP encoding only. No generated or retouched content.",
+      "responsiveVariants": [
+        "public/images/workshop/production-aisle-480.webp"
+      ]
     }
   ]
 }

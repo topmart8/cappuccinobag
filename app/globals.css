@@ -1457,6 +1457,15 @@ img {
   grid-template-columns: minmax(0, 1fr);
 }
 
+.padel-factory-proof-page .cp-hero--workshop {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+.cp-hero--workshop .workshop-photo-note {
+  margin-bottom: 0;
+}
+
 @media (max-width: 620px) {
   .workshop-gallery {
     grid-template-columns: minmax(0, 1fr);
