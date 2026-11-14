@@ -1380,6 +1380,99 @@ img {
   aspect-ratio: 16 / 11;
 }
 
+.workshop-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.workshop-photo {
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.workshop-photo--production-aisle {
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+
+.workshop-photo-link {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  background: #e9e8e3;
+}
+
+.workshop-photo-link:focus-visible {
+  outline: 3px solid #365e50;
+  outline-offset: -3px;
+}
+
+.workshop-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.workshop-photo figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 12px 14px;
+  color: #526059;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.workshop-signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #17372b;
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.workshop-signature .brand-mark {
+  flex: 0 0 26px;
+}
+
+.workshop-photo-note {
+  margin: 14px 0 28px;
+  color: #526059;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.home-proof-layout--photographs {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 620px) {
+  .workshop-gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .workshop-photo--production-aisle {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .workshop-photo--production-aisle img {
+    max-height: 380px;
+    object-fit: contain;
+  }
+}
+
 .home-proof-points {
   display: flex;
   flex-wrap: wrap;

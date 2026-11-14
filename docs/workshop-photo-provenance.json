@@ -1,0 +1,48 @@
+{
+  "source": "Three production workshop photographs supplied and identified as real by the site owner in this request.",
+  "branding": "Site-rendered Cappuccino Bag signature below each photo; not part of the photographed scene.",
+  "photos": [
+    {
+      "image": "public/images/workshop/sewing-production.webp",
+      "source": "366.jpeg",
+      "sourceSha256": "3f6bd0a82d500e58179f09ee8d8d55530ff7cdedbcd5efbb2c39a865de55273c",
+      "originalSize": [
+        2844,
+        1280
+      ],
+      "webSize": [
+        1920,
+        864
+      ],
+      "changes": "EXIF orientation, proportional downscale and WebP encoding only. No generated or retouched content."
+    },
+    {
+      "image": "public/images/workshop/panel-preparation.webp",
+      "source": "365.jpeg",
+      "sourceSha256": "fa2004c05df24db8a281ca39eef1cc0d73f48c2e45b0d33cc5b157a902735dc9",
+      "originalSize": [
+        2844,
+        1280
+      ],
+      "webSize": [
+        1920,
+        864
+      ],
+      "changes": "EXIF orientation, proportional downscale and WebP encoding only. No generated or retouched content."
+    },
+    {
+      "image": "public/images/workshop/production-aisle.webp",
+      "source": "367.jpeg",
+      "sourceSha256": "d25e04da6d11e6c66ff471ab0048c333cdf77f3040b0f7d9ee2e12d138927efe",
+      "originalSize": [
+        1080,
+        1440
+      ],
+      "webSize": [
+        900,
+        1200
+      ],
+      "changes": "EXIF orientation, proportional downscale and WebP encoding only. No generated or retouched content."
+    }
+  ]
+}
