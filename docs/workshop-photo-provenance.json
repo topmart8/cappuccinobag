@@ -1,6 +1,6 @@
 {
   "source": "Three production workshop photographs supplied and identified as real by the site owner in this request.",
-  "branding": "Existing Cappuccino script logo rendered as a separate HTML/CSS overlay: lower right on landscape views, lower centre on the portrait aisle view. The photographed scene and source images are unchanged; full-size links open unbranded originals.",
+  "branding": "Plain text captions below the photos. No logo, watermark or branding overlay is applied to the photographs.",
   "photos": [
     {
       "image": "public/images/workshop/sewing-production.webp",
@@ -55,6 +55,5 @@
         "public/images/workshop/production-aisle-480.webp"
       ]
     }
-  ],
-  "logoSource": "public/site/assets/cappuccino-logo-script.png"
+  ]
 }
