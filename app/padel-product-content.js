@@ -25,6 +25,7 @@ export const padelProductContent = {
       { question: "Is the shoe bag waterproof or odour-proof?", answer: "Neither performance is established by the concept images. A wipe-clean lining and ventilation construction can be reviewed, then tested against the agreed use conditions." },
       { question: "Which shoe sizes will fit?", answer: "The usable dimensions are set around the buyer’s target footwear. Send the shoe size and, ideally, a physical pair for packed-fit approval. Universal adult-shoe fit is not claimed." },
       { question: "Are the pictured materials and ventilation final?", answer: "No. They illustrate the development direction. Final fabric, lining, ventilation, handle, dimensions and artwork must be approved on a physical sample." },
+      { question: "Can S003 fit inside the PDB017 backpack?", answer: "That fit has not been established. S003 is a separate shoe-bag style, while the backpack concept has its own removable footwear pouch. Check both packed dimensions and access on physical samples before planning a nested set." },
       minimumOrder
     ]
   },
@@ -47,6 +48,7 @@ export const padelProductContent = {
       { question: "Can sponsor and club logos appear together?", answer: "Yes, subject to buyer authorisation and artwork approval. Provide the logo files, placement rules, colours and any sponsor hierarchy so a physical branding sample can be reviewed." },
       { question: "Can we order different pack levels for an event?", answer: "Pack contents and packaging can be reviewed by tier, while each custom bag or pouch style must meet its own minimum. Confirm the full quantities, artwork versions and assembly instructions before quotation." },
       { question: "Is S004 ready-made stock?", answer: "No. This page presents an OEM/ODM development concept. A specification, physical sample, quotation and production schedule must be agreed before a bulk order." },
+      { question: "Can the pouch match a sleeve and training backpack collection?", answer: "Yes. S004 can be developed alongside S005, S003 and PDB017 with a shared colour, textile and trim direction. A slate-charcoal exterior and light interior are proposed options, not approved production specifications. Approve material swatches and one physical sample per style." },
       minimumOrder
     ]
   },
@@ -113,6 +115,7 @@ export const padelProductContent = {
       { question: "Will a Padel racket fit entirely inside the backpack?", answer: "The concept proposes a full-height padded sleeve for one racket with the handle below the top opening. Actual racket dimensions, padding and zipper clearance require fit testing; universal compatibility is not claimed." },
       { question: "Can I add laptop storage to the backpack?", answer: "A dedicated padded device sleeve can be developed on request. It is not included as a verified feature of this version. Supply device dimensions so the combined racket, device and footwear layout can be reviewed." },
       { question: "Can the backpack be customized for our Padel brand?", answer: "Yes. Exterior textile, colours, lining, pockets, straps, trims, logo and packaging can be developed to the approved brief. The illustrated layout is a concept to be validated through sampling." },
+      { question: "Can this backpack join a coordinated club collection?", answer: "Yes. Develop PDB017 with an S005 sleeve, S004 pouch and optional S003 shoe bag as separately specified products. Compare 600D and 900D textile options for weight and feel before selecting the backpack material. Its removable inner footwear pouch is not a verified fit specification for S003." },
       minimumOrder
     ]
   },
@@ -136,6 +139,7 @@ export const padelProductContent = {
       { question: "Is the white foam permanent padding?", answer: "No. The white pearl-cotton / EPE sheets are removable packing inserts for shape retention during shipping. They are not sewn-in lining or a validated permanent cushioning specification." },
       { question: "Can I keep the glossy black logo effect with my own branding?", answer: "The gallery illustrates a tonal glossy-black logo effect through digital branding on sample photographs. Your artwork, colour, size, positioning and application process must be approved on a physical sample." },
       { question: "Does the sleeve fit every Padel racket?", answer: "No universal fit is claimed. Send the target racket dimensions and a sample where possible so internal clearance, padding and insertion through the zipper can be checked." },
+      { question: "Can the sleeve be ordered with matching club accessories?", answer: "Yes. Review S004 pouches, S003 shoe bags and PDB017 backpacks as separate styles in a coordinated range. Match approved fabric and colour swatches, trims and artwork. Each style has its own 300-piece production minimum; samples and kit assembly are assessed separately." },
       minimumOrder
     ]
   }
