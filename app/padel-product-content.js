@@ -6,6 +6,50 @@ const minimumOrder = {
 };
 
 export const padelProductContent = {
+  S003: {
+    href: "/padel-accessories/custom-ventilated-padel-shoe-bag",
+    linkLabel: "Padel shoe bag — club kits and separate footwear storage",
+    primaryIntent: "custom padel shoe bag",
+    metaTitle: "Custom Padel Shoe Bags for Clubs & Events | Cappuccino",
+    metaDescription: "Develop a branded Padel shoe bag for club shops, member kits and tournament packs. Compare lining, ventilation and logo options. MOQ 300 per style.",
+    heading: "Custom Padel Shoe Bag for Club & Tournament Collections",
+    lead: "Give court footwear its own place in your club collection. S003 is a development concept for a separate shoe bag with wide zip access, a carry handle and proposed ventilation. Coordinate the textile, trims and artwork with your main bag or event pack.",
+    headline: "A practical companion to your club’s main bag",
+    evidence: "Design-concept imagery, not evidence of a tested production sample. Shoe fit, ventilation, lining performance and finished dimensions require physical sample approval.",
+    structure: "A dedicated footwear compartment with a wide opening, proposed ventilation details and a carry handle. Choose the lining around cleaning needs and the intended footwear; no odour-control or waterproof performance is claimed.",
+    buyerFit: "For club shops, academies, tournament organisers and Padel brands developing a stand-alone shoe bag or a coordinated pack. Shoes and other playing equipment are not included.",
+    customization: "Review exterior fabric, lining, ventilation method, handle, zipper, club colours, logo and hangtag. A shared colour direction does not guarantee an exact colour match across different materials; approve the actual swatches.",
+    checks: ["Fit the intended shoe size and check the zipper opening with both shoes packed.", "Review lining cleanability, ventilation construction, handle and seam strength.", "Approve colour swatches, logo position, packed size and kit packaging."],
+    faqs: [
+      { question: "Can the shoe bag be part of a tournament welcome pack?", answer: "Yes. Develop it as a separately specified style in a coordinated pack. Confirm the quantity per style, sponsor artwork, contents, packaging, destination and required arrival date before quotation." },
+      { question: "Is the shoe bag waterproof or odour-proof?", answer: "Neither performance is established by the concept images. A wipe-clean lining and ventilation construction can be reviewed, then tested against the agreed use conditions." },
+      { question: "Which shoe sizes will fit?", answer: "The usable dimensions are set around the buyer’s target footwear. Send the shoe size and, ideally, a physical pair for packed-fit approval. Universal adult-shoe fit is not claimed." },
+      { question: "Are the pictured materials and ventilation final?", answer: "No. They illustrate the development direction. Final fabric, lining, ventilation, handle, dimensions and artwork must be approved on a physical sample." },
+      minimumOrder
+    ]
+  },
+  S004: {
+    href: "/padel-accessories/custom-padel-organizer-pouch",
+    linkLabel: "Court essentials pouch — member and tournament packs",
+    primaryIntent: "custom padel accessories pouch",
+    metaTitle: "Custom Padel Pouches for Club & Tournament Kits | Cappuccino",
+    metaDescription: "Create a custom Padel organizer pouch for member welcome kits and tournament gifts. Develop pockets, logo and packaging. MOQ 300 pieces per style.",
+    heading: "Custom Padel Organizer Pouch for Member & Tournament Kits",
+    lead: "Start a club or event collection with a useful court-essentials pouch. S004 is a development concept for grouping overgrips, keys and personal items. Set the pocket layout around your contents, then coordinate the artwork and packaging with the rest of the range.",
+    headline: "Build the welcome pack around useful everyday storage",
+    evidence: "Design-concept imagery, not a photographed or tested production sample. Contents shown illustrate the intended use and are not included. Final layout, material, size and performance require sample approval.",
+    structure: "A wide-opening zipped organizer with optional mesh pockets, dividers and a wrist strap or loop. Internal pockets are specified around the actual contents rather than a universal device or accessory fit.",
+    buyerFit: "For club shops, academies, membership programmes and tournament organisers seeking a compact branded item. It can be developed alone or coordinated with a racket sleeve, shoe bag or main bag.",
+    customization: "Choose fabric, lining, pocket layout, strap, zipper pull, authorised sponsor or club artwork, labels and pack presentation. Overgrips and other playing accessories require a separate sourcing review or buyer supply.",
+    checks: ["Pack the intended contents and confirm usable pocket dimensions and zip clearance.", "Approve strap attachment, lining, seam construction and logo sample.", "Confirm what is included in each kit, the quantity per style and packaging instructions."],
+    faqs: [
+      { question: "What should go inside a Padel member welcome pouch?", answer: "Start with the buyer’s contents list: for example, club information, overgrips or small personal accessories. These are planning examples, not included products. Pocket dimensions and any separately sourced items are confirmed during sampling and quotation." },
+      { question: "Can sponsor and club logos appear together?", answer: "Yes, subject to buyer authorisation and artwork approval. Provide the logo files, placement rules, colours and any sponsor hierarchy so a physical branding sample can be reviewed." },
+      { question: "Can we order different pack levels for an event?", answer: "Pack contents and packaging can be reviewed by tier, while each custom bag or pouch style must meet its own minimum. Confirm the full quantities, artwork versions and assembly instructions before quotation." },
+      { question: "Is S004 ready-made stock?", answer: "No. This page presents an OEM/ODM development concept. A specification, physical sample, quotation and production schedule must be agreed before a bulk order." },
+      minimumOrder
+    ]
+  },
   PDB014: {
     href: "/products/womens-lightweight-padel-tote-pdb014",
     linkLabel: "Canvas Padel tote — club and everyday carry",
@@ -83,7 +127,7 @@ export const padelProductContent = {
     headline: "See the material, lining and carry details before you specify",
     evidence: "Sample-photo-based reference with digitally applied Cappuccino branding and background retouching. The supplier confirms 900D waterproof fabric. Finished-bag water resistance, thermal performance, lining construction and racket fit require separate assessment.",
     structure: "The full-cover tapered compartment follows the racket profile. A front zip pocket carries small essentials; an adjustable webbing strap clips onto the bag. The silver reflective interior is visible in the open-sleeve photographs. White EPE inserts are removable shipping packaging used to maintain the shape.",
-    buyerFit: "For Padel brands, club shops and distributors developing a dedicated racket cover alongside a larger bag range. This sleeve has no clothing or shoe compartment.",
+    buyerFit: "For Padel brands, club shops and distributors developing a dedicated racket cover, member welcome kit or coordinated accessories range. The sleeve is specified separately from other pack items and has no clothing or shoe compartment.",
     customization: "Review the 900D fabric swatch and its slate-grey/blue tone, subtle surface sheen, silver lining, zipper and strap clips. The illustrated logo has a tonal glossy-black finish; final private-label artwork, placement and application process are sample-approved.",
     checks: ["Measure usable internal dimensions and test the actual racket through the opening.", "Confirm lining laminate, any permanent cushioning and agreed water/thermal testing.", "Approve logo finish and strap hardware; record EPE inserts as removable packaging."],
     faqs: [
