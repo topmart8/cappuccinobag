@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PadelHeader, PadelFooter } from "../padel-components";
+import PadelProgrammeBuilder from "../../components/PadelProgrammeBuilder";
 import styles from "./page.module.css";
 
 const origin = "https://www.cappuccinobag.com";
@@ -58,7 +59,7 @@ export default function PadelClubTournamentSupply() {
           <h1>Your club. <br />Your colours. <br /><em>Your Padel range.</em></h1>
           <p className={styles.lead}>Custom Padel bags and accessories for club shops, member welcome kits and tournament packs. Build around what your players carry, with one consistent brand identity.</p>
           <p className={styles.order}>Custom production from <strong>300 pieces per style.</strong><br />Samples assessed separately. Different styles cannot be combined.</p>
-          <div className={styles.actions}><Link className={styles.primary} href={rfq("Padel club / tournament bag programme")}>Plan your club range</Link><a className={styles.secondary} href="#programmes">Compare programmes ↓</a></div>
+          <div className={styles.actions}><a className={styles.primary} href="#range-builder">Plan your club range</a><a className={styles.secondary} href="#programmes">Compare programmes ↓</a></div>
         </div>
         <figure className={styles.heroMedia}><Image src={sleeveImage} width={1250} height={1250} sizes="(max-width: 800px) 100vw, 50vw" alt="S005 full-cover Padel sleeve with front zip pocket and detachable strap, sample-photo reference with digitally applied branding" priority /><figcaption>S005 · Sample-photo reference with digital branding. Explore the actual lining and strap details below.</figcaption></figure>
       </section>
@@ -72,6 +73,8 @@ export default function PadelClubTournamentSupply() {
         <div className={styles.productGrid}>{products.map(p => <article key={p.sku} className={styles.product}><Link href={p.href}><Image src={p.image} width={1250} height={1250} sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 25vw" alt={`${p.sku} ${p.name} — ${p.status}`} /></Link><div className={styles.productCopy}><p className={styles.eyebrow}>{p.sku}</p><h3><Link href={p.href}>{p.name}</Link></h3><p className={styles.status}>{p.status}</p><p>{p.text}</p><p className={styles.check}>{p.check}</p><Link href={p.href}>View interior & details →</Link></div></article>)}</div>
         <p className={styles.more}>For a broader club collection, compare the <Link href="/products/womens-lightweight-padel-tote-pdb014">canvas court tote</Link>, <Link href="/products/travel-padel-utility-backpack-pdb017">training backpack</Link> and <Link href="/products/custom-hybrid-padel-duffel-backpack">convertible duffel backpack</Link>.</p>
       </section>
+
+      <PadelProgrammeBuilder />
 
       <section className={`${styles.section} ${styles.detail}`} id="sample-detail">
         <figure><Image src="/images/padel/original-court-series-2026/S005/S005-interior.webp" width={1250} height={1250} sizes="(max-width: 800px) 100vw, 50vw" alt="Open S005 sleeve showing silver reflective lining; sample-photo retouch with digital branding" /><figcaption>Silver reflective lining shown in the sample reference. No temperature reduction or cooling duration is claimed.</figcaption></figure>
