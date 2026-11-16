@@ -55,7 +55,7 @@ export default function PadelClubTournamentSupply() {
         <div className={styles.heroCopy}>
           <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/racket-sports/padel-bags">Padel bags</Link><span aria-hidden="true"> / </span><span>Clubs & events</span></nav>
           <p className={styles.eyebrow}>Cappuccino · Padel programmes</p>
-          <h1>Your club.<br />Your colours.<br /><em>A connected range.</em></h1>
+          <h1>Your club. <br />Your colours. <br /><em>Your Padel range.</em></h1>
           <p className={styles.lead}>Custom Padel bags and accessories for club shops, member welcome kits and tournament packs. Build around what your players carry, with one consistent brand identity.</p>
           <p className={styles.order}>Custom production from <strong>300 pieces per style.</strong><br />Samples assessed separately. Different styles cannot be combined.</p>
           <div className={styles.actions}><Link className={styles.primary} href={rfq("Padel club / tournament bag programme")}>Plan your club range</Link><a className={styles.secondary} href="#programmes">Compare programmes ↓</a></div>
