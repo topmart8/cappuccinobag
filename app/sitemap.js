@@ -10,6 +10,8 @@ import { cardHolderProducts } from "./card-holder-data.js";
 const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
+  { path: "/racket-sports/padel-backpacks", priority: 0.9, updated: "2026-11-17" },
+  { path: "/products/custom-padel-backpack-dual-side-pockets", priority: 0.85, updated: "2026-11-17" },
   { path: "/padel-club-tournament-supply", priority: 0.9, updated: "2026-11-16" },
   { path: "/products/custom-hybrid-padel-duffel-backpack", priority: 0.94, updated: "2026-11-05" },
   { path: "/blog/recycled-nylon-polyester-packable-bags-guide/", priority: 0.7, updated: "2026-11-04" },

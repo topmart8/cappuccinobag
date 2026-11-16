@@ -89,6 +89,8 @@ const programs = [
     value: "A focused format for racket protection, daily essentials and easier movement between locations.",
     features: ["Streamlined construction", "Core private-label details", "Scalable range planning"],
     products: [
+      ["Compare all Padel Backpacks", "/racket-sports/padel-backpacks"],
+      ["Dual-Pocket Padel Backpack · Custom Development", "/products/custom-padel-backpack-dual-side-pockets"],
       ["S002 · Urban 30L Padel Backpack", "/padel-bags/custom-30l-padel-backpack"],
       ["PDB001 · Padel Work Tote Backpack", "/products/padel-work-tote-backpack-pdb001"],
       ["PDB017 · Travel Court Utility Backpack", "/products/travel-padel-utility-backpack-pdb017"],
