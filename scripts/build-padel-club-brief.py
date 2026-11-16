@@ -58,7 +58,7 @@ def base(page, eyebrow, title, subtitle):
     text(subtitle,36,116,W-72,9,colour=MUTED)
     rule(779)
     text("cappuccinobag.com  |  info@cappuccinobag.net  |  +86 139 2871 5568",36,792,W-72,7.5)
-    text(f"Selection brief R1 - 16 Nov 2026  |  {page} / 3",36,809,W-72,7,colour=MUTED)
+    text(f"Selection brief R2 - 17 Nov 2026  |  {page} / 3",36,809,W-72,7,colour=MUTED)
 
 products = [
     ("S005", "Thermal-lined racket sleeve", "images/padel/original-court-series-2026/S005/S005-hero.webp",
@@ -76,11 +76,11 @@ products = [
      "Dedicated footwear storage with proposed wide zip opening, carry handle and ventilation.",
      "Test the target shoe size, opening, lining and ventilation method. No odour-control performance is claimed.",
      "/padel-accessories/custom-ventilated-padel-shoe-bag"),
-    ("PDB016", "Match-day team duffel", "images/padel/original-court-series-2026/PDB016/PDB016-hero.webp",
+    ("PDB017", "Training utility backpack", "images/padel/original-court-series-2026/PDB017/PDB017-hero.webp",
      "AI design concept; sample approval required.",
-     "Proposed main bag with wide access, a racket sleeve and a separate footwear zone.",
-     "Fit racket, shoes and clothing together. Approve dimensions, dividers, carrying comfort and loaded performance.",
-     "/products/weekend-padel-carryall-pdb016"),
+     "Full-height racket sleeve, forward opening and a removable footwear pouch; no fixed bottom shoe cavity.",
+     "Test the packed load and racket clearance. S003 is not verified to fit inside. Compare fabric weight before approval.",
+     "/products/travel-padel-utility-backpack-pdb017"),
 ]
 
 base(1,"01 / THE FIRST RANGE","Four formats. One club identity.",
@@ -102,7 +102,7 @@ c.showPage()
 base(2,"02 / CHOOSE THE PROGRAMME","Plan quantities by style.",
      "The examples below illustrate quantities only. They are not prices, stock offers or delivery promises.")
 programmes = [
-    ("CLUB SHOP COLLECTION","S005 sleeve + S004 pouch + S003 shoe bag", "Example: 300 pieces of each style = 900 separate retail items.", "Provide target retail positioning, colours, hangtags and replenishment needs."),
+    ("CLUB SHOP COLLECTION","S005 sleeve + S004 pouch + S003 shoe bag", "Example: 300 pieces of each style = 900 separate retail items.", "PDB017 backpack and PDB016 duffel are optional main bags, each specified separately."),
     ("MEMBER / ACADEMY KIT","S005 sleeve + S004 pouch", "Example: 300 sleeves + 300 pouches can make 300 two-item kits, if assembly is agreed.", "Provide member count, contents list, packaging and required arrival date."),
     ("TOURNAMENT / SPONSOR PACK","S004 pouch + optional S003 shoe bag / PDB016 duffel", "Example: 600 pouches + 300 shoe bags; allocate pack tiers separately.", "Provide quantities by tier, authorised sponsor artwork, event date and delivery destination."),
 ]

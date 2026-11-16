@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PadelHeader, PadelFooter } from "../padel-components";
 import PadelProgrammeBuilder from "../../components/PadelProgrammeBuilder";
+import PadelCollectionConcept from "../../components/PadelCollectionConcept";
 import styles from "./page.module.css";
 
 const origin = "https://www.cappuccinobag.com";
@@ -22,7 +23,7 @@ const products = [
   { sku: "S005", name: "Thermal-lined racket sleeve", href: "/padel-accessories/custom-padel-racket-sleeve", image: sleeveImage, status: "Sample-photo reference · digitally branded", text: "A compact starting point for club retail and member packs. Review the 900D exterior, silver reflective lining, accessory zip and detachable strap.", check: "Check actual racket fit and lining construction. Thermal and finished-bag water resistance need testing." },
   { sku: "S004", name: "Court essentials pouch", href: "/padel-accessories/custom-padel-organizer-pouch", image: "/images/padel/S004/S004-01-main.png", status: "Design concept · sample approval required", text: "An organizer for overgrips, keys and small personal items. Develop it as a stand-alone club item or the base of a tournament welcome pack.", check: "Agree the contents list, pocket dimensions and logo area. Contents are not included." },
   { sku: "S003", name: "Separate shoe bag", href: "/padel-accessories/custom-ventilated-padel-shoe-bag", image: "/images/padel/S003/S003-01-main.png", status: "Design concept · sample approval required", text: "Keep footwear in its own bag within a coordinated club range. Review a wide opening, carry handle and suitable lining for the intended use.", check: "Approve the target shoe size, lining, ventilation method and packed dimensions." },
-  { sku: "PDB016", name: "Match-day team duffel", href: "/products/weekend-padel-carryall-pdb016", image: "/images/padel/original-court-series-2026/PDB016/PDB016-hero.webp", status: "AI design concept · sample approval required", text: "An anchor bag for team travel and premium member programmes, with a proposed racket sleeve, wide top access and footwear zone.", check: "Fit the racket, shoes and clothing together before approving capacity or dimensions." },
+  { sku: "PDB017", name: "Training utility backpack", href: "/products/travel-padel-utility-backpack-pdb017", image: "/images/padel/original-court-series-2026/PDB017/PDB017-hero.webp", status: "AI design concept · sample approval required", text: "A main bag for daily training, with a proposed full-height racket sleeve, forward-opening main space and removable footwear pouch.", check: "Fit the racket, footwear pouch, bottle and clothing together. S003 is not verified to fit inside this backpack." },
 ];
 
 const programs = [
@@ -71,8 +72,10 @@ export default function PadelClubTournamentSupply() {
 
       <section className={styles.section} id="products"><p className={styles.eyebrow}>A focused first range</p><h2>Four formats. Clear roles.</h2><p className={styles.intro}>Develop each style to your brief and coordinate the materials, trims and approved artwork. Product pages include internal layouts and detail views.</p>
         <div className={styles.productGrid}>{products.map(p => <article key={p.sku} className={styles.product}><Link href={p.href}><Image src={p.image} width={1250} height={1250} sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 25vw" alt={`${p.sku} ${p.name} — ${p.status}`} /></Link><div className={styles.productCopy}><p className={styles.eyebrow}>{p.sku}</p><h3><Link href={p.href}>{p.name}</Link></h3><p className={styles.status}>{p.status}</p><p>{p.text}</p><p className={styles.check}>{p.check}</p><Link href={p.href}>View interior & details →</Link></div></article>)}</div>
-        <p className={styles.more}>For a broader club collection, compare the <Link href="/products/womens-lightweight-padel-tote-pdb014">canvas court tote</Link>, <Link href="/products/travel-padel-utility-backpack-pdb017">training backpack</Link> and <Link href="/products/custom-hybrid-padel-duffel-backpack">convertible duffel backpack</Link>.</p>
+        <p className={styles.more}>For a broader club collection, compare the <Link href="/products/womens-lightweight-padel-tote-pdb014">canvas court tote</Link>, <Link href="/products/weekend-padel-carryall-pdb016">match-day team duffel</Link> and <Link href="/products/custom-hybrid-padel-duffel-backpack">convertible duffel backpack</Link>. PDB016 remains an optional style in the range selector.</p>
       </section>
+
+      <PadelCollectionConcept />
 
       <PadelProgrammeBuilder />
 
