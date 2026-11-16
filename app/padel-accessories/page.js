@@ -78,6 +78,7 @@ export default function PadelAccessoriesPage() {
               materials, price and lead time are confirmed during sampling
               and quotation. Standard custom MOQ: 300 pieces per style.
             </p>
+            <p><Link href="/padel-club-tournament-supply">Build a coordinated club-shop range, member kit or tournament pack →</Link></p>
             <div className="hero-actions">
               <Link
                 className="btn btn-primary"

@@ -26,6 +26,7 @@ export default function PadelBuyerDetails({ product }) {
         <h3>Compare the other Padel formats</h3>
         {Object.entries(padelProductContent).filter(([sku]) => sku !== model).map(([sku, item]) => <Link key={sku} href={item.href}>{item.linkLabel}</Link>)}
         <Link href="/racket-sports/padel-bags">Explore the Padel bag collection</Link>
+        <Link href="/padel-club-tournament-supply">Build a club collection or tournament pack</Link>
       </nav>
     </section>
   );
