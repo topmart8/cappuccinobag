@@ -10,12 +10,12 @@ const pagePath = "/racket-sports/padel-bags";
 const imageBase = "/images/padel-bags";
 
 export const metadata = {
-  title: "Custom Padel Bags Collection | Racket Bags, Backpacks & Duffels",
-  description: "Explore custom padel racket bags, backpacks, duffels, totes and shoe bags. Compare storage, carry systems, materials and private-label design options.",
+  title: "Custom Padel Bags for Brands | OEM Racket Bags & Backpacks",
+  description: "Compare OEM padel racket bags, backpacks, duffels, totes and shoe bags for private-label brands, including storage, materials and customization options.",
   alternates: { canonical: `${siteUrl}${pagePath}` },
   openGraph: {
-    title: "Custom Padel Bags Collection | Racket Bags, Backpacks & Duffels",
-    description: "Compare custom padel bag formats, storage layouts, carry systems and private-label design options for a focused product range.",
+    title: "Custom Padel Bags for Brands | OEM Racket Bags & Backpacks",
+    description: "Compare OEM padel bag formats, storage layouts, carry systems and private-label design options for a focused product range.",
     url: `${siteUrl}${pagePath}`,
     type: "website",
     images: [{
@@ -27,7 +27,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Padel Bags Collection | Racket Bags, Backpacks & Duffels",
+    title: "Custom Padel Bags for Brands | OEM Racket Bags & Backpacks",
     description: "Explore custom padel bag formats and shortlist a product direction for your brand.",
     images: [`${siteUrl}${imageBase}/02-padel-club-hero-lifestyle.png`],
   },
