@@ -63,7 +63,8 @@ export default function PadelRfqForm() {
         </label>
         <label>
           <span>Product type *</span>
-          <select name="product_type" defaultValue="Premium padel duffel" required>
+          <select name="product_type" defaultValue="" required>
+            <option value="" disabled>Select a padel bag format</option>
             <option>Premium padel duffel</option>
             <option>Padel backpack</option>
             <option>Tournament / club bag</option>
@@ -73,7 +74,8 @@ export default function PadelRfqForm() {
         </label>
         <label>
           <span>Target quantity *</span>
-          <select name="quantity" defaultValue="300" required>
+          <select name="quantity" defaultValue="" required>
+            <option value="" disabled>Select a quantity range</option>
             <option value="50">50 pcs</option>
             <option value="100">100 pcs</option>
             <option value="300">300 pcs</option>
@@ -82,12 +84,9 @@ export default function PadelRfqForm() {
           </select>
         </label>
         <label>
-          <span>Target price range</span>
-          <input name="target_price_range" placeholder="Per-unit target or project budget" />
-        </label>
-        <label>
           <span>Market *</span>
-          <select name="target_market" defaultValue="EU" required>
+          <select name="target_market" defaultValue="" required>
+            <option value="" disabled>Select a target market</option>
             <option>EU</option>
             <option>UK</option>
             <option>US</option>
@@ -96,50 +95,59 @@ export default function PadelRfqForm() {
             <option>Other</option>
           </select>
         </label>
-        <label>
-          <span>Material preference</span>
-          <input name="material" placeholder="1680D Oxford, recycled polyester…" />
-        </label>
-        <label>
-          <span>Logo method</span>
-          <select name="logo_method" defaultValue="Rubber patch">
-            <option>Rubber patch</option>
-            <option>Woven label</option>
-            <option>Heat transfer</option>
-            <option>Embroidery</option>
-            <option>Logo zipper pull</option>
-            <option>Need a recommendation</option>
-          </select>
-        </label>
-        <label>
-          <span>Shoe compartment</span>
-          <select name="shoe_compartment" defaultValue="Yes">
-            <option>Yes</option>
-            <option>No</option>
-            <option>Need a recommendation</option>
-          </select>
-        </label>
-        <label>
-          <span>Racket sleeve quantity</span>
-          <select name="racket_sleeve_quantity" defaultValue="2">
-            <option value="1">1 sleeve</option>
-            <option value="2">2 sleeves</option>
-            <option>Need a recommendation</option>
-          </select>
-        </label>
-        <label>
-          <span>Sample deadline</span>
-          <input name="sample_deadline" type="date" />
-        </label>
-        <label>
-          <span>Bulk delivery deadline</span>
-          <input name="bulk_delivery_deadline" type="date" />
-        </label>
-        <label className={styles.fullField}>
-          <span>Reference / design notes</span>
-          <textarea name="reference_notes" placeholder="Share the intended use, dimensions, material direction, colours and any reference design details." />
-        </label>
       </div>
+      <details className={styles.optionalDetails}>
+        <summary>Add product details <span>Optional</span></summary>
+        <div className={styles.rfqFormGrid}>
+          <label>
+            <span>Target price range</span>
+            <input name="target_price_range" placeholder="Per-unit target or project budget" />
+          </label>
+          <label>
+            <span>Material preference</span>
+            <input name="material" placeholder="1680D Oxford, recycled polyester…" />
+          </label>
+          <label>
+            <span>Logo method</span>
+            <select name="logo_method" defaultValue="Need a recommendation">
+              <option>Need a recommendation</option>
+              <option>Rubber patch</option>
+              <option>Woven label</option>
+              <option>Heat transfer</option>
+              <option>Embroidery</option>
+              <option>Logo zipper pull</option>
+            </select>
+          </label>
+          <label>
+            <span>Shoe compartment</span>
+            <select name="shoe_compartment" defaultValue="Need a recommendation">
+              <option>Need a recommendation</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </label>
+          <label>
+            <span>Racket sleeve quantity</span>
+            <select name="racket_sleeve_quantity" defaultValue="Need a recommendation">
+              <option>Need a recommendation</option>
+              <option value="1">1 sleeve</option>
+              <option value="2">2 sleeves</option>
+            </select>
+          </label>
+          <label>
+            <span>Sample deadline</span>
+            <input name="sample_deadline" type="date" />
+          </label>
+          <label>
+            <span>Bulk delivery deadline</span>
+            <input name="bulk_delivery_deadline" type="date" />
+          </label>
+          <label className={styles.fullField}>
+            <span>Reference / design notes</span>
+            <textarea name="reference_notes" placeholder="Share the intended use, dimensions, material direction, colours and any reference design details." />
+          </label>
+        </div>
+      </details>
       <label className={styles.honeypot} aria-hidden="true">
         Website<input name="website" tabIndex="-1" autoComplete="off" />
       </label>
