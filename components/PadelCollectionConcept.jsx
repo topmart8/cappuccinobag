@@ -24,7 +24,7 @@ export default function PadelCollectionConcept() {
     </figure>
     <div className={styles.grid}>{views.map(view => <article className={styles.card} key={view.sku}>
       <svg className={styles.view} viewBox={view.crop} role="img" aria-labelledby={`interior-concept-${view.sku}`}>
-        <title id={`interior-concept-${view.sku}`}>{view.sku} proposed interior: {view.title}</title>
+        <title id={`interior-concept-${view.sku}`}>{`${view.sku} proposed interior: ${view.title}`}</title>
         <image href={interior} x="0" y="0" width="1536" height="1024" />
       </svg>
       <div className={styles.copy}><p className={styles.eyebrow}>{view.sku} · Interior concept</p><h3>{view.title}</h3><p>{view.text}</p><p className={styles.check}><strong>Sample review:</strong> {view.check}</p><Link href={view.href}>View {view.sku} specifications & details →</Link></div>
