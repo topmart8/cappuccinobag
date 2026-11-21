@@ -328,7 +328,7 @@ export const hybridProducts = {
       "Front quick-access pocket and side bottle storage",
       "Padded shoulder straps and mesh back-panel concept"
     ],
-    organization: "The full-height racket sleeve keeps the handle below the top opening. A removable shoe pouch uses the forward main space rather than a fixed bottom compartment crossing the racket path. Light-coloured lining and smaller pockets help users find accessories.",
+    organization: "The full-height sleeve is designed to hold the racket handle below the top zip. Handle clearance still needs to be measured on a packed sample with the intended racket and shoes. The removable shoe pouch sits in the main compartment. Light-coloured lining and smaller pockets help users find accessories.",
     scenarios: [
       "Daily padel training",
       "Urban commuting",
