@@ -29,8 +29,8 @@ export const metadata = {
 
 const collectionFaqs = [
   { question: "What is a work-to-court padel bag?", answer: "A work-to-court padel bag combines racket storage with everyday organization such as a padded laptop sleeve, small-item pockets and a silhouette suitable for commuting before an evening match." },
-  { question: "Which model is suitable for women’s lifestyle collections?", answer: "PDB014 is the most lifestyle-led women’s tote, while PDB015 adds more commuter and travel organization for urban work-to-court use." },
-  { question: "Which model is suitable for weekend travel?", answer: "PDB016 offers the roomiest carryall direction for match weekends and short trips. PDB017 is the backpack option for buyers prioritizing hands-free travel and separate shoe or accessory storage." },
+  { question: "Which model is suitable for women’s lifestyle collections?", answer: "PDB014 is an oat-and-clay canvas court tote concept, while PDB015 offers a commuter direction. Materials, colours and pocket layouts can be developed for each buyer." },
+  { question: "Which model is suitable for weekend travel?", answer: "PDB016 is a rectangular sports duffel concept for training and short trips. PDB017 offers hands-free backpack carry and a removable shoe pouch proposal. Final packing capacity is sample-tested." },
   { question: "What is the difference between a padel tote and a traditional racket bag?", answer: "A hybrid padel tote balances racket protection with laptop and daily-item organization. A traditional racket bag generally prioritizes sports equipment capacity and match-only storage." },
   ...sharedFaqs,
 ];
@@ -76,32 +76,37 @@ export default function HybridLifestyleCollectionPage() {
           <p className="eyebrow">Cappuccino Padel · 2026 Collection</p>
           <h1>{hybridCollection.h1}</h1>
           <p className="hybrid-slogan">{hybridCollection.slogan}</p>
-          <p>Four Cappuccino-branded OEM/ODM directions connect laptop protection, dedicated racket storage and lightweight travel organization for buyers serving modern padel routines.</p>
+          <p>Four OEM/ODM directions cover padel canvas totes, commuter carry, sports duffels and backpacks. Explore three newly developed concept galleries alongside the existing commuter model. Standard custom MOQ: 300 pieces per style.</p>
           <div className="hero-actions"><a className="btn btn-primary" href="#hybrid-models">Explore four models</a><Link className="btn btn-secondary dark" href="/inquiry?product=Padel%20Bags&format=Hybrid%20Lifestyle%20Series%202026">Request collection RFQ</Link></div>
         </header>
 
         <aside className="hybrid-disclaimer">{imageApprovalDisclaimer}</aside>
 
         <section className="hybrid-section" id="hybrid-models">
-          <div className="hybrid-section-heading"><p className="eyebrow">Four-model collection</p><h2>Tote, commuter, carryall and backpack formats</h2><p>Each format addresses a different daily rhythm without relying on fabricated price, stock, MOQ or sales claims.</p></div>
+          <div className="hybrid-section-heading"><p className="eyebrow">Four-model collection</p><h2>Tote, commuter, carryall and backpack formats</h2><p>Choose by carry style, racket access and the equipment your customer needs to bring to the court.</p></div>
           <div className="hybrid-collection-grid">{hybridProductEntries.map((product) => <article key={product.model}><Image src={product.images[0].src} width={1250} height={1250} sizes="(max-width: 700px) calc(100vw - 28px), 50vw" alt={product.images[0].alt} /><div><p className="eyebrow">{product.model}</p><h2>{product.name}</h2><p>{product.shortDescription}</p><Link href={getHybridProductHref(product.slug)}>View {product.model} product page</Link></div></article>)}</div>
         </section>
 
         <section className="hybrid-answer-grid hybrid-collection-answers">
-          <article><h2>What is a work-to-court padel bag?</h2><p>A hybrid bag that organizes a laptop and daily essentials alongside a protected padel racket compartment for commuting and after-work play.</p></article>
-          <article><h2>Which model fits weekend travel?</h2><p>PDB016 is the larger carryall direction; PDB017 adds hands-free backpack carry and a separate shoe or accessory pocket.</p></article>
+          <article><h2>What is a work-to-court padel bag?</h2><p>A bag that combines padel racket organization with everyday storage. Device sleeves can be added to a brief and require combined-fit testing.</p></article>
+          <article><h2>Which model fits weekend travel?</h2><p>PDB016 provides a wide-opening sports duffel direction; PDB017 offers backpack carry with a removable shoe pouch proposal.</p></article>
           <article><h2>Can recycled fabrics be selected?</h2><p>Yes, subject to sourcing and approval. Certification claims are used only when the exact material and documentation qualify.</p></article>
           <article><h2>Can logo, pockets and colors change?</h2><p>Yes. OEM/ODM development can adapt the color, material, pocket map, laptop fit, racket capacity, trim and branding.</p></article>
         </section>
 
+        <section className="hybrid-section hybrid-two-column" id="padel-sleeve">
+          <Image src="/images/padel/original-court-series-2026/S005/S005-hero.webp" width={1250} height={1250} sizes="(max-width: 700px) calc(100vw - 28px), 50vw" alt="Cappuccino thermal-lined padel racket sleeve with detachable strap, digitally branded sample photograph" style={{ width: "100%", height: "auto", borderRadius: 16 }} />
+          <div><p className="eyebrow">S005 · Coordinating accessory</p><h2>Add a thermal-lined Padel racket sleeve</h2><p>A slim full-cover sleeve in 900D waterproof fabric with silver reflective lining, front accessory zip and detachable shoulder strap. Explore seven sample-photo-based views with digital Cappuccino branding.</p><p>White pearl-cotton / EPE inserts shown in the packaging image maintain shape during shipping; they are not permanent lining. Racket fit and thermal performance require sample review and testing.</p><Link className="btn btn-primary" href="/padel-accessories/custom-padel-racket-sleeve">View sleeve bag and lining details</Link></div>
+        </section>
+
         <section className="hybrid-section hybrid-story-section">
           <div><p className="eyebrow">Collection story</p><h2>From desk to court</h2></div>
-          <div><p>Modern padel users do not always want a large traditional racket bag. Many need a lighter, cleaner design that carries a laptop in the morning, daily essentials through the workday and a racket for an evening match.</p><p>The Cappuccino Padel Hybrid Lifestyle Series 2026 brings together a women’s lifestyle tote, an urban commuter model, a weekend carryall and a travel-ready utility backpack. The collection gives brands, club stores and retailers a path beyond conventional match-only equipment bags.</p><Link href="/blog/from-desk-to-court-cappuccino-padel-collection">Read the full collection story</Link></div>
+          <div><p>A padel bag can support more than the journey to a match. These concepts explore practical access to rackets, clothes, bottles and small essentials in familiar everyday formats.</p><p>The collection combines a canvas court tote, an urban commuter model, a rectangular sports duffel and a utility backpack. Each concept can be developed around a brand’s target player and reviewed through a physical sample.</p><Link href="/blog/from-desk-to-court-cappuccino-padel-collection">Read the full collection story</Link></div>
         </section>
 
         <section className="hybrid-dark-section">
-          <div className="hybrid-section-heading"><p className="eyebrow">Work · commute · club · weekend · travel</p><h2>Why hybrid organization matters</h2><p>Dedicated zones reduce daily repacking and keep work devices away from rackets, bottles, footwear and loose accessories.</p></div>
-          <div className="hybrid-scenario-grid">{["Laptop protection", "Curved racket storage", "Quick-access pockets", "Travel-ready carry"].map((item) => <article key={item}><h3>{item}</h3><p>Dimensions and construction are confirmed against the target user, device and racket during sampling.</p></article>)}</div>
+          <div className="hybrid-section-heading"><p className="eyebrow">Work · commute · club · weekend · travel</p><h2>Why hybrid organization matters</h2><p>Plan distinct zones for rackets, clothing, footwear and small items, then check their interaction with a fully packed sample.</p></div>
+          <div className="hybrid-scenario-grid">{["Padel racket access", "Shoe and clothing separation", "Quick-access pockets", "Comfortable carry"].map((item) => <article key={item}><h3>{item}</h3><p>Dimensions and construction are confirmed against the target user, device and racket during sampling.</p></article>)}</div>
         </section>
 
         <section className="hybrid-section hybrid-two-column">
@@ -114,7 +119,7 @@ export default function HybridLifestyleCollectionPage() {
           <div className="hybrid-market-grid">
             <article><h3>UK & Netherlands</h3><p>Develop lightweight commuter-to-club bags for rail, bike and compact urban movement, with laptop protection and balanced carry weight.</p></article>
             <article><h3>France & Spain</h3><p>Explore women’s lifestyle, premium club, frequent match and tournament-oriented versions without making unsupported sales claims.</p></article>
-            <article><h3>USA & Australia</h3><p>Consider active-lifestyle, pickleball crossover, warm-weather sport and weekend-travel organization around the chosen model.</p></article>
+            <article><h3>USA & Australia</h3><p>Develop padel club, active-lifestyle and weekend-travel programs around the chosen model and the buyer’s actual packing requirements.</p></article>
           </div>
         </section>
 

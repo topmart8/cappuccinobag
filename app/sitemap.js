@@ -10,12 +10,18 @@ import { cardHolderProducts } from "./card-holder-data.js";
 const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
+  { path: "/racket-sports/padel-backpacks", priority: 0.9, updated: "2026-11-17" },
+  { path: "/products/custom-padel-backpack-dual-side-pockets", priority: 0.85, updated: "2026-11-17" },
+  { path: "/padel-club-tournament-supply", priority: 0.9, updated: "2026-11-16" },
+  { path: "/products/custom-hybrid-padel-duffel-backpack", priority: 0.94, updated: "2026-11-05" },
+  { path: "/blog/recycled-nylon-polyester-packable-bags-guide/", priority: 0.7, updated: "2026-11-04" },
   { path: "/products/croc-embossed-rolling-backpack", priority: 0.85, updated: "2026-10-25" },
   { path: "/blog/canton-fair-custom-bag-factory-visit-guangzhou", priority: 0.84, updated: "2026-10-15" },
   { path: "/", priority: 1.0 },
-  { path: "/custom-padel-bag-manufacturer", priority: 0.95, updated: "2026-08-16" },
-  { path: "/racket-sports/padel-bags", priority: 0.98, updated: "2026-08-16" },
+  { path: "/custom-padel-bag-manufacturer", priority: 0.95, updated: "2026-11-21" },
+  { path: "/racket-sports/padel-bags", priority: 0.98, updated: "2026-11-04" },
   { path: "/products", priority: 0.9 },
+  { path: "/golf-bags", priority: 0.75, updated: "2026-11-01" },
   { path: "/products/court-lifestyle-tote-development-sample", priority: 0.92, updated: "2026-10-02" },
   { path: "/corporate-tech-gift-solutions", priority: 0.92, updated: "2026-08-13" },
   { path: techGiftProductPath, priority: 0.95, updated: "2026-08-13" },
@@ -24,7 +30,7 @@ const routes = [
   { path: "/noeve-vegan-beauty-accessory", priority: 0.84, updated: "2026-08-09" },
   { path: "/kitty-couture-rhinestone-handbag", priority: 0.84, updated: "2026-08-09" },
   { path: "/inquiry", priority: 0.9 },
-  { path: "/resources", priority: 0.82, updated: "2026-08-16" },
+  { path: "/resources", priority: 0.82, updated: "2026-11-04" },
   { path: "/custom-pickleball-paddle-bags", priority: 0.9 },
   { path: "/custom-tennis-bag-manufacturer", priority: 0.9 },
   { path: "/custom-outdoor-sports-bag-manufacturer", priority: 0.88 },
@@ -52,6 +58,7 @@ const routes = [
   { path: "/padel-bags/custom-60l-padel-racket-duffel/", priority: 0.96 },
   { path: "/padel-bags/custom-30l-padel-backpack/", priority: 0.96 },
   { path: "/padel-accessories/", priority: 0.92 },
+  { path: "/padel-accessories/custom-padel-racket-sleeve/", priority: 0.94 },
   { path: "/padel-accessories/custom-ventilated-padel-shoe-bag/", priority: 0.94 },
   { path: "/padel-accessories/custom-padel-organizer-pouch/", priority: 0.94 },
   { path: "/products/padel-work-tote-backpack-pdb001", priority: 0.97 },
@@ -103,7 +110,7 @@ const routes = [
   { path: "/resources/quality-inspection-guide/", priority: 0.78 },
   { path: "/resources/moq-sampling-faq/", priority: 0.78 },
   { path: "/factory-trust-materials/", priority: 0.82 },
-  { path: "/recycled-material-bags/", priority: 0.84 },
+  { path: "/recycled-material-bags/", priority: 0.84, updated: "2026-11-04" },
   { path: "/oem-odm-bag-manufacturer/", priority: 0.9 },
   { path: "/alcantara-collection/", priority: 0.94 },
   { path: "/custom-alcantara-duffle-bag/", priority: 0.92 },
@@ -120,7 +127,7 @@ const routes = [
 
 export default function sitemap() {
   const dynamicRoutes = [
-    ...hybridProductEntries.map((product) => ({ path: `/products/${product.slug}`, priority: 0.95 })),
+    ...hybridProductEntries.map((product) => ({ path: `/products/${product.slug}`, priority: 0.95, updated: product.updated })),
     ...Object.keys(hybridPadelArticles).map((slug) => ({ path: `/blog/${slug}`, priority: 0.84 })),
     ...Object.keys(techGiftArticles).map((slug) => ({ path: `/blog/${slug}`, priority: 0.84, updated: "2026-08-13" })),
     ...runningProducts.map((product) => ({ path: product.href, priority: 0.9 })),
@@ -178,3 +185,4 @@ export default function sitemap() {
   }
   return [...unique.values()];
 }
+

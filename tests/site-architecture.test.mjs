@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 import sitemap from "../app/sitemap.js";
+import { hybridProductEntries } from "../app/hybrid-padel-data.js";
 import nextConfig from "../next.config.mjs";
 import {
   footerNavigation,
@@ -16,7 +17,7 @@ test("desktop and mobile navigation share the required Padel-first configuration
   ]);
   assert.deepEqual(moreCollectionsNavigation.map((item) => item.label), [
     "Running & Sports Bags", "Pet Travel Bags", "RFID Wallets", "Sustainable Materials",
-    "Padel Accessories", "Buyer Resources",
+    "Golf Bags & Accessories", "Padel Accessories", "Buyer Resources",
   ]);
   assert.deepEqual(utilityNavigation.map((item) => item.label), ["Factory Proof", "RFQ"]);
   assert.equal(footerNavigation[0].links[0].label, "Padel Bags");
@@ -39,7 +40,12 @@ test("sitemap contains only canonical no-trailing-slash URLs and prioritizes Pad
   assert.ok(priority("/custom-padel-bag-manufacturer") > priority("/custom-tennis-padel-racket-bags"));
   assert.ok(priority("/custom-padel-bag-manufacturer") > priority("/running-waist-packs"));
   assert.ok(priority("/running-waist-packs") > priority("/pet-travel-bags"));
-  assert.ok(entries.every((entry) => typeof entry.lastModified === "string"));
+  for (const product of hybridProductEntries) {
+    const entry = entries.find((item) => item.url === `https://www.cappuccinobag.com/products/${product.slug}`);
+    assert.ok(entry);
+    assert.equal(entry.lastModified, product.updated);
+    assert.equal(Object.hasOwn(entry, "lastModified"), Boolean(product.updated));
+  }
 });
 
 test("C2 sitemap guides contain distinct buyer guidance instead of the legacy template", async () => {

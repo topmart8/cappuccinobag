@@ -12,6 +12,7 @@ const collections = [
   { name: "Tennis Bags", href: "/custom-tennis-bag-manufacturer", description: "Custom racket capacity, thermal sections, footwear storage and club collections." },
   { name: "Outdoor & Hiking Bags", href: "/custom-outdoor-sports-bag-manufacturer", description: "Load systems, shoulder straps, back panels, hydration storage and weather-resistant constructions." },
   { name: "Travel Bags", href: "/custom-travel-backpacks-weekender-bags", description: "Weekenders, duffels, laptop travel, organization and hospitality programs." },
+  { name: "Golf Bags & Accessories", href: "/golf-bags", description: "Private-label shoe bags, weekenders, valuables pouches and accessories cases. Design concepts for custom development from 300 pieces per style." },
   { name: "Running & Sports Bags", href: "/running-waist-packs", description: "Waist packs, hydration belts, marathon race belts, phone belts and trail running formats." },
   { name: "Pet Travel Bags", href: "/pet-travel-bags", description: "Carefully scoped carrier, organizer and accessory development with project-specific requirements." },
   { name: "RFID Wallets & Accessories", href: "/rfid-wallet-passport-holder-manufacturer", description: "RFID wallets, passport holders, card holders and coordinated travel accessories." },

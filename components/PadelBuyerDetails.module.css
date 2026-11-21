@@ -1,0 +1,14 @@
+.section{margin:34px auto;padding:clamp(22px,4vw,46px);max-width:1240px;background:#fffaf1;border:1px solid #d9d7cb;border-radius:18px;color:#183128;overflow-wrap:anywhere;scroll-margin-top:110px}
+.eyebrow{margin:0 0 10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.section h2{max-width:850px;margin:0 0 28px;font-size:clamp(26px,3.2vw,40px);line-height:1.16}
+.section h3{margin:0 0 10px;font-size:19px;line-height:1.35}
+.section p,.section li{font-size:16px;line-height:1.75}
+.section p{margin:0 0 16px}.section p+h3{margin-top:22px}
+.section a{color:#294f42;text-decoration:underline;text-underline-offset:4px}
+.section a:focus-visible{outline:3px solid #b57743;outline-offset:5px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.evidence{margin:28px 0;padding:24px;border-left:4px solid #758a72;background:#edf0e7}
+.section ol{padding-left:22px;margin:0 0 16px}.section li{margin-bottom:8px}
+.compare{display:flex;flex-wrap:wrap;gap:12px 22px;border-top:1px solid #d9d7cb;padding-top:24px;margin-top:24px}
+.compare h3{flex-basis:100%}.compare a{font-size:15px;line-height:1.5}
+@media(max-width:700px){.grid{grid-template-columns:1fr;gap:24px}.section{margin:24px 0}.evidence{padding:20px}.compare{flex-direction:column}}

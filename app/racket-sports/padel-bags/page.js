@@ -89,6 +89,8 @@ const programs = [
     value: "A focused format for racket protection, daily essentials and easier movement between locations.",
     features: ["Streamlined construction", "Core private-label details", "Scalable range planning"],
     products: [
+      ["Compare all Padel Backpacks", "/racket-sports/padel-backpacks"],
+      ["Dual-Pocket Padel Backpack · Custom Development", "/products/custom-padel-backpack-dual-side-pockets"],
       ["S002 · Urban 30L Padel Backpack", "/padel-bags/custom-30l-padel-backpack"],
       ["PDB001 · Padel Work Tote Backpack", "/products/padel-work-tote-backpack-pdb001"],
       ["PDB017 · Travel Court Utility Backpack", "/products/travel-padel-utility-backpack-pdb017"],
@@ -248,6 +250,7 @@ export default function PadelBagsLandingPage() {
             </nav>
             <h1>Custom Padel Bags: Racket Bags, Backpacks &amp; Duffels</h1>
             <p>Compare padel racket duffels, backpacks, totes, shoe bags and organizers by storage layout, carry system, materials and private-label design potential.</p>
+            <p>Buying for a club, academy or event? <Link href="/padel-club-tournament-supply">Explore club collections, member welcome kits and tournament packs.</Link></p>
             <div className={styles.actions}>
               <a className={styles.primaryButton} href="#padel-rfq">Request a Quote</a>
               <a className={styles.secondaryButton} href="#product-programs">Explore Padel Bag Formats</a>
@@ -255,6 +258,20 @@ export default function PadelBagsLandingPage() {
           </div>
           <div className={styles.heroMedia}>
             <Image src={`${imageBase}/02-padel-club-hero-lifestyle.png`} fill priority sizes="(max-width: 800px) 100vw, 52vw" alt="Premium padel bag beside a modern padel court" />
+          </div>
+        </section>
+
+        <section className={styles.section} aria-labelledby="featured-hybrid-title">
+          <div className={styles.proofLayout}>
+            <div className={styles.proofImage}>
+              <Image src="/images/products/hybrid-padel-duffel-backpack/black-padel-hero.webp" width={1254} height={1254} sizes="(max-width: 760px) 100vw, 50vw" alt="Black Cappuccino hybrid duffel with a perforated padel racket beside its shaped racket pocket" />
+            </div>
+            <div className={styles.sectionIntro}>
+              <p className={styles.sectionLabel}>Featured development format</p>
+              <h2 id="featured-hybrid-title">Hybrid Padel Duffel Backpack</h2>
+              <p>Explore backpack, shoulder and hand carry in one padel bag, with separate racket and shoe storage. Develop your own materials, colours and branding from 300 pieces per style.</p>
+              <Link className={styles.primaryButton} href="/products/custom-hybrid-padel-duffel-backpack">Explore the Hybrid Padel Bag</Link>
+            </div>
           </div>
         </section>
 

@@ -1,4 +1,7 @@
 import Image from "next/image";
+import PadelImageGallery from "../components/PadelImageGallery";
+import PadelBuyerDetails from "../components/PadelBuyerDetails";
+import { withPadelProductContent, padelEntityFields, padelWebPageEntity } from "./padel-product-content";
 import NextLink from "next/link";
 import { notFound } from "next/navigation";
 import { PadelFooter, PadelHeader } from "./padel-components";
@@ -13,7 +16,7 @@ const developmentNotice =
 
 function getProduct(categorySlug, slug) {
   const product = padelProducts[slug];
-  return product?.categorySlug === categorySlug ? product : null;
+  return product?.categorySlug === categorySlug ? withPadelProductContent(product) : null;
 }
 
 function getProductUrl(product, slug) {
@@ -49,8 +52,8 @@ export async function getProductMetadata({ params, categorySlug }) {
       images: [
         {
           url: `${siteUrl}${product.images[0].src}`,
-          width: 1200,
-          height: 1200,
+          width: product.images[0].width || 1200,
+          height: product.images[0].height || 1200,
           alt: product.images[0].alt,
         },
       ],
@@ -110,6 +113,7 @@ export async function PadelProductPage({ params, categorySlug }) {
     {
       "@context": "https://schema.org",
       "@type": "Product",
+      ...padelEntityFields(product, canonical),
       sku: product.sku,
       name: product.name,
       description: product.metaDescription,
@@ -138,6 +142,37 @@ export async function PadelProductPage({ params, categorySlug }) {
       })),
     },
   ];
+  if (product.editorial) schemas.push(padelWebPageEntity(product, canonical));
+
+  const enhancedGallery = product.sku === "S005";
+  const galleryImages = [...product.images];
+  if (enhancedGallery) {
+    const rank = (image) => image.src.includes("-interior.") ? 0 : image.src.includes("-detail.") ? 1 : 2;
+    galleryImages.sort((a, b) => rank(a) - rank(b));
+  }
+  const gallerySection = (
+        <section className="padel-product-section" id="product-details-gallery" style={{ scrollMarginTop: 110 }}>
+          <div className="padel-product-heading">
+            <p className="eyebrow">{product.images.length}-view gallery</p>
+            <h2>{product.galleryHeading || "Main, carry, open-structure and detail views"}</h2>
+          </div>
+          <div className="padel-product-gallery" style={product.sku === "S005" ? { gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))" } : undefined}>
+            {galleryImages.map((image) => (
+              <figure key={image.src} style={{ margin: 0 }}>
+                <Image
+                src={image.src}
+                width={image.width || 1200}
+                height={image.height || 1200}
+                sizes="(max-width: 620px) calc(100vw - 28px), (max-width: 900px) 48vw, 25vw"
+                alt={image.alt}
+                loading="lazy"
+                />
+                {image.caption && <figcaption style={{ padding: "12px 2px", lineHeight: 1.6 }}>{image.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </section>
+  );
 
   return (
     <>
@@ -181,21 +216,29 @@ export async function PadelProductPage({ params, categorySlug }) {
               </a>
             </div>
           </div>
+          {enhancedGallery ? (
+            <PadelImageGallery images={product.images} model={product.sku} layout="padel" />
+          ) : (
           <figure className="padel-product-main-image">
             <Image
               src={product.images[0].src}
-              width={1200}
-              height={1200}
+              width={product.images[0].width || 1200}
+              height={product.images[0].height || 1200}
               sizes="(max-width: 900px) calc(100vw - 36px), 54vw"
               alt={product.images[0].alt}
               priority
             />
           </figure>
+          )}
         </section>
 
         <aside className="padel-development-notice">
-          <strong>Development status:</strong> {developmentNotice}
+          <strong>Development status:</strong> {product.developmentNotice || developmentNotice}
         </aside>
+
+        {enhancedGallery && gallerySection}
+
+        {product.editorial && <PadelBuyerDetails product={product} />}
 
         {product.procurementSnapshot && (
           <section className="padel-product-section padel-reference-section">
@@ -230,24 +273,7 @@ export async function PadelProductPage({ params, categorySlug }) {
           </ul>
         </section>
 
-        <section className="padel-product-section">
-          <div className="padel-product-heading">
-            <p className="eyebrow">Four-view gallery</p>
-            <h2>Main, carry, open-structure and detail views</h2>
-          </div>
-          <div className="padel-product-gallery">
-            {product.images.map((image) => (
-              <Image
-                key={image.src}
-                src={image.src}
-                width={1200}
-                height={1200}
-                sizes="(max-width: 620px) calc(100vw - 28px), (max-width: 900px) 48vw, 25vw"
-                alt={image.alt}
-              />
-            ))}
-          </div>
-        </section>
+        {!enhancedGallery && gallerySection}
 
         <section className="padel-product-section padel-reference-section">
           <div className="padel-product-heading">
@@ -312,6 +338,14 @@ export async function PadelProductPage({ params, categorySlug }) {
           </div>
         </section>
 
+        {product.relatedCollectionHref && (
+          <section className="padel-product-section">
+            <h2>Coordinate your Padel range</h2>
+            <p>Explore canvas tote, sports duffel and utility backpack development concepts alongside this sleeve.</p>
+            <Link href={product.relatedCollectionHref}>View Padel bags for court and everyday carry</Link>
+          </section>
+        )}
+
         <section className="padel-product-section padel-related-section">
           <div className="padel-product-heading">
             <p className="eyebrow">Related Collection</p>
@@ -346,7 +380,7 @@ export async function PadelProductPage({ params, categorySlug }) {
               <a href="mailto:info@cappuccinobag.net">
                 info@cappuccinobag.net
               </a>
-              .
+              {" "}or WhatsApp <a href="https://wa.me/8613928715568">+86 139 2871 5568</a>.
             </p>
           </div>
           <Link className="btn btn-primary" href={getInquiryUrl(product)}>

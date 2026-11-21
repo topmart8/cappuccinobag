@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PadelMobileMenu from "./PadelMobileMenu";
 import styles from "./page.module.css";
 
 const productLinks = [
@@ -51,7 +52,7 @@ export default function PadelHeader() {
           <Link href="/about-us/" prefetch={false}>About</Link>
         </nav>
         <Link className={styles.headerCta} href="#padel-rfq">Request Quote</Link>
-        <details className={styles.mobileMenu}>
+        <PadelMobileMenu className={styles.mobileMenu}>
           <summary aria-label="Open navigation"><span /><span /></summary>
           <nav aria-label="Mobile navigation">
             <details>
@@ -67,7 +68,7 @@ export default function PadelHeader() {
             <Link href="/about-us/" prefetch={false}>About</Link>
             <Link className={styles.mobileQuote} href="#padel-rfq">Request Quote</Link>
           </nav>
-        </details>
+        </PadelMobileMenu>
       </div>
     </header>
   );
