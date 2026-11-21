@@ -104,7 +104,7 @@ export const padelProductContent = {
     primaryIntent: "custom padel racket backpack",
     metaTitle: "Custom Padel Racket Backpack | Private Label | Cappuccino",
     metaDescription: "Develop PDB017 custom Padel racket backpacks with your logo, a proposed full-height racket sleeve and removable shoe pouch. Custom MOQ 300 per style.",
-    heading: "Custom Padel Racket Backpack for Training & Club Collections",
+    heading: "PDB017 Court Transit Padel Backpack",
     lead: "PDB017 is a custom Padel racket backpack development concept for brands, academies and club collections. The proposed layout combines a full-height racket sleeve and retaining strap, a forward-opening main compartment and a removable footwear pouch. Develop your colours and logo from 300 pieces per style; approve the combined packing fit on a physical sample.",
     headline: "Open the main compartment without unpacking the racket zone",
     evidence: "AI-generated design concept. The full-height racket path and removable footwear pouch are proposed features. EU 42 shoe fit and bottle retention still need a packed-sample test. Final material, dimensions, packed capacity and carry comfort require physical sample approval.",
