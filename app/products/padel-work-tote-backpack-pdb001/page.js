@@ -113,15 +113,11 @@ const detailImages = [
 ];
 
 const sampleImages = [
-  ["PDB001-real-sample-front-angle.webp", "Actual PDB001 sample front and angled views showing soft construction"],
   ["PDB001-real-sample-side-opening.webp", "Actual PDB001 sample side opening and curved racket pocket construction"],
   ["PDB001-real-sample-back-panel.webp", "Actual PDB001 sample back panel and padded backpack straps"],
-  ["PDB001-real-sample-back-views.webp", "Actual PDB001 sample rear carry configurations"],
   ["PDB001-real-sample-back-zipper-and-straps.webp", "Actual PDB001 sample rear zipper pocket and strap attachment details"],
   ["PDB001-real-sample-detachable-backpack-straps.webp", "Actual PDB001 sample detachable backpack strap hardware"],
   ["PDB001-real-sample-interior-pockets.webp", "Actual PDB001 sample interior pockets and laptop securing strap"],
-  ["PDB001-real-sample-zipper-and-interior.webp", "Actual PDB001 sample zipper construction and interior lining"],
-  ["PDB001-real-sample-racket-and-shoulder-use.webp", "Actual PDB001 sample with racket storage and shoulder carry mode"],
 ];
 
 const faqs = [
@@ -279,10 +275,10 @@ export default function Pdb001ProductPage() {
           <div><p className="eyebrow">OEM/ODM</p><h2>Develop the layout around your buyer</h2><p>We can adjust laptop fit, racket compartment, pocket count, straps, lining, colour blocking, zippers, hardware, logo execution and packaging. A physical sample is recommended before bulk production.</p><Link href="/custom-padel-bag-manufacturer">Work with a custom padel bag manufacturer</Link></div>
         </section>
 
-        <section className="pdb001-section pdb001-sample-section">
-          <div className="pdb001-heading"><p className="eyebrow">Actual sample photographs</p><h2>Real sample construction reference</h2><p>These are photographs of the physical sample, shown separately from the digital colour references. They provide evidence of the soft body, pockets, zipper access and convertible strap system.</p></div>
+        <section className="pdb001-section pdb001-sample-section" id="physical-sample" style={{ scrollMarginTop: "8rem" }}>
+          <div className="pdb001-heading"><p className="eyebrow">Actual sample photographs</p><h2>Real sample construction reference</h2><p>On the grey sample, the curved zip opens along the side of the bag. The close-ups show the interior divider, securing strap and lower strap attachments. To confirm fit for your version, send the racket and device dimensions so both can be checked in the same packed bag.</p></div>
           <div className="pdb001-image-grid pdb001-sample-grid">{sampleImages.map(([file, alt]) => <Image key={file} src={`/images/padel/PDB001/real-sample-reference/${file}`} width={1400} height={1400} sizes="(max-width: 620px) calc(100vw - 28px), (max-width: 900px) 48vw, 31vw" alt={alt} />)}</div>
-          <div className="pdb001-trust-links"><Link href="/factory-trust-materials">See our sample and production capability</Link><Link href={inquiryUrl}>Request a Sample</Link></div>
+          <div className="pdb001-trust-links"><Link href="/case-studies#padel-prototype-case">How a buyer compared soft and structured bodies</Link><Link href="/factory-trust-materials">See our sample and production capability</Link><Link href={inquiryUrl}>Request a Sample</Link></div>
         </section>
 
         <section className="pdb001-section pdb001-faq-section">

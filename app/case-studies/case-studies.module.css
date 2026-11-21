@@ -651,3 +651,17 @@
     justify-self: start;
   }
 }
+
+.sampleCase {
+  scroll-margin-top: 8rem;
+}
+
+.sampleCase h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.sampleCase p:not(.eyebrow) {
+  margin: 0 0 20px;
+  line-height: 1.7;
+}

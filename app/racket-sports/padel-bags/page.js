@@ -89,6 +89,8 @@ const programs = [
     value: "A focused format for racket protection, daily essentials and easier movement between locations.",
     features: ["Streamlined construction", "Core private-label details", "Scalable range planning"],
     products: [
+      ["Compare all Padel Backpacks", "/racket-sports/padel-backpacks"],
+      ["Dual-Pocket Padel Backpack · Custom Development", "/products/custom-padel-backpack-dual-side-pockets"],
       ["S002 · Urban 30L Padel Backpack", "/padel-bags/custom-30l-padel-backpack"],
       ["PDB001 · Padel Work Tote Backpack", "/products/padel-work-tote-backpack-pdb001"],
       ["PDB017 · Travel Court Utility Backpack", "/products/travel-padel-utility-backpack-pdb017"],
@@ -248,6 +250,7 @@ export default function PadelBagsLandingPage() {
             </nav>
             <h1>Custom Padel Bags: Racket Bags, Backpacks &amp; Duffels</h1>
             <p>Compare padel racket duffels, backpacks, totes, shoe bags and organizers by storage layout, carry system, materials and private-label design potential.</p>
+            <p>Buying for a club, academy or event? <Link href="/padel-club-tournament-supply">Explore club collections, member welcome kits and tournament packs.</Link></p>
             <div className={styles.actions}>
               <a className={styles.primaryButton} href="#padel-rfq">Request a Quote</a>
               <a className={styles.secondaryButton} href="#product-programs">Explore Padel Bag Formats</a>
