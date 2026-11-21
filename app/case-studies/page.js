@@ -9,11 +9,20 @@ import {
   organizationSchema,
 } from "./case-studies";
 
+const padelSampleCase = {
+  id: "padel-prototype-case",
+  title: "Why one Padel design went to sampling in two constructions",
+};
+const listedCases = [
+  { title: padelSampleCase.title, url: `/case-studies#${padelSampleCase.id}` },
+  ...caseStudies,
+];
+
 const hubFaqs = [
   {
     question: "What types of custom bag projects are included in these case studies?",
     answer:
-      "The case study center covers hospitality guest bags, vegan leather beauty accessories and rhinestone fashion handbags developed for brands in Europe, the United Kingdom and the United States.",
+      "The case study center includes a U.S. Padel prototype order, European hospitality guest bags, UK beauty accessories and U.S. fashion handbags.",
   },
   {
     question: "Can Cappuccino support both established groups and startup brands?",
@@ -30,7 +39,7 @@ const hubFaqs = [
 export const metadata = {
   title: "Custom Bag Manufacturing Case Studies | Cappuccino Bag",
   description:
-    "Explore custom bag manufacturing case studies for hospitality, vegan leather beauty accessories and rhinestone fashion handbags developed by Cappuccino Bag.",
+    "See why a Padel buyer ordered soft and structured prototypes, and how Cappuccino developed branded hospitality bags, beauty accessories and fashion handbags.",
   alternates: { canonical: `${caseStudySiteUrl}/case-studies` },
   openGraph: {
     title: "Custom Bag Manufacturing Case Studies | Cappuccino Bag",
@@ -65,7 +74,7 @@ export default function CaseStudiesPage() {
         url: `${caseStudySiteUrl}/case-studies`,
         mainEntity: {
           "@type": "ItemList",
-          itemListElement: caseStudies.map((caseStudy, index) => ({
+          itemListElement: listedCases.map((caseStudy, index) => ({
             "@type": "ListItem",
             position: index + 1,
             name: caseStudy.title,
@@ -100,15 +109,33 @@ export default function CaseStudiesPage() {
           <div>
             <p className={styles.eyebrow}>Case Study Center</p>
             <h1>Custom products, solved through practical development</h1>
-            <p>See how hospitality, beauty and fashion briefs were translated into material, branding, sampling and production decisions—without invented performance claims.</p>
+            <p>Explore the decisions behind a Padel prototype order, hotel guest bags and private-label accessories.</p>
             <Link className={styles.primaryButton} href="/inquiry?source=case-studies">Discuss your project</Link>
           </div>
           <div className={styles.hubStats} aria-label="Case study coverage">
-            <div><strong>03</strong><span>Documented projects</span></div>
+            <div><strong>{String(listedCases.length).padStart(2, "0")}</strong><span>Documented projects</span></div>
             <div><strong>03</strong><span>International markets</span></div>
             <div><strong>01</strong><span>Sample-first process</span></div>
           </div>
         </header>
+
+        <article id={padelSampleCase.id} className={`${styles.storySection} ${styles.sampleCase}`}>
+          <div className={styles.sectionHeading}>
+            <p className={styles.eyebrow}>United States · Paid Padel sample order</p>
+            <h2>{padelSampleCase.title}</h2>
+            <p>A buyer came to us with one bag design and a question about its shape. A drawing could show the outline. The buyer wanted to compare how a structured body and a soft body would hold that outline in use.</p>
+          </div>
+          <div>
+            <h3>What changed in the sample order?</h3>
+            <p>We quoted the same design in two constructions. The buyer paid for one structured prototype and one soft prototype, leaving the production choice open until the two could be compared.</p>
+            <h3>How to make the comparison on your own bag</h3>
+            <p>Put the same racket, shoes and clothing in each version. Photograph both standing, then take the racket out. Compare how far the opening folds in, how easily the racket goes back and how much room the shoes take from the main compartment.</p>
+            <div className={styles.resourceLinks}>
+              <Link href="/products/weekend-padel-carryall-pdb016#sample-checks">Plan a packed-fit check for the PDB016 duffel</Link>
+              <Link href="/inquiry?product=Padel%20Bags&format=Structured%20and%20soft%20prototype%20comparison">Request a two-construction sample quotation</Link>
+            </div>
+          </div>
+        </article>
 
         <section className={styles.hubIntro}>
           <p className={styles.eyebrow}>Development proof</p>

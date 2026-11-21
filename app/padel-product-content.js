@@ -67,7 +67,11 @@ export const padelProductContent = {
     structure: "The proposed horizontal padded sleeve and retaining tab hold one Padel racket alongside the main storage space. An inner zip pocket, ID slip, detachable small pouch and side bottle pocket organize smaller belongings. The wide top opening must be tested with the intended racket.",
     buyerFit: "For Padel lifestyle brands, club shops and retailers developing a canvas shoulder tote for lighter court days and daily essentials.",
     customization: "Choose canvas weight and handle construction, oat/clay or your own colour palette, lining, zipper, pocket arrangement and private-label artwork. Review embroidery, woven labels or print on the selected fabric swatch.",
-    checks: ["Insert and remove the target racket through the fully zipped opening.", "Check handle drop, shoulder comfort and the packed load.", "Approve canvas, lining, logo sample and pocket clearances."],
+    checks: [
+      "With the zip fully open, pass the target racket through the opening. Close the tote and check the handle drop on the shoulder.",
+      "Send the bottle diameter and height with the lid on. Put the filled bottle in the proposed side pocket and tip the packed tote sideways to check whether the neck slips out.",
+      "Specify the finished width of the embroidered mark in millimetres. For a symbol with a wordmark, dimension each and the complete layout. Approve a full-size stitch-out on the chosen canvas and mark its distance from the top seam."
+    ],
     faqs: [
       { question: "How does the canvas tote carry a Padel racket?", answer: "The concept uses a horizontal padded sleeve with a retaining tab for one racket. The racket head, grip and zipper opening must be checked together on the physical sample. The render does not establish universal racket compatibility." },
       { question: "Does PDB014 include a shoe compartment or laptop sleeve?", answer: "There is no fixed shoe compartment in this concept. A padded device sleeve can be developed separately, with combined racket and device clearance checked before approval. It is not included in the illustrated layout." },
@@ -89,7 +93,11 @@ export const padelProductContent = {
     structure: "A proposed sleeve along the long wall accommodates one Padel racket while the central space holds clothing and a towel. Footwear enters from the end into a removable pouch. A lid zip pocket and exterior quick-access pocket keep small items easy to reach.",
     buyerFit: "For Padel brands, tournament retailers and clubs developing a match-day or weekend duffel with hand and detachable shoulder carry.",
     customization: "Develop the exterior textile, sage/charcoal or custom colours, lining, shoulder strap, zipper pulls and logo. Resolve shoe-zone dimensions and the interaction between footwear, racket and clothing before fixing the pattern.",
-    checks: ["Pack the target racket, shoes and clothing together, then check usable space.", "Approve the footwear opening, pouch attachment and separation from clean gear.", "Review handle and strap comfort, seam construction and agreed load tests."],
+    checks: [
+      "For an EU 42 brief, send a pair of the intended shoes or their outsole length, widest width and height. Both shoes must pass through the end opening into the removable pouch.",
+      "Pack the racket and a change of clothes first. With the shoes in place, close the end zip and main zip, then photograph the space left for clothing.",
+      "Lift the packed duffel by the handles and shoulder strap. Check the pouch attachment, seams and strap comfort at the agreed load."
+    ],
     faqs: [
       { question: "How are shoes separated in this Padel duffel?", answer: "The proposal has an end-access footwear zone with a removable pouch. Usable shoe size, closure and the effect on the main compartment must be tested with the actual packed sample. The images do not prove odour control or ventilation performance." },
       { question: "How many Padel rackets is PDB016 designed to hold?", answer: "The current concept is based on one racket in a padded long-wall sleeve. Carrying additional rackets requires a revised specification and physical sample review; it is not a verified multi-racket capacity claim." },
@@ -111,7 +119,11 @@ export const padelProductContent = {
     structure: "The proposed full-height racket sleeve and retaining strap keep one racket upright, with grip and zipper clearance checked at the top. A removable shoe pouch sits inside the forward main space. Inner zip and slip pockets, a front utility pocket and side bottle storage organize training essentials. The retaining strap and all packed clearances require sample approval.",
     buyerFit: "For Padel brands, academies and specialist retailers developing a unisex training backpack with shoulder straps and a top grab handle.",
     customization: "Select exterior textile, slate-blue or custom colours, lining, back-panel construction, strap adjustment, pocket details and logo. A dedicated laptop sleeve is an optional development request with its own clearance review.",
-    checks: ["Check racket head, handle and zipper clearance throughout insertion and removal.", "Fit the intended shoes in the removable pouch with the main compartment packed.", "Review strap adjustment, back comfort and the intended carry load."],
+    checks: [
+      "EU 42 fit is unverified. Pack the intended pair in the removable inner pouch alongside the racket and clothing. Photograph the closed pack and record whether the grip clears the top zip.",
+      "Measure the filled bottle at its widest point and to the top of its lid. Walk with the packed backpack, then lay it on its side. Record whether the bottle moves out of the pocket or needs a tighter opening.",
+      "Check shoulder-strap adjustment and back comfort with the same load. Record the sample revision and the items used so the next prototype can be compared."
+    ],
     faqs: [
       { question: "Does PDB017 have a separate bottom shoe compartment?", answer: "No. This concept uses a removable footwear pouch within the main compartment. It does not have a fixed bottom shoe cavity crossing the full-height racket path. Confirm shoe size and remaining storage space on the packed sample." },
       { question: "Will a Padel racket fit entirely inside the backpack?", answer: "The concept proposes a full-height padded sleeve for one racket with the handle below the top opening. Actual racket dimensions, padding and zipper clearance require fit testing; universal compatibility is not claimed." },
