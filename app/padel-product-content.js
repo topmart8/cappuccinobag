@@ -106,17 +106,19 @@ export const padelProductContent = {
     metaDescription: "Develop PDB017 custom Padel racket backpacks with your logo, a proposed full-height racket sleeve and removable shoe pouch. Custom MOQ 300 per style.",
     heading: "PDB017 Court Transit Padel Backpack",
     lead: "PDB017 is a custom Padel racket backpack development concept for brands, academies and club collections. The proposed layout combines a full-height racket sleeve and retaining strap, a forward-opening main compartment and a removable footwear pouch. Develop your colours and logo from 300 pieces per style; approve the combined packing fit on a physical sample.",
-    headline: "Open the main compartment without unpacking the racket zone",
+    headline: "Racket access with the shoe pouch packed",
     evidence: "AI-generated design concept. The full-height racket path and removable footwear pouch are proposed features. EU 42 shoe fit and bottle retention still need a packed-sample test. Final material, dimensions, packed capacity and carry comfort require physical sample approval.",
     structure: "The proposed full-height racket sleeve and retaining strap keep one racket upright, with grip and zipper clearance checked at the top. A removable shoe pouch sits inside the forward main space. Inner zip and slip pockets, a front utility pocket and side bottle storage organize training essentials. The retaining strap and all packed clearances require sample approval.",
     buyerFit: "For Padel brands, academies and specialist retailers developing a unisex training backpack with shoulder straps and a top grab handle.",
     customization: "Select exterior textile, slate-blue or custom colours, lining, back-panel construction, strap adjustment, pocket details and logo. A dedicated laptop sleeve is an optional development request with its own clearance review.",
     checks: [
-      "EU 42 fit is unverified. Pack the intended pair in the removable inner pouch alongside the racket and clothing. Photograph the closed pack and record whether the grip clears the top zip.",
+      "Record the sample revision, shoe model and outer dimensions, and racket length, width and thickness. Pack both EU 42 shoes in the removable pouch, one racket in its sleeve, the intended clothing in the main compartment and a full bottle in the side pocket.",
+      "Check whether the main zip closes without force. Reopen the pack, release the racket strap and try to lift the racket out with everything else in place. Photograph the closed zip and the racket partway out on that same sample. Note where it catches or which item needs moving.",
       "Measure the filled bottle at its widest point and to the top of its lid. Walk with the packed backpack, then lay it on its side. Record whether the bottle moves out of the pocket or needs a tighter opening.",
-      "Check shoulder-strap adjustment and back comfort with the same load. Record the sample revision and the items used so the next prototype can be compared."
+      "Check shoulder-strap adjustment and back comfort with the same load."
     ],
     faqs: [
+      { question: "Can I take the racket out of PDB017 without moving a pair of EU 42 court shoes?", answer: "Racket access with EU 42 shoes is still unverified. The shoe pouch sits inside the main compartment, so its packed shape can affect clearance at the zip. For a sample review, send the shoe model and dimensions and the racket dimensions. The check is whether the racket lifts out freely with the shoes, clothing and full bottle still in place." },
       { question: "Does PDB017 have a separate bottom shoe compartment?", answer: "No. This concept uses a removable footwear pouch within the main compartment. It does not have a fixed bottom shoe cavity crossing the full-height racket path. Confirm shoe size and remaining storage space on the packed sample." },
       { question: "Will a Padel racket fit entirely inside the backpack?", answer: "The concept proposes a full-height padded sleeve for one racket with the handle below the top opening. Actual racket dimensions, padding and zipper clearance require fit testing; universal compatibility is not claimed." },
       { question: "Can I add laptop storage to the backpack?", answer: "A dedicated padded device sleeve can be developed on request. It is not included as a verified feature of this version. Supply device dimensions so the combined racket, device and footwear layout can be reviewed." },
