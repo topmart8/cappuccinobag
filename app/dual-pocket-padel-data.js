@@ -24,6 +24,6 @@ export const faqs = [
 export const backpackOptions = [
   {name: productName, href: productPath, use: "Club retail and branded daily court bags", layout: "Rounded silhouette; separate front racket compartment; bottle and ball-tube side pockets", check: "Bottle, tube and racket fit; simultaneous packing; strap comfort"},
   {name: "S002 · Urban Padel Backpack", href: "/padel-bags/custom-30l-padel-backpack", use: "Compact urban training collections", layout: "Vertical backpack direction with configurable racket and everyday storage", check: "Final usable volume and equipment arrangement"},
-  {name: "PDB017 · Travel Court Utility Backpack", href: "/products/travel-padel-utility-backpack-pdb017", use: "Daily training and travel collections", layout: "Utility silhouette; proposed full-height racket sleeve and removable footwear pouch", check: "Racket, footwear and clothing packed together"},
+  {name: "PDB017 Court Transit Padel Backpack", href: "/products/travel-padel-utility-backpack-pdb017", use: "Daily training and travel collections", layout: "Utility silhouette; proposed full-height racket sleeve and removable footwear pouch", check: "Racket, footwear and clothing packed together"},
   {name: "PDB001 · Padel Work Tote Backpack", href: "/products/padel-work-tote-backpack-pdb001", use: "Work-to-court lifestyle collections", layout: "Tote/backpack direction with a curved racket compartment", check: "Device and racket compatibility; preferred carry mode"},
 ];

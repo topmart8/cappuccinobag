@@ -88,7 +88,7 @@ export default function PadelAccessoriesPage() {
               </Link>
               <Link
                 className="btn btn-secondary"
-                href="/custom-padel-bag-manufacturer"
+                href="/racket-sports/padel-bags"
               >
                 View Full Padel Collection
               </Link>
