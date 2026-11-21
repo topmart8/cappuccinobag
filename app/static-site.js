@@ -65,6 +65,8 @@ const allowedPages = new Set([
   "blog/custom-cooler-tote-bag-development-guide",
   "blog/laptop-travel-backpack-oem-buying-guide",
   "blog/verify-custom-bag-manufacturer-china",
+  "blog/custom-padel-bag-moq-prototype-cost",
+  "blog/padel-bag-packed-fit-test",
   "blog/custom-bag-development-quality-control-process",
   "blog/recycled-nylon-polyester-packable-bags-guide",
   "blog/bag-manufacturer-compliance-documents-explained",
