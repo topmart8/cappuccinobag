@@ -209,7 +209,7 @@ export function HybridPadelProductPage({ slug }) {
         <section className="hybrid-section">
           <div className="hybrid-section-heading"><p className="eyebrow">Related products</p><h2>Continue through the hybrid series</h2></div>
           <div className="hybrid-card-grid">{relatedProducts.map((item) => <article key={item.model}><Image src={item.images[0].src} width={1250} height={1250} alt={item.images[0].alt} loading="eager" /><div><p className="eyebrow">{item.model}</p><h3>{item.name}</h3><Link href={getHybridProductHref(item.slug)}>View product page</Link></div></article>)}</div>
-          <div className="hybrid-article-links"><h2>Related buyer guides</h2>{relatedBlogs.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div>
+          <div className="hybrid-article-links"><h2>Related buyer guides</h2>{product.model === "PDB017" && <Link href="/blog/padel-bag-packed-fit-test">Test racket access with the bag fully packed</Link>}{relatedBlogs.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div>
         </section>
 
         <section className="hybrid-rfq">
