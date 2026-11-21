@@ -280,6 +280,7 @@ export const hybridProducts = {
   },
   "travel-padel-utility-backpack-pdb017": {
     model: "PDB017",
+    updated: "2026-11-21",
     name: "Court Transit Padel Backpack",
     h1: "Custom Multifunction Padel Backpack",
     metaTitle: "Custom Padel Backpack PDB017 | Cappuccino Bag",

@@ -107,11 +107,15 @@ export const padelProductContent = {
     heading: "Custom Padel Racket Backpack for Training & Club Collections",
     lead: "PDB017 is a custom Padel racket backpack development concept for brands, academies and club collections. The proposed layout combines a full-height racket sleeve and retaining strap, a forward-opening main compartment and a removable footwear pouch. Develop your colours and logo from 300 pieces per style; approve the combined packing fit on a physical sample.",
     headline: "Open the main compartment without unpacking the racket zone",
-    evidence: "AI-generated design concept. The full-height racket path and removable footwear pouch are proposed features. Final material, dimensions, packed capacity and carry comfort require physical sample approval.",
+    evidence: "AI-generated design concept. The full-height racket path and removable footwear pouch are proposed features. EU 42 shoe fit and bottle retention still need a packed-sample test. Final material, dimensions, packed capacity and carry comfort require physical sample approval.",
     structure: "The proposed full-height racket sleeve and retaining strap keep one racket upright, with grip and zipper clearance checked at the top. A removable shoe pouch sits inside the forward main space. Inner zip and slip pockets, a front utility pocket and side bottle storage organize training essentials. The retaining strap and all packed clearances require sample approval.",
     buyerFit: "For Padel brands, academies and specialist retailers developing a unisex training backpack with shoulder straps and a top grab handle.",
     customization: "Select exterior textile, slate-blue or custom colours, lining, back-panel construction, strap adjustment, pocket details and logo. A dedicated laptop sleeve is an optional development request with its own clearance review.",
-    checks: ["Check racket head, handle and zipper clearance throughout insertion and removal.", "Fit the intended shoes in the removable pouch with the main compartment packed.", "Review strap adjustment, back comfort and the intended carry load."],
+    checks: [
+      "EU 42 fit is unverified. Pack the intended pair in the removable inner pouch alongside the racket and clothing. Photograph the closed pack and record whether the grip clears the top zip.",
+      "Measure the filled bottle at its widest point and to the top of its lid. Walk with the packed backpack, then lay it on its side. Record whether the bottle moves out of the pocket or needs a tighter opening.",
+      "Check shoulder-strap adjustment and back comfort with the same load. Record the sample revision and the items used so the next prototype can be compared."
+    ],
     faqs: [
       { question: "Does PDB017 have a separate bottom shoe compartment?", answer: "No. This concept uses a removable footwear pouch within the main compartment. It does not have a fixed bottom shoe cavity crossing the full-height racket path. Confirm shoe size and remaining storage space on the packed sample." },
       { question: "Will a Padel racket fit entirely inside the backpack?", answer: "The concept proposes a full-height padded sleeve for one racket with the handle below the top opening. Actual racket dimensions, padding and zipper clearance require fit testing; universal compatibility is not claimed." },

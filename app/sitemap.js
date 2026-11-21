@@ -18,7 +18,7 @@ const routes = [
   { path: "/products/croc-embossed-rolling-backpack", priority: 0.85, updated: "2026-10-25" },
   { path: "/blog/canton-fair-custom-bag-factory-visit-guangzhou", priority: 0.84, updated: "2026-10-15" },
   { path: "/", priority: 1.0 },
-  { path: "/custom-padel-bag-manufacturer", priority: 0.95, updated: "2026-08-16" },
+  { path: "/custom-padel-bag-manufacturer", priority: 0.95, updated: "2026-11-21" },
   { path: "/racket-sports/padel-bags", priority: 0.98, updated: "2026-11-04" },
   { path: "/products", priority: 0.9 },
   { path: "/golf-bags", priority: 0.75, updated: "2026-11-01" },
@@ -127,7 +127,7 @@ const routes = [
 
 export default function sitemap() {
   const dynamicRoutes = [
-    ...hybridProductEntries.map((product) => ({ path: `/products/${product.slug}`, priority: 0.95 })),
+    ...hybridProductEntries.map((product) => ({ path: `/products/${product.slug}`, priority: 0.95, updated: product.updated })),
     ...Object.keys(hybridPadelArticles).map((slug) => ({ path: `/blog/${slug}`, priority: 0.84 })),
     ...Object.keys(techGiftArticles).map((slug) => ({ path: `/blog/${slug}`, priority: 0.84, updated: "2026-08-13" })),
     ...runningProducts.map((product) => ({ path: product.href, priority: 0.9 })),
@@ -178,7 +178,7 @@ export default function sitemap() {
     const isProduct = path.startsWith("/products/") || path.startsWith("/padel-bags/") || path.startsWith("/padel-accessories/");
     unique.set(path, {
       url: `${baseUrl}${path}`,
-      lastModified: route.updated || "2026-08-02",
+      ...(route.updated ? { lastModified: route.updated } : {}),
       changeFrequency: "weekly",
       priority: priorityOverrides.get(path) || (isProduct ? Math.min(route.priority, 0.85) : route.priority),
     });
