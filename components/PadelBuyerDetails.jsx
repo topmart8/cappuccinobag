@@ -2,7 +2,7 @@ import Link from "next/link";
 import { padelProductContent } from "../app/padel-product-content";
 import styles from "./PadelBuyerDetails.module.css";
 
-export default function PadelBuyerDetails({ product }) {
+export default function PadelBuyerDetails({ product, inquiryHref }) {
   const content = product.editorial;
   if (!content) return null;
   const model = product.model || product.sku;
@@ -10,8 +10,14 @@ export default function PadelBuyerDetails({ product }) {
     <section className={styles.section} aria-labelledby="buyer-detail-heading">
       <p className={styles.eyebrow}>{model} · Private-label development</p>
       <h2 id="buyer-detail-heading">{content.headline}</h2>
+      {content.packedFitAnswer && (
+        <p>
+          {content.packedFitAnswer}{" "}
+          {inquiryHref && <><Link href={inquiryHref}>Send your shoe outsole length and width, racket dimensions, and bottle size for a PDB017 fit review</Link>.</>}
+        </p>
+      )}
       <div className={styles.grid}>
-        <article><h3>How the interior works</h3><p>{content.structure}</p><a href="#product-details-gallery">Inspect interior and detail images</a></article>
+        <article><h3>How the interior works</h3><p>{content.structure}</p>{content.packedFitAnswer && <p><Link href="/blog/padel-bag-packed-fit-test">See how to test racket access with the shoe pouch packed</Link></p>}<a href="#product-details-gallery">Inspect interior and detail images</a></article>
         <article><h3>Who this format is for</h3><p>{content.buyerFit}</p><h3>Make it your own</h3><p>{content.customization}</p></article>
       </div>
       <div className={styles.evidence}>

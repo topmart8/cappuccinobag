@@ -165,7 +165,7 @@ export function HybridPadelProductPage({ slug }) {
           <div className="hybrid-link-row"><Link href="/custom-padel-bag-manufacturer">Padel manufacturer process</Link><Link href="/factory-trust-materials">Factory proof</Link><Link href="/resources">Buyer resources</Link></div>
         </section>
 
-        {product.editorial ? <PadelBuyerDetails product={product} /> : <section className="hybrid-answer-grid" aria-label="Quick product answers">
+        {product.editorial ? <PadelBuyerDetails product={product} inquiryHref={inquiryHref(product)} /> : <section className="hybrid-answer-grid" aria-label="Quick product answers">
           <article><h2>Can this padel bag fit a laptop?</h2><p>{product.laptopFit}. Device fit is approved against the target hardware.</p></article>
           <article><h2>What separates work and court gear?</h2><p>{product.organization}</p></article>
         </section>}
