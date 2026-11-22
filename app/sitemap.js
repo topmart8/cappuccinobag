@@ -40,6 +40,7 @@ const routes = [
   { path: "/travel-bag-luggage-customization-guide", priority: 0.7 },
   { path: "/custom-tennis-bag-guide", priority: 0.7 },
   { path: "/pickleball-bag-customization-guide", priority: 0.7 },
+  { path: "/padel-bag-design-guide", priority: 0.7, updated: "2026-11-22" },
   { path: "/hiking-backpack-customization-guide", priority: 0.68 },
   { path: "/quality-inspection-guide", priority: 0.65 },
   { path: "/moq-sampling-faq", priority: 0.65, updated: "2026-11-22" },
