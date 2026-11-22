@@ -1,5 +1,6 @@
 import Image from "next/image";
 import PadelImageGallery from "../components/PadelImageGallery";
+import { getPadelCatalogGuides, padelBackpackCollection, rankComparablePadelProducts } from "./padel-catalog-navigation";
 import PadelBuyerDetails from "../components/PadelBuyerDetails";
 import { withPadelProductContent, padelEntityFields, padelWebPageEntity } from "./padel-product-content";
 import Link from "next/link";
@@ -88,7 +89,10 @@ export function HybridPadelProductPage({ slug }) {
   ];
   if (product.editorial) schemas.push(padelWebPageEntity(product, canonical));
 
-  const relatedProducts = hybridProductEntries.filter((item) => item.model !== product.model).slice(0, 3);
+  const relatedProducts = rankComparablePadelProducts(product.model, hybridProductEntries.filter((item) => item.model !== product.model)).slice(0, 3);
+  const productGuides = getPadelCatalogGuides(product.model);
+  const relatedGuides = new Map([...productGuides, ...relatedBlogs.map(([label, href]) => [href, label])]);
+  if (product.model === "PDB017") relatedGuides.set("/blog/padel-bag-packed-fit-test", "Test racket access with the bag fully packed");
 
   const enhancedGallery = ["PDB014", "PDB016", "PDB017"].includes(product.model);
   const galleryImages = product.images.slice(1);
@@ -209,7 +213,7 @@ export function HybridPadelProductPage({ slug }) {
         <section className="hybrid-section">
           <div className="hybrid-section-heading"><p className="eyebrow">Related products</p><h2>Continue through the hybrid series</h2></div>
           <div className="hybrid-card-grid">{relatedProducts.map((item) => <article key={item.model}><Image src={item.images[0].src} width={1250} height={1250} alt={item.images[0].alt} loading="eager" /><div><p className="eyebrow">{item.model}</p><h3>{item.name}</h3><Link href={getHybridProductHref(item.slug)}>View product page</Link></div></article>)}</div>
-          <div className="hybrid-article-links"><h2>Related buyer guides</h2>{product.model === "PDB017" && <Link href="/blog/padel-bag-packed-fit-test">Test racket access with the bag fully packed</Link>}{relatedBlogs.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div>
+          <div className="hybrid-article-links"><h2>Related buyer guides</h2>{product.model === "PDB017" && <Link href={padelBackpackCollection}>Compare other Padel backpack layouts</Link>}{[...relatedGuides].map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}</div>
         </section>
 
         <section className="hybrid-rfq">

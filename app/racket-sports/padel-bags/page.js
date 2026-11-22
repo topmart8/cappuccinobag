@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SiteFooter from "../../../components/SiteFooter";
+import { padelCatalog } from "../../padel-catalog-navigation";
 import PadelHeader from "./PadelHeader";
 import PadelRfqForm from "./PadelRfqForm";
 import styles from "./page.module.css";
@@ -93,7 +94,7 @@ const programs = [
       ["Dual-Pocket Padel Backpack · Custom Development", "/products/custom-padel-backpack-dual-side-pockets"],
       ["S002 · Urban 30L Padel Backpack", "/padel-bags/custom-30l-padel-backpack"],
       ["PDB001 · Padel Work Tote Backpack", "/products/padel-work-tote-backpack-pdb001"],
-      ["PDB017 Court Transit Padel Backpack", "/products/travel-padel-utility-backpack-pdb017"],
+      [padelCatalog.PDB017.label, "/products/travel-padel-utility-backpack-pdb017"],
     ],
   },
   {
@@ -106,9 +107,9 @@ const programs = [
     value: "A lighter direction that combines racket storage with work, travel or everyday organization.",
     features: ["Material and trim direction", "Custom storage architecture", "Sample-led specification lock"],
     products: [
-      ["PDB014 · Women’s Court Chic Tote", "/products/womens-lightweight-padel-tote-pdb014"],
+      [padelCatalog.PDB014.label, "/products/womens-lightweight-padel-tote-pdb014"],
       ["PDB015 · Work-Court Commuter Tote", "/products/work-court-padel-commuter-tote-pdb015"],
-      ["PDB016 · Weekend Match Carryall", "/products/weekend-padel-carryall-pdb016"],
+      [padelCatalog.PDB016.label, "/products/weekend-padel-carryall-pdb016"],
     ],
   },
 ];
@@ -145,6 +146,14 @@ const formatComparison = [
     rackets: "Use a dedicated sleeve or pocket and verify the intended load in sampling",
     shoes: "Separate shoe storage is optional where the structure allows it",
     suitability: "Lifestyle, resort and work-to-court collections",
+  },
+  {
+    format: "Racket sleeve",
+    href: "/padel-accessories/custom-padel-racket-sleeve",
+    use: "Compact coverage for one racket; a separate style for club shop kits",
+    rackets: "One-racket cover direction; verify the intended racket on a sample",
+    shoes: "Not intended for footwear",
+    suitability: padelCatalog.S005.observed[0][1],
   },
   {
     format: "Shoe bag",
@@ -317,7 +326,7 @@ export default function PadelBagsLandingPage() {
           <div className={styles.sectionIntro}>
             <p className={styles.sectionLabel}>Format comparison</p>
             <h2 id="padel-format-comparison">Which Padel Bag Format Fits the Buyer Program?</h2>
-            <p>Choose the format from the intended load and carry routine. Racket and shoe fit still need confirmation with the target equipment during sampling.</p>
+            <p>Choose the format from the intended load and carry routine. Racket and shoe fit still need confirmation with the target equipment during sampling. Use the <Link href="/padel-bag-design-guide">Padel bag selection and sampling guide</Link> to prepare your shortlist for factory review, or <Link href="/padel-accessories">compare racket sleeves and other Padel accessories</Link>.</p>
           </div>
           <div className={styles.comparisonTableWrap} tabIndex="0" role="region" aria-label="Scrollable padel bag format comparison">
             <table className={styles.comparisonTable}>

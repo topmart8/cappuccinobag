@@ -1,3 +1,4 @@
+import { getPadelCatalogGuides } from "./padel-catalog-navigation";
 import Image from "next/image";
 import PadelImageGallery from "../components/PadelImageGallery";
 import PadelBuyerDetails from "../components/PadelBuyerDetails";
@@ -346,6 +347,12 @@ export async function PadelProductPage({ params, categorySlug }) {
           </section>
         )}
 
+        {product.sku === "S005" && (
+          <nav className="padel-product-section" aria-label="Racket sleeve buying guides">
+            <h2>Review the sleeve before sampling</h2>
+            <ul>{getPadelCatalogGuides(product.sku).map(([href, label]) => <li key={href}><Link href={href}>{label}</Link></li>)}</ul>
+          </nav>
+        )}
         <section className="padel-product-section padel-related-section">
           <div className="padel-product-heading">
             <p className="eyebrow">Related Collection</p>
