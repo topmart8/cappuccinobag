@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteFooter from "../../../components/SiteFooter";
 import { padelCatalog } from "../../padel-catalog-navigation";
+import { hybridProductEntries } from "../../hybrid-padel-data";
 import PadelHeader from "./PadelHeader";
 import PadelRfqForm from "./PadelRfqForm";
 import styles from "./page.module.css";
@@ -257,12 +258,14 @@ export default function PadelBagsLandingPage() {
             <nav className={styles.breadcrumb} aria-label="Breadcrumb">
               <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/custom-tennis-padel-racket-bags">Racket Sports</Link><span aria-hidden="true">/</span><span>Padel Bags</span>
             </nav>
+            <p className={styles.sectionLabel}>BUILT FOR THE COURT. DESIGNED FOR YOUR BRAND.</p>
             <h1>Custom Padel Bags: Racket Bags, Backpacks &amp; Duffels</h1>
-            <p>Compare padel racket duffels, backpacks, totes, shoe bags and organizers by storage layout, carry system, materials and private-label design potential.</p>
-            <p>Buying for a club, academy or event? <Link href="/padel-club-tournament-supply">Explore club collections, member welcome kits and tournament packs.</Link></p>
+            <p>Choose a carry format for your players, compare four model references and brief your own materials and logo.</p>
+            <p><Link href="/custom-padel-bag-manufacturer">OEM manufacturing, sampling and factory review</Link></p>
+            <p><Link href="/padel-club-tournament-supply">Club and tournament programmes</Link></p>
             <div className={styles.actions}>
               <a className={styles.primaryButton} href="#padel-rfq">Request a Quote</a>
-              <a className={styles.secondaryButton} href="#product-programs">Explore Padel Bag Formats</a>
+              <a className={styles.secondaryButton} href="#model-shortlist">Compare four model references</a>
             </div>
           </div>
           <div className={styles.heroMedia}>
@@ -353,6 +356,38 @@ export default function PadelBagsLandingPage() {
               </tbody>
             </table>
           </div>
+        </section>
+
+        <section className={styles.section} id="model-shortlist" aria-labelledby="shortlist-heading">
+          <div className={styles.sectionIntro}>
+            <h2 id="shortlist-heading">Shortlist a model for your collection</h2>
+            <p>Compare the intended load first. The three bag dimensions below are design targets. Finished weight, usable volume and packed fit need a measured sample for each style.</p>
+          </div>
+          <div className={styles.comparisonTableWrap} tabIndex="0" role="region" aria-label="Four-model comparison">
+            <table className={styles.comparisonTable}>
+              <caption>Model, use and evidence for the first brief</caption>
+              <thead><tr><th scope="col">Reference</th><th scope="col">Intended use and layout</th><th scope="col">Size evidence</th><th scope="col">Start a brief</th></tr></thead>
+              <tbody>{["PDB014", "PDB016", "PDB017", "S005"].map((sku) => {
+                const model = padelCatalog[sku];
+                const concept = hybridProductEntries.find((entry) => entry.model === sku);
+                const dimensions = concept?.procurementSnapshot.find(([label]) => label === "Proposed outer dimensions")?.[1];
+                return <tr key={sku}>
+                  <th scope="row"><Link href={model.href}>{model.label}</Link></th>
+                  <td>{concept ? concept.shortDescription : "Individual racket cover. Sample imagery shows a front pocket and reflective lining; thermal performance needs testing."}</td>
+                  <td>{dimensions || "Usable dimensions pending measurement of the sleeve and its opening."}</td>
+                  <td><a href={`?sku=${sku}#padel-rfq`}>Prepare {sku} RFQ</a></td>
+                </tr>;
+              })}</tbody>
+            </table>
+          </div>
+          <h3>Collection planning briefs</h3>
+          <p>Each proposal starts with a separate sample assessment. New production starts at 300 pieces per style; quantities across styles cannot be combined.</p>
+          <dl>
+            <dt><strong>Padel Brand Starter Collection</strong></dt><dd>For a first private-label range, compare the PDB017 backpack and S005 sleeve. Specify brand colour and logo placement for each.</dd>
+            <dt><strong>Professional Court Collection</strong></dt><dd>For academies planning match-day equipment, start with PDB016. Discuss footwear separation, zipper access and carry balance under the intended load.</dd>
+            <dt><strong>Women’s Padel Lifestyle Collection</strong></dt><dd>For lifestyle buyers, start with the PDB014 tote. Review handle drop, canvas hand feel and racket access for the commute.</dd>
+            <dt><strong>Club &amp; Distributor Collection</strong></dt><dd>For club programmes and resale, pair the S005 sleeve conceptually with PDB017. Cost the crest, packaging and quantity separately for each style.</dd>
+          </dl>
         </section>
 
         <section className={`${styles.section} ${styles.productProofSection}`}>
