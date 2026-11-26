@@ -260,13 +260,13 @@ export default function PadelBagsLandingPage() {
             </nav>
             <p className={styles.sectionLabel}>BUILT FOR THE COURT. DESIGNED FOR YOUR BRAND.</p>
             <h1>Custom Padel Bags: Racket Bags, Backpacks &amp; Duffels</h1>
-            <p>Choose a carry format for your players, compare four model references and brief your own materials and logo.</p>
-            <p><Link href="/custom-padel-bag-manufacturer">OEM manufacturing, sampling and factory review</Link></p>
-            <p><Link href="/padel-club-tournament-supply">Club and tournament programmes</Link></p>
             <div className={styles.actions}>
               <a className={styles.primaryButton} href="#padel-rfq">Request a Quote</a>
               <a className={styles.secondaryButton} href="#model-shortlist">Compare four model references</a>
             </div>
+            <p>Choose a carry format for your players, compare four model references and brief your own materials and logo.</p>
+            <p><Link href="/custom-padel-bag-manufacturer">OEM manufacturing, sampling and factory review</Link></p>
+            <p><Link href="/padel-club-tournament-supply">Club and tournament programmes</Link></p>
           </div>
           <div className={styles.heroMedia}>
             <Image src={`${imageBase}/02-padel-club-hero-lifestyle.png`} fill priority sizes="(max-width: 800px) 100vw, 52vw" alt="Premium padel bag beside a modern padel court" />
