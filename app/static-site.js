@@ -99,6 +99,18 @@ const allowedPages = new Set([
   "custom-hiking-daypack-landing",
   "custom-tennis-padel-racket-bag-landing",
   "custom-pickleball-bag-landing",
+  "custom-pickleball-accessories",
+  "custom-pickleball-backpacks",
+  "modular-paddle-backpacks",
+  "private-label-pickleball-bags",
+  "blog/25l-vs-30l-pickleball-bags",
+  "blog/how-to-choose-a-pickleball-bag-manufacturer",
+  "blog/pickleball-backpack-oem-development-guide",
+  "blog/how-to-design-a-multi-compartment-court-bag",
+  "blog/materials-for-durable-pickleball-bags",
+  "blog/modular-paddle-storage-design-considerations",
+  "blog/pickleball-bag-quality-inspection-checklist",
+  "blog/private-label-pickleball-bags-moq-and-sampling",
   ...publicRootPages,
 ]);
 

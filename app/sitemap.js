@@ -10,6 +10,18 @@ import { cardHolderProducts } from "./card-holder-data.js";
 const baseUrl = "https://www.cappuccinobag.com";
 
 const routes = [
+  { path: "/custom-pickleball-accessories", priority: 0.86 },
+  { path: "/custom-pickleball-backpacks", priority: 0.86 },
+  { path: "/modular-paddle-backpacks", priority: 0.86 },
+  { path: "/private-label-pickleball-bags", priority: 0.86 },
+  { path: "/blog/25l-vs-30l-pickleball-bags", priority: 0.72 },
+  { path: "/blog/how-to-choose-a-pickleball-bag-manufacturer", priority: 0.72 },
+  { path: "/blog/pickleball-backpack-oem-development-guide", priority: 0.72 },
+  { path: "/blog/how-to-design-a-multi-compartment-court-bag", priority: 0.72 },
+  { path: "/blog/materials-for-durable-pickleball-bags", priority: 0.72 },
+  { path: "/blog/modular-paddle-storage-design-considerations", priority: 0.72 },
+  { path: "/blog/pickleball-bag-quality-inspection-checklist", priority: 0.72 },
+  { path: "/blog/private-label-pickleball-bags-moq-and-sampling", priority: 0.72 },
   { path: "/racket-sports/padel-backpacks", priority: 0.9, updated: "2026-11-17" },
   { path: "/products/custom-padel-backpack-dual-side-pockets", priority: 0.85, updated: "2026-11-17" },
   { path: "/padel-club-tournament-supply", priority: 0.9, updated: "2026-11-16" },

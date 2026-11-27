@@ -133,7 +133,17 @@ function preselectInquiryContext(form) {
   if (project === "Pickleball Bags") {
     if (intention) intention.value = "Pickleball / Padel Bag Project";
     if (product) product.value = "Pickleball Bags";
-    if (message && format && !message.value) message.value = `Pickleball bag format: ${format}\n`;
+    if (message && format && !message.value) {
+      const lines = [`Pickleball bag format: ${format}`];
+      if (params.get("request") === "sample") lines.push("Request: sample review");
+      if (document.referrer) {
+        const source = new URL(document.referrer);
+        if (source.origin === window.location.origin) {
+          lines.push(`Source: ${source.origin}${source.pathname}`);
+        }
+      }
+      message.value = lines.join("\n") + "\n";
+    }
     return;
   }
 
@@ -316,6 +326,9 @@ function initializeInquiryForm(form) {
         );
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error("Inquiry endpoint failed.");
+        if (result.ok !== true || typeof result.inquiryNumber !== "string" || !result.inquiryNumber.trim()) {
+          throw new Error("Inquiry receipt missing.");
+        }
         completeSubmission(form);
         window.cappuccinoAnalytics?.trackLeadSuccess(
           "rfq",
