@@ -7,6 +7,11 @@
     <meta name="description" content="Specify a custom pickleball bag by paddle capacity, access, organization, carry, materials, branding and quotation requirements.">
     <link rel="canonical" href="https://www.cappuccinobag.com/pickleball-bag-customization-guide/">
     <link rel="stylesheet" href="../assets/styles.css">
+    <style>
+      .sample-brief-form { display: grid; gap: 10px; min-width: min(210px, 100%); }
+      .sample-brief-form select { width: 100%; min-height: 44px; padding: 8px; font: inherit; }
+      .c2-guide .quote-section p + p { margin-top: 12px; }
+    </style>
   </head>
   <body>
     <header class="site-header">
@@ -28,7 +33,7 @@
       <a class="header-cta" href="../inquiry/" data-track="header_quote_click">Get A Free Quote</a>
     </header>
     <main class="c2-guide">
-      <section class="page-hero"><p class="eyebrow">Pickleball Product Planning</p><h1>Pickleball Bag Customization Guide</h1><p>A practical specification guide for brands comparing pickleball sling bags, backpacks and tournament bags by paddle fit, access, organization and carry.</p><div class="hero-actions"><a class="btn btn-primary" href="/inquiry">Request a Quote</a><a class="btn btn-secondary" href="/custom-pickleball-paddle-bags">Explore Pickleball Bags</a></div></section>
+      <section class="page-hero"><p class="eyebrow">Pickleball Product Planning</p><h1>Pickleball Bag Customization Guide</h1><p>A practical specification guide for brands comparing pickleball sling bags, backpacks and tournament bags by paddle fit, access, organization and carry.</p><div class="hero-actions"><a class="btn btn-primary" href="/inquiry?product=Pickleball+Bags">Request a Quote</a><a class="btn btn-secondary" href="/custom-pickleball-paddle-bags">Explore Pickleball Bags</a></div></section>
       <section class="section"><div class="resource-article-grid">
         <article><h2>Start with paddle count and bag format</h2><p>Define the number and maximum dimensions of paddles the bag must hold. A compact sling for casual play, a backpack for regular club use and a larger tournament bag require different openings and internal volume. Confirm whether paddles sit in a dedicated sleeve or share the main compartment with apparel.</p></article>
         <article><h2>Design access around court routines</h2><p>Map where balls, bottle, phone, keys, grips and clothing are stored and how often each item is reached. Quick-access pockets should not press against paddle faces or block the main opening. If the design includes a fence hook, shoe zone or wet-item pocket, mark its operating space on the sketch.</p></article>
@@ -37,7 +42,26 @@
         <article><h2>Coordinate materials, colours and logos</h2><p>Provide colour references and identify shell, lining, webbing, zipper and hardware preferences. Place logos on the artwork at the intended size and method. Sampling should confirm appearance as well as whether decoration sits across seams, curved panels or high-wear areas.</p></article>
         <article><h2>What to send for quotation</h2><p>Prepare the bag format, paddle capacity, approximate dimensions, compartment list, carry preference, material direction, artwork, packaging, quantity and destination market. These details allow a manufacturer to review feasibility, sampling work and MOQ factors without assuming features that were not requested.</p></article>
       </div></section>
-      <section class="quote-section"><div><h2>Pickleball Bag Project Review</h2><p>Share the paddle count, format, compartments, carry style, branding and quantity for a focused project review.</p></div><a class="btn btn-primary" href="/inquiry">Send My Project</a></section>
+      <section class="quote-section">
+        <div>
+          <h2>Prepare a sample brief</h2>
+          <p>For example, a club could request 500 sling bags for Germany, each holding two paddles up to 42 × 21 × 2 cm. The brief could specify a woven logo, individual packing and whether each bag needs a shoe compartment.</p>
+          <p>Choose a format below. Enter the quantity for that model and your delivery country on the inquiry form. Open Additional specifications to add paddle measurements under Target Dimensions. We will confirm the sample scope, cost, timing and shipping for your review.</p>
+        </div>
+        <form class="sample-brief-form" action="/inquiry" method="get">
+          <input type="hidden" name="product" value="Pickleball Bags">
+          <label for="pickleball-format">Bag format</label>
+          <select id="pickleball-format" name="format" required>
+            <option value="">Choose a format</option>
+            <option value="Pickleball Backpack">Backpack</option>
+            <option value="Pickleball Sling">Sling</option>
+            <option value="Pickleball Tote">Tote</option>
+            <option value="Pickleball Paddle Sleeve">Paddle sleeve</option>
+            <option value="Pickleball Tournament Duffel">Tournament duffel</option>
+          </select>
+          <button class="btn btn-primary" type="submit">Continue to inquiry</button>
+        </form>
+      </section>
     </main>
 
     <footer class="site-footer">
