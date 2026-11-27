@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import SiteFooter from "../../../components/SiteFooter";
+import { padelCatalog } from "../../padel-catalog-navigation";
+import { hybridProductEntries } from "../../hybrid-padel-data";
 import PadelHeader from "./PadelHeader";
 import PadelRfqForm from "./PadelRfqForm";
 import styles from "./page.module.css";
@@ -93,7 +95,7 @@ const programs = [
       ["Dual-Pocket Padel Backpack · Custom Development", "/products/custom-padel-backpack-dual-side-pockets"],
       ["S002 · Urban 30L Padel Backpack", "/padel-bags/custom-30l-padel-backpack"],
       ["PDB001 · Padel Work Tote Backpack", "/products/padel-work-tote-backpack-pdb001"],
-      ["PDB017 Court Transit Padel Backpack", "/products/travel-padel-utility-backpack-pdb017"],
+      [padelCatalog.PDB017.label, "/products/travel-padel-utility-backpack-pdb017"],
     ],
   },
   {
@@ -106,9 +108,9 @@ const programs = [
     value: "A lighter direction that combines racket storage with work, travel or everyday organization.",
     features: ["Material and trim direction", "Custom storage architecture", "Sample-led specification lock"],
     products: [
-      ["PDB014 · Women’s Court Chic Tote", "/products/womens-lightweight-padel-tote-pdb014"],
+      [padelCatalog.PDB014.label, "/products/womens-lightweight-padel-tote-pdb014"],
       ["PDB015 · Work-Court Commuter Tote", "/products/work-court-padel-commuter-tote-pdb015"],
-      ["PDB016 · Weekend Match Carryall", "/products/weekend-padel-carryall-pdb016"],
+      [padelCatalog.PDB016.label, "/products/weekend-padel-carryall-pdb016"],
     ],
   },
 ];
@@ -145,6 +147,14 @@ const formatComparison = [
     rackets: "Use a dedicated sleeve or pocket and verify the intended load in sampling",
     shoes: "Separate shoe storage is optional where the structure allows it",
     suitability: "Lifestyle, resort and work-to-court collections",
+  },
+  {
+    format: "Racket sleeve",
+    href: "/padel-accessories/custom-padel-racket-sleeve",
+    use: "Compact coverage for one racket; a separate style for club shop kits",
+    rackets: "One-racket cover direction; verify the intended racket on a sample",
+    shoes: "Not intended for footwear",
+    suitability: padelCatalog.S005.observed[0][1],
   },
   {
     format: "Shoe bag",
@@ -248,13 +258,15 @@ export default function PadelBagsLandingPage() {
             <nav className={styles.breadcrumb} aria-label="Breadcrumb">
               <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/custom-tennis-padel-racket-bags">Racket Sports</Link><span aria-hidden="true">/</span><span>Padel Bags</span>
             </nav>
+            <p className={styles.sectionLabel}>BUILT FOR THE COURT. DESIGNED FOR YOUR BRAND.</p>
             <h1>Custom Padel Bags: Racket Bags, Backpacks &amp; Duffels</h1>
-            <p>Compare padel racket duffels, backpacks, totes, shoe bags and organizers by storage layout, carry system, materials and private-label design potential.</p>
-            <p>Buying for a club, academy or event? <Link href="/padel-club-tournament-supply">Explore club collections, member welcome kits and tournament packs.</Link></p>
             <div className={styles.actions}>
               <a className={styles.primaryButton} href="#padel-rfq">Request a Quote</a>
-              <a className={styles.secondaryButton} href="#product-programs">Explore Padel Bag Formats</a>
+              <a className={styles.secondaryButton} href="#model-shortlist">Compare four model references</a>
             </div>
+            <p>Choose a carry format for your players, compare four model references and brief your own materials and logo.</p>
+            <p><Link href="/custom-padel-bag-manufacturer">OEM manufacturing, sampling and factory review</Link></p>
+            <p><Link href="/padel-club-tournament-supply">Club and tournament programmes</Link></p>
           </div>
           <div className={styles.heroMedia}>
             <Image src={`${imageBase}/02-padel-club-hero-lifestyle.png`} fill priority sizes="(max-width: 800px) 100vw, 52vw" alt="Premium padel bag beside a modern padel court" />
@@ -317,7 +329,7 @@ export default function PadelBagsLandingPage() {
           <div className={styles.sectionIntro}>
             <p className={styles.sectionLabel}>Format comparison</p>
             <h2 id="padel-format-comparison">Which Padel Bag Format Fits the Buyer Program?</h2>
-            <p>Choose the format from the intended load and carry routine. Racket and shoe fit still need confirmation with the target equipment during sampling.</p>
+            <p>Choose the format from the intended load and carry routine. Racket and shoe fit still need confirmation with the target equipment during sampling. Use the <Link href="/padel-bag-design-guide">Padel bag selection and sampling guide</Link> to prepare your shortlist for factory review, or <Link href="/padel-accessories">compare racket sleeves and other Padel accessories</Link>.</p>
           </div>
           <div className={styles.comparisonTableWrap} tabIndex="0" role="region" aria-label="Scrollable padel bag format comparison">
             <table className={styles.comparisonTable}>
@@ -344,6 +356,38 @@ export default function PadelBagsLandingPage() {
               </tbody>
             </table>
           </div>
+        </section>
+
+        <section className={styles.section} id="model-shortlist" aria-labelledby="shortlist-heading">
+          <div className={styles.sectionIntro}>
+            <h2 id="shortlist-heading">Shortlist a model for your collection</h2>
+            <p>Compare the intended load first. The three bag dimensions below are design targets. Finished weight, usable volume and packed fit need a measured sample for each style.</p>
+          </div>
+          <div className={styles.comparisonTableWrap} tabIndex="0" role="region" aria-label="Four-model comparison">
+            <table className={styles.comparisonTable}>
+              <caption>Model, use and evidence for the first brief</caption>
+              <thead><tr><th scope="col">Reference</th><th scope="col">Intended use and layout</th><th scope="col">Size evidence</th><th scope="col">Start a brief</th></tr></thead>
+              <tbody>{["PDB014", "PDB016", "PDB017", "S005"].map((sku) => {
+                const model = padelCatalog[sku];
+                const concept = hybridProductEntries.find((entry) => entry.model === sku);
+                const dimensions = concept?.procurementSnapshot.find(([label]) => label === "Proposed outer dimensions")?.[1];
+                return <tr key={sku}>
+                  <th scope="row"><Link href={model.href}>{model.label}</Link></th>
+                  <td>{concept ? concept.shortDescription : "Individual racket cover. Sample imagery shows a front pocket and reflective lining; thermal performance needs testing."}</td>
+                  <td>{dimensions || "Usable dimensions pending measurement of the sleeve and its opening."}</td>
+                  <td><a href={`?sku=${sku}#padel-rfq`}>Prepare {sku} RFQ</a></td>
+                </tr>;
+              })}</tbody>
+            </table>
+          </div>
+          <h3>Collection planning briefs</h3>
+          <p>Each proposal starts with a separate sample assessment. New production starts at 300 pieces per style; quantities across styles cannot be combined.</p>
+          <dl>
+            <dt><strong>Padel Brand Starter Collection</strong></dt><dd>For a first private-label range, compare the PDB017 backpack and S005 sleeve. Specify brand colour and logo placement for each.</dd>
+            <dt><strong>Professional Court Collection</strong></dt><dd>For academies planning match-day equipment, start with PDB016. Discuss footwear separation, zipper access and carry balance under the intended load.</dd>
+            <dt><strong>Women’s Padel Lifestyle Collection</strong></dt><dd>For lifestyle buyers, start with the PDB014 tote. Review handle drop, canvas hand feel and racket access for the commute.</dd>
+            <dt><strong>Club &amp; Distributor Collection</strong></dt><dd>For club programmes and resale, pair the S005 sleeve conceptually with PDB017. Cost the crest, packaging and quantity separately for each style.</dd>
+          </dl>
         </section>
 
         <section className={`${styles.section} ${styles.productProofSection}`}>

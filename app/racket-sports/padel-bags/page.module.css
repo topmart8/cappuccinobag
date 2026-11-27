@@ -552,3 +552,20 @@
 @media (prefers-reduced-motion: reduce) {
   .page * { scroll-behavior: auto !important; }
 }
+
+@media (max-width: 800px) {
+  .heroMedia { grid-row: 1; min-height: clamp(150px, 39vw, 265px); }
+  .heroMedia img { object-position: 58% 56%; }
+  .heroCopy { padding: 20px 16px 32px; }
+  .heroCopy > p { margin-top: 12px; }
+  .hero h1 { font-size: clamp(36px, 9vw, 50px); }
+}
+
+@media (max-width: 760px) {
+  .heroCopy .actions {
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .heroCopy .actions a { padding: 9px; line-height: 1.2; }
+}

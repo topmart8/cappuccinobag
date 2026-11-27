@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import Script from "next/script";
 import { renderWorkshopGallery } from "../lib/workshop-gallery";
+import { renderPadelReading } from "./padel-buyer-reading-html";
 import { notFound } from "next/navigation";
 import {
   footerNavigation,
@@ -144,6 +145,7 @@ function readStaticPage(slug = []) {
   rendered = addAlcantaraContextLinks(rendered, pageSlug);
   rendered = addBuyerGuideLinks(rendered, pageSlug);
   rendered = addPadelCollectionEntry(rendered, pageSlug);
+  rendered = renderPadelReading(rendered, pageSlug);
   rendered = pageSlug === "" ? addHomePrioritySections(rendered) : rendered;
   if (pageSlug === "factory-trust-materials") {
     rendered = rendered.replace("<!-- CAPPUCCINO_WORKSHOP_GALLERY -->", renderWorkshopGallery({ priority: true }));

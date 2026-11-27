@@ -2,6 +2,7 @@ import Image from "next/image";
 import NextLink from "next/link";
 import { notFound } from "next/navigation";
 import { PadelFooter, PadelHeader } from "./padel-components";
+import { PadelArticleNavigation } from "./padel-article-navigation";
 import { padelWorkToteArticles } from "./padel-work-tote-articles";
 
 const siteUrl = "https://www.cappuccinobag.com";
@@ -71,6 +72,7 @@ export function PadelWorkToteArticle({ slug }) {
           </header>
           <div className="pdb001-article-body">
             {article.sections.map(([heading, paragraphs]) => <section key={heading}><h2>{heading}</h2>{paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</section>)}
+            <PadelArticleNavigation slug={slug} existingHrefs={["/products/padel-work-tote-backpack-pdb001"]} />
             <aside className="pdb001-article-cta"><h2>Develop an office-to-court padel bag</h2><p>Review the PDB001 product direction or send your target quantity, market, material, colour, laptop size, racket type and logo brief for an OEM/ODM review.</p><div><Link className="btn btn-primary" href="/products/padel-work-tote-backpack-pdb001">View PDB001</Link><Link className="btn btn-secondary" href="/inquiry?product=Padel%20Bags&format=PDB001%20Padel%20Work%20Tote%20Backpack">Request a custom sample</Link></div></aside>
           </div>
         </article>
