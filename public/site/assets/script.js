@@ -130,6 +130,13 @@ function preselectInquiryContext(form) {
     return;
   }
 
+  if (project === "Pickleball Bags") {
+    if (intention) intention.value = "Pickleball / Padel Bag Project";
+    if (product) product.value = "Pickleball Bags";
+    if (message && format && !message.value) message.value = `Pickleball bag format: ${format}\n`;
+    return;
+  }
+
   if (/padel/i.test(project)) {
     if (intention) {
       const option = Array.from(intention.options).find((item) => /padel/i.test(item.value));
