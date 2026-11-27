@@ -326,6 +326,9 @@ function initializeInquiryForm(form) {
         );
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error("Inquiry endpoint failed.");
+        if (result.ok !== true || typeof result.inquiryNumber !== "string" || !result.inquiryNumber.trim()) {
+          throw new Error("Inquiry receipt missing.");
+        }
         completeSubmission(form);
         window.cappuccinoAnalytics?.trackLeadSuccess(
           "rfq",
