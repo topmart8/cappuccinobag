@@ -45,6 +45,7 @@ async function exercise(kind, receipt, httpOk = true) {
 
 const valid = { ok: true, saved: true, inquiryNumber: 'TEST-ONLY-RECEIPT', submissionId: 'submission-test', notification: { status: 'accepted' } };
 const cases = [
+  ['missing inquiry number', { ...valid, inquiryNumber: '' }, true, false],
   ['explicit not saved', { ...valid, saved: false }, true, false],
   ['missing saved flag', { ...valid, saved: undefined }, true, false],
   ['string saved flag', { ...valid, saved: 'true' }, true, false],

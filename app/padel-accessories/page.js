@@ -12,12 +12,12 @@ function Link(props) {
 export const metadata = {
   title: "Custom Padel Accessories | Private Label OEM Development",
   description:
-    "Explore private-label padel shoe bag and court essentials organizer concepts for coordinated retail, club, tournament and gift collections.",
+    "Explore private-label padel racket sleeves, shoe bags and court essentials organizers for coordinated retail, club, tournament and gift collections.",
   alternates: { canonical: `${siteUrl}/padel-accessories` },
   openGraph: {
     title: "Custom Padel Accessories | Private Label OEM Development",
     description:
-      "Private-label padel shoe bag and organizer pouch development for brands, clubs and specialist retailers.",
+      "Private-label padel racket sleeve, shoe bag and organizer pouch development for brands, clubs and specialist retailers.",
     url: `${siteUrl}/padel-accessories`,
     type: "website",
     images: [
@@ -70,14 +70,15 @@ export default function PadelAccessoriesPage() {
             <h1>Custom Padel Accessories</h1>
             <p>
               Extend a private-label racket bag programme with coordinated
-              footwear storage and court-essential organisation for clubs,
+              racket sleeves, footwear storage and court-essential organisation for clubs,
               retailers, events and gift bundles.
             </p>
             <p className="padel-accessories-note">
               These are OEM/ODM development directions. Final dimensions,
-              materials, MOQ, price and lead time are confirmed during sampling
-              and quotation.
+              materials, price and lead time are confirmed during sampling
+              and quotation. Standard custom MOQ: 300 pieces per style.
             </p>
+            <p><Link href="/padel-club-tournament-supply">Build a coordinated club-shop range, member kit or tournament pack →</Link></p>
             <div className="hero-actions">
               <Link
                 className="btn btn-primary"
@@ -87,7 +88,7 @@ export default function PadelAccessoriesPage() {
               </Link>
               <Link
                 className="btn btn-secondary"
-                href="/custom-padel-bag-manufacturer"
+                href="/racket-sports/padel-bags"
               >
                 View Full Padel Collection
               </Link>

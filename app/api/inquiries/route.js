@@ -5,6 +5,7 @@ import { ingestSharedInquiry, SharedIngestError } from "../../../lib/crm/shared-
 export const runtime = "nodejs";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const requestTypes = new Set(["Bulk Order", "Sample Request", "Custom Development", "General Inquiry"]);
 const attempts = globalThis.__capInquiryRateLimit || (globalThis.__capInquiryRateLimit = new Map());
 
 function rateLimited(ip) {
@@ -36,6 +37,12 @@ export async function POST(request) {
     if (data.website) return NextResponse.json({ ok: true });
     if (!data.name || !EMAIL.test(String(data.email || ""))) {
       return NextResponse.json({ message: "Name and a valid email are required." }, { status: 422 });
+    }
+    if (data.request_type) {
+      if (!requestTypes.has(data.request_type)) {
+        return NextResponse.json({ message: "Select a supported request type." }, { status: 422 });
+      }
+      data.message = [`Request type: ${data.request_type}`, data.message].filter(Boolean).join("\n");
     }
     validateInquiryAttachments(files);
     const saved = await ingestSharedInquiry({

@@ -232,6 +232,30 @@ test("Website RFQ completes the nine controlled canonical CRM scenarios", async 
     }
     crm.setPostSaveFailure("");
 
+    const references = new Set();
+    for (const [i, type] of ["Bulk Order", "Sample Request", "Custom Development", "General Inquiry"].entries()) {
+      const id = `20000000-0000-4000-8000-00000000000${i}`;
+      const payload = { ...normalPayload, submission_id: id, request_type: type, message: "Fictional brief",
+        current_page_url: "https://example.invalid/inquiry?format=PDB017" };
+      const emailCount = crm.emails.length;
+      for (let attempt = 0; attempt < 2; attempt++) {
+        const res = await POST(inquiryRequest(payload, `203.0.113.${40+i}`));
+        const receipt = await res.json();
+        assert.equal(res.status, 200);
+        assert.equal(receipt.saved, true);
+        assert.equal(receipt.submissionId, id);
+        assert.equal(receipt.inquiryNumber, crm.inquiries.get(id).inquiry_number);
+        assert.ok(receipt.inquiryNumber);
+        assert.equal(receipt.notification.receiptVerified, false);
+        references.add(receipt.inquiryNumber);
+      }
+      assert.equal(crm.emails.length, emailCount + 1);
+      assert.ok(crm.inquiries.get(id).message.includes(type));
+      assert.match(crm.inquiries.get(id).current_page_url, /PDB017/);
+      assert.ok(JSON.stringify(crm.emails.at(-1)).includes(type));
+    }
+    assert.equal(references.size, 4);
+
     // 9. Frontend success is reachable only after an OK CRM response.
     const client = await readFile(new URL("../public/site/assets/script.js", import.meta.url), "utf8");
     const inquiryPage = await readFile(new URL("../public/site/inquiry/index.html", import.meta.url), "utf8");

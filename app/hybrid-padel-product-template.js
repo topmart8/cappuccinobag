@@ -1,4 +1,7 @@
 import Image from "next/image";
+import PadelImageGallery from "../components/PadelImageGallery";
+import PadelBuyerDetails from "../components/PadelBuyerDetails";
+import { withPadelProductContent, padelEntityFields, padelWebPageEntity } from "./padel-product-content";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteFooter from "../components/SiteFooter";
@@ -26,7 +29,7 @@ function inquiryHref(product) {
 }
 
 export function getHybridProductMetadata(slug) {
-  const product = hybridProducts[slug];
+  const product = withPadelProductContent(hybridProducts[slug]);
   if (!product) return {};
   const canonical = `${hybridSiteUrl}${getHybridProductHref(slug)}`;
   return {
@@ -46,10 +49,10 @@ export function getHybridProductMetadata(slug) {
 }
 
 export function HybridPadelProductPage({ slug }) {
-  const product = hybridProducts[slug];
+  const product = withPadelProductContent(hybridProducts[slug]);
   if (!product) notFound();
   const canonical = `${hybridSiteUrl}${getHybridProductHref(slug)}`;
-  const faqs = [
+  const faqs = product.editorial?.faqs || [
     { question: `What is ${product.model} designed for?`, answer: `${product.model} is designed for ${product.positioning.toLowerCase()}. ${product.shortDescription}` },
     ...sharedFaqs,
   ];
@@ -66,6 +69,7 @@ export function HybridPadelProductPage({ slug }) {
     {
       "@context": "https://schema.org",
       "@type": "Product",
+      ...padelEntityFields(product, canonical),
       sku: product.model,
       name: `${product.model} ${product.name}`,
       description: product.metaDescription,
@@ -82,8 +86,29 @@ export function HybridPadelProductPage({ slug }) {
       mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })),
     },
   ];
+  if (product.editorial) schemas.push(padelWebPageEntity(product, canonical));
 
   const relatedProducts = hybridProductEntries.filter((item) => item.model !== product.model).slice(0, 3);
+
+  const enhancedGallery = ["PDB014", "PDB016", "PDB017"].includes(product.model);
+  const galleryImages = product.images.slice(1);
+  if (enhancedGallery) {
+    const rank = (image) => image.src.includes("-interior.") ? 0 : image.src.includes("-detail.") ? 1 : 2;
+    galleryImages.sort((a, b) => rank(a) - rank(b));
+  }
+  const gallerySection = (
+        <section className="hybrid-section" id="product-details-gallery" style={{ scrollMarginTop: 110 }}>
+          <div className="hybrid-section-heading"><p className="eyebrow">Complete image gallery</p><h2>{product.model} exterior, interior and detail views</h2><p>AI-generated concept views show the proposed design from multiple angles. Construction and fit are confirmed on the physical sample.</p></div>
+          <div className="hybrid-gallery">
+            {galleryImages.map((image) => (
+              <figure key={image.src}>
+                <Image src={image.src} width={1250} height={1250} sizes="(max-width: 720px) calc(100vw - 28px), 50vw" alt={image.alt} loading="lazy" />
+                {image.caption && <figcaption style={{ padding: "14px 18px", fontSize: "14px", lineHeight: 1.5 }}>{image.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </section>
+  );
 
   return (
     <>
@@ -102,7 +127,7 @@ export function HybridPadelProductPage({ slug }) {
             <h1>{product.h1}</h1>
             <p className="hybrid-lede">{product.shortDescription}</p>
             <div className="hybrid-hero-facts">
-              <p><strong>Laptop:</strong> {product.laptopFit}</p>
+              <p><strong>Device option:</strong> {product.laptopFit}</p>
               <p><strong>Rackets:</strong> {product.racketFit}</p>
               <p><strong>Carry:</strong> {product.carryModes}</p>
             </div>
@@ -111,19 +136,25 @@ export function HybridPadelProductPage({ slug }) {
               <a className="btn btn-secondary dark" href={`mailto:info@cappuccinobag.net?subject=${product.model}%20Product%20Brief`}>Discuss Your Padel Bag Project</a>
             </div>
           </div>
+          {enhancedGallery ? (
+            <PadelImageGallery images={product.images} model={product.model} />
+          ) : (
           <figure className="hybrid-hero-image">
             <Image src={product.images[0].src} width={1250} height={1250} sizes="(max-width: 900px) calc(100vw - 28px), 48vw" alt={product.images[0].alt} priority />
           </figure>
+          )}
         </section>
 
         <aside className="hybrid-disclaimer">{imageApprovalDisclaimer}</aside>
 
+        {enhancedGallery && gallerySection}
+
         <section className="hybrid-section">
-          <div className="hybrid-section-heading"><p className="eyebrow">B2B Procurement Snapshot</p><h2>Model-specific facts for sourcing review</h2><p>Dimensions and any unlisted compartment are confirmed with the factory before sampling; no value is inferred from the digital images.</p></div>
+          <div className="hybrid-section-heading"><p className="eyebrow">B2B Procurement Snapshot</p><h2>Model-specific facts for sourcing review</h2><p>Proposed dimensions are development targets. Confirm usable internal space, opening size and the fully packed sample before production.</p></div>
           <dl className="padel-reference-grid">
             {product.procurementSnapshot.map(([term, description]) => <div key={term}><dt>{term}</dt><dd>{description}</dd></div>)}
-            <div><dt>Main material options</dt><dd>Water-resistant recycled nylon / polyester or conventional nylon / polyester; final selection follows the project brief</dd></div>
-            <div><dt>MOQ</dt><dd>Confirm with factory after structure, material, logo and packaging review</dd></div>
+            <div><dt>Main material options</dt><dd>{product.materialSummary || "Conventional or recycled nylon / polyester; final selection follows the project brief"}</dd></div>
+            <div><dt>MOQ</dt><dd>300 pieces per style for new custom production. Different styles cannot be combined. Sampling is assessed separately.</dd></div>
             <div><dt>Sample</dt><dd>Sample timing is confirmed for the agreed specification after reviewing material availability, construction, custom components and the revision plan. A requested date is not a confirmed completion date.</dd></div>
             <div><dt>Bulk lead time</dt><dd>Confirm after quantity, materials, approved sample, packaging and inspection steps are agreed</dd></div>
             <div><dt>OEM / ODM</dt><dd>Colours, materials, lining, pocket layout, trims, logo execution and packaging</dd></div>
@@ -134,35 +165,26 @@ export function HybridPadelProductPage({ slug }) {
           <div className="hybrid-link-row"><Link href="/custom-padel-bag-manufacturer">Padel manufacturer process</Link><Link href="/factory-trust-materials">Factory proof</Link><Link href="/resources">Buyer resources</Link></div>
         </section>
 
-        <section className="hybrid-answer-grid" aria-label="Quick product answers">
+        {product.editorial ? <PadelBuyerDetails product={product} inquiryHref={inquiryHref(product)} /> : <section className="hybrid-answer-grid" aria-label="Quick product answers">
           <article><h2>Can this padel bag fit a laptop?</h2><p>{product.laptopFit}. Device fit is approved against the target hardware.</p></article>
           <article><h2>What separates work and court gear?</h2><p>{product.organization}</p></article>
-        </section>
+        </section>}
 
         <section className="hybrid-section hybrid-feature-layout">
           <div>
-            <p className="eyebrow">Key selling points</p>
+            <p className="eyebrow">Development features</p>
             <h2>Organized for daily movement</h2>
             <ul className="hybrid-check-list">{product.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
           </div>
           <div>
-            <p className="eyebrow">Laptop and racket organization</p>
+            <p className="eyebrow">Padel gear organization</p>
             <h2>Separate the fragile, bulky and frequently used items</h2>
             <p>{product.organization}</p>
             <p>Final padding, opening direction and internal dimensions are confirmed with target devices and rackets during physical sample review.</p>
           </div>
         </section>
 
-        <section className="hybrid-section">
-          <div className="hybrid-section-heading"><p className="eyebrow">Complete image gallery</p><h2>{product.model} from product detail to real-life use</h2><p>Each supplied image has a distinct role; no image is repeated within this page.</p></div>
-          <div className="hybrid-gallery">
-            {product.images.slice(1).map((image, index) => (
-              <figure key={image.src} className={index === 2 ? "hybrid-gallery-wide" : ""}>
-                <Image src={image.src} width={1250} height={1250} sizes="(max-width: 720px) calc(100vw - 28px), 50vw" alt={image.alt} loading="eager" />
-              </figure>
-            ))}
-          </div>
-        </section>
+        {!enhancedGallery && gallerySection}
 
         <section className="hybrid-dark-section">
           <div className="hybrid-section-heading"><p className="eyebrow">Usage scenarios</p><h2>One platform, several buyer programs</h2></div>
@@ -170,13 +192,13 @@ export function HybridPadelProductPage({ slug }) {
         </section>
 
         <section className="hybrid-section hybrid-two-column">
-          <div><p className="eyebrow">Material options</p><h2>Water-resistant, lightweight directions</h2><ul>{materialOptions.map((item) => <li key={item}>{item}</li>)}</ul><p><Link href="/recycled-material-bags">Review sustainable material options</Link></p></div>
+          <div><p className="eyebrow">Material options</p><h2>Select the material for your brief</h2><ul>{(product.materialChoices || materialOptions).map((item) => <li key={item}>{item}</li>)}</ul><p><Link href="/recycled-material-bags">Review sustainable material options</Link></p></div>
           <div><p className="eyebrow">OEM/ODM customization</p><h2>Build the product around your brief</h2><ul>{customizationOptions.map((item) => <li key={item}>{item}</li>)}</ul><p><Link href="/oem-odm-bag-manufacturer">See the OEM/ODM development process</Link></p></div>
         </section>
 
         <section className="hybrid-section hybrid-market-section">
           <div className="hybrid-section-heading"><p className="eyebrow">Buyer-use perspective</p><h2>Developed with global padel routines in mind</h2></div>
-          <p>For UK buyers, the format can support commuter-to-club ranges; in the Netherlands, lightweight carry and compact organization suit bike-and-transit routines. France may favor lifestyle-led club collections, while Spain can prioritize frequent club and tournament use. US programs can explore active-lifestyle and pickleball crossover positioning, and Australian buyers can develop lightweight sport-and-weekend travel ranges. These are use-case directions, not sales or market-share claims.</p>
+          <p>Develop the bag around the buyer’s padel routine: travelling to the club, storing a racket between sessions, separating used footwear and carrying daily essentials. Confirm the intended racket, shoe size, carry load and use conditions before selecting the final layout.</p>
         </section>
 
         <section className="hybrid-section hybrid-faq-section">
@@ -187,7 +209,7 @@ export function HybridPadelProductPage({ slug }) {
         <section className="hybrid-section">
           <div className="hybrid-section-heading"><p className="eyebrow">Related products</p><h2>Continue through the hybrid series</h2></div>
           <div className="hybrid-card-grid">{relatedProducts.map((item) => <article key={item.model}><Image src={item.images[0].src} width={1250} height={1250} alt={item.images[0].alt} loading="eager" /><div><p className="eyebrow">{item.model}</p><h3>{item.name}</h3><Link href={getHybridProductHref(item.slug)}>View product page</Link></div></article>)}</div>
-          <div className="hybrid-article-links"><h2>Related buyer guides</h2>{relatedBlogs.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div>
+          <div className="hybrid-article-links"><h2>Related buyer guides</h2>{product.model === "PDB017" && <Link href="/blog/padel-bag-packed-fit-test">Test racket access with the bag fully packed</Link>}{relatedBlogs.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div>
         </section>
 
         <section className="hybrid-rfq">
