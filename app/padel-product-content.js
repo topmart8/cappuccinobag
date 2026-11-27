@@ -109,12 +109,12 @@ export const padelProductContent = {
     headline: "Can I remove the racket with EU 42 shoes packed?",
     packedFitAnswer: "Racket access with EU 42 shoes packed still needs to be verified on a physical PDB017 sample.",
     evidence: "AI-generated design concept. The full-height racket path and removable footwear pouch are proposed features. EU 42 shoe fit and bottle retention still need a packed-sample test. Final material, dimensions, packed capacity and carry comfort require physical sample approval.",
-    structure: "The proposed full-height racket sleeve and retaining strap keep one racket upright, with grip and zipper clearance checked at the top. A removable shoe pouch sits inside the forward main space. Inner zip and slip pockets, a front utility pocket and side bottle storage organize training essentials. The retaining strap and all packed clearances require sample approval.",
+    structure: "The proposed full-height sleeve and retaining strap are designed to hold one racket upright. A removable shoe pouch sits inside the forward main space. Inner zip and slip pockets, a front utility pocket and side bottle storage organize training essentials. The retaining strap and all packed clearances require sample approval.",
     buyerFit: "For Padel brands, academies and specialist retailers developing a unisex training backpack with shoulder straps and a top grab handle.",
     customization: "Select exterior textile, slate-blue or custom colours, lining, back-panel construction, strap adjustment, pocket details and logo. A dedicated laptop sleeve is an optional development request with its own clearance review.",
     checks: [
       "Record the sample revision, shoe model and outer dimensions, and racket length, width and thickness. Pack both EU 42 shoes in the removable pouch, one racket in its sleeve, the intended clothing in the main compartment and a full bottle in the side pocket.",
-      "Check whether the main zip closes without force. Reopen the pack, release the racket strap and try to lift the racket out with everything else in place. Photograph the closed zip and the racket partway out on that same sample. Note where it catches or which item needs moving.",
+      "Measure the gap between the top of the grip and the zip on the packed sample. If they touch, record the contact point. Check whether the main zip closes without force. Reopen the pack, release the racket strap and try to lift the racket out with everything else in place. Photograph the closed zip and the racket partway out on that same sample. Note where it catches or which item needs moving.",
       "Measure the filled bottle at its widest point and to the top of its lid. Walk with the packed backpack, then lay it on its side. Record whether the bottle moves out of the pocket or needs a tighter opening.",
       "Check shoulder-strap adjustment and back comfort with the same load."
     ],
