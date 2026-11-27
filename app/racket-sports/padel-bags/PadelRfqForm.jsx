@@ -1,34 +1,50 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import {
+  buildPadelInquiryPayload,
+  createSubmissionGuard,
+  readInquiryAttribution,
+} from "../../../lib/inquiry/client-contract.js";
 import styles from "./page.module.css";
 
 const initialState = { type: "idle", message: "" };
 
 export default function PadelRfqForm() {
   const [status, setStatus] = useState(initialState);
+  const submissionGuard = useRef(null);
+  submissionGuard.current ||= createSubmissionGuard();
 
   async function submitRfq(event) {
     event.preventDefault();
-    setStatus({ type: "loading", message: "Sending your padel bag brief…" });
+    const submissionId = submissionGuard.current.begin();
+    if (!submissionId) return;
 
     const form = event.currentTarget;
-    const data = new FormData(form);
-    data.set("product_category", data.get("product_type"));
-    data.set("pageUrl", window.location.href);
-    data.set("message", [
-      `Reference / design notes: ${data.get("reference_notes") || "Not specified"}`,
-      `Target price range: ${data.get("target_price_range") || "Not specified"}`,
-      `Shoe compartment: ${data.get("shoe_compartment") || "Not specified"}`,
-      `Racket sleeves: ${data.get("racket_sleeve_quantity") || "Not specified"}`,
-      `Sample deadline: ${data.get("sample_deadline") || "Not specified"}`,
-      `Bulk delivery deadline: ${data.get("bulk_delivery_deadline") || "Not specified"}`,
-    ].join("\n"));
+    const fields = Object.fromEntries(new FormData(form).entries());
+    const payload = buildPadelInquiryPayload(
+      fields,
+      readInquiryAttribution(),
+      submissionId,
+    );
+    let succeeded = false;
+    form.setAttribute("aria-busy", "true");
+    setStatus({ type: "loading", message: "Sending your padel bag brief…" });
 
     try {
-      const response = await fetch("/api/inquiries", { method: "POST", body: data });
-      const result = await response.json();
+      const response = await fetch("/api/inquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.message || "Your RFQ could not be sent.");
+      succeeded = true;
+      window.cappuccinoAnalytics?.trackLeadSuccess(
+        "rfq",
+        result.inquiryNumber,
+        { product_category: "Padel Bags" },
+      );
       form.reset();
       setStatus({
         type: "success",
@@ -39,11 +55,14 @@ export default function PadelRfqForm() {
         type: "error",
         message: `${error.message} You can also email info@cappuccinobag.net or contact us on WhatsApp.`,
       });
+    } finally {
+      submissionGuard.current.finish({ success: succeeded });
+      form.removeAttribute("aria-busy");
     }
   }
 
   return (
-    <form className={styles.rfqForm} onSubmit={submitRfq}>
+    <form className={styles.rfqForm} data-form="rfq" onSubmit={submitRfq}>
       <div className={styles.rfqFormGrid}>
         <label>
           <span>Name *</span>
