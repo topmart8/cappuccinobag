@@ -99,7 +99,7 @@ test("priority Padel products expose sourcing facts without fixed unverified com
   assert.match(hybridData, /Match weekends, short travel and tournament programs/);
   assert.match(hybridData, /Padel travel, daily training and functional unisex club collections/);
   assert.match(hybridTemplate, /No model-specific certification claimed/);
-  assert.match(`${classicTemplate}${pdb001}${hybridTemplate}`, /Confirm with factory/);
+  assert.match(hybridTemplate, /300 pieces per style for new custom production\. Different styles cannot be combined\. Sampling is assessed separately\./);
   for (const content of [classicData, pdb001, hybridTemplate, await source("app/products/[slug]/page.js")]) {
     assert.doesNotMatch(content, /7\s*[–-]\s*15\s*(?:working\s*)?days/i);
     assert.match(content, /Sample timing is confirmed for the agreed specification/);
@@ -117,6 +117,7 @@ test("Padel decision pages use the existing RFQ route and consistent primary CTA
   ]);
   for (const page of pages) assert.match(page, /Request a Quote/);
   assert.match(pages[0], /product=Padel%20Bags&format=/);
+  // Preserve the established primary inquiry route; the gallery offers the development brief separately.
   assert.match(pages[1], /product=Padel%20Bags&format=PDB001/);
   assert.match(pages[2], /product=Padel%20Bags&format=/);
   assert.match(pages[3], /href="\/inquiry\?product=Padel%20Bags"/);

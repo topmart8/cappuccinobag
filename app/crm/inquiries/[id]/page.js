@@ -18,6 +18,7 @@ const fields = [
   ["站点", "brand"], ["来源", "source_channel"], ["姓名", "name"], ["企业", "company"],
   ["邮箱", "email"], ["电话 / WhatsApp", "whatsapp"], ["国家", "country"], ["语言", "language"],
   ["产品", "product"], ["分类", "product_category"], ["数量", "quantity"], ["材料", "material"],
+  ["内部通知状态（sent 仅代表发送服务已接受）", "email_status"],
   ["Logo 工艺", "logo_method"], ["目标价", "target_price"], ["目标交期", "target_delivery_date"],
   ["首次落地页", "first_landing_page"], ["提交页", "current_page_url"], ["Referrer", "referrer"],
   ["UTM source", "utm_source"], ["UTM medium", "utm_medium"], ["UTM campaign", "utm_campaign"],

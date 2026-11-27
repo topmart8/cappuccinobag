@@ -19,6 +19,7 @@ const results = [];
 const scenarios = [
   { width: 360, height: 800, input: 'touch' },
   { width: 390, height: 844, input: 'touch' },
+  { width: 430, height: 932, input: 'touch' },
   { width: 768, height: 1024, input: 'touch' },
   { width: 390, height: 844, input: 'keyboard' },
   { width: 390, height: 844, input: 'touch', reducedMotion: 'reduce' },
@@ -35,6 +36,7 @@ async function openPage(context, route) {
 try {
   for (const scenario of scenarios) {
     const context = await browser.newContext({ viewport: scenario, isMobile: scenario.input === 'touch', hasTouch: scenario.input === 'touch', reducedMotion: scenario.reducedMotion || 'no-preference' });
+    await context.route('**/*', route => new URL(route.request().url()).origin === base.origin ? route.continue() : route.abort());
     let requests = 0;
     await context.route('**/api/**', route => { requests++; return route.abort(); });
     const errors = [];
@@ -71,12 +73,15 @@ try {
   // General mobile navigation, the desktop CTA, and both existing form contracts.
   for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
     const context = await browser.newContext({ viewport });
+    await context.route('**/*', route => new URL(route.request().url()).origin === base.origin ? route.continue() : route.abort());
     const requests = [];
     let responseStatus = 503;
     await context.route('**/api/**', async route => {
       assert.equal(new URL(route.request().url()).pathname, '/api/inquiries');
+      const raw = route.request().postData() || '';
+      const submissionId = raw.startsWith('{') ? JSON.parse(raw).submission_id : raw.match(/name="submission_id"\r\n\r\n([^\r]+)/)?.[1];
       requests.push({ method: route.request().method(), contentType: route.request().headers()['content-type'], status: responseStatus });
-      await route.fulfill({ status: responseStatus, contentType: 'application/json', body: JSON.stringify(responseStatus === 200 ? { ok: true, inquiryNumber: 'TEST-LOCAL-ONLY' } : { message: 'Simulated unavailable service' }) });
+      await route.fulfill({ status: responseStatus, contentType: 'application/json', body: JSON.stringify(responseStatus === 200 ? { ok: true, inquiryNumber: 'TEST-LOCAL-ONLY', submissionId, notification: { status: 'accepted' } } : { message: 'Simulated unavailable service' }) });
     });
     const page = await openPage(context, '/');
     if (viewport.width < 700) {
